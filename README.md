@@ -1,152 +1,104 @@
-[![GitHub version](https://badge.fury.io/gh/tobiasBielefeld%2FSimple-Solitaire.svg)](https://badge.fury.io/gh/tobiasBielefeld%2FSimple-Solitaire)
-![license](http://img.shields.io/badge/license-GPLv3+-brightgreen.svg)
-![platform](http://img.shields.io/badge/platform-Android-blue.svg)
+<p align="center">
+  <img src="app/src/main/res/mipmap/ic_launcher.png" alt="Seclusa Solitaire" width="120" height="120">
+</p>
 
-I am archiving this version of the app, since I already stopped working on it long time ago.
-There are way too many clones of this game on the google play store making money with my work with ads and this made me lose the desire to work on it completely.
-I am planning to update the game to put it on the google playstore again, but not as opensource anymore.
-I am sorry for that change, but I have no other way to keep me interested in working at this app.
+<h1 align="center">Seclusa Solitaire</h1>
 
-[<img alt="Get it on Google Play" height="80" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png">](https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire) [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/app/de.tobiasbielefeld.solitaire) 
+<p align="center">
+  <em>Seclusa — from the Latin meaning "private", "secluded", or "set apart"</em>
+</p>
 
-Contact address: tobias.bielefeld [at] gmail.com
+<p align="center">
+  <em>A privacy-first solitaire collection for Android — zero tracking, no accounts, no ads.</em>
+</p>
 
-#### Now contains 17 different Solitaire games!
-AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, Grandfather's Clock, Gypsy, Klondike, Mod3, Napoleon's Tomb, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon!
+<p align="center">
+  <a href="LICENSE.txt"><img alt="License: GPL-3.0" src="https://img.shields.io/badge/license-GPL--3.0-blue.svg"></a>
+  <a href="https://github.com/ambr3/Seclusa-Solitaire/commits/master"><img alt="Last commit" src="https://img.shields.io/github/last-commit/ambr3/Seclusa-Solitaire"></a>
+  <img alt="Java" src="https://img.shields.io/badge/built%20with-Java-orange.svg">
+  <img alt="Android" src="https://img.shields.io/badge/platform-Android-3ddc84.svg">
+</p>
 
-# Simple Solitaire
+<p align="center">
+  <a href="#features">Features</a> ·
+  <a href="#privacy">Privacy</a> ·
+  <a href="#installation">Installation</a> ·
+  <a href="#license">License</a>
+</p>
 
-<img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/1.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/2.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/8.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/4.png" width=200 height=356> 
+---
 
+Keeps your cards your own. Seclusa Solitaire is a **fully offline, open-source Android solitaire collection**. It asks for **zero permissions**, makes **no network requests**, and runs entirely on your device. No accounts, no ads, no tracking — just privacy-first card games.
 
-You can find more screenshots for phones and tablets and the uses card themes as .svg files [here](./pictures/)
+---
 
-There is a DummyGame class with a lot of comments, if you want to add a new game. I hope it's good enough for that!
+## ✨ Features
 
-I learned Android and Java by myself using e-books and browsing Stack Overflow for solutions, so please don't expect too much from my source code :D
+### 🃏 Games
+- **17 solitaire variants** — AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, Grandfather's Clock, Gypsy, Klondike, Mod3, Napoleon's Tomb, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon
+- **Auto-saving** — your current game is saved when you pause or close the app
+- **Undo & hints** — undo up to 20 card movements, with a hint function that shows possible moves
+- **High scores** — the top 10 scores are saved in a statistics list
 
-It is a very simple game, but customizable and with some neat functions like hints. Here is my Google Play description:
+### 🎨 Interface
+- **Highly customizable** — 6 card sets, 12 card backgrounds, and 6 background colours
+- **Difficulty settings** — for Klondike, Spider, and Golf
+- **Left-handed mode** — mirror the card positions to the left side
+- **Landscape & tablet support** — with the option to lock orientation
+- **Tap to move or drag & drop** — your choice of controls
 
-Highly customizable:
-There are 6 different looking card sets in this game, 12 different card backgrounds and 6 different background colours. So you have a large choice to customize your experience!
+---
 
-Set up difficulty:
-You can set up the difficulty for Klondike, Spider and Golf in the settings!
+## 🔒 Privacy
 
-Automatic saving:
-The current game will be saved every time you pause or close the app. So you can continue your game where you left it!
+Your data is your business. That's the whole point.
 
-High Score list:
-When winning a game, your score will be saved in a list of up to 10 high scores.
+| | |
+|---|---|
+| 🚫 **Zero permissions** | The app requests no permissions at all — no internet, location, or storage |
+| 🚫 **No network** | The code makes no network requests — it cannot send your data anywhere |
+| 🚫 **Zero tracking** | No analytics, no ads, no third-party SDKs |
+| 🏠 **Stays on device** | Game state and scores live only on your device's storage |
+| 🧽 **No Google backup** | Google's automatic app-data backup is disabled |
+| 📜 **Open source** | GPL-3.0 — read every line |
 
-Game features:
-This game has a undo function to take back up to 20 card movements. A hint function shows you up to 3 possible card movements at once.
+---
 
-Left handed mode: 
-There is a option for left handed people to mirror the card positions to the left side of the screen.
+## 📦 Installation
 
-No ads:
-This game is completely free without ads, tracking or something else. Just have fun :)
+### Build it yourself
+Install [Android Studio](https://developer.android.com/studio), open the project folder, and press **Run**:
 
-Landscape and tablet support: 
-You can switch to landscape mode, this is better for larger screens. It is also possible to lock the orientation in the settings
+1. Clone or download this repo
+2. Open the folder in Android Studio
+3. Let Gradle sync
+4. Press the green **Run ▶** button
+5. Done — install it on your phone or emulator as an APK
 
-## Hall of shame
-Reintroduce the hall of shame, where I will list blatant copies of this app! Every single one of people who like to steal open source software to make profit by including ads! Here they are:
+### Via APK
+Build a signed APK (`Build → Generate App Bundle(s) / APK(s) → APK`) and install it on your device.
 
-- https://play.google.com/store/apps/details?id=com.atechnos.solitaire
-- https://play.google.com/store/apps/details?id=de.classicsolitaire.solitairegame
-- https://play.google.com/store/apps/details?id=de.collectionof.solitairegame
-- https://play.google.com/store/apps/details?id=de.allinone.solitairegame
-- https://play.google.com/store/apps/details?id=de.collectionof.newsolitairegame
-- https://play.google.com/store/apps/details?id=startandroid.ru.solitairepack
-- https://play.google.com/store/apps/details?id=com.ponglos.solitaire
-- https://play.google.com/store/apps/details?id=net.sekmetech.solitaire
-- https://play.google.com/store/apps/details?id=com.generic.solitaireallinone
+---
 
-## Installation Guide
-The instructions to compile this app are very easy. Just download the project and open Android Studio. Then go to File -> Open -> Navigate to the download location -> Choose the folder -> If you try to start the app, Android Studio should install all necessary dependencies and you are ready to go.
+## ⚠️ Disclaimer
 
-Or alternatively, follow this guide to compile the app on the command line: https://developer.android.com/studio/build/building-cmdline.html
+> This project is a fork of [Simple Solitaire](https://github.com/TobiasBielefeld/Simple-Solitaire). All code is reviewed before each release, but it's still recommended to audit for security flaws before use. Use at your own risk.
 
-## Usage
-If you want to use my work for your own project (which means in most cases: Put ads in it and publish on Google Play Store) YOU HAVE TO FOLLOW THE GPL LICENSE! This means, your project MUST be open source under a GPLv3+ compatible license and MUST contain attribution for the original work! I already found a lot of copies which simply removed my "About Game" screen and changed some graphics.
+---
 
-So please follow the rules! Use this attribution text (or a similar one)
+## 📄 License & Credits
 
-Simple Solitaire Collection - https://github.com/TobiasBielefeld/Simple-Solitaire -
-Copyright 2016 - Tobias Bielefeld - tobias.bielefeld@gmail.com -
-Licensed under GPLv3+ https://www.gnu.org/licenses/gpl-3.0
+**Seclusa Solitaire** is a fork of **Simple Solitaire Collection** by Tobias Bielefeld, modified according to the GPL.
 
-And state the changes you made! For example: "Modified to add Google Play Games and ads"
+- Simple Solitaire Collection — https://github.com/TobiasBielefeld/Simple-Solitaire
+- Copyright 2016 – Tobias Bielefeld – tobias.bielefeld@gmail.com
+- Licensed under GPLv3+ https://www.gnu.org/licenses/gpl-3.0
 
-Also think of the other aspects of the GPL license!
+**Changes made in this fork:**
+- Renamed to *Seclusa Solitaire*
+- Updated the Gradle/AGP build files to compile with modern Android Studio
+- Disabled Google's automatic app-data backup for privacy
 
-## To-Do List
+[GPL-3.0](LICENSE.txt) — free to use, modify, and share, with the same freedom preserved for derivatives.
 
-- [X] Add more games (frecell, spider and yukon)
-- [X] Improve the settings to use fragments
-- [X] Add even more games (Simple Simon, Golf, etc)
-- [ ] ~~Add the card themes from Kpatience, if their license is compatible to mine.~~ (I asked the main dev from Kpatience, the licenses of the themes aren't clear, and there are no links to the authors of them...)
-- [X] Add a color chooser for background color
-- [X] Improve the Highscores to a Statistics Activity (including date stamps)
-- [X] Find the reason why the game activity gets created two times when changing the screen orientation in game
-- [X] Add a button to mix the cards if no movement can be done
-- [X] Add 'Grandfathers Clock'
-- [ ] Add a Custom game maker, maybe
-- [X] Add a 'poker standard' card theme and 4 color themes
-- [X] Add a option to Yukon to play on same suits, instead of different color (like Russian Solitaire)
-- [X] Also save high scores when canceling a game
-- [ ] Add an option to set up appearance for each game indivially
-- [X] Implement "Tap to select/move cards"
-- [ ] ~~Add custom images for backgrounds~~ (Would require additional android permissions, I don't really want that)
-- [X] Add drag and drop feature to change the order of the games in the main menu
-
-## Translations 
-Thanks to the following persons for providing translations :D (Help translating here: https://poeditor.com/join/project/PYX4vcwTjA)
-- Esperanto and Polish: verdulo
-- French: romainhk and cicithesquirrel
-- Japanese: naofum
-- Finnish: winjar
-- Turkish: sekmenhuseyin
-- Italian: imko92 (on POEditor.com)
-- Portuguese: Alexandre Parente (on POEditor.com)
-- Ukranian: olexn (on POEditor.com)
-
-## Licenses
-
-Poker card theme: Vectorized Playing Cards 2.0 - http://sourceforge.net/projects/vector-cards/
-Copyright 2015 - Chris Aguilar - conjurenation@gmail.com
-Licensed under LGPL 3 - www.gnu.org/copyleft/lesser.html
-
-The other card themes used in this project were originally published on https://pixabay.com/ under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
-
-Every card theme was modified by me to add a four color theme! You can download the used pictures as .svg files from my [pictures directory](./pictures/cards)
-
-The Material Design Symbols used for the menu icons are made by Google Inc and are published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
-
-Custom color picker: Uses the [AmbilWarna library](https://github.com/yukuku/ambilwarna) published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
-
-Sliding Tabs: Uses the [PagerSlidingTabStrip library](https://github.com/astuetz/PagerSlidingTabStrip#license) published under the [Apache 2.0 license!](https://www.apache.org/licenses/LICENSE-2.0.txt)
-
-All sounds used in this project were originally published on https://freesound.org under the [CC0 license!](https://creativecommons.org/share-your-work/public-domain/cc0/)
-
-This project is licensed under the GPLv3+ license! Full license text can be found [here](./LICENSE.txt)
-
-```
-Copyright (C) 2016  Tobias Bielefeld
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
-```
+---

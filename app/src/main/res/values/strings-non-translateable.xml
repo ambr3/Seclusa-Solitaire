@@ -2,7 +2,7 @@
 
 <resources>
 
-    <string name="app_name" translatable="false">Simple Solitaire Collection</string>
+    <string name="app_name" translatable="false">Seclusa Solitaire</string>
 
 
     <!-- Preference Keys -->
