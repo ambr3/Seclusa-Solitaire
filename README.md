@@ -88,6 +88,14 @@ apksigner verify --print-certs Seclusa-Solitaire-v4.0.apk
 
 The output's `Signer #1 certificate SHA-256 digest` should match the fingerprint above.
 
+### VirusTotal scan
+
+The APK was scanned by [VirusTotal](https://www.virustotal.com/gui/file/4e2cb0846d7a309be962c94aa4b9ef166e015007e35f83a386d7a97c576ea07d) — **no security vendors flagged it as malicious**.
+
+File SHA-256: `4e2cb0846d7a309be962c94aa4b9ef166e015007e35f83a386d7a97c576ea07d`
+
+You can re-check anytime — virus scanners are updated constantly, so a fresh scan is more meaningful than this snapshot.
+
 ### Build it yourself
 
 Install [Android Studio](https://developer.android.com/studio), open the project folder, and press **Run**:
