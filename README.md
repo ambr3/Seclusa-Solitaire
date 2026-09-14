@@ -13,6 +13,10 @@
 </p>
 
 <p align="center">
+  <em>Seclusa Solitaire is a fork of <a href="https://github.com/TobiasBielefeld/Simple-Solitaire">Simple Solitaire Collection</a> by Tobias Bielefeld, modified according to the GPL.</em>
+</p>
+
+<p align="center">
   <a href="LICENSE.txt"><img alt="License: GPL-3.0" src="https://img.shields.io/badge/license-GPL--3.0-blue.svg"></a>
   <a href="https://github.com/ambr3/Seclusa-Solitaire/commits/master"><img alt="Last commit" src="https://img.shields.io/github/last-commit/ambr3/Seclusa-Solitaire"></a>
   <img alt="Java" src="https://img.shields.io/badge/built%20with-Java-orange.svg">
