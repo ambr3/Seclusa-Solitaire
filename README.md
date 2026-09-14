@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="app/src/main/res/mipmap/ic_launcher.png" alt="Seclusa Solitaire" width="120" height="120">
+  <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Seclusa Solitaire" width="120" height="120">
 </p>
 
 <h1 align="center">Seclusa Solitaire</h1>
@@ -86,7 +86,7 @@ Build a signed APK (`Build → Generate App Bundle(s) / APK(s) → APK`) and ins
 
 ## ⚠️ Disclaimer
 
-> This project is a fork of [Simple Solitaire](https://github.com/TobiasBielefeld/Simple-Solitaire). All code is reviewed before each release, but it's still recommended to audit for security flaws before use. Use at your own risk.
+> This project is a fork of [Simple Solitaire](https://github.com/TobiasBielefeld/Simple-Solitaire). It is **vibe-coded** — built with AI assistance. Audit it yourself before use, especially if self-hosting or modifying. Use at your own risk.
 
 ---
 
