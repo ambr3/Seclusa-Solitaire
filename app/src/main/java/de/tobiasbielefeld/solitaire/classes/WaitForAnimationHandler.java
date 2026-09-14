@@ -41,6 +41,10 @@ public class WaitForAnimationHandler {
         handler.sendEmptyMessage(0);
     }
 
+    public void clear() {
+        handler.removeCallbacksAndMessages(null);
+    }
+
     private static class CustomHandler extends Handler {
         WaitForAnimationHandler base;
 

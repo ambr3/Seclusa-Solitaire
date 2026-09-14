@@ -30,6 +30,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
+import java.security.SecureRandom;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -308,24 +309,10 @@ public class SharedData {
         return min;
     }
 
+    private static final SecureRandom secureRandom = new SecureRandom();
+
     public static Random getPrng() {
-        return new Random();
-
-
-        /*Random random;                        //this one for testing
-
-        try {
-            logText("getting random data...");
-            random = new AESCounterRNG();
-        } catch (GeneralSecurityException e) {
-            Log.e("PRNG Error", e.toString());
-            random = new Random();
-        }
-
-        return random;*/
-
-
-        //return new SecureRandom();        //or maybe use this
+        return secureRandom;
     }
 
     /**

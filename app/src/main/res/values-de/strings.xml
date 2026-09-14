@@ -8,7 +8,6 @@
 <string name="game_cancel">"Abbrechen"</string>
 <string name="game_confirm">"Bestätigen"</string>
 <string name="game_auto_complete_text">"Autovervollständigen"</string>
-<string name="game_press_again">"Zum Beenden erneut drücken"</string>
 <string name="game_load_error">"Laden der Daten ist fehlgeschlagen, starte neues Spiel…"</string>
 <string name="game_close">"Spiel beenden"</string>
 <string name="game_main_menu">"Hauptmenü"</string>
@@ -82,7 +81,6 @@
 <string name="about_tab_1">"Informationen"</string>
 <string name="about_tab_2">"Lizenzen"</string>
 <string name="about_tab_3">"Änderungen"</string>
-<string name="about_loading">"Lade…"</string>
 <string name="about_developer">"Entwickler"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Kompiliert am"</string>
@@ -393,8 +391,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_hide_status_bar">"Statusleiste verbergen"</string>
 <string name="settings_left_handed_mode">"Linkshänder Modus"</string>
 <string name="settings_left_handed_mode_description">"Spiegelt die Karten und Stapel Positionen zur linken Seite"</string>
-<string name="settings_back_press">"Beenden des Spiels bestätigen"</string>
-<string name="settings_back_press_description">"Zum Beenden Zurück Taste zwei mal drücken"</string>
 <string name="settings_orientation">"Bildschirmausrichtung"</string>
 <string name="settings_cards">"Karten"</string>
 <string name="settings_classic">"Klassisch"</string>
@@ -425,10 +421,8 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_menu_columns">"Anzahl der Spalten"</string>
 <string name="settings_menu_games">"Zeige und verstecke Spiele"</string>
 <string name="settings_menu_games_description">"Wähle aus, welche Spiele im Menü angezeigt werden"</string>
-<string name="settings_about_description">"Zeige Informationen über das Spiel wie Lizenzen und Änderungen"</string>
 <string name="settings_change_language">"Sprache ändern"</string>
 <string name="settings_yukon_rules">"Lege Karten auf…"</string>
-<string name="settings_icon_theme">"Symbol Thema"</string>
 <string name="settings_menu_bar_position">"Menüleistenposition"</string>
 <string name="settings_menu_bar_position_top">"Oben"</string>
 <string name="settings_menu_bar_position_bottom">"Unten"</string>
@@ -464,7 +458,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_vegas_bet_amount">"Höhe des Einsatzes"</string>
 <string name="settings_menu_order_title">"Menü Reihenfolge"</string>
 <string name="settings_menu_order_summary">"Halte einen Eintrag gedrückt, nutze dann Drag and Drop um die Reihenfolge zu ändern"</string>
-<string name="settings_menu_order_set_default">"Setze Reihenfolge zurück"</string>
 <string name="settings_auto_start_new_game_title">"Starte ein neues Spiel"</string>
 <string name="settings_auto_start_new_game_text">"Falls zu einem bereits gewonnenen Spiel zurückgekehrt wird, starte ein neues Spiel"</string>
 <string name="settings_customization_description">"Passe Karten, Hintergründe und Benutzeroberfläche an"</string>

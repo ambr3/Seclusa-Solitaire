@@ -12,22 +12,18 @@
     <string name="pref_key_total_hints_shown" translatable="false">pref_key_total_hints_shown</string>
     <string name="pref_key_disable_undo_costs" translatable="false">pref_key_disable_undo_costs</string>
     <string name="pref_key_disable_hint_costs" translatable="false">pref_key_disable_hint_costs</string>
-    <string name="pref_key_double_tap_speed" translatable="false">pref_key_double_tap_speed</string>
     <string name="pref_key_menu_bar_position" translatable="false">pref_key_menu_bar_position</string>
     <string name="pref_key_menu_bar_position_portrait" translatable="false">pref_key_menu_bar_position_portrait</string>
     <string name="pref_key_menu_bar_position_landscape" translatable="false">pref_key_menu_bar_position_landscape</string>
     <string name="pref_key_double_tap_enable" translatable="false">pref_key_double_tap_enable</string>
     <string name="pref_key_double_tap_all_cards" translatable="false">pref_key_double_tap_all_cards</string>
     <string name="pref_key_double_tap_foundation_first" translatable="false">pref_key_double_tap_foundation_first</string>
-    <string name="pref_key_customization" translatable="false">pref_key_customization</string>
     <string name="pref_key_background_color" translatable="false">pref_key_background_color</string>
     <string name="pref_key_cards" translatable="false">pref_key_cards</string>
     <string name="pref_key_cards_background" translatable="false">pref_key_cards_background_new</string>
     <string name="pref_key_cards_background_color" translatable="false">pref_key_cards_background_color</string>
-    <string name="pref_key_other" translatable="false">pref_key_other</string>
     <string name="pref_key_hide_status_bar" translatable="false">pref_key_hide_status_bar</string>
     <string name="pref_key_left_handed_mode" translatable="false">pref_key_left_handed_mode</string>
-    <string name="pref_key_confirm_closing_game" translatable="false">pref_key_confirm_closing_game</string>
     <string name="pref_key_orientation" translatable="false">pref_key_orientation</string>
     <string name="pref_key_spider_difficulty" translatable="false">pref_key_spider_difficulty</string>
     <string name="pref_key_spiderette_difficulty" translatable="false">pref_key_spiderette_difficulty</string>
@@ -40,8 +36,6 @@
     <string name="pref_key_pyramid_difficulty" translatable="false">pref_key_pyramid_difficult</string>
     <string name="pref_key_menu_columns" translatable="false">pref_key_menu_columns</string>
     <string name="pref_key_menu_games" translatable="false">pref_key_menu_games</string>
-    <string name="pref_key_about" translatable="false">pref_key_about</string>
-    <string name="pref_key_show_manual_in_menu" translatable="false">pref_key_show_manual_in_menu</string>
     <string name="pref_key_language" translatable="false">pref_key_language</string>
     <string name="pref_key_yukon_rules" translatable="false">pref_key_yukon_rules</string>
     <string name="pref_key_menu_columns_landscape" translatable="false">MenuColumnsLandscape</string>
@@ -49,7 +43,6 @@
     <string name="pref_key_card_drawables" translatable="false">CardDrawables</string>
     <string name="pref_key_4_color_mode" translatable="false">pref_key_4_color_mode</string>
     <string name="pref_key_tap_to_select_enable" translatable="false">pref_key_tap_to_select_enable</string>
-    <string name="pref_key_tap_to_select_all_cards" translatable="false">pref_key_tap_to_select_all_cards</string>
     <string name="pref_key_single_tap_special_games" translatable="false">pref_key_single_tap_enable</string>
     <string name="pref_key_background_color_type" translatable="false">pref_key_background_color_type</string>
     <string name="pref_key_background_color_custom" translatable="false">pref_key_background_color_custom</string>
@@ -118,12 +111,10 @@
     <string name="dummy_pref_key_hide_menu_button" translatable="false">dummy_pref_key_hide_menu_button</string>
 
     <!-- internal stuff only used in program code -->
-    <string name="games_menu" translatable="false">Menu</string>
     <string name="loading_data_failed" translatable="false">Loading data failed</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
-    <string name="changelog_URL" translatable="false">file:///android_asset/changelog.html</string>
     <string name="app_market_URL" translatable="false">market://details?id=de.tobiasbielefeld.solitaire</string>
     <string name="app_web_URL" translatable="false">https://play.google.com/store/apps/details?id=de.tobiasbielefeld.solitaire</string>
     <string name="github_issues_URL" translatable="false">https://github.com/TobiasBielefeld/Simple-Solitaire/issues</string>
@@ -131,7 +122,7 @@
     <string name="about_app_license_link" translatable="false"><a href="https://www.gnu.org/licenses/gpl.html">GPL 3.0+</a></string>
 
     <string name="canfield_start_value" translatable="false">canfield_startCardValue</string>
-    <string name="old" translatable="false">_old</string>
+
     <string name="default_menu_bar_position_landscape" translatable="false">right</string>
     <string name="default_menu_bar_position_portrait" translatable="false">bottom</string>
 
@@ -159,7 +150,6 @@
 
     <!-- contributors -->
     <string name="contributors_chinese_simplified" translatable="false">Tragic Life, LaiJM, heng, Hero, kithc</string>
-    <string name="contributors_english" translatable="false">N9of</string>
     <string name="contributors_esperanto" translatable="false"><a href="https://github.com/verdulo">verdulo</a></string>
     <string name="contributors_finnish" translatable="false"><a href="https://github.com/winjar">winjar</a></string>
     <string name="contributors_french" translatable="false"><a href="https://github.com/romainhk">romainhk</a>, <a href="https://github.com/cicithesquirrel">cicithesquirrel</a></string>

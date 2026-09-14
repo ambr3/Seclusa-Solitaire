@@ -8,7 +8,6 @@
 <string name="game_cancel">"キャンセル"</string>
 <string name="game_confirm">"確認"</string>
 <string name="game_auto_complete_text">"オートコンプリート"</string>
-<string name="game_press_again">"もう一度押すと終了します"</string>
 <string name="game_load_error">"データの読み込みに失敗しました。新しいゲームを開始しています…"</string>
 <string name="item_game_rules">"ゲームのルール"</string>
 <string name="item_return_to_main_menu">"メインメニューに戻る"</string>
@@ -58,7 +57,6 @@
 <string name="about_tab_1">"情報"</string>
 <string name="about_tab_2">"ライセンス"</string>
 <string name="about_tab_3">"変更履歴"</string>
-<string name="about_loading">"読み込み中…"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"ビルド日"</string>
 <string name="about_source_code">"ソースコード"</string>
@@ -299,8 +297,6 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 <string name="settings_hide_status_bar">"ステータスバーを隠す"</string>
 <string name="settings_left_handed_mode">"左ききモード"</string>
 <string name="settings_left_handed_mode_description">"カードと置き場の位置を左側に反転します"</string>
-<string name="settings_back_press">"ゲームの終了を確認"</string>
-<string name="settings_back_press_description">"戻るボタンを２回押すとゲームを終了します"</string>
 <string name="settings_orientation">"画面の向き"</string>
 <string name="settings_cards">"カード"</string>
 <string name="settings_classic">"クラシック"</string>
@@ -328,7 +324,6 @@ Google Playで評価を使用する: このアプリのページで評価を残�
 <string name="settings_menu_columns">"列の数"</string>
 <string name="settings_menu_games">"ゲームの表示と非表示"</string>
 <string name="settings_menu_games_description">"メニューに表示されるゲームを選択します"</string>
-<string name="settings_about_description">"ライセンスや変更履歴など、ゲームに関する情報を表示します"</string>
 <string name="settings_change_language">"言語の変更"</string>
 <string name="settings_support">"サポート"</string>
 <string name="settings_follow_system_settings">"システム設定に従う"</string>

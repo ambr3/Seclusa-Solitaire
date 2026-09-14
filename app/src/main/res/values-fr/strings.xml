@@ -8,7 +8,6 @@
 <string name="game_cancel">"Annuler"</string>
 <string name="game_confirm">"Confirmer"</string>
 <string name="game_auto_complete_text">"Finir automatiquement"</string>
-<string name="game_press_again">"Appuyer encore pour sortir"</string>
 <string name="game_load_error">"Echec du chargement des données, démarrage d'une nouvelle partie…"</string>
 <string name="game_close">"Fermer le jeu"</string>
 <string name="game_main_menu">"Menu principal"</string>
@@ -82,7 +81,6 @@
 <string name="about_tab_1">"Information"</string>
 <string name="about_tab_2">"Licences"</string>
 <string name="about_tab_3">"Versions"</string>
-<string name="about_loading">"Chargement…"</string>
 <string name="about_developer">"Développeur"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Date de la construction"</string>
@@ -399,8 +397,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_hide_status_bar">"Cacher la barre de statut"</string>
 <string name="settings_left_handed_mode">"Mode pour gaucher"</string>
 <string name="settings_left_handed_mode_description">"Positionner les cartes et la pile sur la gauche"</string>
-<string name="settings_back_press">"Confirmer avant de quitter une partie"</string>
-<string name="settings_back_press_description">"Appuyer deux fois sur retour pour quitter une partie"</string>
 <string name="settings_orientation">"Orientation de l'écran"</string>
 <string name="settings_cards">"Cartes"</string>
 <string name="settings_classic">"Classique"</string>
@@ -431,10 +427,8 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_menu_columns">"Nombre de colonnes"</string>
 <string name="settings_menu_games">"Afficher et masquer des jeux"</string>
 <string name="settings_menu_games_description">"Séléctionner les jeux à afficher dans le menu principal"</string>
-<string name="settings_about_description">"Montrer des informations sur cette application comme sa licence, son historique des versions"</string>
 <string name="settings_change_language">"Changer la langue"</string>
 <string name="settings_yukon_rules">"Placez les cartes sur…"</string>
-<string name="settings_icon_theme">"Jeu d'icônes"</string>
 <string name="settings_menu_bar_position">"Position de la barre de menu"</string>
 <string name="settings_menu_bar_position_top">"Haut"</string>
 <string name="settings_menu_bar_position_bottom">"Bas"</string>
@@ -470,7 +464,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_vegas_bet_amount">"Montant du pari"</string>
 <string name="settings_menu_order_title">"Ordre du menu"</string>
 <string name="settings_menu_order_summary">"Restez appuyé sur un élément et glissez-le ensuite pour modifier l'ordre du menu"</string>
-<string name="settings_menu_order_set_default">"Réinitialiser l'ordre"</string>
 <string name="settings_auto_start_new_game_title">"Démarre une nouvelle partie en cas de victoire"</string>
 <string name="settings_auto_start_new_game_text">"En cas de retour vers un jeu gagné, démarrer automatiquement un nouvelle partie"</string>
 <string name="settings_customization_description">"Modifier les cartes, les arrière-plans et l'interface utilisateur"</string>

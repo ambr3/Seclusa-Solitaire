@@ -8,7 +8,6 @@
 <string name="game_cancel">"Nuligi"</string>
 <string name="game_confirm">"Konfirmi"</string>
 <string name="game_auto_complete_text">"Mem-kompletiĝo"</string>
-<string name="game_press_again">"Repremu por eliri"</string>
 <string name="game_load_error">"Malsukcesis ŝargi lud-datumojn, ekigante novan ludon…"</string>
 <string name="game_close">"Fermi la ludon"</string>
 <string name="game_main_menu">"Ĉefmenuo"</string>
@@ -82,7 +81,6 @@
 <string name="about_tab_1">"Informoj"</string>
 <string name="about_tab_2">"Permesiloj"</string>
 <string name="about_tab_3">"Ŝanĝoprotokolo"</string>
-<string name="about_loading">"Ŝargado…"</string>
 <string name="about_developer">"Programisto"</string>
 <string name="about_developer_name">"Tobias BIELEFELD"</string>
 <string name="about_compiled">"Kompilita je"</string>
@@ -401,8 +399,6 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_hide_status_bar">"Kaŝi statan breton"</string>
 <string name="settings_left_handed_mode">"Maldekstrmana reĝimo"</string>
 <string name="settings_left_handed_mode_description">"Inversigi poziciojn de kartoj kaj stakoj al maldekstra flanko"</string>
-<string name="settings_back_press">"Konfirmi fermi la ludon"</string>
-<string name="settings_back_press_description">"Premu duoble reen-butonon por fermi ludon"</string>
 <string name="settings_orientation">"Ekrana orientiĝo"</string>
 <string name="settings_cards">"Kartoj"</string>
 <string name="settings_classic">"Klasikaj"</string>
@@ -433,10 +429,8 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_menu_columns">"Nombro da kolumnoj"</string>
 <string name="settings_menu_games">"Montri kaj kaŝi ludojn"</string>
 <string name="settings_menu_games_description">"Elekti kiujn ludojn estas videblaj en menuo"</string>
-<string name="settings_about_description">"Montri informojn pri la ludo kiel permesilojn kaj ŝanĝoprotokolon"</string>
 <string name="settings_change_language">"Ŝanĝi lingvon"</string>
 <string name="settings_yukon_rules">"Meti kartojn sur…"</string>
-<string name="settings_icon_theme">"Piktograma etoso"</string>
 <string name="settings_menu_bar_position">"Pozicio de menua breto"</string>
 <string name="settings_menu_bar_position_top">"supre"</string>
 <string name="settings_menu_bar_position_bottom">"sube"</string>
@@ -472,7 +466,6 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_vegas_bet_amount">"Vetluda monsumo"</string>
 <string name="settings_menu_order_title">"Ordo de menuo"</string>
 <string name="settings_menu_order_summary">"Frapetadu eron kaj poste ŝovu kaj demetu ĝin por reordigi menuon"</string>
-<string name="settings_menu_order_set_default">"Restarigi ordon"</string>
 <string name="settings_auto_start_new_game_title">"Komenci novan ludon post venko"</string>
 <string name="settings_auto_start_new_game_text">"Je reveno al ĵus-venkita ludo, aŭtomate komenci novan ludon"</string>
 <string name="settings_customization_description">"Alĝustigi kartojn, fonojn kaj fasadon"</string>

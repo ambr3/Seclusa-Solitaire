@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
 
 import static android.content.Context.*;
@@ -764,22 +765,25 @@ public class Preferences {
     }
 
     public boolean isDeveloperOptionMoveCardsEverywhereEnabled() {
-        return savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE, DEFAULT_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE);
+        return BuildConfig.DEBUG && savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE, DEFAULT_DEVELOPER_OPTION_MOVE_CARDS_EVERYWHERE);
     }
 
     public boolean isDeveloperOptionPlayEveryCardEnabled() {
-        return savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_PLAY_EVERY_CARD, DEFAULT_DEVELOPER_OPTION_PLAY_EVERY_CARD);
+        return BuildConfig.DEBUG && savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_PLAY_EVERY_CARD, DEFAULT_DEVELOPER_OPTION_PLAY_EVERY_CARD);
     }
 
     public boolean isDeveloperOptionInstantWinEnabled() {
-        return savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_INSTANT_WIN, DEFAULT_DEVELOPER_OPTION_INSTANT_WIN);
+        return BuildConfig.DEBUG && savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_INSTANT_WIN, DEFAULT_DEVELOPER_OPTION_INSTANT_WIN);
     }
 
     public boolean isDeveloperOptionSavingDisabled() {
-        return savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_NO_SAVING, DEFAULT_DEVELOPER_OPTION_NO_SAVING);
+        return BuildConfig.DEBUG && savedSharedData.getBoolean(PREF_KEY_DEVELOPER_OPTION_NO_SAVING, DEFAULT_DEVELOPER_OPTION_NO_SAVING);
     }
 
     public int getDeveloperOptionDealCorrectSequences() {
+        if (!BuildConfig.DEBUG) {
+            return 0;
+        }
         String value = savedSharedData.getString(PREF_KEY_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES, DEFAULT_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES);
         return Integer.parseInt(value);
     }
@@ -1294,7 +1298,7 @@ public class Preferences {
     }
 
     public boolean getShowAdvancedSettings() {
-        return savedSharedData.getBoolean(PREF_KEY_SHOW_ADVANCED_SETTINGS, DEFAULT_SHOW_ADVANCED_SETTINGS);
+        return BuildConfig.DEBUG && savedSharedData.getBoolean(PREF_KEY_SHOW_ADVANCED_SETTINGS, DEFAULT_SHOW_ADVANCED_SETTINGS);
     }
 
     public boolean getSavedDoubleTapFoundationFirst() {

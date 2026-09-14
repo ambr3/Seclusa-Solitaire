@@ -102,7 +102,7 @@ public class Animate {
     public void wonAnimationPhase2() {
         int direction = 0;
         int counter = 0;
-        Random rand = new Random();
+        Random rand = getPrng();
 
         PointF newPositions[] = new PointF[cards.length];
 

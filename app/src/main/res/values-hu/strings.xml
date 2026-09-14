@@ -8,7 +8,6 @@
 <string name="game_cancel">"Mégsem"</string>
 <string name="game_confirm">"Megerősit"</string>
 <string name="game_auto_complete_text">"AUTOMATIKUSAN KIRAK"</string>
-<string name="game_press_again">"Nyomja meg újra a kilépéshez."</string>
 <string name="game_load_error">"Adat betöltési hiba, új játék indítása."</string>
 <string name="game_close">"Kilépés"</string>
 <string name="game_main_menu">"Főmenü"</string>
@@ -82,7 +81,6 @@
 <string name="about_tab_1">"Információ"</string>
 <string name="about_tab_2">"Licenszek"</string>
 <string name="about_tab_3">"Változáslista"</string>
-<string name="about_loading">"Betöltés..."</string>
 <string name="about_developer">"Fejlesztő"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Összeállítva"</string>
@@ -401,8 +399,6 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="settings_hide_status_bar">"Elrejti a státusz sávot"</string>
 <string name="settings_left_handed_mode">"Balkezes mód"</string>
 <string name="settings_left_handed_mode_description">"Baloldalra tükrözi a kártyákat és a vermeket."</string>
-<string name="settings_back_press">"Erősítse meg a játék bezárását"</string>
-<string name="settings_back_press_description">"A játék bezárásához nyomja meg kétszer a vissza gombot."</string>
 <string name="settings_orientation">"Képernyő tájolás"</string>
 <string name="settings_cards">"Kártyák"</string>
 <string name="settings_classic">"Klasszikus"</string>
@@ -433,10 +429,8 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="settings_menu_columns">"Oszlopok száma"</string>
 <string name="settings_menu_games">"Játékok elrejtése, mutatása."</string>
 <string name="settings_menu_games_description">"Kiválaszthatja a főmenüben megjelenő játékokat."</string>
-<string name="settings_about_description">"Információkat jelenít meg a játékról, mint a licenszek és a változáslista."</string>
 <string name="settings_change_language">"Nyelv választás"</string>
 <string name="settings_yukon_rules">"Kártyák elhelyezése..."</string>
-<string name="settings_icon_theme">"Ikon téma"</string>
 <string name="settings_menu_bar_position">"Menüsáv pozíciója"</string>
 <string name="settings_menu_bar_position_top">"Fent"</string>
 <string name="settings_menu_bar_position_bottom">"Lent"</string>
@@ -472,7 +466,6 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="settings_vegas_bet_amount">"Tét összege"</string>
 <string name="settings_menu_order_title">"Főmenü rendezése"</string>
 <string name="settings_menu_order_summary">"Nyomva tartva, húzással új helyre mozgathatja a bejegyzéseket."</string>
-<string name="settings_menu_order_set_default">"A menürend visszaállítása"</string>
 <string name="settings_auto_start_new_game_title">"Elindít egy új játékot amikor nyert"</string>
 <string name="settings_auto_start_new_game_text">"Ha visszatér egy már megnyert játékhoz automatikusan elindít egy új játékot."</string>
 <string name="settings_customization_description">"Testreszabhatja a kártyákat, háttereket és a felhasználói felületet."</string>

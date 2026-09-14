@@ -8,7 +8,6 @@
 <string name="game_cancel">"Avbryt"</string>
 <string name="game_confirm">"Bekreft"</string>
 <string name="game_auto_complete_text">"Autofullfør"</string>
-<string name="game_press_again">"Trykk igjen for å avslutte"</string>
 <string name="game_load_error">"Innlasting av data mislyktes, starter en ny omgang…"</string>
 <string name="game_close">"Lukk spillet"</string>
 <string name="game_main_menu">"Hovedmeny"</string>
@@ -84,7 +83,6 @@
 <string name="about_tab_1">"Informasjon"</string>
 <string name="about_tab_2">"Lisenser"</string>
 <string name="about_tab_3">"Endringslogg"</string>
-<string name="about_loading">"Laster inn…"</string>
 <string name="about_developer">"Utvikleren"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Kompilert den"</string>
@@ -194,8 +192,6 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_hide_status_bar">"Skjul statuslinjen"</string>
 <string name="settings_left_handed_mode">"Venstrehendt modus"</string>
 <string name="settings_left_handed_mode_description">"Speilvender kortene og bunkeposisjonene til venstre"</string>
-<string name="settings_back_press">"Bekreft lukking av spillet"</string>
-<string name="settings_back_press_description">"Trykk på Tilbake-knappen igjen for å lukke spillet"</string>
 <string name="settings_orientation">"Skjermorientering"</string>
 <string name="settings_cards">"Kort"</string>
 <string name="settings_classic">"Klassisk"</string>
@@ -226,10 +222,8 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_menu_columns">"Antall kolonner"</string>
 <string name="settings_menu_games">"Vis og skjul spill"</string>
 <string name="settings_menu_games_description">"Velg hvilke spill som vises i menyen"</string>
-<string name="settings_about_description">"Vis informasjon om spillet, f.eks. lisenser og endringsloggene"</string>
 <string name="settings_change_language">"Velg språk"</string>
 <string name="settings_yukon_rules">"Plasser kortene på…"</string>
-<string name="settings_icon_theme">"Ikontema"</string>
 <string name="settings_menu_bar_position">"Menylinjeplassering"</string>
 <string name="settings_menu_bar_position_top">"Øverst"</string>
 <string name="settings_menu_bar_position_bottom">"Nederst"</string>
@@ -265,7 +259,6 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_vegas_bet_amount">"Innsatsmengde"</string>
 <string name="settings_menu_order_title">"Menyrekkefølge"</string>
 <string name="settings_menu_order_summary">"Klikk lenge på en oppføring, og så dra-og-slipp for å stokke om på menyoppføringene"</string>
-<string name="settings_menu_order_set_default">"Tilbakestill rekkefølgen"</string>
 <string name="settings_auto_start_new_game_title">"Start en ny omgang når du har vunnet"</string>
 <string name="settings_auto_start_new_game_text">"Hvis du går tilbake til en omgang som allerede er vunnet, så start automatisk en ny omgang"</string>
 <string name="settings_customization_description">"Tilpass kort, bakgrunner og brukergrensesnittet"</string>

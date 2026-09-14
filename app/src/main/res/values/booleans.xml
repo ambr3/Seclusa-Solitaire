@@ -24,7 +24,6 @@
     <bool name="default_vegas_money_enabled">false</bool>
     <bool name="default_vegas_reset_money">false</bool>
     <bool name="default_single_tap_all_games">false</bool>
-    <bool name="default_secure_rng">false</bool>
     <bool name="default_developer_option_move_cards_everywhere">false</bool>
     <bool name="default_developer_option_play_every_card">false</bool>
     <bool name="default_developer_option_instant_win">false</bool>

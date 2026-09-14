@@ -8,7 +8,6 @@
 <string name="game_cancel">"Cancelar"</string>
 <string name="game_confirm">"Confirmar"</string>
 <string name="game_auto_complete_text">"Autocompletar"</string>
-<string name="game_press_again">"Pressione novamente para sair"</string>
 <string name="game_load_error">"Falha carregando os dados, iniciando novo jogo…"</string>
 <string name="game_close">"Fechar o jogo"</string>
 <string name="game_main_menu">"Menu principal"</string>
@@ -81,7 +80,6 @@
 <string name="about_tab_1">"Informação"</string>
 <string name="about_tab_2">"Licença"</string>
 <string name="about_tab_3">"Changelog"</string>
-<string name="about_loading">"Carregando…"</string>
 <string name="about_developer">"Desenvolvedor"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Compilado em"</string>

@@ -8,7 +8,6 @@
 <string name="game_cancel">"取消"</string>
 <string name="game_confirm">"确认"</string>
 <string name="game_auto_complete_text">"自动完成"</string>
-<string name="game_press_again">"再次点击以退出"</string>
 <string name="game_load_error">"无法加载数据，开始新游戏…"</string>
 <string name="game_close">"关闭游戏"</string>
 <string name="game_main_menu">"主菜单"</string>
@@ -82,7 +81,6 @@
 <string name="about_tab_1">"信息"</string>
 <string name="about_tab_2">"版权"</string>
 <string name="about_tab_3">"更新日志"</string>
-<string name="about_loading">"加载中…"</string>
 <string name="about_developer">"开发者"</string>
 <string name="about_developer_name">"托比阿斯 贝列弗德"</string>
 <string name="about_compiled">"编译于"</string>
@@ -129,8 +127,6 @@
 <string name="settings_background_color">"背景色"</string>
 <string name="settings_hide_status_bar">"隐藏状态栏"</string>
 <string name="settings_left_handed_mode">"左利手模式"</string>
-<string name="settings_back_press">"确认关闭游戏"</string>
-<string name="settings_back_press_description">"双击返回键退出游戏"</string>
 <string name="settings_orientation">"屏幕方向"</string>
 <string name="settings_cards">"卡牌"</string>
 <string name="settings_classic">"经典"</string>
@@ -153,10 +149,8 @@
 <string name="settings_pyramid_difficulty">"难度"</string>
 <string name="settings_menu_games">"显/隐游戏"</string>
 <string name="settings_menu_games_description">"选择出现在菜单中的游戏"</string>
-<string name="settings_about_description">"显示游戏信息，如版权与更新日志"</string>
 <string name="settings_change_language">"更改语言"</string>
 <string name="settings_yukon_rules">"将卡牌置于…"</string>
-<string name="settings_icon_theme">"图标主题"</string>
 <string name="settings_menu_bar_position">"菜单栏位置"</string>
 <string name="settings_menu_bar_position_top">"顶部"</string>
 <string name="settings_menu_bar_position_bottom">"底部"</string>
@@ -181,7 +175,6 @@
 <string name="settings_limit_number_of_recycles">"有限回收数"</string>
 <string name="settings_number_of_recycles">"回收数量"</string>
 <string name="settings_menu_order_title">"菜单顺序"</string>
-<string name="settings_menu_order_set_default">"恢复顺序"</string>
 <string name="settings_auto_start_new_game_title">"胜利时开启新游戏"</string>
 <string name="settings_customization_description">"自定义卡牌，背景和用户界面"</string>
 <string name="settings_force_tablet_layout_title">"强制平板布局"</string>

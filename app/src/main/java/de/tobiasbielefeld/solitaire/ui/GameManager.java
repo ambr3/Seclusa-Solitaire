@@ -354,6 +354,15 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        handlerTestIfWon.clear();
+        handlerTestAfterMove.clear();
+        timer.handlerTimer.removeCallbacksAndMessages(null);
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         showOrHideNavBar();

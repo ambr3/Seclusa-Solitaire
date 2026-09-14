@@ -10,7 +10,6 @@
 <string name="game_cancel">"Cancelar"</string>
 <string name="game_confirm">"Confirmar"</string>
 <string name="game_auto_complete_text">"Autocompletar"</string>
-<string name="game_press_again">"Presiona otra vez para salir"</string>
 <string name="game_load_error">"Carga de datos fallida, iniciando un nuevo juego"</string>
 <string name="game_close">"Cerrar juego"</string>
 <string name="game_main_menu">"Menú Principal"</string>
@@ -86,7 +85,6 @@
 <string name="about_tab_1">"Información"</string>
 <string name="about_tab_2">"Licencias"</string>
 <string name="about_tab_3">"Cambios"</string>
-<string name="about_loading">"Cargando…"</string>
 <string name="about_developer">"Desarrollador"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Compilado en"</string>
@@ -185,7 +183,6 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
 <!-- Settings -->
 <string name="settings_background_color">"Color del fondo"</string>
 <string name="settings_hide_status_bar">"Esconder barra de estado"</string>
-<string name="settings_back_press">"Confirmar salir del juego"</string>
 <string name="settings_orientation">"Orientación de pantalla"</string>
 <string name="settings_cards">"Cartas"</string>
 <string name="settings_classic">"Clásico"</string>
@@ -207,7 +204,6 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
 <string name="settings_menu_games_description">"Elegir qué juegos se muestran en el menú"</string>
 <string name="settings_change_language">"Cambiar idioma"</string>
 <string name="settings_yukon_rules">"Colocar cartas en..."</string>
-<string name="settings_icon_theme">"Tema de íconos"</string>
 <string name="settings_menu_bar_position">"Posición de la barra de menú"</string>
 <string name="settings_menu_bar_position_top">"Arriba"</string>
 <string name="settings_menu_bar_position_bottom">"Abajo"</string>
@@ -222,7 +218,6 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
 <string name="Settings_background_volume">"Volúmen de la música de fondo"</string>
 <string name="settings_vegas_bet_amount">"Monto de la apuesta"</string>
 <string name="settings_menu_order_title">"Orden del menú"</string>
-<string name="settings_menu_order_set_default">"Reiniciar orden"</string>
 <string name="settings_auto_start_new_game_title">"Iniciar un nuevo juego al ganar"</string>
 <string name="settings_force_tablet_layout_title">"Forzar diseño para tablet"</string>
 <string name="settings_calculation_alternative_title">"Mantener cartas"</string>

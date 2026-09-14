@@ -8,7 +8,6 @@
 <string name="game_cancel">"Скасувати"</string>
 <string name="game_confirm">"Підтвердити"</string>
 <string name="game_auto_complete_text">"Авто-завершення"</string>
-<string name="game_press_again">"Для виходу натисніть ще раз"</string>
 <string name="game_load_error">"Помилка завантаження даних, розпочинаємо нову гру…"</string>
 <string name="game_close">"Закрити гру"</string>
 <string name="game_main_menu">"Головне меню"</string>
@@ -64,7 +63,6 @@
 <string name="about_tab_1">"Інформація"</string>
 <string name="about_tab_2">"Ліцензії"</string>
 <string name="about_tab_3">"Перелік змін"</string>
-<string name="about_loading">"Завантаження…"</string>
 <string name="about_developer">"Розробник"</string>
 <string name="about_compiled">"Скомпільовано"</string>
 <string name="about_source_code">"Джерельний код"</string>
@@ -103,7 +101,6 @@
 <string name="manual_games_text1">"Оберіть гру, для перегляду структури, завдання, правил та системи нарахування балів."</string>
 <string name="settings_menu">"Головне меню"</string>
 <string name="settings_change_language">"Змінити мову"</string>
-<string name="settings_icon_theme">"Тема значків"</string>
 <string name="settings_menu_bar_position">"Положення панелі меню"</string>
 <string name="settings_menu_bar_position_top">"Зверху"</string>
 <string name="settings_menu_bar_position_bottom">"Знизу"</string>

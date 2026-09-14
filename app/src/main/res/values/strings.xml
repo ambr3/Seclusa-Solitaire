@@ -8,7 +8,6 @@
 <string name="game_cancel">"Cancel"</string>
 <string name="game_confirm">"Confirm"</string>
 <string name="game_auto_complete_text">"Autocomplete"</string>
-<string name="game_press_again">"Press again to exit"</string>
 <string name="game_load_error">"Loading data failed, starting new game…"</string>
 <string name="game_close">"Close game"</string>
 <string name="game_main_menu">"Main menu"</string>
@@ -82,7 +81,6 @@
 <string name="about_tab_1">"Information"</string>
 <string name="about_tab_2">"Licenses"</string>
 <string name="about_tab_3">"Changelog"</string>
-<string name="about_loading">"Loading…"</string>
 <string name="about_developer">"Developer"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Compiled on"</string>
@@ -405,8 +403,6 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 <string name="settings_hide_status_bar">"Hide status bar"</string>
 <string name="settings_left_handed_mode">"Left handed mode"</string>
 <string name="settings_left_handed_mode_description">"Mirrors the card and stack positions to the left side"</string>
-<string name="settings_back_press">"Confirm closing game"</string>
-<string name="settings_back_press_description">"Press back button twice to close game"</string>
 <string name="settings_orientation">"Screen orientation"</string>
 <string name="settings_cards">"Cards"</string>
 <string name="settings_classic">"Classic"</string>
@@ -437,10 +433,8 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 <string name="settings_menu_columns">"Number of columns"</string>
 <string name="settings_menu_games">"Show and hide games"</string>
 <string name="settings_menu_games_description">"Select which games are shown in the menu"</string>
-<string name="settings_about_description">"Show information about the game like licenses and changelog"</string>
 <string name="settings_change_language">"Change language"</string>
 <string name="settings_yukon_rules">"Place cards on…"</string>
-<string name="settings_icon_theme">"Icon theme"</string>
 <string name="settings_menu_bar_position">"Menu bar position"</string>
 <string name="settings_menu_bar_position_top">"Top"</string>
 <string name="settings_menu_bar_position_bottom">"Bottom"</string>
@@ -476,7 +470,6 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 <string name="settings_vegas_bet_amount">"Bet Amount"</string>
 <string name="settings_menu_order_title">"Menu order"</string>
 <string name="settings_menu_order_summary">"Long click an entry, then use drag and drop to reorder the menu entries"</string>
-<string name="settings_menu_order_set_default">"Reset order"</string>
 <string name="settings_auto_start_new_game_title">"Start a new game when won"</string>
 <string name="settings_auto_start_new_game_text">"If returned to an already won game, automatically start a new game"</string>
 <string name="settings_customization_description">"Customize cards, backgrounds and user interface"</string>

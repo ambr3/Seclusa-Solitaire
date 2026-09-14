@@ -8,7 +8,6 @@
 <string name="game_cancel">"Anuluj"</string>
 <string name="game_confirm">"Potwierdź"</string>
 <string name="game_auto_complete_text">"Autouzupełnianie"</string>
-<string name="game_press_again">"Naciśnij ponownie aby wyjść"</string>
 <string name="game_load_error">"Wczytywanie danych nie powiodło się, zaczynam nową grę…"</string>
 <string name="game_close">"Zamknij grę"</string>
 <string name="game_main_menu">"Menu główne"</string>
@@ -82,7 +81,6 @@
 <string name="about_tab_1">"Informacje"</string>
 <string name="about_tab_2">"Licencje"</string>
 <string name="about_tab_3">"Zmiany"</string>
-<string name="about_loading">"Ładowanie…"</string>
 <string name="about_developer">"Twórca gry"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Data kompilacji"</string>
@@ -401,8 +399,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_hide_status_bar">"Ukryj pasek stanu"</string>
 <string name="settings_left_handed_mode">"Tryb dla leworęcznych"</string>
 <string name="settings_left_handed_mode_description">"Odwraca pozycje kart i stosów do lewej strony"</string>
-<string name="settings_back_press">"Potwierdź zamykanie gry"</string>
-<string name="settings_back_press_description">"Naciśnij przycisk wstecz dwukrotnie, aby wyjść z gry"</string>
 <string name="settings_orientation">"Orientacja ekranu"</string>
 <string name="settings_cards">"Karty"</string>
 <string name="settings_classic">"Klasyczne"</string>
@@ -433,10 +429,8 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_menu_columns">"Liczba kolumn"</string>
 <string name="settings_menu_games">"Pokaż i ukryj gry"</string>
 <string name="settings_menu_games_description">"Wybierz które gry mają być widoczne w menu"</string>
-<string name="settings_about_description">"Pokaż informacje o grze takie jak licencja i lista zmian"</string>
 <string name="settings_change_language">"Zmień język"</string>
 <string name="settings_yukon_rules">"Kładź karty na…"</string>
-<string name="settings_icon_theme">"Temat ikon"</string>
 <string name="settings_menu_bar_position">"Pozycja paska menu"</string>
 <string name="settings_menu_bar_position_top">"Góra"</string>
 <string name="settings_menu_bar_position_bottom">"Dół"</string>
@@ -472,7 +466,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_vegas_bet_amount">"Kwota zakładu"</string>
 <string name="settings_menu_order_title">"Kolejność menu"</string>
 <string name="settings_menu_order_summary">"Stuknij i przytrzymaj wpis, a następnie przeciągnij i upuść go w żądane miejsce"</string>
-<string name="settings_menu_order_set_default">"Domyślny układ"</string>
 <string name="settings_auto_start_new_game_title">"Rozpocznij nową grę po wygranej"</string>
 <string name="settings_auto_start_new_game_text">"Po powrocie do właśnie wygranej gry, automatycznie rozpoczynaj nową grę"</string>
 <string name="settings_customization_description">"Dostosuj karty, tła i interfejs użytkownika"</string>
