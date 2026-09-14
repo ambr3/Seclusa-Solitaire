@@ -70,7 +70,26 @@ Your data is your business. That's the whole point.
 
 ## 📦 Installation
 
+### Via APK
+
+Download the signed APK from the [Releases page](https://github.com/ambr3/Seclusa-Solitaire/releases) and install it on your device.
+
+To verify the APK is signed by this project, check the signing certificate. It must match the SHA-256 fingerprint below:
+
+```
+ee9572ee718afb5df1883d9ad27d1c0ced367ab54e3fb04a08aabc80ee05b766
+```
+
+On a machine with the Android build-tools installed, run:
+
+```
+apksigner verify --print-certs Seclusa-Solitaire-v4.0.apk
+```
+
+The output's `Signer #1 certificate SHA-256 digest` should match the fingerprint above.
+
 ### Build it yourself
+
 Install [Android Studio](https://developer.android.com/studio), open the project folder, and press **Run**:
 
 1. Clone or download this repo
@@ -78,9 +97,6 @@ Install [Android Studio](https://developer.android.com/studio), open the project
 3. Let Gradle sync
 4. Press the green **Run ▶** button
 5. Done — install it on your phone or emulator as an APK
-
-### Via APK
-Build a signed APK (`Build → Generate App Bundle(s) / APK(s) → APK`) and install it on your device.
 
 ---
 
@@ -99,9 +115,14 @@ Build a signed APK (`Build → Generate App Bundle(s) / APK(s) → APK`) and ins
 - Licensed under GPLv3+ https://www.gnu.org/licenses/gpl-3.0
 
 **Changes made in this fork:**
-- Renamed to *Seclusa Solitaire*
+- Renamed to *Seclusa Solitaire* (v4.0, versionCode 400)
 - Updated the Gradle/AGP build files to compile with modern Android Studio
 - Disabled Google's automatic app-data backup for privacy
+- Replaced the card-shuffle RNG with `SecureRandom`
+- Removed developer/cheat options (instant win, play every card, etc.) from release builds
+- Fixed handler memory leaks on screen rotation
+- Deleted unused code and resources
+- New launcher icon and re-styled README
 
 [GPL-3.0](LICENSE.txt) — free to use, modify, and share, with the same freedom preserved for derivatives.
 
