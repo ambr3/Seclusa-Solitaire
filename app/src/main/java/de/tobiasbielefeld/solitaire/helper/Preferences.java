@@ -543,7 +543,10 @@ public class Preferences {
         ArrayList<Integer> result = new ArrayList<>();
 
         while (st.hasMoreTokens()) {
-            result.add(Integer.parseInt(st.nextToken()));
+            try {
+                result.add(Integer.parseInt(st.nextToken()));
+            } catch (NumberFormatException ignored) {
+            }
         }
 
         return result;
@@ -557,7 +560,10 @@ public class Preferences {
         ArrayList<Long> result = new ArrayList<>();
 
         while (st.hasMoreTokens()) {
-            result.add(Long.parseLong(st.nextToken()));
+            try {
+                result.add(Long.parseLong(st.nextToken()));
+            } catch (NumberFormatException ignored) {
+            }
         }
 
         return result;
@@ -581,7 +587,10 @@ public class Preferences {
         ArrayList<Integer> result = new ArrayList<>();
 
         while (st.hasMoreTokens()) {
-            result.add(Integer.parseInt(st.nextToken()));
+            try {
+                result.add(Integer.parseInt(st.nextToken()));
+            } catch (NumberFormatException ignored) {
+            }
         }
 
         return result;

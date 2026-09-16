@@ -24,7 +24,6 @@ import android.content.res.Configuration;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.BulletSpan;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -245,15 +244,6 @@ public class SharedData {
         if (option == 0 && !stopUiUpdates) {
             handlerTestAfterMove.sendDelayed();
         }
-    }
-
-    /**
-     * Little method I use to test if my code reaches some point
-     *
-     * @param text The text to show
-     */
-    public static void logText(String text) {
-        Log.e("hey", text);
     }
 
     public static int min(int value1, int value2) {

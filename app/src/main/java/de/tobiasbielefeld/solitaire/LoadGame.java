@@ -69,6 +69,16 @@ public class LoadGame {
      */
     public Game loadClass(AppCompatActivity activity, int index) {
 
+        if (allGameInformation == null || allGameInformation.isEmpty()) {
+            //games are loaded in a separate handler; guard against being called before that finishes
+            return new AcesUp();
+        }
+
+        if (index < 0 || index >= allGameInformation.size()) {
+            Log.w("LoadGame.loadClass()", "Invalid game index " + index + ", using 0");
+            index = 0;
+        }
+
         sharedPrefName = allGameInformation.get(index).getSharedPrefName();
         gameName = allGameInformation.get(index).getName(activity.getResources());
 

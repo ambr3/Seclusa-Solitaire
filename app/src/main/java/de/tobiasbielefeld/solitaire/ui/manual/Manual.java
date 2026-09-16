@@ -187,26 +187,18 @@ public class Manual extends CustomAppCompatActivity
         int id = item.getItemId();
         Class fragmentClass;
 
-        switch (id) {
-            case R.id.nav_startpage:
-            default:
-                fragmentClass = ManualStartPage.class;
-                break;
-            case R.id.nav_menu:
-                fragmentClass = ManualMenu.class;
-                break;
-            case R.id.nav_user_interface:
-                fragmentClass = ManualUserInterface.class;
-                break;
-            case R.id.nav_games:
-                fragmentClass = ManualGames.class;
-                break;
-            case R.id.nav_statistics:
-                fragmentClass = ManualStatistics.class;
-                break;
-            case R.id.nav_feedback:
-                fragmentClass = ManualFeedback.class;
-                break;
+        if (id == R.id.nav_menu) {
+            fragmentClass = ManualMenu.class;
+        } else if (id == R.id.nav_user_interface) {
+            fragmentClass = ManualUserInterface.class;
+        } else if (id == R.id.nav_games) {
+            fragmentClass = ManualGames.class;
+        } else if (id == R.id.nav_statistics) {
+            fragmentClass = ManualStatistics.class;
+        } else if (id == R.id.nav_feedback) {
+            fragmentClass = ManualFeedback.class;
+        } else {
+            fragmentClass = ManualStartPage.class;
         }
 
         loadFragment(fragmentClass);

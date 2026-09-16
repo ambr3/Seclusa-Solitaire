@@ -1,0 +1,5 @@
+* Forked into Seclusa Solitaire: privacy-first edition with a new app ID (com.ambr3.seclusasolitaire)
+* Zero permissions — no internet, no location, no storage
+* Disabled Google's automatic app-data backup for privacy
+* Rebranded launcher icon, green theme and modernized menus
+* Updated for Android 17 (targetSdk 37)

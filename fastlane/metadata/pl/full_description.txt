@@ -1,7 +1,7 @@
 Ta kolekcja zawiera następujące gry:
 
-Calculation, Canfield, Cygan, Czterdieści&Osiem, Cztery Asy, FreeCell, Golf, Grób Napoleona, Jukon, Klondike, Mod3, Pająk, Piramida, Simple Simon, Trzy Wieże, Vegas i Zegarek Dziadka!
+Calculation, Canfield, Cygan, Czterdieści&Osiem, Cztery Asy, FreeCell, Golf, Grób Napoleona, Jukon, Klondike, Labirynt, Mod3, Pajączek, Pająk, Piramida, Simple Simon, Trzy Wieże, Vegas i Zegarek Dziadka!
 
-Wysoce konfigurowalna: 8 styli kart, 10 koszulek i 6 teł.
+Wysoce konfigurowalna: 10 styli kart, 10 koszulek i 4 tła.
 
 Główne cechy: automatyczny zapis stanu gry, listy najlepszych wyników dla każdej gry, możliwość cofnięcia lub wyświetlenia wskazówki, wsparcie dla trybu poziomego i dla tabletów.

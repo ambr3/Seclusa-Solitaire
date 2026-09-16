@@ -58,6 +58,11 @@ public class Canfield extends Game {
 
     @Override
     public void load() {
+        if (stacks[5].getSize() == 0) {
+            //saved game was left empty (e.g. the key card was moved); fall back to a fresh deal
+            gameLogic.newGame();
+            return;
+        }
         startCardValue = stacks[5].getCard(0).getValue();
         setFoundationBackgrounds();
     }

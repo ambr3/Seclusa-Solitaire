@@ -18,9 +18,12 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Random;
 
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
@@ -108,40 +111,42 @@ public class GameLogic {
             }
         }
 
-//        try {
-        if (firstRun) {
-            newGame();
-            prefs.saveFirstRun(false);
-        } else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()) {
-            //in case the game was selected from the main menu and it was already won, start a new game
-            newGame();
-        } else {
-            scores.load();
-            recordList.load();
-            timer.setCurrentTime(prefs.getSavedEndTime());
+try {
+            if (firstRun) {
+                newGame();
+                prefs.saveFirstRun(false);
+            } else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()) {
+                //in case the game was selected from the main menu and it was already won, start a new game
+                newGame();
+            } else {
+                scores.load();
+                recordList.load();
+                timer.setCurrentTime(prefs.getSavedEndTime());
 
-            //timer will be loaded in onResume() of the game manager
+                //timer will be loaded in onResume() of the game manager
 
-            //load cards first, so their direction (up/down) is known for correct spacing calculation
-            Card.load();
+                //load cards first, so their direction (up/down) is known for correct spacing calculation
+                Card.load();
 
-            for (Stack stack : stacks) {
-                stack.load(withoutMovement);
+                for (Stack stack : stacks) {
+                    stack.load(withoutMovement);
+                }
+
+                loadRandomCards();
+
+                checkForAutoCompleteButton(withoutMovement);
+
+                //load game dependent data
+                currentGame.load();
+                currentGame.loadRecycleCount();
             }
-
-            loadRandomCards();
-
-            checkForAutoCompleteButton(withoutMovement);
-
-            //load game dependent data
-            currentGame.load();
-            currentGame.loadRecycleCount();
+        } catch (Exception e) {
+            //saved data may be corrupt (e.g. interrupted write, version change). Fall back to a
+            //new game instead of crashing the app on resume.
+            Log.e("GameLogic.load", "Failed to load saved game data: " + e.toString());
+            showToast(gm.getString(R.string.game_load_error), gm);
+            newGame();
         }
-//        } catch (Exception e) {
-//            Log.e(gm.getString(R.string.loading_data_failed), e.toString());
-//            showToast(gm.getString(R.string.game_load_error),gm);
-//            newGame();
-//        }
 
         gm.hasLoaded = true;
     }

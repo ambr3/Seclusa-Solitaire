@@ -82,7 +82,9 @@
 <string name="about_tab_2">"Licenses"</string>
 <string name="about_tab_3">"Changelog"</string>
 <string name="about_developer">"Developer"</string>
-<string name="about_developer_name">"Tobias Bielefeld"</string>
+<string name="about_developer_name">"ambr3"</string>
+<string name="about_contact">"Contact"</string>
+<string name="about_contact_value">"@solair3:matrix.org"</string>
 <string name="about_compiled">"Compiled on"</string>
 <string name="about_source_code">"Source code"</string>
 <string name="about_license">"License"</string>
@@ -93,12 +95,12 @@
 <string name="about_material_icons_title">"Material design icons"</string>
 <string name="about_material_icons_usage">"Used for all icons in this application"</string>
 <string name="about_card_themes_title">"Card themes"</string>
-<string name="about_card_themes_usage">"The card themes were taken from &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, for detailed information click &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;here&lt;/a&gt;"</string>
+<string name="about_card_themes_usage">"The card themes were taken from &lt;a href=https://pixabay.com/&gt;pixabay.com&lt;/a&gt;, for detailed information click &lt;a href=https://github.com/ambr3/Seclusa-Solitaire/blob/master/pictures/cards/LICENSES.txt&gt;here&lt;/a&gt;"</string>
 <string name="about_poker_themes_usage">"Used as Poker theme - Available on &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
 <string name="about_custom_color_picker_usage">"Used for the custom color picker"</string>
 <string name="about_sounds_title">"Sounds"</string>
-<string name="about_sounds_usage">"All sounds were originally published on &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, for detailed information click &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;here&lt;/a&gt;"</string>
+<string name="about_sounds_usage">"All sounds were originally published on &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, for detailed information click &lt;a href=https://github.com/ambr3/Seclusa-Solitaire/blob/master/sounds/readme.txt&gt;here&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
 <string name="about_sliding_tabs_usage">"Used for the tabs in the \"About game\" screen"</string>
 

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#FF4343CD</color>
-    <color name="colorDrawerSelected">#FFBDBDBD</color>
+    <color name="colorPrimary">#2E7D32</color>
+    <color name="colorPrimaryDark">#1B5E20</color>
+    <color name="colorAccent">#81C784</color>
+    <color name="colorDrawerSelected">#C8E6C9</color>
     <color name="white">#ffffff</color>
-    <color name="blueBackground">#5d80f0</color>
+    <color name="gameSelectBackground">#14532D</color>
+    <color name="menuBarBackground">#FFFFFF</color>
+    <color name="menuBarIcon">#455A64</color>
+    <color name="menuBarLabel">#455A64</color>
 </resources>

@@ -42,7 +42,7 @@
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_android_support_libraries_title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -103,7 +103,7 @@
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_material_icons_title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -164,7 +164,7 @@
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_material_icons_title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -227,7 +227,7 @@
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_card_themes_title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -289,7 +289,7 @@
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_poker_themes_title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -351,7 +351,7 @@
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_paris_themes_title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -413,7 +413,7 @@
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_custom_color_picker_title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -475,7 +475,7 @@
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_sounds_title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -538,7 +538,7 @@
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_sliding_tabs_title"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
 
                     <TextView

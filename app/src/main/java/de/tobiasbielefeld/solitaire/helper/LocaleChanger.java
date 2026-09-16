@@ -26,6 +26,8 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.preference.PreferenceManager;
 
+import de.tobiasbielefeld.solitaire.R;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -49,8 +51,7 @@ public class LocaleChanger {
     public static String getLanguage(Context context) {
         PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getString("pref_key_language", Locale.getDefault().getLanguage());
-        //I can't use my static variable for the string because it isn't initialized here yet
+        return preferences.getString(context.getString(R.string.pref_key_language), Locale.getDefault().getLanguage());
     }
 
     public static Context setLocale(Context context) {

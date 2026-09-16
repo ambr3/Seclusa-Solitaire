@@ -39,13 +39,13 @@ Keeps your cards your own. Seclusa Solitaire is a **fully offline, open-source A
 ## ✨ Features
 
 ### 🃏 Games
-- **17 solitaire variants** — AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, Grandfather's Clock, Gypsy, Klondike, Mod3, Napoleon's Tomb, Pyramid, SimpleSimon, Spider, TriPeaks, Vegas and Yukon
+- **19 solitaire variants** — AcesUp, Calculation, Canfield, Forty&Eight, FreeCell, Golf, Grandfather's Clock, Gypsy, Klondike, Maze, Mod3, Napoleon's Tomb, Pyramid, SimpleSimon, Spider, Spiderette, TriPeaks, Vegas and Yukon
 - **Auto-saving** — your current game is saved when you pause or close the app
 - **Undo & hints** — undo up to 20 card movements, with a hint function that shows possible moves
 - **High scores** — the top 10 scores are saved in a statistics list
 
 ### 🎨 Interface
-- **Highly customizable** — 6 card sets, 12 card backgrounds, and 6 background colours
+- **Highly customizable** — 10 card themes, 10 card backgrounds, and 4 background colours
 - **Difficulty settings** — for Klondike, Spider, and Golf
 - **Left-handed mode** — mirror the card positions to the left side
 - **Landscape & tablet support** — with the option to lock orientation
@@ -83,16 +83,16 @@ ee9572ee718afb5df1883d9ad27d1c0ced367ab54e3fb04a08aabc80ee05b766
 On a machine with the Android build-tools installed, run:
 
 ```
-apksigner verify --print-certs Seclusa-Solitaire-v4.0.apk
+apksigner verify --print-certs Seclusa-Solitaire-v4.0.1-android17.apk
 ```
 
 The output's `Signer #1 certificate SHA-256 digest` should match the fingerprint above.
 
 ### VirusTotal scan
 
-The APK was scanned by [VirusTotal](https://www.virustotal.com/gui/file/4e2cb0846d7a309be962c94aa4b9ef166e015007e35f83a386d7a97c576ea07d) — **no security vendors flagged it as malicious**.
+The v4.0.1 APK was scanned by [VirusTotal](https://www.virustotal.com/gui/file/41b29921b2da4da38f0eeb1c5dc45c2898c8506f1179f163e210b118da3c5c31) — **no security vendors flagged it as malicious**.
 
-File SHA-256: `4e2cb0846d7a309be962c94aa4b9ef166e015007e35f83a386d7a97c576ea07d`
+File SHA-256: `41b29921b2da4da38f0eeb1c5dc45c2898c8506f1179f163e210b118da3c5c31`
 
 You can re-check anytime — virus scanners are updated constantly, so a fresh scan is more meaningful than this snapshot.
 
@@ -106,11 +106,13 @@ Install [Android Studio](https://developer.android.com/studio), open the project
 4. Press the green **Run ▶** button
 5. Done — install it on your phone or emulator as an APK
 
+> 🗓️ **Maintenance note:** Google releases a new Android version (and target SDK) about once a year, so the target SDK is bumped on that same cadence. Bug fixes can come out sooner, on their own. Updates are otherwise intentionally conservative — this app requests zero permissions and has no dependencies that force frequent version bumps.
+
 ---
 
 ## ⚠️ Disclaimer
 
-> This project is a fork of [Simple Solitaire](https://github.com/TobiasBielefeld/Simple-Solitaire). It is **vibe-coded** — built with AI assistance. Audit it yourself before use, especially if self-hosting or modifying. Use at your own risk.
+> This project is a fork of [Simple Solitaire](https://github.com/TobiasBielefeld/Simple-Solitaire). The fork is **vibe-coded** — built with AI assistance. I am not a professional developer, so I may have missed something. Audit it yourself before use, especially if self-hosting or modifying. Use at your own risk.
 
 ---
 
@@ -123,8 +125,9 @@ Install [Android Studio](https://developer.android.com/studio), open the project
 - Licensed under GPLv3+ https://www.gnu.org/licenses/gpl-3.0
 
 **Changes made in this fork:**
-- Renamed to *Seclusa Solitaire* (v4.0, versionCode 400)
-- Updated the Gradle/AGP build files to compile with modern Android Studio
+- Forked into *Seclusa Solitaire* (v4.0.1, versionCode 401) with its own app ID (`com.ambr3.seclusasolitaire`)
+- Updated the target SDK to 37 (Android 17) — further SDK bumps are done roughly once a year, or sooner if a bug fix needs it
+- Updated the Gradle/AGP build files to compile with modern Android Studio (AGP 9.3)
 - Disabled Google's automatic app-data backup for privacy
 - Replaced the card-shuffle RNG with `SecureRandom`
 - Removed developer/cheat options (instant win, play every card, etc.) from release builds

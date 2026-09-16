@@ -140,20 +140,18 @@ public class DialogPreferenceEnsureMovabilityMinMoves
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.settings_ensure_movability_make_games_winnable:
-                for (int i = 0; i < gameCount; i++) {
+        int id = view.getId();
+        if (id == R.id.settings_ensure_movability_make_games_winnable) {
+            for (int i = 0; i < gameCount; i++) {
 
-                    if (gameInfoList.get(i).canStartWinnableGame()) {
-                        inputs.get(i).setText(winnableText);
-                    }
+                if (gameInfoList.get(i).canStartWinnableGame()) {
+                    inputs.get(i).setText(winnableText);
                 }
-                break;
-            case R.id.settings_ensure_movability_reset:
-                for (int i = 0; i < gameCount; i++) {
-                    inputs.get(i).setText(String.valueOf(gameInfoList.get(i).getEnsureMovabilityMoves()));
-                }
-                break;
+            }
+        } else if (id == R.id.settings_ensure_movability_reset) {
+            for (int i = 0; i < gameCount; i++) {
+                inputs.get(i).setText(String.valueOf(gameInfoList.get(i).getEnsureMovabilityMoves()));
+            }
         }
     }
 }

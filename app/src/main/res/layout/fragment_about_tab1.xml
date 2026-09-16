@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
-            card_view:cardCornerRadius="2dp"
+            card_view:cardCornerRadius="10dp"
             card_view:cardUseCompatPadding="true">
 
             <LinearLayout
@@ -40,14 +40,13 @@
                         android:drawableLeft="@mipmap/ic_launcher"
                         android:gravity="center"
                         android:text="@string/app_name"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textStyle="bold" />
+                        style="@style/AboutSectionTitle" />
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="#DDE0E4" />
 
 
                 <TableLayout
@@ -73,6 +72,25 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="@string/about_developer_name" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="7dp"
+                            android:text="@string/about_contact"
+                            android:textColor="?android:attr/textColorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="7dp"
+                            android:text="@string/about_contact_value" />
                     </TableRow>
 
                     <TableRow
@@ -164,7 +182,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
-            card_view:cardCornerRadius="2dp"
+            card_view:cardCornerRadius="10dp"
             card_view:cardUseCompatPadding="true">
 
             <LinearLayout
@@ -179,15 +197,13 @@
                     android:layout_height="wrap_content"
                     android:padding="3dp"
                     android:text="@string/about_translations"
-
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold" />
+                    style="@style/AboutSectionTitle" />
 
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="#DDE0E4" />
 
 
                 <TableLayout
@@ -534,7 +550,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
-            card_view:cardCornerRadius="2dp"
+            card_view:cardCornerRadius="10dp"
             card_view:cardUseCompatPadding="true">
 
             <LinearLayout
@@ -548,14 +564,13 @@
                     android:layout_height="wrap_content"
                     android:padding="3dp"
                     android:text="@string/about_further_contributors"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold" />
+                    style="@style/AboutSectionTitle" />
 
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="#DDE0E4" />
 
 
                 <TableLayout

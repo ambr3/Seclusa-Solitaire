@@ -133,10 +133,15 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
-        android:background="#e7e7e7"
+        android:background="@color/menuBarBackground"
+        android:elevation="8dp"
         android:baselineAligned="false"
         android:gravity="center"
         android:orientation="horizontal"
+        android:paddingLeft="4dp"
+        android:paddingTop="2dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="2dp"
         android:visibility="visible">
 
         <LinearLayout
@@ -157,10 +162,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_activity_statistics"
-                app:srcCompat="@drawable/icon_star" />
+                app:srcCompat="@drawable/icon_star"
+                app:tint="@color/menuBarIcon" />
 
             <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
-                style="@android:style/TextAppearance.Small"
+                style="@style/GameMenuButtonLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -188,10 +194,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_activity_statistics"
-                app:srcCompat="@drawable/icon_lightbulb_on" />
+                app:srcCompat="@drawable/icon_lightbulb_on"
+                app:tint="@color/menuBarIcon" />
 
             <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
-                style="@android:style/TextAppearance.Small"
+                style="@style/GameMenuButtonLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -219,10 +226,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/menu_main_menu"
-                app:srcCompat="@drawable/icon_menu" />
+                app:srcCompat="@drawable/icon_menu"
+                app:tint="@color/menuBarIcon" />
 
             <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
-                style="@android:style/TextAppearance.Small"
+                style="@style/GameMenuButtonLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -251,10 +259,11 @@
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="false"
                 android:contentDescription="@string/menu_undo"
-                app:srcCompat="@drawable/icon_undo" />
+                app:srcCompat="@drawable/icon_undo"
+                app:tint="@color/menuBarIcon" />
 
             <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
-                style="@android:style/TextAppearance.Small"
+                style="@style/GameMenuButtonLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -282,10 +291,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/menu_settings"
-                app:srcCompat="@drawable/icon_settings_black" />
+                app:srcCompat="@drawable/icon_settings_black"
+                app:tint="@color/menuBarIcon" />
 
             <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
-                style="@android:style/TextAppearance.Small"
+                style="@style/GameMenuButtonLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"

@@ -68,22 +68,18 @@ public class StatisticsActivity extends CustomAppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.item_delete:
-                DialogFragment deleteDialog = new DialogHighScoreDelete();
-                deleteDialog.show(getSupportFragmentManager(), "high_score_delete");
-                break;
-            case R.id.item_hide:
-                boolean checked = !prefs.getSavedStatisticsHideWinPercentage();
+        int itemId = item.getItemId();
+        if (itemId == R.id.item_delete) {
+            DialogFragment deleteDialog = new DialogHighScoreDelete();
+            deleteDialog.show(getSupportFragmentManager(), "high_score_delete");
+        } else if (itemId == R.id.item_hide) {
+            boolean checked = !prefs.getSavedStatisticsHideWinPercentage();
 
-                prefs.saveStatisticsHideWinPercentage(checked);
-                item.setChecked(checked);
-                callback.sendNewState(checked);
-
-                break;
-            case android.R.id.home:
-                finish();
-                break;
+            prefs.saveStatisticsHideWinPercentage(checked);
+            item.setChecked(checked);
+            callback.sendNewState(checked);
+        } else if (itemId == android.R.id.home) {
+            finish();
         }
 
         return true;

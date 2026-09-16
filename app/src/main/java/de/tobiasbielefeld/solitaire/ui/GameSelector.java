@@ -16,8 +16,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -83,19 +85,15 @@ public class GameSelector extends CustomAppCompatActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
-        switch (item.getItemId()) {
-            case R.id.item_settings:
-                startActivity(new Intent(getApplicationContext(), Settings.class));
-                break;
-            case R.id.item_manual:
-                startActivity(new Intent(getApplicationContext(), Manual.class));
-                break;
-            case R.id.item_about:
-                startActivity(new Intent(getApplicationContext(), AboutActivity.class));
-                break;
-            case R.id.item_close:
-                finish();
-                break;
+        int itemId = item.getItemId();
+        if (itemId == R.id.item_settings) {
+            startActivity(new Intent(getApplicationContext(), Settings.class));
+        } else if (itemId == R.id.item_manual) {
+            startActivity(new Intent(getApplicationContext(), Manual.class));
+        } else if (itemId == R.id.item_about) {
+            startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+        } else if (itemId == R.id.item_close) {
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -134,21 +132,41 @@ public class GameSelector extends CustomAppCompatActivity
             int index = orderedList.indexOf(i);
 
             if (isShownList.get(index) == 1) {
-                ImageView imageView = new ImageView(this);
-                imageView.setLayoutParams(params);
-                imageView.setAdjustViewBounds(true);
-                imageView.setLongClickable(true);
-                imageView.setPadding(padding, padding, padding, padding);
 
                 if (counter % menuColumns == 0) {
                     row = new TableRow(this);
                     tableLayout.addView(row);
                 }
 
+                LinearLayout cell = new LinearLayout(this);
+                cell.setOrientation(LinearLayout.VERTICAL);
+                cell.setGravity(android.view.Gravity.CENTER);
+                cell.setLayoutParams(params);
+                cell.setPadding(padding, padding, padding, padding);
+                cell.setLongClickable(true);
+                cell.setOnTouchListener(this);
+
+                ImageView imageView = new ImageView(this);
+                imageView.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
+                imageView.setAdjustViewBounds(true);
+                imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 imageView.setImageBitmap(bitmaps.getMenu(index));
-                imageView.setOnTouchListener(this);
+
+                TextView label = new TextView(this);
+                label.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT));
+                label.setGravity(android.view.Gravity.CENTER);
+                label.setText(lg.getGameName(getResources(), index));
+                label.setTextColor(getResources().getColor(R.color.white));
+                label.setTextSize(12);
+                label.setPadding(0, padding, 0, 0);
+
+                cell.addView(imageView);
+                cell.addView(label);
                 indexes.add(i);
-                row.addView(imageView);
+                row.addView(cell);
                 counter++;
             }
         }

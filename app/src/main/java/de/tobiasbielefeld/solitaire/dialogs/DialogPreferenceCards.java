@@ -78,39 +78,28 @@ public class DialogPreferenceCards extends CustomDialogPreference implements Vie
 
     public void onClick(View v) {
         int choice;
+        int id = v.getId();
 
-        switch (v.getId()) {
-            case R.id.settingsLinearLayoutCardsBasic:
-            default:
-                choice = 1;
-                break;
-            case R.id.settingsLinearLayoutCardsClassic:
-                choice = 2;
-                break;
-            case R.id.settingsLinearLayoutCardsAbstract:
-                choice = 3;
-                break;
-            case R.id.settingsLinearLayoutCardsSimple:
-                choice = 4;
-                break;
-            case R.id.settingsLinearLayoutCardsModern:
-                choice = 5;
-                break;
-            case R.id.settingsLinearLayoutCardsOxygenDark:
-                choice = 6;
-                break;
-            case R.id.settingsLinearLayoutCardsOxygenLight:
-                choice = 7;
-                break;
-            case R.id.settingsLinearLayoutCardsPoker:
-                choice = 8;
-                break;
-            case R.id.settingsLinearLayoutCardsParis:
-                choice = 9;
-                break;
-            case R.id.settingsLinearLayoutCardsDondorf:
-                choice = 10;
-                break;
+        if (id == R.id.settingsLinearLayoutCardsClassic) {
+            choice = 2;
+        } else if (id == R.id.settingsLinearLayoutCardsAbstract) {
+            choice = 3;
+        } else if (id == R.id.settingsLinearLayoutCardsSimple) {
+            choice = 4;
+        } else if (id == R.id.settingsLinearLayoutCardsModern) {
+            choice = 5;
+        } else if (id == R.id.settingsLinearLayoutCardsOxygenDark) {
+            choice = 6;
+        } else if (id == R.id.settingsLinearLayoutCardsOxygenLight) {
+            choice = 7;
+        } else if (id == R.id.settingsLinearLayoutCardsPoker) {
+            choice = 8;
+        } else if (id == R.id.settingsLinearLayoutCardsParis) {
+            choice = 9;
+        } else if (id == R.id.settingsLinearLayoutCardsDondorf) {
+            choice = 10;
+        } else {
+            choice = 1;
         }
 
         prefs.saveCardTheme(choice);

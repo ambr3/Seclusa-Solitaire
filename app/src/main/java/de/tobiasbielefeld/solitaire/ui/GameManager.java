@@ -821,42 +821,35 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         resetTappedCard();
 
-        switch (view.getId()) {
-            case R.id.mainImageViewResize:
-                if (menuBar.getVisibility() == VISIBLE) {
-                    menuBar.setVisibility(GONE);
-                    prefs.saveHideMenuBar(true);
-                } else {
-                    menuBar.setVisibility(VISIBLE);
-                    prefs.saveHideMenuBar(false);
-                }
+        int viewId = view.getId();
+        if (viewId == R.id.mainImageViewResize) {
+            if (menuBar.getVisibility() == VISIBLE) {
+                menuBar.setVisibility(GONE);
+                prefs.saveHideMenuBar(true);
+            } else {
+                menuBar.setVisibility(VISIBLE);
+                prefs.saveHideMenuBar(false);
+            }
 
-                menuBar.post(() -> {
-                    gameLogic.save();
-                    updateGameLayout();
-                });
-                break;
-            case R.id.mainButtonScores:         //open high scores activity
-                startActivity(new Intent(getApplicationContext(), StatisticsActivity.class));
-                break;
-            case R.id.mainButtonUndo:           //undo last movement
-                if (!gameLogic.hasWon()) {
-                    recordList.undo();
-                }
-                break;
-            case R.id.mainButtonHint:           //show a hint
-                showHelpDialog();
-                break;
-            case R.id.mainButtonRestart:        //show restart dialog
-                showRestartDialog();
-                break;
-            case R.id.mainButtonSettings:       //open Settings activity
-                Intent i = new Intent(this, Settings.class);
-                startActivityForResult(i, 1);
-                break;
-            case R.id.buttonMainAutoComplete:   //start auto complete
-                autoComplete.start();
-                break;
+            menuBar.post(() -> {
+                gameLogic.save();
+                updateGameLayout();
+            });
+        } else if (viewId == R.id.mainButtonScores) {         //open high scores activity
+            startActivity(new Intent(getApplicationContext(), StatisticsActivity.class));
+        } else if (viewId == R.id.mainButtonUndo) {           //undo last movement
+            if (!gameLogic.hasWon()) {
+                recordList.undo();
+            }
+        } else if (viewId == R.id.mainButtonHint) {           //show a hint
+            showHelpDialog();
+        } else if (viewId == R.id.mainButtonRestart) {        //show restart dialog
+            showRestartDialog();
+        } else if (viewId == R.id.mainButtonSettings) {       //open Settings activity
+            Intent i = new Intent(this, Settings.class);
+            startActivityForResult(i, 1);
+        } else if (viewId == R.id.buttonMainAutoComplete) {   //start auto complete
+            autoComplete.start();
         }
     }
 

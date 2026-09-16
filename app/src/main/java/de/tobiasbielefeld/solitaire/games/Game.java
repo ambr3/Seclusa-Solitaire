@@ -226,8 +226,14 @@ public abstract class Game {
     public CardAndStack doubleTap(Stack stack) {
         CardAndStack cardAndStack = null;
         Stack destination = null;
+        int firstUpCardPos = stack.getFirstUpCardPos();
 
-        for (int i = stack.getFirstUpCardPos(); i < stack.getSize(); i++) {
+        if (firstUpCardPos == -1) {
+            //stack contains no face-up cards, nothing can be double-tapped
+            return null;
+        }
+
+        for (int i = firstUpCardPos; i < stack.getSize(); i++) {
             if (addCardToMovementTest(stack.getCard(i))) {
                 destination = doubleTapTest(stack.getCard(i));
             }
@@ -933,7 +939,14 @@ public abstract class Game {
                 continue;
             }
 
-            for (int j = sourceStack.getFirstUpCardPos(); j < sourceStack.getSize(); j++) {
+            int firstUpCardPos = sourceStack.getFirstUpCardPos();
+
+            if (firstUpCardPos == -1) {
+                //source stack contains no face-up cards, nothing can be moved from it
+                continue;
+            }
+
+            for (int j = firstUpCardPos; j < sourceStack.getSize(); j++) {
                 if (testCardsUpToTop(sourceStack, j, mode)) {
                     Card card = sourceStack.getCard(j);
 

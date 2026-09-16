@@ -15,7 +15,7 @@
 
         <intent
             android:targetClass="de.tobiasbielefeld.solitaire.ui.settings.SettingsGames"
-            android:targetPackage="de.tobiasbielefeld.solitaire" />
+            android:targetPackage="com.ambr3.seclusasolitaire" />
     </header>
 
     <header
