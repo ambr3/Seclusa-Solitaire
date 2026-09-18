@@ -114,6 +114,20 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         hideMenu = findViewById(R.id.mainImageViewResize);
         menuBar = findViewById(R.id.linearLayoutMenuBar);
 
+        /*
+         * Since targetSdk 35+ the window is forced into edge-to-edge, so the content is drawn
+         * under the status- and navigation bar. Pad the root layout with the reported system bar
+         * insets, so the game won't overlap the status bar (time, wifi, battery, ...). When the
+         * bars are hidden (immersive/fullscreen mode), the insets are zero and the padding is
+         * removed again.
+         */
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mainRelativeLayoutBackground.setOnApplyWindowInsetsListener((view, insets) -> {
+                view.setPadding(0, insets.getSystemWindowInsetTop(), 0, insets.getSystemWindowInsetBottom());
+                return insets;
+            });
+        }
+
         //initialize my static helper stuff
         final GameManager gm = this;
 

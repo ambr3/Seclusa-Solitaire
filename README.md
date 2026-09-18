@@ -57,14 +57,12 @@ Keeps your cards your own. Seclusa Solitaire is a **fully offline, open-source A
 
 Your data is your business. That's the whole point.
 
-| | |
-|---|---|
-| 🚫 **Zero permissions** | The app requests no permissions at all — no internet, location, or storage |
-| 🚫 **No network** | The code makes no network requests — it cannot send your data anywhere |
-| 🚫 **Zero tracking** | No analytics, no ads, no third-party SDKs |
-| 🏠 **Stays on device** | Game state and scores live only on your device's storage |
-| 🧽 **No Google backup** | Google's automatic app-data backup is disabled |
-| 📜 **Open source** | GPL-3.0 — read every line |
+- **Zero permissions** — no internet, location, or storage
+- **No network** — can't send your data anywhere
+- **Zero tracking** — no analytics, no ads, no third-party SDKs
+- **Stays on device** — game state and scores live in app-private storage
+- **No Google backup** — automatic app-data backup is disabled
+- **Open source** — GPL-3.0, read every line
 
 ---
 
@@ -90,9 +88,9 @@ The output's `Signer #1 certificate SHA-256 digest` should match the fingerprint
 
 ### VirusTotal scan
 
-The v4.0.1 APK was scanned by [VirusTotal](https://www.virustotal.com/gui/file/41b29921b2da4da38f0eeb1c5dc45c2898c8506f1179f163e210b118da3c5c31) — **no security vendors flagged it as malicious**.
+The v4.0.1 APK was scanned by [VirusTotal](https://www.virustotal.com/gui/file/b0b0224bc5d8138b00f1f2b5867b376ab9fb221ce78fae2a608345bed755b14b) — **no security vendors flagged it as malicious**.
 
-File SHA-256: `41b29921b2da4da38f0eeb1c5dc45c2898c8506f1179f163e210b118da3c5c31`
+File SHA-256: `b0b0224bc5d8138b00f1f2b5867b376ab9fb221ce78fae2a608345bed755b14b`
 
 You can re-check anytime — virus scanners are updated constantly, so a fresh scan is more meaningful than this snapshot.
 
@@ -106,13 +104,13 @@ Install [Android Studio](https://developer.android.com/studio), open the project
 4. Press the green **Run ▶** button
 5. Done — install it on your phone or emulator as an APK
 
-> 🗓️ **Maintenance note:** Google releases a new Android version (and target SDK) about once a year, so the target SDK is bumped on that same cadence. Bug fixes can come out sooner, on their own. Updates are otherwise intentionally conservative — this app requests zero permissions and has no dependencies that force frequent version bumps.
+> 🗓️ **Maintenance note:** Updates are conservative and typically yearly, to match new Android SDK releases.
 
 ---
 
 ## ⚠️ Disclaimer
 
-> This project is a fork of [Simple Solitaire](https://github.com/TobiasBielefeld/Simple-Solitaire). The fork is **vibe-coded** — built with AI assistance. I am not a professional developer, so I may have missed something. Audit it yourself before use, especially if self-hosting or modifying. Use at your own risk.
+> This project is a fork of [Simple Solitaire](https://github.com/TobiasBielefeld/Simple-Solitaire). The fork is vibe-coded. I am not a professional developer, so I may have missed something. Audit it yourself before use, especially if self-hosting or modifying. Use at your own risk.
 
 ---
 

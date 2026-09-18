@@ -608,6 +608,22 @@ public class Preferences {
         return result;
     }
 
+    private static int parseInt(String value, int fallback) {
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            return fallback;
+        }
+    }
+
+    private static float parseFloat(String value, float fallback) {
+        try {
+            return Float.parseFloat(value);
+        } catch (NumberFormatException e) {
+            return fallback;
+        }
+    }
+
     /**
      * need to ensure these settings already exist in the shared pref, or otherwise they getHighScore created
      * by the settings headers and the settings activity would do stuff, because it thinks the user changed
@@ -794,7 +810,7 @@ public class Preferences {
             return 0;
         }
         String value = savedSharedData.getString(PREF_KEY_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES, DEFAULT_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES);
-        return Integer.parseInt(value);
+        return parseInt(value, parseInt(DEFAULT_DEVELOPER_OPTION_DEAL_CORRECT_SEQUENCES, 0));
     }
 
     public ArrayList<Integer> getSavedCards() {
@@ -1066,14 +1082,14 @@ public class Preferences {
     }
 
     public int getSavedOrientation() {
-        return Integer.parseInt(savedSharedData.getString(PREF_KEY_ORIENTATION, DEFAULT_ORIENTATION));
+        return parseInt(savedSharedData.getString(PREF_KEY_ORIENTATION, DEFAULT_ORIENTATION), parseInt(DEFAULT_ORIENTATION, 1));
     }
 
     public int getSavedBackgroundColor() {
         if (hasSettingsOnlyForThisGame()) {
-            return Integer.parseInt(savedGameData.getString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR));
+            return parseInt(savedGameData.getString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR), parseInt(DEFAULT_BACKGROUND_COLOR, 2));
         } else {
-            return Integer.parseInt(savedSharedData.getString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR));
+            return parseInt(savedSharedData.getString(PREF_KEY_BACKGROUND_COLOR, DEFAULT_BACKGROUND_COLOR), parseInt(DEFAULT_BACKGROUND_COLOR, 2));
         }
     }
 
@@ -1086,23 +1102,23 @@ public class Preferences {
     }
 
     public int getSavedMenuColumnsPortrait() {
-        return Integer.parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT));
+        return parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT), parseInt(DEFAULT_MENU_COLUMNS_PORTRAIT, 4));
     }
 
     public int getSavedMenuColumnsLandscape() {
-        return Integer.parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE));
+        return parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_LANDSCAPE, DEFAULT_MENU_COLUMNS_LANDSCAPE), parseInt(DEFAULT_MENU_COLUMNS_LANDSCAPE, 6));
     }
 
     public int getSavedNumberOfRecycles(String Key, String defaulValue) {
-        return Integer.parseInt(savedSharedData.getString(Key, defaulValue));
+        return parseInt(savedSharedData.getString(Key, defaulValue), parseInt(defaulValue, 0));
     }
 
     public int getSavedCanfieldSizeOfReserve() {
-        return Integer.parseInt(savedSharedData.getString(PREF_KEY_CANFIELD_SIZE_OF_RESERVE, DEFAULT_CANFIELD_SIZE_OF_RESERVE));
+        return parseInt(savedSharedData.getString(PREF_KEY_CANFIELD_SIZE_OF_RESERVE, DEFAULT_CANFIELD_SIZE_OF_RESERVE), parseInt(DEFAULT_CANFIELD_SIZE_OF_RESERVE, 13));
     }
 
     public float getSavedMovementSpeed() {
-        return Float.parseFloat(savedSharedData.getString(PREF_KEY_MOVEMENT_SPEED, DEFAULT_MOVEMENT_SPEED));
+        return parseFloat(savedSharedData.getString(PREF_KEY_MOVEMENT_SPEED, DEFAULT_MOVEMENT_SPEED), parseFloat(DEFAULT_MOVEMENT_SPEED, 2));
     }
 
     public int getSavedMaxNumberUndos() {
