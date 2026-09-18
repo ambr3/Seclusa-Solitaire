@@ -81,16 +81,16 @@ ee9572ee718afb5df1883d9ad27d1c0ced367ab54e3fb04a08aabc80ee05b766
 On a machine with the Android build-tools installed, run:
 
 ```
-apksigner verify --print-certs Seclusa-Solitaire-v4.0.1-android17.apk
+apksigner verify --print-certs Seclusa-Solitaire-v4.0.2-android17.apk
 ```
 
 The output's `Signer #1 certificate SHA-256 digest` should match the fingerprint above.
 
 ### VirusTotal scan
 
-The v4.0.1 APK was scanned by [VirusTotal](https://www.virustotal.com/gui/file/b0b0224bc5d8138b00f1f2b5867b376ab9fb221ce78fae2a608345bed755b14b) — **no security vendors flagged it as malicious**.
+The v4.0.2 APK was scanned by [VirusTotal](https://www.virustotal.com/gui/file/0091496c19f1f9c649b664a2cb87fe72667602d7c509d4178476bad935c59bdf) — **no security vendors flagged it as malicious**.
 
-File SHA-256: `b0b0224bc5d8138b00f1f2b5867b376ab9fb221ce78fae2a608345bed755b14b`
+File SHA-256: `0091496c19f1f9c649b664a2cb87fe72667602d7c509d4178476bad935c59bdf`
 
 You can re-check anytime — virus scanners are updated constantly, so a fresh scan is more meaningful than this snapshot.
 
@@ -123,7 +123,7 @@ Install [Android Studio](https://developer.android.com/studio), open the project
 - Licensed under GPLv3+ https://www.gnu.org/licenses/gpl-3.0
 
 **Changes made in this fork:**
-- Forked into *Seclusa Solitaire* (v4.0.1, versionCode 401) with its own app ID (`com.ambr3.seclusasolitaire`)
+- Forked into *Seclusa Solitaire* (v4.0.2, versionCode 402) with its own app ID (`com.ambr3.seclusasolitaire`)
 - Updated the target SDK to 37 (Android 17) — further SDK bumps are done roughly once a year, or sooner if a bug fix needs it
 - Updated the Gradle/AGP build files to compile with modern Android Studio (AGP 9.3)
 - Disabled Google's automatic app-data backup for privacy

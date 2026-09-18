@@ -1,0 +1,4 @@
+* Rounded card corners on Android 5.0+ for a cleaner look
+* Improved screen-fit on edge-to-edge devices (game area clears the status bar)
+* Hardened preference loading against corrupted stored values — falls back safely instead of crashing
+* Fresh VirusTotal scan: no security vendors flagged the APK
