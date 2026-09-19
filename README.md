@@ -32,10 +32,11 @@
 
 ---
 
-Keeps your cards your own. Seclusa Solitaire is a **fully offline, open-source Android solitaire collection**. It asks for **zero permissions**, makes **no network requests**, and runs entirely on your device. No accounts, no ads, no tracking — just privacy-first card games.
+No accounts, no ads, no tracking — just privacy-first card games.
 
 ---
-
+> 🗓️ **Maintenance note:** Updates are conservative and typically yearly, to match new Android SDK releases.
+---
 ## ✨ Features
 
 ### 🃏 Games
@@ -94,23 +95,10 @@ File SHA-256: `0091496c19f1f9c649b664a2cb87fe72667602d7c509d4178476bad935c59bdf`
 
 You can re-check anytime — virus scanners are updated constantly, so a fresh scan is more meaningful than this snapshot.
 
-### Build it yourself
-
-Install [Android Studio](https://developer.android.com/studio), open the project folder, and press **Run**:
-
-1. Clone or download this repo
-2. Open the folder in Android Studio
-3. Let Gradle sync
-4. Press the green **Run ▶** button
-5. Done — install it on your phone or emulator as an APK
-
-> 🗓️ **Maintenance note:** Updates are conservative and typically yearly, to match new Android SDK releases.
-
----
 
 ## ⚠️ Disclaimer
 
-> This project is a fork of [Simple Solitaire](https://github.com/TobiasBielefeld/Simple-Solitaire). The fork is vibe-coded. I am not a professional developer, so I may have missed something. Audit it yourself before use, especially if self-hosting or modifying. Use at your own risk.
+> The fork is vibe-coded. I am not a professional developer, so I may have missed something. Audit it yourself before use, especially if self-hosting or modifying. Use at your own risk.
 
 ---
 
