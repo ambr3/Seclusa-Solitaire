@@ -17,16 +17,18 @@ android {
                 storePassword keystoreProperties['storePassword']
                 keyAlias keystoreProperties['keyAlias']
                 keyPassword keystoreProperties['keyPassword']
+                v1SigningEnabled false
+                v2SigningEnabled true
             }
         }
     }
 
     defaultConfig {
         applicationId "com.ambr3.seclusasolitaire"
-        minSdk 14
+        minSdk 29
         targetSdk 37
-        versionCode 402
-        versionName "4.0.2"
+        versionCode 410
+        versionName "4.1.0"
 
         vectorDrawables.useSupportLibrary = true
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
@@ -56,6 +58,17 @@ android {
         encoding = 'UTF-8'
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+def sdkMajor = android.compileSdk.toString().replaceAll(/[^0-9]/, '').toInteger() - 20
+def versionNameValue = android.defaultConfig.versionName
+
+androidComponents {
+    onVariants(selector().all()) { variant ->
+        variant.outputs.forEach { output ->
+            output.outputFileName.set("Seclusa-Solitaire-v${versionNameValue}-android${sdkMajor}.apk")
+        }
     }
 }
 

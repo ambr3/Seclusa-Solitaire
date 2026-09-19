@@ -52,6 +52,7 @@ public class InformationFragment extends Fragment {
         TextView textViewAppVersion = view.findViewById(R.id.aboutTextViewVersion);    //app version
         TextView textViewGitHubLink = view.findViewById(R.id.aboutTextViewGitHubLink); //link for the gitHub repo
         TextView textViewLicenseLink = view.findViewById(R.id.aboutTextViewLicenseLink);
+        TextView textViewLicensesLink = view.findViewById(R.id.aboutTextViewLicensesLink);
 
         String buildDate = DateFormat.getDateInstance().format(BuildConfig.TIMESTAMP); //get the build date in locale time format
 
@@ -65,6 +66,11 @@ public class InformationFragment extends Fragment {
         for (TextView textView : textViews) {
             textView.setMovementMethod(LinkMovementMethod.getInstance());
         }
+
+        textViewLicensesLink.setOnClickListener(v -> getFragmentManager().beginTransaction()
+                .replace(R.id.about_fragment_container, new LicenseFragment())
+                .addToBackStack(null)
+                .commit());
 
         //enable hyperlinks in "Translations"
         for (int i = 0; i < table_translators.getChildCount(); i++) {

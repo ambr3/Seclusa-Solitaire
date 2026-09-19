@@ -83,9 +83,6 @@ public class SettingsGames extends AppCompatPreferenceActivity {
     public void onPause() {
         super.onPause();
         prefs.unregisterListener(this);
-
-        activityCounter--;
-        handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
     }
 
     /*

@@ -55,7 +55,6 @@ public class Klondike extends Game {
         //1 stands for Klondike, 2 for Vegas
         whichGame = 1;
 
-        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
         setNumberOfRecycles(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES, DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
 
         toggleRecycles(prefs.getSavedKlondikeLimitedRecycles());

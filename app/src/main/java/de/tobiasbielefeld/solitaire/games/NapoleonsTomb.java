@@ -50,7 +50,6 @@ public class NapoleonsTomb extends Game {
 
         setDirections(0, 0, 0, 0);
 
-        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
 
         setNumberOfRecycles(PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES, DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES);
     }

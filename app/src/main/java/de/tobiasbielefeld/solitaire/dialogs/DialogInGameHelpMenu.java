@@ -53,26 +53,6 @@ public class DialogInGameHelpMenu extends CustomDialogFragment {
                             }
                             break;
                         case 1:
-                            if (!gameLogic.hasWon()) {
-                                autoMove.start();
-                            }
-                            break;
-                        case 2:
-                            if (!gameLogic.hasWon()) {
-                                if (currentGame.hintTest() == null) {
-                                    if (prefs.getShowDialogMixCards()) {
-                                        prefs.putShowDialogMixCards(false);
-                                        DialogMixCards dialogMixCards = new DialogMixCards();
-                                        dialogMixCards.show(getFragmentManager(), "MIX_DIALOG");
-                                    } else {
-                                        currentGame.mixCards();
-                                    }
-                                } else {
-                                    showToast(getString(R.string.dialog_mix_cards_not_available), getActivity());
-                                }
-                            }
-                            break;
-                        case 3:
                             Intent intent = new Intent(gameManager, Manual.class);
                             intent.putExtra(GAME, lg.getSharedPrefName());
                             startActivity(intent);

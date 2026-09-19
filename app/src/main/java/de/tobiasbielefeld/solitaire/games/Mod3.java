@@ -252,20 +252,4 @@ public class Mod3 extends Game {
         return 0;
     }
 
-    /*
-     * override this in your games to customize behavior
-     */
-    protected boolean excludeCardFromMixing(Card card) {
-        Stack stack = card.getStack();
-
-        if (!card.isUp()) {
-            return false;
-        }
-
-        if (foundationStacksContain(stack.getId()) || stack == getDiscardStack()) {
-            return true;
-        }
-
-        return stack.getId() < 24 && !stack.isEmpty() && validOrder(stack);
-    }
 }

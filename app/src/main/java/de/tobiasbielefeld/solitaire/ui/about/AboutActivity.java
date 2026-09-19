@@ -19,21 +19,24 @@
 package de.tobiasbielefeld.solitaire.ui.about;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
-import com.astuetz.PagerSlidingTabStrip;
-
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
+import de.tobiasbielefeld.solitaire.helper.EdgeToEdge;
 
 /**
- * This is created with help of this article: http://simpledeveloper.com/how-to-create-android-swipe-views-tabs/
- * The About activity contains 3 tabs. The content of the tabs is in the fragments
+ * The About activity simply shows the information fragment. The license fragment
+ * can be opened from there, no tabs needed.
  */
 
 public class AboutActivity extends CustomAppCompatActivity {
+
+    @Override
+    protected int getBaseThemeRes() {
+        return R.style.AppThemeActionBar;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,12 +49,11 @@ public class AboutActivity extends CustomAppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        PagerSlidingTabStrip tabs = findViewById(R.id.tabs);
-        ViewPager pager = findViewById(R.id.pager);
-        TabsPagerAdapter adapter = new TabsPagerAdapter(getSupportFragmentManager(), this);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.about_fragment_container, new InformationFragment())
+                .commit();
 
-        pager.setAdapter(adapter);
-        tabs.setViewPager(pager);
+        EdgeToEdge.applyContentInsets(this);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

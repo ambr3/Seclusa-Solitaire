@@ -38,6 +38,7 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
+import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
@@ -51,7 +52,6 @@ import de.tobiasbielefeld.solitaire.dialogs.DialogWon;
 import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
-import de.tobiasbielefeld.solitaire.helper.AutoMove;
 import de.tobiasbielefeld.solitaire.helper.DealCards;
 import de.tobiasbielefeld.solitaire.helper.EnsureMovability;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
@@ -87,6 +87,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private boolean activityPaused;
     public ImageView hideMenu;
     public LinearLayout menuBar;
+    private HandlerLoadGame handlerLoadGame;
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -99,6 +100,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
+
+        stopUiUpdates = false;
+        isDialogVisible = false;
 
         /**
          * Initializing stuff
@@ -131,7 +135,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //initialize my static helper stuff
         final GameManager gm = this;
 
-        autoMove = new AutoMove(gm);
         hint = new Hint(gm);
         scores = new Scores(gm);
         gameLogic = new GameLogic(gm);
@@ -269,7 +272,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
                         ensureMovability.loadInstanceState(savedInstanceState);
                         autoComplete.loadInstanceState(savedInstanceState);
-                        autoMove.loadInstanceState(savedInstanceState);
                         hint.loadInstanceState(savedInstanceState);
                         dealCards.loadInstanceState(savedInstanceState);
                     }
@@ -329,7 +331,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         updateLimitedRecyclesCounter();
 
         if (loadNewGame) {
-            HandlerLoadGame handlerLoadGame = new HandlerLoadGame();
+            handlerLoadGame = new HandlerLoadGame();
             handlerLoadGame.sendEmptyMessageDelayed(0, 200);
         }
     }
@@ -345,7 +347,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         autoComplete.pause();
-        autoMove.pause();
         hint.pause();
         ensureMovability.pause();
         dealCards.pause();
@@ -361,7 +362,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         outState.putInt(GAME, getIntent().getIntExtra(GAME, -1));
 
         autoComplete.saveInstanceState(outState);
-        autoMove.saveInstanceState(outState);
         hint.saveInstanceState(outState);
         ensureMovability.saveInstanceState(outState);
         dealCards.saveInstanceState(outState);
@@ -374,6 +374,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         handlerTestIfWon.clear();
         handlerTestAfterMove.clear();
         timer.handlerTimer.removeCallbacksAndMessages(null);
+
+        if (handlerLoadGame != null) {
+            handlerLoadGame.removeCallbacksAndMessages(null);
+        }
+
+        animate.handlerAfterWon.clear();
+        recordList.clear();
     }
 
     @Override
@@ -385,7 +392,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         timer.load();
         autoComplete.resume();
-        autoMove.resume();
         hint.resume();
         ensureMovability.resume();
         dealCards.resume();
@@ -952,7 +958,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             DialogInGameMenu dialogInGameMenu = new DialogInGameMenu();
             dialogInGameMenu.show(getSupportFragmentManager(), RESTART_DIALOG);
         } catch (Exception e) {
-            Log.e("showRestartDialog: ", e.toString());
+            if (BuildConfig.DEBUG) {
+                Log.e("showRestartDialog: ", e.toString());
+            }
         }
     }
 
@@ -961,7 +969,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             DialogInGameHelpMenu dialog = new DialogInGameHelpMenu();
             dialog.show(getSupportFragmentManager(), "HELP_MENU");
         } catch (Exception e) {
-            Log.e("showHelpDialog: ", e.toString());
+            if (BuildConfig.DEBUG) {
+                Log.e("showHelpDialog: ", e.toString());
+            }
         }
     }
 
@@ -974,7 +984,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             DialogWon dialogWon = new DialogWon();
             dialogWon.show(getSupportFragmentManager(), WON_DIALOG);
         } catch (Exception e) {
-            Log.e("showWonDialog: ", e.toString());
+            if (BuildConfig.DEBUG) {
+                Log.e("showWonDialog: ", e.toString());
+            }
         }
     }
 

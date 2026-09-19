@@ -35,8 +35,10 @@
 No accounts, no ads, no tracking — just privacy-first card games.
 
 ---
-> 🗓️ **Maintenance note:** Updates are conservative and typically yearly, to match new Android SDK releases.
+> **Maintenance note:** Updates are limited to bug fixes and security. The interface may not change between releases.
+
 ---
+
 ## ✨ Features
 
 ### 🃏 Games
@@ -60,9 +62,8 @@ Your data is your business. That's the whole point.
 
 - **Zero permissions** — no internet, location, or storage
 - **No network** — can't send your data anywhere
-- **Zero tracking** — no analytics, no ads, no third-party SDKs
+- **Zero tracking** — no analytics, no ads, no third-party trackers
 - **Stays on device** — game state and scores live in app-private storage
-- **No Google backup** — automatic app-data backup is disabled
 - **Open source** — GPL-3.0, read every line
 
 ---
@@ -79,22 +80,9 @@ To verify the APK is signed by this project, check the signing certificate. It m
 ee9572ee718afb5df1883d9ad27d1c0ced367ab54e3fb04a08aabc80ee05b766
 ```
 
-On a machine with the Android build-tools installed, run:
+### Security scan
 
-```
-apksigner verify --print-certs Seclusa-Solitaire-v4.0.2-android17.apk
-```
-
-The output's `Signer #1 certificate SHA-256 digest` should match the fingerprint above.
-
-### VirusTotal scan
-
-The v4.0.2 APK was scanned by [VirusTotal](https://www.virustotal.com/gui/file/0091496c19f1f9c649b664a2cb87fe72667602d7c509d4178476bad935c59bdf) — **no security vendors flagged it as malicious**.
-
-File SHA-256: `0091496c19f1f9c649b664a2cb87fe72667602d7c509d4178476bad935c59bdf`
-
-You can re-check anytime — virus scanners are updated constantly, so a fresh scan is more meaningful than this snapshot.
-
+Each release APK is analyzed with [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) (Mobile Security Framework). The full report for this release is stored in the repository: [`security/mobsf-4.1.0.pdf`](security/mobsf-4.1.0.pdf).
 
 ## ⚠️ Disclaimer
 
@@ -110,16 +98,35 @@ You can re-check anytime — virus scanners are updated constantly, so a fresh s
 - Copyright 2016 – Tobias Bielefeld – tobias.bielefeld@gmail.com
 - Licensed under GPLv3+ https://www.gnu.org/licenses/gpl-3.0
 
-**Changes made in this fork:**
-- Forked into *Seclusa Solitaire* (v4.0.2, versionCode 402) with its own app ID (`com.ambr3.seclusasolitaire`)
-- Updated the target SDK to 37 (Android 17) — further SDK bumps are done roughly once a year, or sooner if a bug fix needs it
-- Updated the Gradle/AGP build files to compile with modern Android Studio (AGP 9.3)
-- Disabled Google's automatic app-data backup for privacy
+**Changes made in this fork (cumulative since forking from Simple Solitaire):**
+
+*Privacy & security*
+- Forked as *Seclusa Solitaire* under its own app ID (`com.ambr3.seclusasolitaire`)
+- Zero permissions — no internet, location, or storage access
+- Disabled Google's automatic app-data backup
 - Replaced the card-shuffle RNG with `SecureRandom`
 - Removed developer/cheat options (instant win, play every card, etc.) from release builds
+- Hardened preference loading so corrupted stored values fall back safely instead of crashing
+
+*Platform & build*
+- Updated compile/target SDK to 37 (Android 17)
+- Modernized the Gradle/AGP build files (AGP 9.3)
+- Release APKs are signed and auto-named `Seclusa-Solitaire-v<version>-android17.apk`
+
+*Interface*
+- New launcher icon
+- Rounded card corners
+- Edge-to-edge screen-fit fixes so the board clears the system bars
+- Themed dialogs and refreshed menus
+- Simplified the About screen
+
+*Cleanup*
+- Removed background music and its settings
+- Removed the in-app changelog screen and the card-mixing dialog
+- Deleted unused classes, audio and image resources
 - Fixed handler memory leaks on screen rotation
-- Deleted unused code and resources
-- New launcher icon and re-styled README
+
+Current version: **v4.1.0** (versionCode 410)
 
 [GPL-3.0](LICENSE.txt) — free to use, modify, and share, with the same freedom preserved for derivatives.
 

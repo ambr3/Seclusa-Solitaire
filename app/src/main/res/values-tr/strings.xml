@@ -59,9 +59,6 @@
 <string name="dialog_win_total">"Toplam: %1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Karıştırma kartları"</string>
-<string name="dialog_mix_cards_text">"Bu, tüm kartları karıştırır, temel üzerinde doğru diziler ve kartlar bekler."</string>
-<string name="dialog_mix_cards_not_available">"Hareketsiz hamleler var!"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Yeni oyun"</string>
@@ -78,9 +75,6 @@
 <string name="title_activity_statistics">"Istatistik"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Bilgi"</string>
-<string name="about_tab_2">"lisansları"</string>
-<string name="about_tab_3">"Değişiklikler"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Build date"</string>
 <string name="about_source_code">"Kaynak kodu"</string>
@@ -89,7 +83,6 @@
 <string name="about_material_icons_title">"Material tasarım simgeleri"</string>
 <string name="about_card_themes_title">"Kart temaları "</string>
 <string name="about_poker_themes_usage">"Olarak kullanıldı Poker teması - Üzerinde mevcut &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
-<string name="about_sounds_title">"Sesler"</string>
 
 <!-- Manual -->
 <string name="manual_games">"Oyun"</string>
@@ -116,19 +109,6 @@ Diğer sayfalara erişmek için sol taraftaki menüyü kullanın."</string>
 Uygulama, içinde duraklatılmışsa, uygulama son oynatılan oyunu otomatik olarak bir yeniden başlatmada yükleyecektir. Bu davranış \"Genel\" altındaki ayarlarda devre dışı bırakılabilir.
 
 Ayarlarda \"Ana menü\" bölümünü de bulabilirsiniz; burada menüden oyunları gizlemek ve sütun sayısını değiştirmek mümkündür, böylece bir anda aynı anda daha fazla oyun sığacak oyunlar olur."</string>
-<string name="manual_ui_text">"Bir oyun daima ekranın alt kısmında (Dikey mod) veya sağ tarafta (Yatay mod) küçük bir menü gösterecektir. Oyunun geçerli puanı ve oynatılan zamanı da gösterecektir. Mümkünse, bu iki değer yüksek puanlı listeye kaydedilecektir. Menü, aşağıdaki efektleri içeren 5 maddeden oluşur (soldan sağa düğmeler):
-
-\"Skorlar\" düğmesi, yüksek puanlara ve mevcut oyunun kazanılan sayı sayısına sahip yeni bir pencere gösterecektir. 
-
-\"İpucu\" düğmesi aynı anda en çok 3 kart hareketi göstererek size yardımcı olacaktır. Fakat bu şimdiki puanı 25 azaltıyor. Her kartı boş bir alana taşımak ya da ana yığına basmak gibi önemsiz hareketlerin ipucu olarak gösterilmediğine dikkat edin. 
-Herhangi bir ipucu gösterilmediyse, skor düşmeyecektir. 
-
-\"Menü\" düğmesi üç farklı işlemi gösterir: Kartları karıştırıp yeni bir anlaşma çizerek yeni bir oyun başlatın. Kartları ver yine aynı şeyi ancak karıştırma yapmadan yapacak. Bu, mevcut oyunun yeniden başlatılması gibi. Son seçenek mevcut oyunu bitirir ve uygulamayı ana menüye geri döndürür. 
-
-\"Geri Al\" düğmesi son hareketi geri alır, ancak bu 25 puana mal olur. Bu son 20 hareket için kullanılabilir. 
-
-\"Ayarlar\" düğmesi, yalnızca ayarlar menüsünü açar.
-"</string>
 <string name="manual_feedback_text">"Bir hata mı buldunuz? Geliştirmem gereken bir şey var mı?
 Koleksiyona başka bir oyun eklemem gerekir mi? 
 Belki bazı çevirilerle yardım etmek istersiniz? 
@@ -365,10 +345,7 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="Settings_sound">"Oyundan sesi etkinleştir"</string>
 <string name="Settings_sounds_title">"Sesler"</string>
 <string name="Settings_sounds_text">"Sesleri etkinleştirin, farklı ses efektleri ayarlayın"</string>
-<string name="Settings_win_sound_title">"Kazanma ses efekti"</string>
-<string name="Settings_background_music">"Arkaplan müziği"</string>
 <string name="settings_background_color_custom">"Kişisel"</string>
-<string name="Settings_background_volume">"Arkaplan müzik seviyesi"</string>
 <string name="settings_limit_number_of_recycles">"Geri gönderme sayısını sınırla"</string>
 <string name="settings_limit_number_of_recycles_text">"Atık kartları ana yığına geri gönderme sınırlandırıldı"</string>
 <string name="settings_number_of_recycles">"Geri gönderme miktarı"</string>
@@ -412,24 +389,10 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
 <string name="settings_movement_speed_2">"Slow"</string>
 <string name="settings_movement_speed_3">"Normal"</string>
 <string name="settings_movement_speed_4">"Fast"</string>
-<string name="settings_win_sounds_1">"Varsayılan"</string>
-<string name="settings_win_sounds_2">"Piano"</string>
-<string name="settings_win_sounds_3">"8-Bit ses \"You win\""</string>
-<string name="settings_win_sounds_4">"Kalabalığın Tezahüratı"</string>
-<string name="settings_background_music_1">"Kapalı"</string>
-<string name="settings_background_music_2">"Tema 1"</string>
-<string name="settings_background_music_3">"Tema 2"</string>
-<string name="settings_background_music_4">"Tema 3"</string>
-<string name="settings_background_music_5">"Müzik Kutusu"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 Kartlar (varsayılan)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 Kartlar"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 Kartlar"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 Kartlar"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"Devre dışı"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"Değişken renk"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"Same family"</string>
-<string name="settings_developer_option_deal_correct_sequences_4">"Aynı aile"</string>
-<string name="settings_developer_option_deal_correct_sequences_5">"Ters aynı aile"</string>
 
 <!-- Statistics -->
 <string name="statistics_text_won_games">"%2$d oyun oynadın, %1$d oyun kazandın"</string>

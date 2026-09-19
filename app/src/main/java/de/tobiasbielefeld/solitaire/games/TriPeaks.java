@@ -257,8 +257,4 @@ public class TriPeaks extends Game {
         }
     }
 
-    @Override
-    protected boolean excludeCardFromMixing(Card card) {
-        return false;
-    }
 }

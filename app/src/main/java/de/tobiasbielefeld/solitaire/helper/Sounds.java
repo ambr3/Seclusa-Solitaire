@@ -21,7 +21,7 @@ public class Sounds {
     public enum names {CARD_RETURN, CARD_SET, HINT, DEAL_CARDS, SHOW_AUTOCOMPLETE}
 
     private SoundPool sp;// = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
-    private int[] soundList = new int[9];
+    private int[] soundList = new int[6];
 
     public Sounds(Context context) {
 
@@ -59,20 +59,7 @@ public class Sounds {
 
     public void playWinSound() {
         if (prefs.getSavedSoundEnabled()) {
-            switch (prefs.getSavedWinSound()) {
-                case "0":
-                    sp.play(soundList[5], 1, 1, 0, 0, 1);
-                    break;
-                case "1":
-                    sp.play(soundList[6], 1, 1, 0, 0, 1);
-                    break;
-                case "2":
-                    sp.play(soundList[7], 1, 1, 0, 0, 1);
-                    break;
-                case "3":
-                    sp.play(soundList[8], 1, 1, 0, 0, 1);
-                    break;
-            }
+            sp.play(soundList[5], 1, 1, 0, 0, 1);
         }
     }
 
@@ -83,10 +70,7 @@ public class Sounds {
         soundList[3] = sp.load(context, R.raw.deal_cards, 1);
         soundList[4] = sp.load(context, R.raw.show_autocomplete, 1);
 
-        soundList[5] = sp.load(context, R.raw.win_1, 1);
-        soundList[6] = sp.load(context, R.raw.win_2, 1);
-        soundList[7] = sp.load(context, R.raw.win_3, 1);
-        soundList[8] = sp.load(context, R.raw.win_4, 1);
+        soundList[5] = sp.load(context, R.raw.win, 1);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

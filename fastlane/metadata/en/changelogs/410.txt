@@ -1,0 +1,5 @@
+* Hardened lifecycle handling to prevent memory leaks on rotation and screen changes
+* Simplified the in-game help menu and the About screen
+* Deleted unused classes, audio and image resources for a smaller build
+* Removed background music, the changelog screen and the card-mixing dialog
+* Bug fixes and internal cleanup

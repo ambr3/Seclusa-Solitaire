@@ -59,9 +59,6 @@
 <string name="dialog_win_total">"Gesamt: %1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Karten mischen"</string>
-<string name="dialog_mix_cards_text">"Dies wird alle Karten mischen, bis auf korrekte Sequenzen und Karten auf der Foundation."</string>
-<string name="dialog_mix_cards_not_available">"Es sind noch Bewegungen möglich!"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Neues Spiel starten"</string>
@@ -78,9 +75,6 @@
 <string name="title_activity_statistics">"Statistiken"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Informationen"</string>
-<string name="about_tab_2">"Lizenzen"</string>
-<string name="about_tab_3">"Änderungen"</string>
 <string name="about_developer">"Entwickler"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Kompiliert am"</string>
@@ -97,8 +91,6 @@
 <string name="about_poker_themes_usage">"Wird als Poker Thema benutzt - Verfügbar auf &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna Bibliothek"</string>
 <string name="about_custom_color_picker_usage">"Wird für die benutzerdefinierte Farbauswahl benutzt"</string>
-<string name="about_sounds_title">"Töne"</string>
-<string name="about_sounds_usage">"Alle Töne wurden auf &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt; veröffentlicht, für weitere Details klicke &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;hier&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"PagerSlidingTabStrip Bibliothek"</string>
 <string name="about_sliding_tabs_usage">"Wird für die Tabs im \"Über das Spiel\" Bildschirm verwendet"</string>
 
@@ -126,17 +118,6 @@ Benutze das Menü auf der linken Seite um die anderen Handbuchseiten zu öffnen.
 Die App wird bei einem Neustart automatisch das zuletzt gespielte Spiel öffnen, falls die App innerhalb eines Spiels pausiert wird. Dieses Verhalten kann in den Einstellungen unter \"Allgemein\" deaktivert werden.
 
 In den Einstellungen befindet sich auch unter \"Hauptmenü\" die Möglichkeit alle Spiele im Menü zu verstecken und die Anzahl der Spalten zu verändern, sodass mehr Spiele auf einmal auf dem Bildschirm passen."</string>
-<string name="manual_ui_text">"Ein Spiel zeigt immer ein kleines Menü auf der Unterseite des Bildschirms (Portrait Modus) oder am rechten Rand (Landscape Modus) an. Es werden auch der aktuelle Punktestand und die aktuelle Spielzeit angezeigt. Diese beiden Werte werden falls möglich für die Highscore Liste gespeichert. Das Menü enthält 5 Punkte, die folgendenen Zwecke erfüllen (Punkte von links nach rechts):
-
-Der \"Punkte\" Punkt zeigt ein neues Fenster mit den High-Scores und der Anzahl der gewonnen Spiele an.
-
-Der \"Hinweis\" Punkt hilft dir im Spiel, indem es bis zu 3 mögliche Karten Bewegungen anzeigt. Aber diese Aktion wird die aktuelle Punktzahl um 25 reduzieren. Bemerke, dass triviale Bewegungen wie das Bewegen von einer beliebigen Karte auf einen leeren Platz oder das Drücken auf den Haupt-Stapel nicht als Hinweis angezeigt werden. Falls kein Hinweis angezeigt wird, wird auch die Punktzahl nicht reduziert.
-
-Der \"Menü\" Punkt zeigt drei mögliche Aktionen an: Starte ein neues Spiel, indem die Karten gemischt werden und neu ausgegeben werden. Spiel wiederholen geben hat denselben Effekt, aber die Karten werden nicht gemischt. Das entspricht einem Neustart des aktuellen Spiels. Der letzte Punkt wird das aktuelle Spiel beenden und zurück zum Hauptmenü versetzen.
-
-Der \"Zurück\" Punkt wird die letzte Kartenbewegung rückgängig machen, aber dies wird 25 Punkte kosten. Diese Aktion kann für die letzten 20 Kartenbewegungen genutzt werden.
-
-Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
 <string name="manual_feedback_text">"Hast du einen Fehler gefunden? Etwas was ich verbessern sollte? Soll ich noch ein weiteres Spiel zur Sammlung hinzufügen? Vielleicht möchtest du mit Übersetzungen helfen? Oder hast du ein anderes Anliegen?
 
 Ich freue mich über jede Art von Feedback. Falls du mich kontaktieren willst, solltest du diese zwei Optionen in Erwägung ziehen:
@@ -448,10 +429,7 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="Settings_sound">"Ton im Spiel erlauben"</string>
 <string name="Settings_sounds_title">"Töne"</string>
 <string name="Settings_sounds_text">"Aktivere Töne, ändere Effekte"</string>
-<string name="Settings_win_sound_title">"Gewinn Ton"</string>
-<string name="Settings_background_music">"Hintergrundmusik"</string>
 <string name="settings_background_color_custom">"Benutzerdefiniert"</string>
-<string name="Settings_background_volume">"Hintergrundmusik Lautstärke"</string>
 <string name="settings_limit_number_of_recycles">"Begrenzte Kartenrückgabe"</string>
 <string name="settings_limit_number_of_recycles_text">"Das Zurücklegen der Karten zum Hauptstapel ist limitiert"</string>
 <string name="settings_number_of_recycles">"Anzahl der Rückgaben"</string>
@@ -486,18 +464,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_canfield_size_of_reserve_title">"Ändere Größe der Reserve (Einfacher)"</string>
 <string name="settings_use_true_randomisation_title">"Benutze echten Zufall"</string>
 <string name="settings_use_true_randomisation_text">"Die Standard Randomisierung vermeidet ähnliche Karten übereinander. Setze das Häkchen, um eine uniforme Randomisierung zu nutzen."</string>
-<string name="settings_developer_options">"Entwickler Optionen"</string>
-<string name="settings_developer_options_description">"Spiele mit verrückten Einstellungen herum!"</string>
-<string name="settings_developer_options_move_card_everwhere_title">"Bewege Karten überall hin"</string>
-<string name="settings_developer_options_move_card_everwhere_text">"Man kann Karten auf jeden Stapel platzieren"</string>
-<string name="settings_developer_options_lock_text">"Diese Einstellungen sind nur für Testzwecke gedacht, die Verwendung kann zu merkwürdigem Verhalten und Abstürzen führen!"</string>
-<string name="settings_developer_options_play_every_card_title">"Spiele jede Karte"</string>
-<string name="settings_developer_options_play_every_card_text">"Man kann jede aufgedeckte Karte spielen"</string>
-<string name="settings_developer_options_instant_win_title">"Sofortiger Gewinn"</string>
-<string name="settings_developer_options_instant_win_text">"Gewinne jedes Spiel nach einer Kartenbewegung"</string>
-<string name="settings_developer_options_no_saving_title">"Deaktiviere Spielstand Speicherung"</string>
-<string name="settings_developer_options_no_saving_text">"Bewegungen in den Spielen werden nicht mehr gespeichert"</string>
-<string name="settings_developer_options_deal_correct_sequences_title">"Gebe korrekte Sequenzen aus"</string>
 <string name="settings_max_number_undos">"Anzahl der umkehrbaren Bewegungen"</string>
 <string name="settings_expert_settings">"Experten Einstellungen"</string>
 <string name="settings_expert_settings_text">"Könnten für Einige nützlich sein"</string>
@@ -527,24 +493,10 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_movement_speed_2">"Langsam"</string>
 <string name="settings_movement_speed_3">"Normal"</string>
 <string name="settings_movement_speed_4">"Schnell"</string>
-<string name="settings_win_sounds_1">"Standard"</string>
-<string name="settings_win_sounds_2">"Piano"</string>
-<string name="settings_win_sounds_3">"8-Bit Stimme \"You win\""</string>
-<string name="settings_win_sounds_4">"Jubelnde Menge"</string>
-<string name="settings_background_music_1">"Deaktiviert"</string>
-<string name="settings_background_music_2">"Melodie 1"</string>
-<string name="settings_background_music_3">"Melodie 2"</string>
-<string name="settings_background_music_4">"Melodie 3"</string>
-<string name="settings_background_music_5">"Musikbox"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 Karten (Standard)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 Karten"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 Karten"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 Karten"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"Deaktiviert"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"Abwechselnde Farbe"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"Gleiche Familie"</string>
-<string name="settings_developer_option_deal_correct_sequences_4">"Umgekehrt abwechselnde Farbe"</string>
-<string name="settings_developer_option_deal_correct_sequences_5">"Umgekehrt gleiche Familie"</string>
 
 <!-- Statistics -->
 <string name="statistics_text_won_games">"%1$d aus %2$d Spiele gewonnen"</string>
@@ -567,7 +519,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="statistics_total_number_undos">"Zurückgenommene Bewegungen"</string>
 <string name="statistics_total_points_earned">"Erspielte Punkte"</string>
 <string name="statistics_no_entries">"Keine Einträge, spiele ein paar Runden!"</string>
-<string name="dialog_auto_move">"Automatisch Bewegen"</string>
 <string name="dialog_show_hints">"Zeige Hinweise"</string>
 <string name="manual_ui_text_part_1">"Ein Spiel zeigt immer ein kleines Menü auf der Unterseite des Bildschirms (Portrait Modus) oder am rechten Rand (Landscape Modus) an. Es werden auch der aktuelle Punktestand und die aktuelle Spielzeit angezeigt. Diese beiden Werte werden falls möglich für die Highscore Liste gespeichert. Das Menü enthält 5 Punkte, die folgendenen Zwecke erfüllen (Punkte von links nach rechts):
 
@@ -596,8 +547,6 @@ Der \"Optionen\" Punkt öffnet einfach nur das Einstellungsmenü."</string>
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"Keine Hinweise verfügbar!"</string>
-<string name="dialog_no_movement_possible">"Keine Bewegungen zu zeigen!"</string>
-<string name="settings_show_advanced_settings_title">"Schalte Entwickler Kategorien frei"</string>
 <string name="settings_language_italian">"Italienisch"</string>
 <string name="settings_language_portuguese_brazil">"Portugiesisch (Brasilien)"</string>
 <string name="settings_language_ukrainian">"Ukrainisch"</string>
@@ -661,8 +610,6 @@ Möchten Sie die individuellen Einstellungen für alle aufgeführten Spiele entf
 <string name="settings_ensure_movability_min_moves_warning">"Vorsicht: Das Erhöhen der Beträge führt zu längeren Wartezeiten vor Spielbeginn. Änderungen der Spielregeln wirken sich auch auf die Wartezeit aus!"</string>
 <string name="settings_ensure_movability_min_moves_text">"Ändere die Anzahl der Bewegungen, die jedes Spiel mindestens haben muss, wenn es gestartet wird."</string>
 <string name="settings_number_input_error">"Kann diese Zahlen nicht speichern!"</string>
-<string name="settings_developer_option_improve_auto_move_title">"Automatische Bewegung verbessern"</string>
-<string name="settings_developer_option_improve_auto_move_text">"Die Automatische Bewegung wird versuchen das Spiel zu gewinnen, in dem es den Hauptstapel mitbenutzt"</string>
 <string name="black">"Schwarz"</string>
 <string name="white">"Weiß"</string>
 <string name="settings_ensure_movability_make_game_winnable_button_title">"Bestimmte Spiele gewinnbar machen"</string>

@@ -35,6 +35,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -165,7 +166,9 @@ public class ManualGames extends Fragment implements View.OnClickListener {
 
         } catch (Exception e) {
             //no page available
-            Log.e("Manual page not found", gameName + ": " + e.toString());
+            if (BuildConfig.DEBUG) {
+                Log.e("Manual page not found", gameName + ": " + e.toString());
+            }
             showToast(getString(R.string.page_load_error), getContext());
         }
     }

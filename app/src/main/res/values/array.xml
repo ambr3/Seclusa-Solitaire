@@ -36,22 +36,6 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="pref_win_sounds_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="pref_background_music_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
-
     <string-array name="pref_canfield_size_of_reserve_values" translatable="false">
         <item>13</item>
         <item>10</item>
@@ -90,14 +74,6 @@
         <item>5</item>
     </string-array>
 
-    <string-array name="pref_developer_option_deal_correct_sequences_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
     <string-array name="restart_menu" translatable="false">
         <item>@string/dialog_start_new_game_title</item>
         <item>@string/dialog_redeal_title</item>
@@ -106,8 +82,6 @@
 
     <string-array name="help_menu" translatable="false">
         <item>@string/dialog_show_hints</item>
-        <item>@string/dialog_auto_move</item>
-        <item>@string/dialog_mix_cards_title</item>
         <item>@string/item_game_rules</item>
     </string-array>
 
@@ -115,6 +89,20 @@
         <item>@string/dialog_start_new_game_title</item>
         <item>@string/dialog_redeal_title</item>
         <item>@string/item_return_to_main_menu</item>
+    </string-array>
+
+    <string-array name="pref_theme_color_values" translatable="false">
+        <item>green</item>
+        <item>orange</item>
+        <item>blue</item>
+        <item>purple</item>
+    </string-array>
+
+    <string-array name="pref_theme_color_titles" translatable="false">
+        <item>@string/settings_theme_color_green</item>
+        <item>@string/settings_theme_color_orange</item>
+        <item>@string/settings_theme_color_blue</item>
+        <item>@string/settings_theme_color_purple</item>
     </string-array>
 
     <string-array name="pref_orientation_titles" translatable="false">
@@ -195,34 +183,11 @@
         <item>@string/settings_movement_speed_4</item>
     </string-array>
 
-    <string-array name="pref_win_sounds_titles" translatable="false">
-        <item>@string/settings_win_sounds_1</item>
-        <item>@string/settings_win_sounds_2</item>
-        <item>@string/settings_win_sounds_3</item>
-        <item>@string/settings_win_sounds_4</item>
-    </string-array>
-
-    <string-array name="pref_background_musics_titles" translatable="false">
-        <item>@string/settings_background_music_1</item>
-        <item>@string/settings_background_music_2</item>
-        <item>@string/settings_background_music_3</item>
-        <item>@string/settings_background_music_4</item>
-        <item>@string/settings_background_music_5</item>
-    </string-array>
-
     <string-array name="pref_canfield_size_of_reserve_titles" translatable="false">
         <item>@string/settings_canfield_size_of_reserve_1</item>
         <item>@string/settings_canfield_size_of_reserve_2</item>
         <item>@string/settings_canfield_size_of_reserve_3</item>
         <item>@string/settings_canfield_size_of_reserve_4</item>
-    </string-array>
-
-    <string-array name="pref_developer_option_deal_correct_sequences_titles" translatable="false">
-        <item>@string/settings_developer_option_deal_correct_sequences_1</item>
-        <item>@string/settings_developer_option_deal_correct_sequences_2</item>
-        <item>@string/settings_developer_option_deal_correct_sequences_3</item>
-        <item>@string/settings_developer_option_deal_correct_sequences_4</item>
-        <item>@string/settings_developer_option_deal_correct_sequences_5</item>
     </string-array>
 
 </resources>

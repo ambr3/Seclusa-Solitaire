@@ -51,7 +51,6 @@ public class GrandfathersClock extends Game {
         setTableauStackIDs(0, 1, 2, 3, 4, 5, 7);
         setFoundationStackIDs(8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
         setDealFromID(20);
-        setMixingCardsTestMode(testMode.DOESNT_MATTER);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {

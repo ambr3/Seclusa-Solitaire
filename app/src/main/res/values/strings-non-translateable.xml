@@ -48,9 +48,6 @@
     <string name="pref_key_background_color_custom" translatable="false">pref_key_background_color_custom</string>
     <string name="pref_key_movement_speed" translatable="false">pref_key_movement_speed</string>
     <string name="pref_key_sound_enabled" translatable="false">pref_key_sound_enabled</string>
-    <string name="pref_key_win_sound" translatable="false">pref_key_win_sound</string>
-    <string name="pref_key_background_music" translatable="false">pref_key_background_music</string>
-    <string name="pref_key_background_volume" translatable="false">pref_key_background_volume</string>
     <string name="pref_key_pyramid_limit_recycles" translatable="false">pref_key_pyramid_limit_recycles</string>
     <string name="pref_key_fortyeight_limit_recycles" translatable="false">pref_key_fortyeight_limit_recycles</string>
     <string name="pref_key_pyramid_number_of_recycles" translatable="false">pref_key_pyramid_number_of_recycles</string>
@@ -73,17 +70,10 @@
     <string name="pref_key_pyramid_auto_move" translatable="false">pref_key_pyramid_auto_move</string>
     <string name="pref_key_single_tap_all_games" translatable="false">pref_key_single_tap_all_games</string>
     <string name="pref_key_canfield_size_of_reserve" translatable="false">pref_key_canfield_size_of_reserve</string>
-    <string name="pref_key_developer_option_move_cards_everywhere" translatable="false">pref_key_developer_option_move_cards_everywhere</string>
-    <string name="pref_key_developer_option_play_every_card" translatable="false">pref_key_developer_option_play_every_card</string>
-    <string name="pref_key_developer_option_instant_win" translatable="false">pref_key_developer_option_instant_win</string>
-    <string name="pref_key_developer_option_no_saving" translatable="false">pref_key_developer_option_no_saving</string>
-    <string name="pref_key_show_advanced_settings" translatable="false">pref_key_show_expert_settings</string>
-    <string name="pref_key_developer_option_deal_correct_sequences" translatable="false">pref_key_developer_option_deal_correct_sequences </string>
     <string name="pref_key_use_true_randomisation" translatable="false">pref_key_use_true_randomisation</string>
     <string name="pref_key_max_number_undos" translatable="false">pref_key_max_number_undos</string>
     <string name="pref_key_show_dialog_new_game" translatable="false">pref_key_show_dialog_new_game</string>
     <string name="pref_key_show_dialog_redeal" translatable="false">pref_key_show_dialog_redeal</string>
-    <string name="pref_key_show_dialog_mix_cards" translatable="false">pref_key_show_dialog_mix_cards</string>
     <string name="pref_key_game_layout_margins" translatable="false">pref_key_game_layout_margins</string>
     <string name="pref_key_game_layout_margins_portrait" translatable="false">pref_key_game_layout_margins_portrait</string>
     <string name="pref_key_game_layout_margins_landscape" translatable="false">pref_key_game_layout_margins_landscape</string>
@@ -96,8 +86,9 @@
     <string name="pref_key_napoleons_tomb_number_of_recycles" translatable="false">pref_key_napoleons_tomb_number_of_recycles</string>
     <string name="pref_key_settings_only_for_this_game" translatable="false">pref_key_settings_only_for_this_game</string>
     <string name="pref_cat_key_only_for_this_game" translatable="false">pref_cat_key_only_for_this_game</string>
-    <string name="pref_key_improve_auto_move" translatable="false">pref_key_improve_auto_move</string>
     <string name="pref_key_text_color" translatable="false">pref_key_text_color</string>
+    <string name="pref_key_theme_color" translatable="false">pref_key_theme_color</string>
+    <string name="default_theme_color" translatable="false">blue</string>
     <string name="pref_key_statistics_hide_win_percentage" translatable="false">pref_key_statistics_hide_win_percentage</string>
 
     <!-- some dummy preference keys for the checkbox preferences. The value is saved in the "original"
@@ -111,7 +102,6 @@
     <string name="dummy_pref_key_hide_menu_button" translatable="false">dummy_pref_key_hide_menu_button</string>
 
     <!-- internal stuff only used in program code -->
-    <string name="loading_data_failed" translatable="false">Loading data failed</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
@@ -120,8 +110,6 @@
     <string name="github_issues_URL" translatable="false">https://github.com/ambr3/Seclusa-Solitaire/issues</string>
     <string name="about_app_github_link" translatable="false"><a href="https://github.com/ambr3/Seclusa-Solitaire">GitHub</a></string>
     <string name="about_app_license_link" translatable="false"><a href="https://www.gnu.org/licenses/gpl.html">GPL 3.0+</a></string>
-
-    <string name="canfield_start_value" translatable="false">canfield_startCardValue</string>
 
     <string name="default_menu_bar_position_landscape" translatable="false">right</string>
     <string name="default_menu_bar_position_portrait" translatable="false">bottom</string>
@@ -183,7 +171,6 @@
     <string name="about_paris_themes_title" translatable="false">SVG-cards 2.1</string>  <!-- not translatable, because name of the software-->
     <string name="about_paris_themes_license" translatable="false"><a href="https://www.gnu.org/licenses/lgpl-2.1.html">LGPL 2.1</a></string>
     <string name="about_poker_themes_license" translatable="false"><a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
-    <string name="about_sounds_license" translatable="false"><a href="https://creativecommons.org/publicdomain/zero/1.0/legalcode">CC0</a></string>
     <string name="about_custom_color_picker_license" translatable="false"><a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
     <string name="about_sliding_tabs_license" translatable="false"><a href="https://github.com/astuetz/PagerSlidingTabStrip#license">Apache 2.0</a></string>
     <string name="about_material_icons_SIL" translatable="false"><a href="http://scripts.sil.org/cms/scripts/page.php?item_id=OFL_web">SIL OFL 1.1</a></string>

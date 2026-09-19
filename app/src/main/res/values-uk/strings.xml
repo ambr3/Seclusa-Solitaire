@@ -60,9 +60,6 @@
 <string name="title_activity_statistics">"Статистика"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Інформація"</string>
-<string name="about_tab_2">"Ліцензії"</string>
-<string name="about_tab_3">"Перелік змін"</string>
 <string name="about_developer">"Розробник"</string>
 <string name="about_compiled">"Скомпільовано"</string>
 <string name="about_source_code">"Джерельний код"</string>
@@ -78,8 +75,6 @@
 <string name="about_poker_themes_usage">"Використано для теми гри «покер» - Доступно тут &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
 <string name="about_custom_color_picker_usage">"Використано для отримання кольору"</string>
-<string name="about_sounds_title">"Звуки"</string>
-<string name="about_sounds_usage">"Всі звуки опубліковані на &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, для детальної інформації натисніть &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;тут&lt;/a&gt; "</string>
 <string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
 <string name="about_sliding_tabs_usage">"Використано для вкладок у вікні «Про гру»"</string>
 
@@ -121,12 +116,6 @@
 <string name="settings_movement_speed_1">"Дуже повільно"</string>
 <string name="settings_movement_speed_2">"Повільно"</string>
 <string name="settings_movement_speed_3">"Нормально"</string>
-<string name="settings_win_sounds_1">"Типовий"</string>
-<string name="settings_background_music_1">"Вимкнуто"</string>
-<string name="settings_background_music_2">"Тема 1"</string>
-<string name="settings_background_music_3">"Тема 2"</string>
-<string name="settings_background_music_4">"Тема 3"</string>
-<string name="settings_background_music_5">"Музична скриня"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 карт (типово)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 карт"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 карт"</string>

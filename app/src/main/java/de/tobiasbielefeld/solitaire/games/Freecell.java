@@ -46,7 +46,6 @@ public class Freecell extends Game {
         setFoundationStackIDs(12, 13, 14, 15);
         setDealFromID(0);
 
-        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
         setDirections(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0);
     }
 

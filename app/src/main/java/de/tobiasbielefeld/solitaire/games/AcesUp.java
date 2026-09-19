@@ -43,7 +43,6 @@ public class AcesUp extends Game {
         setFoundationStackIDs(4);
         setMainStackIDs(5);
 
-        setMixingCardsTestMode(null);
         setDirections(1, 1, 1, 1, 0, 0);
     }
 

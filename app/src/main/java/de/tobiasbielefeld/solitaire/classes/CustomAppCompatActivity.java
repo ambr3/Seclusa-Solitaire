@@ -24,7 +24,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
-import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
+import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -36,8 +36,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
  */
 
 public class CustomAppCompatActivity extends AppCompatActivity {
-
-    HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
 
     /**
      * Sets the screen orientation according to the settings. It is called from onResume()
@@ -61,8 +59,17 @@ public class CustomAppCompatActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(ThemeColors.getThemeRes(this, getBaseThemeRes()));
         super.onCreate(savedInstanceState);
         reinitializeData(this);
+    }
+
+    /**
+     * Returns the style this activity should use as its base theme. Subclasses using the action
+     * bar theme (or any other resource) override this method.
+     */
+    protected int getBaseThemeRes() {
+        return R.style.AppThemeNoActionBar;
     }
 
     @Override
@@ -80,22 +87,6 @@ public class CustomAppCompatActivity extends AppCompatActivity {
         super.onResume();
         setOrientation();
         showOrHideStatusBar();
-
-        backgroundSound.doInBackground(this);
-        activityCounter++;
-    }
-
-    /**
-     * Check here if the application is closed. If the activityCounter reaches zero, no activity
-     * is in the foreground so stop the background music. But try stopping some milliseconds delayed,
-     * because otherwise the music would stop/restart between the activities
-     */
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        activityCounter--;
-        handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
     }
 
     /**

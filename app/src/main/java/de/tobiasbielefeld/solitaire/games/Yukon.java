@@ -250,11 +250,4 @@ public class Yukon extends Game {
             return 0;
     }
 
-    @Override
-    protected boolean excludeCardFromMixing(Card card) {
-        boolean defaultRules = prefs.getSavedYukonRulesOld().equals("default");
-        setMixingCardsTestMode(defaultRules ? ALTERNATING_COLOR : SAME_FAMILY);
-
-        return super.excludeCardFromMixing(card);
-    }
 }

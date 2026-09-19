@@ -11,6 +11,16 @@
 
 
     <PreferenceCategory android:title="@string/manual_ui">
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="@string/default_theme_color"
+            android:entries="@array/pref_theme_color_titles"
+            android:entryValues="@array/pref_theme_color_values"
+            android:key="@string/pref_key_theme_color"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_theme_color" />
+
         <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuBarPosition
             android:key="@string/pref_key_menu_bar_position"
             android:negativeButtonText="@string/game_cancel"

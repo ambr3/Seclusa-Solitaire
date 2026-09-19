@@ -30,6 +30,7 @@ import android.view.animation.TranslateAnimation;
 
 import java.util.Random;
 
+import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CustomImageView;
@@ -176,7 +177,9 @@ public class Animate {
             animation.setDuration((long) (distance * 100 / Card.width / speedFactor));
         } catch (ArithmeticException e) {
             animation.setDuration(100);
-            Log.e("Animate moveCard()", e.toString());
+            if (BuildConfig.DEBUG) {
+                Log.e("Animate moveCard()", e.toString());
+            }
         }
 
         animation.setAnimationListener(new Animation.AnimationListener() {
@@ -269,7 +272,9 @@ public class Animate {
             animation.setDuration((long) (distance * 100 / Card.width));
         } catch (ArithmeticException e) {
             animation.setDuration(200);
-            Log.e("Animate moveCard()", e.toString());
+            if (BuildConfig.DEBUG) {
+                Log.e("Animate moveCard()", e.toString());
+            }
         }
 
         animation.setFillEnabled(true);
@@ -299,7 +304,9 @@ public class Animate {
             animation.setDuration((long) (distance * 100 / Card.width / speedFactor));
         } catch (ArithmeticException e) {
             animation.setDuration(100);
-            Log.e("Animate moveCard()", e.toString());
+            if (BuildConfig.DEBUG) {
+                Log.e("Animate moveCard()", e.toString());
+            }
         }
 
         animation.setFillEnabled(true);

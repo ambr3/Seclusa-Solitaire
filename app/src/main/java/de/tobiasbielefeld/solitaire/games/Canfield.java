@@ -53,7 +53,6 @@ public class Canfield extends Game {
         setDiscardStackIDs(9, 10, 11);
         setMainStackIDs(12);
 
-        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
     }
 
     @Override

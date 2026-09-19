@@ -37,8 +37,6 @@ import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
-import de.tobiasbielefeld.solitaire.helper.AutoMove;
-import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.CardHighlight;
 import de.tobiasbielefeld.solitaire.helper.DealCards;
@@ -81,7 +79,6 @@ public class SharedData {
     public static Timer timer;
     public static Sounds sounds;
     public static RecordList recordList;
-    public static AutoMove autoMove;
     public static Hint hint;
     public static DealCards dealCards;
 
@@ -92,10 +89,8 @@ public class SharedData {
     public static LoadGame lg = new LoadGame();
     public static Bitmaps bitmaps = new Bitmaps();
     public static CardHighlight cardHighlight = new CardHighlight();
-    public static BackgroundMusic backgroundSound = new BackgroundMusic();
     public static EnsureMovability ensureMovability;
 
-    public static int activityCounter = 0;
     public static boolean stopUiUpdates = false;
     public static boolean isDialogVisible = false;
 

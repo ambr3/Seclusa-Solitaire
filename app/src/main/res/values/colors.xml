@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#2E7D32</color>
-    <color name="colorPrimaryDark">#1B5E20</color>
-    <color name="colorAccent">#81C784</color>
-    <color name="colorDrawerSelected">#C8E6C9</color>
+    <!-- Default (Deep Orange) palette -->
+    <color name="colorPrimary">#EF6C00</color>
+    <color name="colorPrimaryDark">#E65100</color>
+    <color name="colorAccent">#FFA726</color>
+    <color name="colorDrawerSelected">#FFE0B2</color>
     <color name="white">#ffffff</color>
-    <color name="gameSelectBackground">#14532D</color>
+    <color name="gameSelectBackground">#BF360C</color>
     <color name="menuBarBackground">#FFFFFF</color>
     <color name="menuBarIcon">#455A64</color>
     <color name="menuBarLabel">#455A64</color>
+
+    <!-- Green palette -->
+    <color name="colorPrimaryGreen">#2E7D32</color>
+    <color name="colorPrimaryDarkGreen">#1B5E20</color>
+    <color name="colorAccentGreen">#81C784</color>
+    <color name="colorDrawerSelectedGreen">#C8E6C9</color>
+    <color name="gameSelectBackgroundGreen">#14532D</color>
+
+    <!-- Blue palette -->
+    <color name="colorPrimaryBlue">#1565C0</color>
+    <color name="colorPrimaryDarkBlue">#0D47A1</color>
+    <color name="colorAccentBlue">#64B5F6</color>
+    <color name="colorDrawerSelectedBlue">#BBDEFB</color>
+    <color name="gameSelectBackgroundBlue">#0D47A1</color>
+
+    <!-- Purple palette -->
+    <color name="colorPrimaryPurple">#6A1B9A</color>
+    <color name="colorPrimaryDarkPurple">#4A148C</color>
+    <color name="colorAccentPurple">#CE93D8</color>
+    <color name="colorDrawerSelectedPurple">#E1BEE7</color>
+    <color name="gameSelectBackgroundPurple">#3F0F5E</color>
 </resources>

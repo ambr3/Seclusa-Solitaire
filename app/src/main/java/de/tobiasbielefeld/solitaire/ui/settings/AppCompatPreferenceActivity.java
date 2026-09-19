@@ -17,7 +17,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
+import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.classes.ThemeColors;
+import de.tobiasbielefeld.solitaire.helper.EdgeToEdge;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -33,10 +35,18 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity
         implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private AppCompatDelegate mDelegate;
-    HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
+
+    /**
+     * Returns the base theme style this settings screen should use. Settings screens use the
+     * action bar variant of the app theme.
+     */
+    protected int getBaseThemeRes() {
+        return R.style.AppThemeSettings;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(ThemeColors.getThemeRes(this, getBaseThemeRes()));
         getDelegate().installViewFactory();
         getDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
@@ -51,6 +61,7 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         getDelegate().onPostCreate(savedInstanceState);
+        EdgeToEdge.applyContentInsets(this);
     }
 
     ActionBar getSupportActionBar() {
@@ -89,9 +100,6 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity
         prefs.registerListener(this);
         showOrHideStatusBar();
         setOrientation();
-
-        activityCounter++;
-        backgroundSound.doInBackground(this);
     }
 
     @Override
@@ -116,9 +124,6 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity
         super.onPause();
 
         prefs.unregisterListener(this);
-
-        activityCounter--;
-        handlerStopBackgroundMusic.sendEmptyMessageDelayed(0, 100);
     }
 
     @Override

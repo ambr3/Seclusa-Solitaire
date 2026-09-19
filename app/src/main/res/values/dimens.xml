@@ -6,6 +6,7 @@
     <dimen name="drawer_size">240dp</dimen>
     <dimen name="layout_padding">15dp</dimen>
     <dimen name="layout_paddingLandscape">10dp</dimen>
+    <dimen name="manual_text_padding">7dp</dimen>
     <dimen name="statistics_table_padding">5dp</dimen>
     <dimen name="menuBarHeight">56dp</dimen>
     <dimen name="menuBarWidht">50dp</dimen>
@@ -20,8 +21,6 @@
 
     <dimen name="list_text_size">16sp</dimen>
     <dimen name="list_item_height">48dip</dimen>
-
-    <dimen name="changelog_text_padding">7dp</dimen>
 
     <dimen name="statistics_text_size">17sp</dimen>
     <dimen name="card_view_padding_horizontal">10dp</dimen>

@@ -178,12 +178,6 @@ public class Maze extends Game {
         return null;
     }
 
-    @Override
-    protected boolean excludeCardFromMixing(Card card) {
-        // Mixing probably doesn't make sense for this game.
-        return true;
-    }
-
     /**
      * Test if two cards are in the correct order.
      */

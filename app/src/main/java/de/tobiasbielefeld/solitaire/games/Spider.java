@@ -47,7 +47,6 @@ public class Spider extends Game {
         setFoundationStackIDs(10, 11, 12, 13, 14, 15, 16, 17);
         setMainStackIDs(18, 19, 20, 21, 22);
 
-        setMixingCardsTestMode(testMode.SAME_FAMILY);
     }
 
     public CardAndStack hintTest(ArrayList<Card> visited) {

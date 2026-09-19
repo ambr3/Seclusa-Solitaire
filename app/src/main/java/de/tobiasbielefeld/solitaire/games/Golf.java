@@ -210,8 +210,4 @@ public class Golf extends Game {
         }
     }
 
-    @Override
-    protected boolean excludeCardFromMixing(Card card) {
-        return false;
-    }
 }

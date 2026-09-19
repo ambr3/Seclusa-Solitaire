@@ -1,26 +1,120 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Base application theme (Deep Orange default). -->
     <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackground</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelected</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme</item>
+    </style>
+
+    <style name="AppThemeNoActionBar.Green" parent="AppThemeNoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryGreen</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
+        <item name="colorAccent">@color/colorAccentGreen</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackgroundGreen</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelectedGreen</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme.Green</item>
+    </style>
+
+    <style name="AppThemeNoActionBar.Blue" parent="AppThemeNoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryBlue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkBlue</item>
+        <item name="colorAccent">@color/colorAccentBlue</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackgroundBlue</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelectedBlue</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme.Blue</item>
+    </style>
+
+    <style name="AppThemeNoActionBar.Purple" parent="AppThemeNoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryPurple</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkPurple</item>
+        <item name="colorAccent">@color/colorAccentPurple</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackgroundPurple</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelectedPurple</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme.Purple</item>
     </style>
 
     <style name="AppThemeActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackground</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelected</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme</item>
     </style>
 
-    <!-- Settings screens: same green action bar as the rest of the app. Uses only @color
+    <style name="AppThemeActionBar.Green" parent="AppThemeActionBar">
+        <item name="colorPrimary">@color/colorPrimaryGreen</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
+        <item name="colorAccent">@color/colorAccentGreen</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackgroundGreen</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelectedGreen</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme.Green</item>
+    </style>
+
+    <style name="AppThemeActionBar.Blue" parent="AppThemeActionBar">
+        <item name="colorPrimary">@color/colorPrimaryBlue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkBlue</item>
+        <item name="colorAccent">@color/colorAccentBlue</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackgroundBlue</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelectedBlue</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme.Blue</item>
+    </style>
+
+    <style name="AppThemeActionBar.Purple" parent="AppThemeActionBar">
+        <item name="colorPrimary">@color/colorPrimaryPurple</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkPurple</item>
+        <item name="colorAccent">@color/colorAccentPurple</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackgroundPurple</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelectedPurple</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme.Purple</item>
+    </style>
+
+    <!-- Modern rounded dialogs used by all in-game menus; colour variants follow the theme. -->
+    <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+    </style>
+
+    <style name="AppDialogTheme.Green" parent="AppDialogTheme">
+        <item name="colorPrimary">@color/colorPrimaryGreen</item>
+        <item name="colorAccent">@color/colorAccentGreen</item>
+    </style>
+
+    <style name="AppDialogTheme.Blue" parent="AppDialogTheme">
+        <item name="colorPrimary">@color/colorPrimaryBlue</item>
+        <item name="colorAccent">@color/colorAccentBlue</item>
+    </style>
+
+    <style name="AppDialogTheme.Purple" parent="AppDialogTheme">
+        <item name="colorPrimary">@color/colorPrimaryPurple</item>
+        <item name="colorAccent">@color/colorAccentPurple</item>
+    </style>
+
+    <!-- Settings screens: same theme as the rest of the app. Uses only @color/theme
          resources (never literal hex) to avoid theme inflation crashes on old support libs. -->
     <style name="AppThemeSettings" parent="AppThemeActionBar">
         <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar</item>
     </style>
 
+    <style name="AppThemeSettings.Green" parent="AppThemeActionBar.Green">
+        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar</item>
+    </style>
+
+    <style name="AppThemeSettings.Blue" parent="AppThemeActionBar.Blue">
+        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar</item>
+    </style>
+
+    <style name="AppThemeSettings.Purple" parent="AppThemeActionBar.Purple">
+        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar</item>
+    </style>
+
     <style name="Widget.Settings.ActionBar" parent="Widget.AppCompat.Light.ActionBar">
-        <item name="background">@color/colorPrimary</item>
+        <item name="background">?attr/colorPrimary</item>
         <item name="titleTextStyle">@style/TextAppearance.Settings.ActionBar.Title</item>
     </style>
 
@@ -47,7 +141,7 @@
     </style>
 
     <style name="AboutSectionTitle" parent="TextAppearance.AppCompat.Medium">
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:letterSpacing">0.02</item>
         <item name="android:textStyle">bold</item>

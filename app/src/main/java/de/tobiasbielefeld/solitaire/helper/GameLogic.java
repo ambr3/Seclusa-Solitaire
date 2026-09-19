@@ -23,6 +23,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Random;
 
+import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -59,7 +60,7 @@ public class GameLogic {
      * when resuming the game, called in onPause() of the GameManager
      */
     public void save() {
-        if (!prefs.isDeveloperOptionSavingDisabled() && !stopUiUpdates) {
+        if (!stopUiUpdates) {
             scores.save();
             recordList.save();
             prefs.saveWon(won);
@@ -143,7 +144,9 @@ try {
         } catch (Exception e) {
             //saved data may be corrupt (e.g. interrupted write, version change). Fall back to a
             //new game instead of crashing the app on resume.
-            Log.e("GameLogic.load", "Failed to load saved game data: " + e.toString());
+            if (BuildConfig.DEBUG) {
+                Log.e("GameLogic.load", "Failed to load saved game data: " + e.toString());
+            }
             showToast(gm.getString(R.string.game_load_error), gm);
             newGame();
         }
@@ -257,7 +260,7 @@ try {
      * is reseted, so the player can't revert card movements after the animation
      */
     public void testIfWon() {
-        if (!won && !autoComplete.isRunning() && ((prefs.isDeveloperOptionInstantWinEnabled() && movedFirstCard) || currentGame.winTest())) {
+        if (!won && !autoComplete.isRunning() && currentGame.winTest()) {
             incrementPlayedGames();
             incrementNumberWonGames();
             scores.updateBonus();
@@ -401,6 +404,6 @@ try {
      */
     public boolean stopConditions() {
         return (autoComplete.isRunning() || animate.cardIsAnimating() || hint.isRunning()
-                || recordList.isWorking() || autoMove.isRunning() || isDialogVisible);
+                || recordList.isWorking() || isDialogVisible);
     }
 }

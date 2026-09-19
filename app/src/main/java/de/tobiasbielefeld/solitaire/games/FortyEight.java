@@ -48,7 +48,6 @@ public class FortyEight extends Game {
         setDiscardStackIDs(16);
         setMainStackIDs(17);
 
-        setMixingCardsTestMode(testMode.SAME_FAMILY);
         setNumberOfRecycles(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES, DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
 
         toggleRecycles(prefs.getSavedFortyEightLimitedRecycles());

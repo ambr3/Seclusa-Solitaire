@@ -59,9 +59,6 @@
 <string name="dialog_win_total">"Total: %1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Mix cards"</string>
-<string name="dialog_mix_cards_text">"This will shuffle all cards, except correct sequences and cards on the foundation."</string>
-<string name="dialog_mix_cards_not_available">"There are still possible moves!"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Start new game"</string>
@@ -78,9 +75,6 @@
 <string name="title_activity_statistics">"Statistics"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Information"</string>
-<string name="about_tab_2">"Licenses"</string>
-<string name="about_tab_3">"Changelog"</string>
 <string name="about_developer">"Developer"</string>
 <string name="about_developer_name">"ambr3"</string>
 <string name="about_contact">"Contact"</string>
@@ -88,8 +82,11 @@
 <string name="about_compiled">"Compiled on"</string>
 <string name="about_source_code">"Source code"</string>
 <string name="about_license">"License"</string>
-<string name="about_translations">"Translations"</string>
+    <string name="about_third_party_licenses">"Third-party licenses"</string>
+    <string name="about_third_party_licenses_open">"Show"</string>
+    <string name="about_translations">"Translations"</string>
 <string name="about_further_contributors">"Further contributors"</string>
+    <string name="about_footer">"Forked with 🖤 from 🇬🇧"</string>
 <string name="about_android_support_libraries_title">"Android support library"</string>
 <string name="about_android_support_libraries_usage">"Used for better design and easier development"</string>
 <string name="about_material_icons_title">"Material design icons"</string>
@@ -99,8 +96,6 @@
 <string name="about_poker_themes_usage">"Used as Poker theme - Available on &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
 <string name="about_custom_color_picker_usage">"Used for the custom color picker"</string>
-<string name="about_sounds_title">"Sounds"</string>
-<string name="about_sounds_usage">"All sounds were originally published on &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, for detailed information click &lt;a href=https://github.com/ambr3/Seclusa-Solitaire/blob/master/sounds/readme.txt&gt;here&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
 <string name="about_sliding_tabs_usage">"Used for the tabs in the \"About game\" screen"</string>
 
@@ -128,17 +123,6 @@ Use the menu on the left side to access the other manual pages."</string>
 The app will automatically load the last played game on a restart, if the app was paused in it. This behavior can be disabled in the settings under \"General\".
 
 In the settings, you can also find the section \"Main menu\", where it's possible to hide and reorder games in the menu and change the number of columns, so more games fit on the screen at once."</string>
-<string name="manual_ui_text">"A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the right side (Landscape mode). It will also show the current score and current played time of the game. If possible, these two values will be saved for the high-score list. The menu contains 5 items, which have the following effects (buttons from left to right):
-
-The \"Scores\" button will show a new window with the high scores and the count of won games of the current game.
-
-The \"Hint\" button will help you by showing up to 3 possible card movements at once. But this will decrease the current score by 25. Notice that trivial movements like moving every card to an empty field or pressing on the main stack aren't shown as a hint. If no hint was shown, the score won't decrease.
-
-The \"Menu\" button shows three different actions: Start a new game by mixing the cards and drawing a new deal. Give cards again will do the same but without the mixing. So it's like a restart of the current game. The last option will end the current game and return the app to the main menu.
-
-The \"Undo\" button will revert the last movement, but this will cost 25 points. This can be used for up to 20 last movements.
-
-The \"Settings\" button simply opens the settings menu."</string>
 <string name="manual_feedback_text">"Found a bug or an error? Something I should improve? Should I add another game to the collection? Maybe you want to help with some translations? Or have another idea?
 
 I am happy to receive any kind of feedback. If you feel the need to contact me, you should consider the following two options:
@@ -402,6 +386,11 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 
 <!-- Settings -->
 <string name="settings_background_color">"Background colour"</string>
+<string name="settings_theme_color">"Theme colour"</string>
+<string name="settings_theme_color_green">"Green"</string>
+<string name="settings_theme_color_orange">"Orange"</string>
+<string name="settings_theme_color_blue">"Blue"</string>
+<string name="settings_theme_color_purple">"Purple"</string>
 <string name="settings_hide_status_bar">"Hide status bar"</string>
 <string name="settings_left_handed_mode">"Left handed mode"</string>
 <string name="settings_left_handed_mode_description">"Mirrors the card and stack positions to the left side"</string>
@@ -461,11 +450,8 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 <string name="settings_movement_speed">"Card movement speed"</string>
 <string name="Settings_sound">"Enable sound in game"</string>
 <string name="Settings_sounds_title">"Sounds"</string>
-<string name="Settings_sounds_text">"Enable sounds, set up different sound effects"</string>
-<string name="Settings_win_sound_title">"Winning sound effect"</string>
-<string name="Settings_background_music">"Background music"</string>
+<string name="Settings_sounds_text">"Enable sounds in game"</string>
 <string name="settings_background_color_custom">"Custom"</string>
-<string name="Settings_background_volume">"Background music volume"</string>
 <string name="settings_limit_number_of_recycles">"Limit number of recycles"</string>
 <string name="settings_limit_number_of_recycles_text">"Recycling the waste back to the main stack is limited"</string>
 <string name="settings_number_of_recycles">"Amount of recycles"</string>
@@ -500,18 +486,6 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 <string name="settings_canfield_size_of_reserve_title">"Change size of reserve (easier)"</string>
 <string name="settings_use_true_randomisation_title">"Use true randomization"</string>
 <string name="settings_use_true_randomisation_text">"The default randomization avoids similar cards next to each other. Check this to enable a truly uniform randomisation"</string>
-<string name="settings_developer_options">"Developer options"</string>
-<string name="settings_developer_options_description">"Play around with crazy settings!"</string>
-<string name="settings_developer_options_move_card_everwhere_title">"Move cards everywhere"</string>
-<string name="settings_developer_options_move_card_everwhere_text">"You can place cards on any stack"</string>
-<string name="settings_developer_options_lock_text">"These settings are intended for testing purpose only, the usage can result in strange behavior and crashes!"</string>
-<string name="settings_developer_options_play_every_card_title">"Play every card"</string>
-<string name="settings_developer_options_play_every_card_text">"You can play every revealed card"</string>
-<string name="settings_developer_options_instant_win_title">"Instant win"</string>
-<string name="settings_developer_options_instant_win_text">"Win every game after moving a card"</string>
-<string name="settings_developer_options_no_saving_title">"Disable saving game state"</string>
-<string name="settings_developer_options_no_saving_text">"Movements in a game won't be saved anymore"</string>
-<string name="settings_developer_options_deal_correct_sequences_title">"Deal correct sequences"</string>
 <string name="settings_max_number_undos">"Maximum amount of undo movements"</string>
 <string name="settings_expert_settings">"Expert settings"</string>
 <string name="settings_expert_settings_text">"May be useful for some people"</string>
@@ -543,24 +517,10 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 <string name="settings_movement_speed_2">"Slow"</string>
 <string name="settings_movement_speed_3">"Normal"</string>
 <string name="settings_movement_speed_4">"Fast"</string>
-<string name="settings_win_sounds_1">"Default"</string>
-<string name="settings_win_sounds_2">"Piano"</string>
-<string name="settings_win_sounds_3">"8-Bit voice \"You win\""</string>
-<string name="settings_win_sounds_4">"Cheering crowd"</string>
-<string name="settings_background_music_1">"Disabled"</string>
-<string name="settings_background_music_2">"Theme 1"</string>
-<string name="settings_background_music_3">"Theme 2"</string>
-<string name="settings_background_music_4">"Theme 3"</string>
-<string name="settings_background_music_5">"Music Box"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 Cards (default)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 Cards"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 Cards"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 Cards"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"Deactivated"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"Alternating color"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"Same family"</string>
-<string name="settings_developer_option_deal_correct_sequences_4">"Reversed alternating color"</string>
-<string name="settings_developer_option_deal_correct_sequences_5">"Reversed same family"</string>
 
 <!-- Statistics -->
 <string name="statistics_text_won_games">"Won %1$d out of %2$d games"</string>
@@ -583,7 +543,6 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 <string name="statistics_total_number_undos">"Total undo movements"</string>
 <string name="statistics_total_points_earned">"Total points earned"</string>
 <string name="statistics_no_entries">"No entries, go play some games!"</string>
-<string name="dialog_auto_move">"Auto move"</string>
 <string name="dialog_show_hints">"Show hints"</string>
 <string name="manual_ui_text_part_1">"A game will always show a little menu on the bottom part of the screen (Portrait mode) or on the right side (Landscape mode). It will also show the current score and current played time of the game. The menu contains 5 items, which have the following effects (buttons from left to right)
 
@@ -612,8 +571,6 @@ The \"Settings\" button simply opens the settings menu."</string>
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"No hint available!"</string>
-<string name="dialog_no_movement_possible">"No movement to show!"</string>
-<string name="settings_show_advanced_settings_title">"Unlock the developer categories"</string>
 <string name="settings_language_italian">"Italian"</string>
 <string name="settings_language_portuguese_brazil">"Portuguese (Brazil)"</string>
 <string name="settings_language_ukrainian">"Ukrainian"</string>
@@ -673,8 +630,6 @@ Do you want to remove the individual settings for all listed games?"</string>
 <string name="settings_ensure_movability_min_moves_warning">"Caution: Increasing the amount will result in longer waiting times before a game is started. Changing game rules will also affect the waiting time!"</string>
 <string name="settings_ensure_movability_min_moves_text">"Change the amount of movements each game must at least have when starting it"</string>
 <string name="settings_number_input_error">"Can't save those numbers!"</string>
-<string name="settings_developer_option_improve_auto_move_title">"Improve Auto Move"</string>
-<string name="settings_developer_option_improve_auto_move_text">"Auto Move will try to win the game by also using the main stack"</string>
 <string name="black">"Black"</string>
 <string name="white">"White"</string>
 <string name="settings_ensure_movability_make_game_winnable_button_title">"Make certain games winnable"</string>

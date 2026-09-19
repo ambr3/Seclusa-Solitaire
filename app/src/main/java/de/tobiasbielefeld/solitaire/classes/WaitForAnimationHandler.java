@@ -26,13 +26,13 @@ public class WaitForAnimationHandler {
     }
 
     public void sendDelayed() {
-        if (!stopUiUpdates) {
+        if (!stopUiUpdates && !gm.isDestroyed()) {
             handler.sendEmptyMessageDelayed(0, TIME_DELTA);
         }
     }
 
     public void sendNow() {
-        if (!stopUiUpdates) {
+        if (!stopUiUpdates && !gm.isDestroyed()) {
             handler.sendEmptyMessage(0);
         }
     }
@@ -55,6 +55,10 @@ public class WaitForAnimationHandler {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+
+            if (base.gm.isDestroyed()) {
+                return;
+            }
 
             if (animate.cardIsAnimating()
                     || base.gm.isActivityPaused()

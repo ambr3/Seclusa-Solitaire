@@ -30,12 +30,18 @@ import com.astuetz.PagerSlidingTabStrip;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.dialogs.DialogHighScoreDelete;
+import de.tobiasbielefeld.solitaire.helper.EdgeToEdge;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class StatisticsActivity extends CustomAppCompatActivity {
 
     private HideWinPercentage callback;
+
+    @Override
+    protected int getBaseThemeRes() {
+        return R.style.AppThemeActionBar;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +62,8 @@ public class StatisticsActivity extends CustomAppCompatActivity {
 
         pager.setAdapter(adapter);
         tabs.setViewPager(pager);
+
+        EdgeToEdge.applyContentInsets(this);
     }
 
     @Override

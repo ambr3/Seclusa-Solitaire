@@ -44,6 +44,10 @@ public class RecordList {
         entries.clear();
     }
 
+    public void clear() {
+        handler.clear();
+    }
+
 
     public RecordList(GameManager gm) {
         setMaxRecords();

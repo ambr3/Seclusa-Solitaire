@@ -59,9 +59,6 @@
 <string name="dialog_win_total">"总计：%1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"混合纸牌"</string>
-<string name="dialog_mix_cards_text">"将会洗牌，除了已正确排序的牌和牌堆中的牌"</string>
-<string name="dialog_mix_cards_not_available">"依然有可移动机会！"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"开始新游戏"</string>
@@ -78,9 +75,6 @@
 <string name="title_activity_statistics">"数据"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"信息"</string>
-<string name="about_tab_2">"版权"</string>
-<string name="about_tab_3">"更新日志"</string>
 <string name="about_developer">"开发者"</string>
 <string name="about_developer_name">"托比阿斯 贝列弗德"</string>
 <string name="about_compiled">"编译于"</string>
@@ -97,8 +91,6 @@
 <string name="about_poker_themes_usage">"用于扑克牌的主题 - 可用于 &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - 版权所有 2015 - 克里斯 · 阿格莱 - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna 库"</string>
 <string name="about_custom_color_picker_usage">"使用于自定义色彩选取器"</string>
-<string name="about_sounds_title">"音效"</string>
-<string name="about_sounds_usage">"所有音效都来源于 &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, 点击 &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;获取更多信息&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"PagerSlidingTabStrip 库"</string>
 <string name="about_sliding_tabs_usage">"使用于 “关于游戏” 屏幕的条目"</string>
 
@@ -168,10 +160,7 @@
 <string name="Settings_sound">"启用游戏音效"</string>
 <string name="Settings_sounds_title">"音效"</string>
 <string name="Settings_sounds_text">"启用音效，设置不同音效"</string>
-<string name="Settings_win_sound_title">"胜利音效"</string>
-<string name="Settings_background_music">"背景音乐"</string>
 <string name="settings_background_color_custom">"自定义"</string>
-<string name="Settings_background_volume">"背景音乐音量"</string>
 <string name="settings_limit_number_of_recycles">"有限回收数"</string>
 <string name="settings_number_of_recycles">"回收数量"</string>
 <string name="settings_menu_order_title">"菜单顺序"</string>
@@ -191,14 +180,6 @@
 <string name="settings_single_tap_enable">"开启单击动作"</string>
 <string name="settings_use_true_randomisation_title">"使用真实重置"</string>
 <string name="settings_use_true_randomisation_text">"默认重置方案阻止了相同卡牌出现在相邻位置。选择这个可以启用真正的随机方式"</string>
-<string name="settings_developer_options">"开发者选项"</string>
-<string name="settings_developer_options_description">"使用疯狂的设置进行游戏"</string>
-<string name="settings_developer_options_move_card_everwhere_title">"任意移动卡牌"</string>
-<string name="settings_developer_options_play_every_card_title">"打出任何卡牌"</string>
-<string name="settings_developer_options_instant_win_title">"强制胜利"</string>
-<string name="settings_developer_options_instant_win_text">"在移动卡牌后就获得胜利"</string>
-<string name="settings_developer_options_no_saving_title">"禁用保存游戏状态"</string>
-<string name="settings_developer_options_no_saving_text">"游戏的移动将不再被保存"</string>
 <string name="settings_max_number_undos">"撤销操作的最大数量"</string>
 <string name="settings_expert_settings">"专家设置"</string>
 <string name="settings_expert_settings_text">"也许对一些人有作用"</string>
@@ -225,22 +206,10 @@
 <string name="settings_movement_speed_2">"慢"</string>
 <string name="settings_movement_speed_3">"正常"</string>
 <string name="settings_movement_speed_4">"快"</string>
-<string name="settings_win_sounds_1">"默认"</string>
-<string name="settings_win_sounds_2">"钢琴"</string>
-<string name="settings_win_sounds_3">"8节音效 “你胜利了”"</string>
-<string name="settings_win_sounds_4">"&gt;欢呼人群"</string>
-<string name="settings_background_music_1">"禁用"</string>
-<string name="settings_background_music_2">"主题 1"</string>
-<string name="settings_background_music_3">"主题2"</string>
-<string name="settings_background_music_4">"主题3"</string>
-<string name="settings_background_music_5">"音乐盒"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 张卡牌 （默认）"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 卡牌"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 卡牌"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 卡牌"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"未激活"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"替换颜色"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"保存卡组"</string>
 
 <!-- %1$d and %2$d are placeholders for the values -->
 <string name="statistics_win_percentage">"绘制 1"</string>
@@ -259,7 +228,6 @@
 <string name="statistics_total_number_undos">"总撤销数"</string>
 <string name="statistics_total_points_earned">"总挣得点数"</string>
 <string name="statistics_no_entries">"无记录，去玩些什么吧！"</string>
-<string name="dialog_auto_move">"自动移动"</string>
 <string name="dialog_show_hints">"显示点击"</string>
 <string name="manual_ui_text_part_5">"游戏规则：直接打开当前游戏的手册页面"</string>
 <string name="manual_ui_text_part_6">"“菜单” 按钮显示出三种不同动作："</string>
@@ -272,8 +240,6 @@
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"无可用操作！"</string>
-<string name="dialog_no_movement_possible">"无可显示移动"</string>
-<string name="settings_show_advanced_settings_title">"解锁开发者分类"</string>
 <string name="settings_language_italian">"意大利语"</string>
 <string name="settings_language_portuguese_brazil">"葡萄牙语 （巴西）"</string>
 <string name="settings_language_ukrainian">"乌克兰语"</string>
@@ -304,7 +270,6 @@
 <string name="settings_ensure_movability_min_moves_title">"确认可动性：移动数量"</string>
 <string name="settings_ensure_movability_min_moves_warning">"注意：增加数量将会增加游戏开始前的的等待时间。改变游戏规则同样会影响等待时间。"</string>
 <string name="settings_number_input_error">"无法保存这些数字！"</string>
-<string name="settings_developer_option_improve_auto_move_title">"改善自动移动"</string>
 <string name="black">"黑"</string>
 <string name="white">"白"</string>
 <string name="settings_reset_to_defaults">"恢复默认值"</string>

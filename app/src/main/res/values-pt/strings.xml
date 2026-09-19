@@ -60,9 +60,6 @@ TriPeaks
 <string name="dialog_win_total">"Total: %1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Baralhar"</string>
-<string name="dialog_mix_cards_text">"Isto irá baralhar todas as cartas, exceto sequências corretas e cartas na fundação."</string>
-<string name="dialog_mix_cards_not_available">"Ainda existem movimentos possíveis!"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Iniciar novo jogo"</string>
@@ -79,9 +76,6 @@ TriPeaks
 <string name="title_activity_statistics">"Estatísticas"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Informação"</string>
-<string name="about_tab_2">"Licenças"</string>
-<string name="about_tab_3">"Relatório de alterações"</string>
 <string name="about_developer">"Programador"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Compilado em"</string>
@@ -98,8 +92,6 @@ TriPeaks
 <string name="about_poker_themes_usage">"Utilizado como tema Póquer - Disponível em &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Direitos de Autor 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"Biblioteca AmbilWarna"</string>
 <string name="about_custom_color_picker_usage">"Utilizado para o coletor de cor personalizado"</string>
-<string name="about_sounds_title">"Sons"</string>
-<string name="about_sounds_usage">"Todos os sons foram publicados originalmente em &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, para mais informações clique &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;aqui&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"Biblioteca PagerSlidingTabStrip"</string>
 <string name="about_sliding_tabs_usage">"Utilizado nas abas no ecrã \"Sobre o Jogo\""</string>
 
@@ -182,10 +174,7 @@ Devolver todas as cartas do monte de descartadas para o monte principal: -200"</
 <string name="Settings_sound">"Ativar sons no jogo"</string>
 <string name="Settings_sounds_title">"Sons"</string>
 <string name="Settings_sounds_text">"Ativar sons, configurar vários efeitos de sons"</string>
-<string name="Settings_win_sound_title">"Efeito de som ao vencer"</string>
-<string name="Settings_background_music">"Música de fundo"</string>
 <string name="settings_background_color_custom">"Personalizado"</string>
-<string name="Settings_background_volume">"Volume da música de fundo"</string>
 <string name="settings_menu_order_title">"Ordem do menu"</string>
 <string name="settings_auto_start_new_game_title">"Iniciar um novo jogo ao ganhar"</string>
 <string name="settings_calculation_alternative_title">"Manter cartas"</string>
@@ -196,16 +185,6 @@ Devolver todas as cartas do monte de descartadas para o monte principal: -200"</
 <string name="settings_hide_time">"Ocultar tempo"</string>
 <string name="settings_hide_score">"Ocultar pontuação"</string>
 <string name="settings_single_tap_enable">"Ativar movimentos de Toque Único"</string>
-<string name="settings_developer_options">"Opções de programador"</string>
-<string name="settings_developer_options_description">"Brincar com configurações malucas!"</string>
-<string name="settings_developer_options_move_card_everwhere_title">"Mover cartas para todo o lado"</string>
-<string name="settings_developer_options_move_card_everwhere_text">"Pode posicionar cartas em qualquer monte"</string>
-<string name="settings_developer_options_play_every_card_title">"Jogar qualquer carta"</string>
-<string name="settings_developer_options_instant_win_title">"Vitória instantânea"</string>
-<string name="settings_developer_options_instant_win_text">"Ganhe todos os jogos após mover 1 carta"</string>
-<string name="settings_developer_options_no_saving_title">"Desativar gravação do estado do jogo"</string>
-<string name="settings_developer_options_no_saving_text">"Os movimentos num jogo não serão guardados"</string>
-<string name="settings_developer_options_deal_correct_sequences_title">"Servir sequências corretas"</string>
 <string name="settings_max_number_undos">"Número máximo de desfazer movimentos"</string>
 <string name="settings_expert_settings">"Configurações avançadas"</string>
 <string name="settings_expert_settings_text">"Pode ser útil para algumas pessoas"</string>
@@ -229,22 +208,10 @@ Devolver todas as cartas do monte de descartadas para o monte principal: -200"</
 <string name="settings_movement_speed_2">"Lento"</string>
 <string name="settings_movement_speed_3">"Normal"</string>
 <string name="settings_movement_speed_4">"Rápido"</string>
-<string name="settings_win_sounds_1">"Padrão"</string>
-<string name="settings_win_sounds_2">"Piano"</string>
-<string name="settings_win_sounds_4">"Multidão a festejar"</string>
-<string name="settings_background_music_1">"Desativado"</string>
-<string name="settings_background_music_2">"Tema 1"</string>
-<string name="settings_background_music_3">"Tema 2"</string>
-<string name="settings_background_music_4">"Tema 3"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 Cartas (padrão)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 Cartas"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 Cartas"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 Cartas"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"Desativado"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"Cor alternada"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"Mesma família"</string>
-<string name="settings_developer_option_deal_correct_sequences_4">"Cor alternada invertida"</string>
-<string name="settings_developer_option_deal_correct_sequences_5">"Mesma família invertida"</string>
 
 <!-- Statistics -->
 <string name="statistics_text_won_games">"Ganhou %1$d em %2$d jogos"</string>
@@ -266,7 +233,6 @@ Devolver todas as cartas do monte de descartadas para o monte principal: -200"</
 <string name="statistics_total_number_undos">"Total de movimentos de desfazer"</string>
 <string name="statistics_total_points_earned">"Total de pontos ganhos"</string>
 <string name="statistics_no_entries">"Sem entradas, jogue alguns jogos!"</string>
-<string name="dialog_auto_move">"Mover automaticamente"</string>
 <string name="dialog_show_hints">"Mostrar dicas"</string>
 <string name="manual_ui_text_part_1">"Num jogo aparece sempre um menu da parte inferior do ecrã (modo ao alto) ou do lado direito (modo ao baixo). Mostra também a pontuação e o tempo decorrido do jogo. O menu contém 5 itens, que têm os seguintes efeitos (botões da esquerda para a direita)
 
@@ -279,8 +245,6 @@ O botão \"Ajuda\" mostrar um pequeno menu onde pode selecionar:"</string>
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"Sem dica disponível!"</string>
-<string name="dialog_no_movement_possible">"Nenhum movimento a mostrar!"</string>
-<string name="settings_show_advanced_settings_title">"Desbloquear as categorias de programador"</string>
 <string name="settings_language_italian">"Italiano"</string>
 <string name="settings_language_portuguese_brazil">"Português (Brasil)"</string>
 <string name="settings_language_ukrainian">"Ucraniano"</string>
@@ -305,7 +269,6 @@ O botão \"Ajuda\" mostrar um pequeno menu onde pode selecionar:"</string>
 <string name="settings_ensure_movability_searching_games">"A procurar um jogo adequado..."</string>
 <string name="settings_ensure_movability_min_moves_title">"Alterar quantidade de movimentos"</string>
 <string name="settings_number_input_error">"Não é possível gravar esses números"</string>
-<string name="settings_developer_option_improve_auto_move_text">"Auto Mover irá tentar ganhar o jogo utilizando também o monte principal"</string>
 <string name="black">"Preto"</string>
 <string name="white">"Branco"</string>
 <string name="settings_ensure_movability_make_game_winnable_button_title">"Tornar possível ganhar certos jogos"</string>

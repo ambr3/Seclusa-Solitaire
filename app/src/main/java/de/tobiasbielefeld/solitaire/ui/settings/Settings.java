@@ -48,7 +48,6 @@ import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCardBackground;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceCards;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceOnlyForThisGame;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceTextColor;
-import de.tobiasbielefeld.solitaire.helper.Sounds;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
@@ -61,7 +60,6 @@ public class Settings extends AppCompatPreferenceActivity {
 
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
-    private Preference preferenceBackgroundVolume;
     private Preference preferenceMaxNumberUndos;
     private Preference preferenceGameLayoutMargins;
 
@@ -85,8 +83,6 @@ public class Settings extends AppCompatPreferenceActivity {
 
     CustomizationPreferenceFragment customizationPreferenceFragment;
 
-    private Sounds settingsSounds;
-
     //make this static so the preference fragments use the same intent
     //don't forget: Android 8 doesn't call onCreate for the fragments, so there only one intent is
     //created. Android 7 calls onCreate for each fragment and would create new intents
@@ -106,8 +102,6 @@ public class Settings extends AppCompatPreferenceActivity {
 
         prefs.setCriticalSettings();
 
-        settingsSounds = new Sounds(this);
-
         if (returnIntent == null) {
             returnIntent = new Intent();
         }
@@ -120,12 +114,7 @@ public class Settings extends AppCompatPreferenceActivity {
 
     @Override
     public void onBuildHeaders(List<Header> target) {
-        if (prefs.getShowAdvancedSettings()) {
-            loadHeadersFromResource(R.xml.pref_headers_with_advanced_settings, target);
-        } else {
-            loadHeadersFromResource(R.xml.pref_headers, target);
-        }
-
+        loadHeadersFromResource(R.xml.pref_headers, target);
     }
 
     /*
@@ -202,6 +191,8 @@ public class Settings extends AppCompatPreferenceActivity {
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
             bitmaps.resetMenuPreviews();
             restartApplication();
+        } else if (key.equals(PREF_KEY_THEME_COLOR)) {
+            restartApplication();
         } else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
             updatePreferenceMenuBarPositionSummary();
             returnIntent.putExtra(getString(R.string.intent_update_menu_bar), true);
@@ -215,13 +206,6 @@ public class Settings extends AppCompatPreferenceActivity {
             if (animate != null) {
                 animate.updateMovementSpeed();
             }
-        } else if (key.equals(PREF_KEY_WIN_SOUND)) {
-            settingsSounds.playWinSound();
-        } else if (key.equals(PREF_KEY_BACKGROUND_MUSIC) || key.equals(PREF_KEY_SOUND_ENABLED)) {
-            backgroundSound.doInBackground(this);
-        } else if (key.equals(PREF_KEY_BACKGROUND_VOLUME)) {
-            updatePreferenceBackgroundVolumeSummary();
-            backgroundSound.doInBackground(this);
         } else if (key.equals(PREF_KEY_FORCE_TABLET_LAYOUT)) {
             restartApplication();
         } else if (key.equals(PREF_KEY_SINGLE_TAP_ALL_GAMES)) {
@@ -238,13 +222,6 @@ public class Settings extends AppCompatPreferenceActivity {
             }
 
             updatePreferenceMaxNumberUndos();
-        } else if (key.equals(PREF_KEY_SHOW_ADVANCED_SETTINGS)) {
-            final Intent intent = new Intent(getApplicationContext(), Settings.class);
-
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            finish();
-            startActivity(intent);
         } else if (key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT) || key.equals(PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE)) {
             updatePreferenceGameLayoutMarginsSummary();
             returnIntent.putExtra(getString(R.string.intent_update_game_layout), true);
@@ -289,7 +266,6 @@ public class Settings extends AppCompatPreferenceActivity {
                 || MenuPreferenceFragment.class.getName().equals(fragmentName)
                 || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName)
                 || SoundPreferenceFragment.class.getName().equals(fragmentName)
-                || DeveloperOptionsPreferenceFragment.class.getName().equals(fragmentName)
                 || ExpertSettingsPreferenceFragment.class.getName().equals(fragmentName);
 
     }
@@ -369,12 +345,6 @@ public class Settings extends AppCompatPreferenceActivity {
         preferenceMenuBarPosition.setSummary(text);
     }
 
-    private void updatePreferenceBackgroundVolumeSummary() {
-        int volume = prefs.getSavedBackgroundVolume();
-
-        preferenceBackgroundVolume.setSummary(String.format(Locale.getDefault(), "%s %%", volume));
-    }
-
     public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {
 
         @Override
@@ -450,13 +420,6 @@ public class Settings extends AppCompatPreferenceActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_sounds);
             setHasOptionsMenu(true);
-
-
-            Settings settings = (Settings) getActivity();
-
-            settings.preferenceBackgroundVolume = findPreference(getString(R.string.pref_key_background_volume));
-
-            settings.updatePreferenceBackgroundVolumeSummary();
         }
     }
 
@@ -487,16 +450,6 @@ public class Settings extends AppCompatPreferenceActivity {
 
             settings.preferenceSingleTapAllGames = (CheckBoxPreference) findPreference(getString(R.string.pref_key_single_tap_all_games));
             settings.preferenceTapToSelect = (CheckBoxPreference) findPreference(getString(R.string.pref_key_tap_to_select_enable));
-        }
-    }
-
-    public static class DeveloperOptionsPreferenceFragment extends CustomPreferenceFragment {
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_developer_options);
-            setHasOptionsMenu(true);
         }
     }
 

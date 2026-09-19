@@ -27,7 +27,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -76,125 +75,13 @@ public abstract class Game {
     private int hintCosts = 25;
     private int undoCosts = 25;
     private ArrayList<TextView> textViews = new ArrayList<>();
-    private testMode mixCardsTestMode = testMode.DOESNT_MATTER;
     private RecycleCounterCallback recycleCounterCallback;
 
     // some methods used by other classes
 
-    /**
-     * Used eg. if the player gets stuck and can't move any further: Mix all cards randomly by
-     * exchanging them with other cards. The games can exclude cards to mix, like all cards on the
-     * foundation, or complete sequences.
-     */
-    public void mixCards() {
-        Random random = getPrng();
-        ArrayList<Card> cardsToMix = new ArrayList<>();
-        int counter;
-        Card cardToChange;
-
-        //getHighScore the cards to mix
-        for (Card card : cards) {
-            if (!excludeCardFromMixing(card)) {
-                cardsToMix.add(card);
-            }
-        }
-
-        //exchange cards. A bit like Fisher-Yate Shuffle, but the iterating array doesn't change.
-        for (int i = cardsToMix.size() - 1; i >= 0; i--) {
-
-            if (prefs.getSavedUseTrueRandomisation()) {
-                cardToChange = cardsToMix.get(random.nextInt(i + 1));
-            } else {
-                //choose a new card as long the chosen card is too similar to the previous and following card in the array
-                //(same value or color) also limit the loop to max 10 iterations to avoid infinite loops
-                counter = 0;
-
-                do {
-                    cardToChange = cardsToMix.get(random.nextInt(i + 1));
-                    counter++;
-                }
-                while ( //the card below cardToChange shouldn't be too similar (but only if there is a card below)
-                        (!cardToChange.isFirstCard() && (cardToChange.getCardBelow().getValue() == cardsToMix.get(i).getValue() || cardToChange.getCardBelow().getColor() == cardsToMix.get(i).getColor())
-                                //the card on top cardToChange shouldn't be too similar (but only if there is a card on top)
-                                || !cardToChange.isTopCard() && (cardToChange.getCardOnTop().getValue() == cardsToMix.get(i).getValue() || cardToChange.getCardOnTop().getColor() == cardsToMix.get(i).getColor()))
-                                //and the loop shouldn't take too long
-                                && counter < 10);
-            }
-
-            cardToChange.getStack().exchangeCard(cardToChange, cardsToMix.get(i));
-        }
-
-        sounds.playSound(Sounds.names.DEAL_CARDS);
-
-        //After every card got a new place, update the card image views
-        for (Stack stack : stacks) {
-            stack.updateSpacing();
-        }
-
-        //delete the record list, otherwise undoing movements would result in strange behavior
-        recordList.reset();
-        handlerTestAfterMove.sendDelayed();
-    }
-
     public void dealNewGame() {
         dealCards();
         load();
-
-        switch (prefs.getDeveloperOptionDealCorrectSequences()) {
-            case 1: //alternating color
-                flipAllCardsUp();
-
-                for (int i = 0; i < (cards.length / 13); i++) {
-                    for (int j = 0; j < 13; j++) {
-                        int color = (j % 2 == 0) ? i : (i == 0) ? (cards.length / 13) - 1 : i - 1;
-                        int cardIndex = (13 * (color + 1)) - j - 1;
-                        cards[cardIndex].removeFromCurrentStack();
-                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
-                    }
-                }
-
-                break;
-            case 2: //same family
-                flipAllCardsUp();
-
-                for (int i = 0; i < (cards.length / 13); i++) {
-                    for (int j = 0; j < 13; j++) {
-                        int cardIndex = (13 * (i + 1)) - j - 1;
-                        cards[cardIndex].removeFromCurrentStack();
-                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
-                    }
-                }
-
-                break;
-            case 3: //reversed alternating color
-                flipAllCardsUp();
-
-                for (int i = 0; i < (cards.length / 13); i++) {
-                    for (int j = 0; j < 13; j++) {
-                        int color = (j % 2 == 0) ? i : (i == 0) ? (cards.length / 13) - 1 : i - 1;
-                        int cardIndex = 13 * color + j;
-                        cards[cardIndex].removeFromCurrentStack();
-                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
-                    }
-                }
-
-                break;
-            case 4: //reversed same family
-                flipAllCardsUp();
-
-                for (int i = 0; i < (cards.length / 13); i++) {
-                    for (int j = 0; j < 13; j++) {
-                        int cardIndex = 13 * i + j;
-                        cards[cardIndex].removeFromCurrentStack();
-                        moveToStack(cards[cardIndex], stacks[i], OPTION_NO_RECORD);
-                    }
-                }
-
-                break;
-            default:
-                //nothing, developer option not set
-                break;
-        }
     }
 
 
@@ -498,36 +385,6 @@ public abstract class Game {
      * gets called when starting a new game, or when a game is won
      */
     public void onGameEnd() {
-    }
-
-    /*
-     * this method tests cards, if they are excluded from the card mixing function. (Eg. cards on the foundation)
-     * You can override it to customise the behavior. Eg this method in the game Golf is empty, because no
-     * cards should be excluded there
-     */
-    protected boolean excludeCardFromMixing(Card card) {
-        Stack stack = card.getStack();
-
-        if (!card.isUp()) {
-            return false;
-        }
-
-        if (foundationStacksContain(stack.getId())) {
-            return true;
-        }
-
-        //do not exclude anything, if the testMode is null
-        if (mixCardsTestMode == null) {
-            return false;
-        }
-
-        if (card.getIndexOnStack() == 0 && stack.getSize() == 1) {
-            return false;
-        }
-
-        int indexToTest = card.getIndexOnStack() - (card.isTopCard() && stack.getSize() > 1 ? 1 : 0);
-
-        return testCardsUpToTop(stack, indexToTest, mixCardsTestMode);
     }
 
     /**
@@ -1251,11 +1108,7 @@ public abstract class Game {
     }
 
     public boolean addCardToMovementTest(Card card) {
-        return prefs.isDeveloperOptionPlayEveryCardEnabled() || addCardToMovementGameTest(card);
-    }
-
-    protected void setMixingCardsTestMode(testMode mode) {
-        mixCardsTestMode = mode;
+        return addCardToMovementGameTest(card);
     }
 
     public int getMainStackId() {

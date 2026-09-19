@@ -28,6 +28,21 @@ public class CustomDialogFragment extends DialogFragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        SharedData.isDialogVisible = true;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        if (shownDialog == this) {
+            SharedData.isDialogVisible = false;
+        }
+    }
+
+    @Override
     public void onDismiss(DialogInterface dialog) {
         super.onDismiss(dialog);
 

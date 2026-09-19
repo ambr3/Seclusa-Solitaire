@@ -311,10 +311,4 @@ public class Pyramid extends Game {
         return stackAbove1.isEmpty() && stackAbove2.isEmpty();
     }
 
-    /*
-     * override this in your games to customize behavior
-     */
-    protected boolean excludeCardFromMixing(Card card) {
-        return card.getStack() == stacks[28];
-    }
 }

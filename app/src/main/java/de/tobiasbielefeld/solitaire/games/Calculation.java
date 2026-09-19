@@ -44,7 +44,6 @@ public class Calculation extends Game {
         setDiscardStackIDs(8);
         setMainStackIDs(9);
 
-        setMixingCardsTestMode(null);
         prefs.saveCalculationAlternativeModeOld();
     }
 

@@ -46,7 +46,6 @@ public class Gypsy extends Game {
         setFoundationStackIDs(8, 9, 10, 11, 12, 13, 14, 15);
         setMainStackIDs(16);
 
-        setMixingCardsTestMode(testMode.ALTERNATING_COLOR);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {

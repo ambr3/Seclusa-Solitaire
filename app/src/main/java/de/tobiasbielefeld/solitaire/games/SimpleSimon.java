@@ -47,7 +47,6 @@ public class SimpleSimon extends Spider {
 
         //because this game inherits from Spider, I have to disable the main stack from it
         disableMainStack();
-        setMixingCardsTestMode(testMode.DOESNT_MATTER);
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {

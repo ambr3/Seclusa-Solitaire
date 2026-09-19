@@ -59,9 +59,6 @@
 <string name="dialog_win_total">"Összesen: %1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Kártyák keverése"</string>
-<string name="dialog_mix_cards_text">"Ez megkeveri az összes kártyát, kivéve a helyes sorrendű sorozatokat és az alapvermekben találhatókat."</string>
-<string name="dialog_mix_cards_not_available">"Tud kártyát mozgatni!"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Új játék indítása"</string>
@@ -78,9 +75,6 @@
 <string name="title_activity_statistics">"Statisztikák"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Információ"</string>
-<string name="about_tab_2">"Licenszek"</string>
-<string name="about_tab_3">"Változáslista"</string>
 <string name="about_developer">"Fejlesztő"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Összeállítva"</string>
@@ -97,8 +91,6 @@
 <string name="about_poker_themes_usage">"A póker téma használja - Megtalálható a &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net -en.&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
 <string name="about_custom_color_picker_usage">"Az egyéni színkiválasztóhoz lett használva."</string>
-<string name="about_sounds_title">"Hangok"</string>
-<string name="about_sounds_usage">"Minden hangot eredetileg a &lt;a href=https://freesound.org&gt;freesound.org-on&lt;/a&gt; tettek közzé, részletes információért kattintson &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;ide.&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
 <string name="about_sliding_tabs_usage">"\"A játékról\" képernyőn lévő fülekhez lett használva."</string>
 
@@ -126,17 +118,6 @@ Használja a baloldali menüt a kézikönyv oldalak eléréséhez."</string>
 Az alkalmazás automatikusan betölti az utolsó játszott játékot újraindítás esetén, ha a játék megszakadt. Ezt a viselkedést le lehet tiltani a beállítások \"Főmenü\" részében.
 
 A beállítások \"Főmenü\" részében lehetőség van a játékok elrejtésére és rendezésére, megváltoztatható az oszlopok száma, így több játék jelenthet meg a képernyőn egyszerre."</string>
-<string name="manual_ui_text">"A játék mindig egy kis menüt jelenít meg a képernyő alsó részén (álló módban) vagy a jobb oldalon (fekvő módban). Az aktuális pontszámot és a játékidőt is mutatja. A menü 5 elemet tartalmaz, melyek a következők (gombok balról jobbra):
-
-A \"Pontszám\" gomb új ablakot jelenít meg az aktuális játék legmagasabb pontszámaival és a megnyert játékok számával.
-
-A \"Tipp\" gomb segíthet a legfeljebb 3 lehetséges kártyamozgás egyszerre történő megjelenítésével. De ez 25 ponttal csökkenti az aktuális pontszámot. Megjegyzés: a triviális mozgások mint a kártyák üres mezőre mozgatása, vagy a fő verem megnyomása, nem jelenik meg mint tipp. Ha nincs mutatható tipp, a pontszám nem csökken.
-
-A \"Menü\" gomb három különböző műveletet mutat: Új játék indítása, megkeveri a kártyákat és leosztja az új játékot. Adja újra a kártyákat, újra indítja az aktuális játékot ugyanazokkal a lapokkal. Az utolsó opció befejezi az aktuális játékot, és visszalépteti az alkalmazást a főmenübe.
-
-A \"Visszavonás\" gombbal az utolsó mozgatást vonhatja vissza, de ez 25 ponttal csökkenti a pontszámot. Az utolsó 20 mozgatás vonható vissza.
-
-A \"Beállítások\" gomb egyszerűen megnyitja a beállításokat."</string>
 <string name="manual_feedback_text">"Talált egy hibát?  Valamit javítanom kell?  Adjak hozzá egy másik játékot a gyűjteményhez? Talán segíteni szeretne egy fordításnál? Vagy van egy ötlete?
 
 Örülök ha bármilyen visszajelzést kapok. Ha úgy érzi, hogy kapcsolatba szeretne lépni velem, akkor a következő két lehetőség közül választhat:
@@ -456,10 +437,7 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="Settings_sound">"Engedélyezi a hangokat"</string>
 <string name="Settings_sounds_title">"Hangok"</string>
 <string name="Settings_sounds_text">"Engedélyezi a hangokat, különböző hanghatásokat állíthat be."</string>
-<string name="Settings_win_sound_title">"Győzelmi hang effekt"</string>
-<string name="Settings_background_music">"Háttérzene"</string>
 <string name="settings_background_color_custom">"Saját"</string>
-<string name="Settings_background_volume">"Háttérzene hangerő"</string>
 <string name="settings_limit_number_of_recycles">"Korlátozza az újra felhasználást"</string>
 <string name="settings_limit_number_of_recycles_text">"A dobásverem kártyáinak visszamozgatása a főverembe korlátozott"</string>
 <string name="settings_number_of_recycles">"Újra felhasználás száma"</string>
@@ -494,18 +472,6 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="settings_canfield_size_of_reserve_title">"A tartalékverem mérete (könnyítés)"</string>
 <string name="settings_use_true_randomisation_title">"Használjon valódi véletlenszerűséget"</string>
 <string name="settings_use_true_randomisation_text">"Az alapértelmezett véletlenszerűség kerüli az egymás melletti hasonló kártyákat. Próbálja ki ezt, engedélyezze a valódi, egységes véletlenszerűséget."</string>
-<string name="settings_developer_options">"Fejlesztői lehetőségek"</string>
-<string name="settings_developer_options_description">"Játsszon őrült beállításokkal!"</string>
-<string name="settings_developer_options_move_card_everwhere_title">"Bárhova mozgathatja a kártyákat"</string>
-<string name="settings_developer_options_move_card_everwhere_text">"A kártyákat bármelyik veremre elhelyezheti."</string>
-<string name="settings_developer_options_lock_text">"Ezek a beállítások csak tesztelési célokra szolgálnak, a használatuk furcsa viselkedést és összeomlást eredményezhet!"</string>
-<string name="settings_developer_options_play_every_card_title">"Játék minden kártyával"</string>
-<string name="settings_developer_options_play_every_card_text">"Minden felfedett kártyával tud játszani."</string>
-<string name="settings_developer_options_instant_win_title">"Azonnal nyer"</string>
-<string name="settings_developer_options_instant_win_text">"Megnyer minden játékot egy kártya áthelyezése után."</string>
-<string name="settings_developer_options_no_saving_title">"Letiltja a játék állapotának mentését"</string>
-<string name="settings_developer_options_no_saving_text">"A játékban történt mozgatásokat többé nem menti el."</string>
-<string name="settings_developer_options_deal_correct_sequences_title">"Korrekt sorozatokat oszt"</string>
 <string name="settings_max_number_undos">"A mozgatás visszavonás maximális száma"</string>
 <string name="settings_expert_settings">"Szakértői beállítások"</string>
 <string name="settings_expert_settings_text">"Hasznos lehet néhány ember számára."</string>
@@ -535,24 +501,10 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="settings_movement_speed_2">"Lassú"</string>
 <string name="settings_movement_speed_3">"Normál"</string>
 <string name="settings_movement_speed_4">"Gyors"</string>
-<string name="settings_win_sounds_1">"Alapértelmezett"</string>
-<string name="settings_win_sounds_2">"Pianó"</string>
-<string name="settings_win_sounds_3">"8-bites hang \"You win\""</string>
-<string name="settings_win_sounds_4">"Éljenző tömeg"</string>
-<string name="settings_background_music_1">"Letiltva"</string>
-<string name="settings_background_music_2">"1. téma"</string>
-<string name="settings_background_music_3">"2. téma"</string>
-<string name="settings_background_music_4">"3. téma"</string>
-<string name="settings_background_music_5">"Zenedoboz"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 Kártya (alap)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 Kártya"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 Kártya"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 Kártya"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"Deaktivált"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"Váltakozó színű"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"Saját kártyacsaládú"</string>
-<string name="settings_developer_option_deal_correct_sequences_4">"Fordított váltakozó színű"</string>
-<string name="settings_developer_option_deal_correct_sequences_5">"Fordított saját kártyacsaládú"</string>
 
 <!-- Statistics -->
 <string name="statistics_text_won_games">"%1$d játékot nyert, %2$d játékból"</string>
@@ -575,7 +527,6 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="statistics_total_number_undos">"Visszavonások száma"</string>
 <string name="statistics_total_points_earned">"Összesen nyert pontok"</string>
 <string name="statistics_no_entries">"Nincs bejegyzés, játszon néhány játékot!"</string>
-<string name="dialog_auto_move">"Automatikus mozgatás"</string>
 <string name="dialog_show_hints">"Tippek mutatása"</string>
 <string name="manual_ui_text_part_1">"A játék mindig egy kis menüt jelenít meg a képernyő alsó részén (álló módban) vagy a jobb oldalon (fekvő módban). Az aktuális pontszámot és a játékidőt is mutatja. A menü 5 elemet tartalmaz, melyek a következők (gombok balról jobbra).
 
@@ -603,8 +554,6 @@ A \"Beállítások\" gombbal közvetlenül megnyithatja a beállítások menüt.
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"Nincs mutatható tipp!"</string>
-<string name="dialog_no_movement_possible">"Nem lehet mozgatni!"</string>
-<string name="settings_show_advanced_settings_title">"A fejlesztői kategóriák feloldása"</string>
 <string name="settings_language_italian">"Olasz"</string>
 <string name="settings_language_portuguese_brazil">"Portugál (Brazil)"</string>
 <string name="settings_language_ukrainian">"Ukrán"</string>
@@ -665,8 +614,6 @@ Szeretné eltávolítani az egyedi beállításokat a felsorolt ​​játékokb
 <string name="settings_ensure_movability_min_moves_warning">"Figyelem: Az összeg növelése hosszabb várakozási időt eredményez a játék indítása előtt! A játékszabályok megváltoztatása is befolyásolja a várakozási időt!"</string>
 <string name="settings_ensure_movability_min_moves_text">"Módosítsa a mozgatások összegét, amelyeknek a megadott játékban legalább lehetségesnek kell lennie."</string>
 <string name="settings_number_input_error">"Nem lehet menteni ezt a számot!"</string>
-<string name="settings_developer_option_improve_auto_move_title">"Javítja az Automatikus mozgatás"</string>
-<string name="settings_developer_option_improve_auto_move_text">"Az \"Automatikus mozgatás\" megpróbálja megnyerni a játékot a főverem használatával is."</string>
 <string name="black">"Fekete"</string>
 <string name="white">"Fehér"</string>
 <string name="settings_ensure_movability_make_game_winnable_button_title">"Tegye a játékokat nyerhetővé"</string>

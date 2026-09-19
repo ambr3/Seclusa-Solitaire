@@ -49,21 +49,18 @@ public class LicenseFragment extends Fragment {
         TextView textPokerLicenseUsage = view.findViewById(R.id.about_license_poker_theme_usage);
         TextView textParisLicenseUsage = view.findViewById(R.id.about_license_paris_theme_usage);
         TextView textCustomColorPickerLicense = view.findViewById(R.id.about_license_custom_color_picker);
-        TextView textSoundsLicense = view.findViewById(R.id.about_license_sounds);
-        TextView textSoundsLicenseUsage = view.findViewById(R.id.about_license_sounds_usage);
         TextView textSlidingTabsLicense = view.findViewById(R.id.about_license_sliding_tabs);
         TextView textAndroidSupportLicense = view.findViewById(R.id.about_license_android_support_libraries);
 
         TextView[] textViews = new TextView[]{textMaterialIconsLicense, textMaterialIconsLicense2, textMaterialIconsUsage2,
                 textCardThemesLicense, textCardThemesLicenseUsage, textPokerLicense, textPokerLicenseUsage,
-                textCustomColorPickerLicense, textSoundsLicense, textSoundsLicenseUsage,
+                textCustomColorPickerLicense,
                 textSlidingTabsLicense, textAndroidSupportLicense, textParisLicenseUsage};
 
         //explicitly set the strings here, otherwise the links in them wouldn't show properly
         textCardThemesLicenseUsage.setText(Html.fromHtml(getString(R.string.about_card_themes_usage)));
         textPokerLicenseUsage.setText(Html.fromHtml(getString(R.string.about_poker_themes_usage)));
         textParisLicenseUsage.setText(Html.fromHtml(getString(R.string.about_paris_themes_usage)));
-        textSoundsLicenseUsage.setText(Html.fromHtml(getString(R.string.about_sounds_usage)));
         textMaterialIconsUsage2.setText(Html.fromHtml(getString(R.string.about_material_icons_2_usage)));
 
         for (TextView textView : textViews) {

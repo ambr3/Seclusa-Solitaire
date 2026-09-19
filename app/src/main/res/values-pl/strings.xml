@@ -59,9 +59,6 @@
 <string name="dialog_win_total">"Ogółem: %1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Tasuj karty"</string>
-<string name="dialog_mix_cards_text">"Spowoduje to przetasowanie wszystkich kart, oczekuj kart w poprawnej kolejności i kart na stosach bazowych."</string>
-<string name="dialog_mix_cards_not_available">"Nadal możliwe są ruchy!"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Rozpocznij nową grę"</string>
@@ -78,9 +75,6 @@
 <string name="title_activity_statistics">"Statystyka"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Informacje"</string>
-<string name="about_tab_2">"Licencje"</string>
-<string name="about_tab_3">"Zmiany"</string>
 <string name="about_developer">"Twórca gry"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Data kompilacji"</string>
@@ -97,8 +91,6 @@
 <string name="about_poker_themes_usage">"Użyty jako styl Pokerowy - dostępny na &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"Biblioteka AmbilWarna"</string>
 <string name="about_custom_color_picker_usage">"Użyta dla wybieraka kolorów"</string>
-<string name="about_sounds_title">"Dźwięki"</string>
-<string name="about_sounds_usage">"Wszystkie dźwięki zostały oryginalnie opublikowane na &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, po szczegółowe informacje kliknij &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;tutaj&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"Biblioteka PagerSlidingTabStrip"</string>
 <string name="about_sliding_tabs_usage">"Użyta dla kart na ekranie „o grze”"</string>
 
@@ -126,17 +118,6 @@ Użyj menu po lewej stronie, aby dostać się do innych stron podręcznika."</st
 Program automatycznie wznowi ostatnio otwartą grę podczas startu, jeżeli program został na niej zatrzymany. To zachowanie można zmienić w opcjach w sekcji „Ogólne”. 
 
 W ustawieniach tam też sekcję „Menu główne”, gdzie możesz ukryć gry z menu, wybrać liczbę kolumn, tak aby więcej gier zmieściło się na ekranie jednocześnie."</string>
-<string name="manual_ui_text">"Gra zawsze będzie pokazywała niewielkie menu na dole ekranu (orientacja pionowa) lub po prawej stronie (orientacja pozioma). Będzie także widoczna obecna punktacja i czas gry. Jeżeli to możliwe, te wartości zostaną wpisane na listę wyników. Menu zawiera 5 elementów, które wywołują następujące akcje (przyciski od lewej do prawej):
-
-Przycisk „Punktacja” wywoła nowe okno z listą najlepszych wyników i liczbą rozegranych gier obecnej gry. 
-
-Przycisk „Wskazówka” pomoże Ci wyświetlając maksymalnie 3 możliwe ruchy jednocześnie. Ale to zabierze Ci 25 punktów. Zauważ, że banalne ruchy, takie jak przeniesienie karty na puste pole lub stuknięcie w główny stos nie będą pokazane jako podpowiedź. Jeżeli żadna wskazówka nie zostanie wyświetlona, Twoje punkty nie zmaleją. 
-
-Przycisk „Menu” umożliwi trzy różne czynności: Rozpoczęcie nowej gry przetasowując karty i rozdając je ponownie. Opcja ponownie rozdaj karty działa tak samo, ale bez przetasowania, jest to po prostu restart obecnej gry. Ostatnia opcja zakończy obecną grę i przeniesie Cię do menu głównego. 
-
-Przycisk „Cofnij” cofnie ostatni ruch, ale będzie to kosztowało 25 punktów. Można użyć tej opcji dla 20 ostatnich ruchów. 
-
-Przycisk „Ustawienia” zwyczajnie otworzy menu ustawień."</string>
 <string name="manual_feedback_text">"Znalazłeś jakiś błąd? Coś powinienem ulepszyć? Może powinienem dodać jakąś grę do kolekcji? Może chcesz pomóc tłumaczyć? Masz jakiś inny pomysł?
 
 Będę wdzięczny za jakikolwiek odzew. Jeżeli chcesz się ze mną skontaktować, rozważ następujące opcje: 
@@ -456,10 +437,7 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="Settings_sound">"Włącz dźwięki w grze"</string>
 <string name="Settings_sounds_title">"Dźwięki"</string>
 <string name="Settings_sounds_text">"Włącz dźwięki, ustaw różne efekty dźwiękowe"</string>
-<string name="Settings_win_sound_title">"Dźwięk wygranej"</string>
-<string name="Settings_background_music">"Muzyka w tle"</string>
 <string name="settings_background_color_custom">"Własny"</string>
-<string name="Settings_background_volume">"Głośność muzyki w tle"</string>
 <string name="settings_limit_number_of_recycles">"Ogranicz liczbę ponownych rozdań"</string>
 <string name="settings_limit_number_of_recycles_text">"Ogranicz możliwość ponownego wykorzystania kart ze stosu odrzutów"</string>
 <string name="settings_number_of_recycles">"Liczba ponownych rozdań"</string>
@@ -494,18 +472,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_canfield_size_of_reserve_title">"Zmień wielkość stosu rezerwowego (łatwiej)"</string>
 <string name="settings_use_true_randomisation_title">"Stosowanie prawdziwej losowości"</string>
 <string name="settings_use_true_randomisation_text">"Domyślna losowość pozwala uniknąć podobnych kart obok siebie. Zaznacz tę opcję, aby zastosować prawdziwą losowość."</string>
-<string name="settings_developer_options">"Opcje deweloperskie"</string>
-<string name="settings_developer_options_description">"Pobaw się naprawdę szalonymi ustawieniami!"</string>
-<string name="settings_developer_options_move_card_everwhere_title">"Przenieś karty wszędzie"</string>
-<string name="settings_developer_options_move_card_everwhere_text">"Karty można umieszczać na dowolnym stosie"</string>
-<string name="settings_developer_options_lock_text">"Ustawienia te są przeznaczone wyłącznie do celów testowych, użycie może powodować dziwne zachowania i awarie!"</string>
-<string name="settings_developer_options_play_every_card_title">"Graj każdą kartą"</string>
-<string name="settings_developer_options_play_every_card_text">"Można grać każdą odkrytą kartą"</string>
-<string name="settings_developer_options_instant_win_title">"Natychmiastowe zwycięstwo"</string>
-<string name="settings_developer_options_instant_win_text">"Wygraj każdą grę po przeniesieniu karty"</string>
-<string name="settings_developer_options_no_saving_title">"Wyłączenie zapisywania stanu gry"</string>
-<string name="settings_developer_options_no_saving_text">"Ruchy w grze nie będą już zapisywane"</string>
-<string name="settings_developer_options_deal_correct_sequences_title">"Rozdaj w kolejności końcowej"</string>
 <string name="settings_max_number_undos">"Maksymalna liczba cofnięć"</string>
 <string name="settings_expert_settings">"Ustawienia specjalistyczne"</string>
 <string name="settings_expert_settings_text">"Może być przydatna dla niektórych ludzi"</string>
@@ -535,24 +501,10 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_movement_speed_2">"Powolne"</string>
 <string name="settings_movement_speed_3">"Normalne"</string>
 <string name="settings_movement_speed_4">"Szybkie"</string>
-<string name="settings_win_sounds_1">"Domyślny"</string>
-<string name="settings_win_sounds_2">"Pianino"</string>
-<string name="settings_win_sounds_3">"8-bitowy głos „You win”"</string>
-<string name="settings_win_sounds_4">"Oklaski"</string>
-<string name="settings_background_music_1">"Brak"</string>
-<string name="settings_background_music_2">"Temat 1"</string>
-<string name="settings_background_music_3">"Temat 2"</string>
-<string name="settings_background_music_4">"Temat 3"</string>
-<string name="settings_background_music_5">"Pozytywka"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 kart (domyślnie)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 kart"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 kart"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 kart"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"Wyłączony"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"Naprzemienny kolor"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"Ten sam kolor kart"</string>
-<string name="settings_developer_option_deal_correct_sequences_4">"Odwrócony naprzemienny kolor"</string>
-<string name="settings_developer_option_deal_correct_sequences_5">"Odwrócony ten sam kolor kart"</string>
 
 <!-- Statistics -->
 <string name="statistics_text_won_games">"Wygrałeś %1$d z %2$d gier."</string>
@@ -575,7 +527,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="statistics_total_number_undos">"Ruchów wstecz ogółem"</string>
 <string name="statistics_total_points_earned">"Zdobytych punktów ogółem"</string>
 <string name="statistics_no_entries">"Brak wpisów, rozegraj kilka partii!"</string>
-<string name="dialog_auto_move">"Automatyczne ruchy"</string>
 <string name="dialog_show_hints">"Wyświetl wskazówki"</string>
 <string name="manual_ui_text_part_1">"Gra zawsze wyświetli drobne menu na dole ekranu (tryb pionowy) lub po prawej stronie (tryb poziomy). Zostanie także pokazana obecna punktacja i czas obecnej gry, Menu gry zawiera 5 elementów, które wywołują następujące akcje (przyciski od lewej do prawej):
 
@@ -606,8 +557,6 @@ Przycisk „ustawienia” zwyczajnie otwiera menu ustawień."</string>
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"Brak dostępnych wskazówek!"</string>
-<string name="dialog_no_movement_possible">"Brak ruchów do wyświetlenia!"</string>
-<string name="settings_show_advanced_settings_title">"Odblokowanie kategorii deweloperów"</string>
 <string name="settings_language_italian">"Włoski"</string>
 <string name="settings_language_portuguese_brazil">"Portugalski (Brazylia)"</string>
 <string name="settings_language_ukrainian">"Ukraiński"</string>
@@ -667,8 +616,6 @@ Czy chcesz skasować ustawienia indywidualne dla następujących gier?"</string>
 <string name="settings_ensure_movability_min_moves_warning">"Ostrzeżenie: zwiększenie tej wartości spowoduje wydłużenie czasu ładowania przed rozpoczęciem gry! Zmiana zasad gry wpłynie również na czas oczekiwania!"</string>
 <string name="settings_ensure_movability_min_moves_text">"Ustaw minimalną liczbę możliwych gwarantowanych ruchów gry przed jej rozpoczęciem."</string>
 <string name="settings_number_input_error">"Nie można zapisać liczby!"</string>
-<string name="settings_developer_option_improve_auto_move_title">"Ulepszone automatyczne ruchy"</string>
-<string name="settings_developer_option_improve_auto_move_text">"Opcja automatyczne ruchy spróbuje wygrać grę używając głównego stosu"</string>
 <string name="black">"Czarny"</string>
 <string name="white">"Biały"</string>
 <string name="settings_ensure_movability_make_game_winnable_button_title">"Gwarantuj wygrywalność części gier"</string>

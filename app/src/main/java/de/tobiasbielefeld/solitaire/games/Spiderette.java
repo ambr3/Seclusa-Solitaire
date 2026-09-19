@@ -47,7 +47,6 @@ public class Spiderette extends Game {
         setFoundationStackIDs(7, 8, 9, 10);
         setMainStackIDs(11, 12, 13, 14);
 
-        setMixingCardsTestMode(testMode.SAME_FAMILY);
     }
 
     public CardAndStack hintTest(ArrayList<Card> visited) {

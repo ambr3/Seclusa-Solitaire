@@ -59,11 +59,8 @@
 <string name="dialog_win_total">"Total: %1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Stokk kortene"</string>
 
 <!-- There's a mistake in the source string, as I can see that it's meant to be "except" instead of "expect". -->
-<string name="dialog_mix_cards_text">"Dette vil stokke alle kortene, bortsett fra korrekte sekvenser og kort som er i grunnmuren."</string>
-<string name="dialog_mix_cards_not_available">"Det er fortsatt mulige trekk igjen!"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Start en ny omgang"</string>
@@ -80,9 +77,6 @@
 <string name="title_activity_statistics">"Statistikker"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Informasjon"</string>
-<string name="about_tab_2">"Lisenser"</string>
-<string name="about_tab_3">"Endringslogg"</string>
 <string name="about_developer">"Utvikleren"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Kompilert den"</string>
@@ -99,8 +93,6 @@
 <string name="about_poker_themes_usage">"Brukt som pokertema - Tilgjengelig hos &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - © 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna-bibliotek"</string>
 <string name="about_custom_color_picker_usage">"Brukt for den tilpassede fargevelgeren"</string>
-<string name="about_sounds_title">"Lyder"</string>
-<string name="about_sounds_usage">"Alle lyder ble opprinnelig publisert på &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;. For detaljert informasjon, klikk &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;her&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"PagerSlidingTabStrip-bibliotek"</string>
 <string name="about_sliding_tabs_usage">"Brukt for fanene på \"Om spillet\"-skjermen"</string>
 
@@ -249,10 +241,7 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="Settings_sound">"Aktiver lyder i spillet"</string>
 <string name="Settings_sounds_title">"Lyder"</string>
 <string name="Settings_sounds_text">"Aktiver lyder, sett opp forskjellige lydeffekter"</string>
-<string name="Settings_win_sound_title">"Lydeffekt for seiere"</string>
-<string name="Settings_background_music">"Bakgrunnsmusikk"</string>
 <string name="settings_background_color_custom">"Tilpasset"</string>
-<string name="Settings_background_volume">"Bakgrunnsmusikkens volum"</string>
 <string name="settings_limit_number_of_recycles">"Begrens antall resirkuleringer"</string>
 <string name="settings_limit_number_of_recycles_text">"Resirkulering av søplet tilbake i hovedbunken er begrenset"</string>
 <string name="settings_number_of_recycles">"Antall resirkuleringer"</string>
@@ -285,18 +274,6 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_canfield_size_of_reserve_title">"Endre størrelsen til reservebunken (Enklere)"</string>
 <string name="settings_use_true_randomisation_title">"Bruk sann tilfeldiggjøring"</string>
 <string name="settings_use_true_randomisation_text">"Den ordinære tilfeldiggjøreren unngår å plassere lignende kort nær hverandre. Huk av dette for å skru på en fullstendig tilfeldig tilfeldiggjører"</string>
-<string name="settings_developer_options">"Utviklerinnstillinger"</string>
-<string name="settings_developer_options_description">"Lek rundt med disse forskrudde innstillingene!"</string>
-<string name="settings_developer_options_move_card_everwhere_title">"Flytt kort overalt"</string>
-<string name="settings_developer_options_move_card_everwhere_text">"Du kan plassere kort på enhver bunke"</string>
-<string name="settings_developer_options_lock_text">"Disse innstillingene er kun beregnet for testformål, og bruken av dem kan føre til merkelig oppførsel og krasjer!"</string>
-<string name="settings_developer_options_play_every_card_title">"Spill med hvert kort"</string>
-<string name="settings_developer_options_play_every_card_text">"Du kan bruke ethvert avslørt kort"</string>
-<string name="settings_developer_options_instant_win_title">"Umiddelbar seier"</string>
-<string name="settings_developer_options_instant_win_text">"Vinn hver omgang etter å ha flyttet på et kort"</string>
-<string name="settings_developer_options_no_saving_title">"Deaktiver lagring av omgangstilstander"</string>
-<string name="settings_developer_options_no_saving_text">"Bevegelser i en omgang vil ikke bli lagret lengre"</string>
-<string name="settings_developer_options_deal_correct_sequences_title">"Del ut riktige sekvenser"</string>
 <string name="settings_max_number_undos">"Maks antall angrebevegelser"</string>
 <string name="settings_expert_settings">"Ekspertinnstillinger"</string>
 <string name="settings_expert_settings_text">"Kan være nyttige for noen personer"</string>
@@ -326,23 +303,10 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_movement_speed_2">"Treg"</string>
 <string name="settings_movement_speed_3">"Vanlig"</string>
 <string name="settings_movement_speed_4">"Rask"</string>
-<string name="settings_win_sounds_1">"Standard"</string>
-<string name="settings_win_sounds_2">"Piano"</string>
-<string name="settings_win_sounds_3">"8-bitstemme som sier «You win»"</string>
-<string name="settings_win_sounds_4">"&gt;Jublende folkemengde"</string>
-<string name="settings_background_music_1">"Skrudd av"</string>
-<string name="settings_background_music_2">"Sang 1"</string>
-<string name="settings_background_music_3">"Sang 2"</string>
-<string name="settings_background_music_4">"Sang 3"</string>
-<string name="settings_background_music_5">"Musikkboks"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 kort (standard)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 kort"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 kort"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 kort"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"Skrudd av"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"Vekslende farge"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"Samme type"</string>
-<string name="settings_developer_option_deal_correct_sequences_4">"Reversert vekslende farge"</string>
 
 <!-- Statistics -->
 <string name="statistics_text_won_games">"Har vunnet %1$d av %2$d omganger"</string>
@@ -365,7 +329,6 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="statistics_total_number_undos">"Totalt antall angringsbevegelser"</string>
 <string name="statistics_total_points_earned">"Totalt antall poeng tjent"</string>
 <string name="statistics_no_entries">"Ingen oppføringer, gå og spill noen spill!"</string>
-<string name="dialog_auto_move">"Auto-flytting"</string>
 <string name="dialog_show_hints">"Vis hint"</string>
 <string name="manual_ui_text_part_5">"Spillregler: Åpne bruksanvisningen til det nåværende spillet direkte."</string>
 <string name="manual_ui_text_part_6">"Meny-knappen viser tre forskjellige handlinger:"</string>
@@ -383,8 +346,6 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"Ingen hint er tilgjengelige!"</string>
-<string name="dialog_no_movement_possible">"Det er ingen bevegelser som kan vises!"</string>
-<string name="settings_show_advanced_settings_title">"Lås opp utviklerkategoriene"</string>
 <string name="settings_language_italian">"Italiensk"</string>
 <string name="settings_language_portuguese_brazil">"Portugisisk for Brasil"</string>
 <string name="settings_language_ukrainian">"Ukrainsk"</string>

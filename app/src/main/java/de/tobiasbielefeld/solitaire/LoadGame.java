@@ -75,7 +75,9 @@ public class LoadGame {
         }
 
         if (index < 0 || index >= allGameInformation.size()) {
-            Log.w("LoadGame.loadClass()", "Invalid game index " + index + ", using 0");
+            if (BuildConfig.DEBUG) {
+                Log.w("LoadGame.loadClass()", "Invalid game index " + index + ", using 0");
+            }
             index = 0;
         }
 
@@ -84,7 +86,9 @@ public class LoadGame {
 
         switch (index) {
             default:
-                Log.e("LoadGame.loadClass()", "Your games seems not to be added here?");//fallthrough
+                if (BuildConfig.DEBUG) {
+                    Log.e("LoadGame.loadClass()", "Your games seems not to be added here?");//fallthrough
+                }
             case 0:
                 return new AcesUp();
             case 1:

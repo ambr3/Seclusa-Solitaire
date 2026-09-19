@@ -30,6 +30,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.Log;
 
+import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -95,7 +96,9 @@ public class Bitmaps {
         try {
             gamePicture = Bitmap.createBitmap(menu, posX * menuWidth, posY * menuHeight, menuWidth, menuHeight);
         } catch (Exception e) {
-            Log.e("Bitmap.getMenu()", "No picture for current game available\n" + e.toString());
+            if (BuildConfig.DEBUG) {
+                Log.e("Bitmap.getMenu()", "No picture for current game available\n" + e.toString());
+            }
             gamePicture = BitmapFactory.decodeResource(res, R.drawable.no_picture_available);
         }
 

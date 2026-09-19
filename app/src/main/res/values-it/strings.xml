@@ -59,9 +59,6 @@
 <string name="dialog_win_total">"Totale: %1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Mischia le carte"</string>
-<string name="dialog_mix_cards_text">"Questo mischierà tutte le carte, eccetto le sequenze corrette e le carte nella casa."</string>
-<string name="dialog_mix_cards_not_available">"Ci sono ancora mosse possibili! (Usa la funzione di aiuto per mostrarle)"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Comincia una nuova partita"</string>
@@ -78,9 +75,6 @@
 <string name="title_activity_statistics">"Statistiche"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Informazioni"</string>
-<string name="about_tab_2">"Licenze"</string>
-<string name="about_tab_3">"Changelog"</string>
 <string name="about_developer">"Sviluppatore"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Compilato su"</string>
@@ -97,8 +91,6 @@
 <string name="about_poker_themes_usage">"Usato come tema per il Poker - Disponibile su &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
 <string name="about_custom_color_picker_usage">"Usata per il color picker personalizzato"</string>
-<string name="about_sounds_title">"Suoni"</string>
-<string name="about_sounds_usage">"Tutti i suoni sono stati pubblicati inizialmente su &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, per informazioni dettagliate clicca &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;qui&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
 <string name="about_sliding_tabs_usage">"Usata per le tab nella schermata \"Sul Gioco\""</string>
 
@@ -126,17 +118,6 @@ Usa il menu sulla sinistra per accedere alle altre pagine del manuale."</string>
 Se rifatta partire, l'applicazione caricherà automaticamente l'ultima partita giocata, se la partita è stata messa in pausa. Questo comportamento può essere disabilitato nelle impostazioni sotto \"Generali\".
 
 Nelle impostazioni si può trovare la sezione \"Menu principale\", dove è possibile nascondere i giochi dal menu e cambiare il numero di colonne, cosicché più giochi stiano sulllo schermo."</string>
-<string name="manual_ui_text">"In una partita verrà sempre visualizzato un menu nella parte bassa dello schermo (Modalità verticale) o nella parte destra (Modalità orizzontale). Sarà inoltre visualizzato il punteggio corrente e il tempo trascorso in partita. Se possibile, questi due valori saranno salvati nella lista dei punteggi più alti. Il menu contiene 5 elementi, che hanno i seguenti effetti (bottoni da sinistra a destra):
-
-Il bottone \"Punteggi\" mostrerà una nuova finestra con i punteggi più alti e il numeri delle partite vinte del gioco corrente.
-
-Il bottone \"Aiuto\" ti aiuterà mostrandoti fino a tre movimenti possibili alla volta. Ma questo diminuirà il punteggio corrente di 25. Nota che movimenti semplici come spostare ogni carta in un campo vuoto o premere sul mazzo principale non sono mostrati come aiuti. Se non viene mostrato nessun aiuto, il punteggio non diminuisce.
-
-Il bottone \"Menu\" mostra tre azioni differenti: Comincia una nuova partita mischiando le carte ed estraendo una nuova mano. Ridai le carte fa lo stesso, ma senza mischiare. È come se ricominciasse la partita corrente. L'ultima opzione terminerà il gioco corrente e riporterà l'app al menu principale.
-
-Il bottone \"Annulla\" annullerà l'ultimo movimento, ma ti costerà 25 punti. Può essere usato per annullare fino a 20 movimenti.
-
-Il bottone \"Impostazioni\" aprirà semplicemente il menu delle impostazioni."</string>
 
 <!-- Settings -->
 <string name="settings_background_color">"Colore di sfondo"</string>
@@ -162,8 +143,6 @@ Il bottone \"Impostazioni\" aprirà semplicemente il menu delle impostazioni."</
 <string name="settings_hide_time">"Nascondi il tempo"</string>
 <string name="settings_hide_score">"Nascondi il punteggio"</string>
 <string name="settings_expert_settings">"Impostazioni per Esperti"</string>
-<string name="settings_win_sounds_1">"Default"</string>
-<string name="settings_win_sounds_2">"Piano"</string>
 <string name="statistics_total_hints_shown">"Totale aiuti utilizzati"</string>
 <string name="dialog_show_hints">"Ricevi un'aiuto"</string>
 <string name="settings_game_layout_margins_title">"Margini"</string>

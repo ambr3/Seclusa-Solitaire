@@ -59,9 +59,6 @@
 <string name="dialog_win_total">"Total: %1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Mélanger les cartes"</string>
-<string name="dialog_mix_cards_text">"Ceci mélangera toutes les cartes, attendez-vous à des séquences et des cartes correctes sur les piles de bases."</string>
-<string name="dialog_mix_cards_not_available">"Il y a encore des mouvements possibles!"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Démarrer une nouvelle partie"</string>
@@ -78,9 +75,6 @@
 <string name="title_activity_statistics">"Statistiques"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Information"</string>
-<string name="about_tab_2">"Licences"</string>
-<string name="about_tab_3">"Versions"</string>
 <string name="about_developer">"Développeur"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Date de la construction"</string>
@@ -97,8 +91,6 @@
 <string name="about_poker_themes_usage">"Utilisé comme thème 'Poker' - Disponible sur &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"Bibliothèque AmbilWarna"</string>
 <string name="about_custom_color_picker_usage">"Utilisé pour le sélecteur de couleur personnalisé"</string>
-<string name="about_sounds_title">"Sons"</string>
-<string name="about_sounds_usage">"Tous les sons ont été publiés à l'origine sur &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, pour plus d'informations, cliquez &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;ici&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"Bibliothèque PagerSlidingTabStrip"</string>
 <string name="about_sliding_tabs_usage">"Utilisé pour les onglets dans l'écran 'À propos du jeu'"</string>
 
@@ -126,17 +118,6 @@ Utiliser le menu à gauche pour accèder aux différents manuels."</string>
 Si l'application avait été mise en pause pendant une partie, l'application chargera automatiquement la dernière partie jouée. Ce comportement peut être désactivé dans les réglages, sous le menu \"Général\".
 
 Dans les paramètres, vous trouverez aussi la section \"Menu principal\", où il est possible de masquer des jeux et changer le nombre de colonnes affichées, afin que la plupart des jeux puissent s'afficher correctement sur l'écran."</string>
-<string name="manual_ui_text">"Un jeu affiche toujours un petit menu en bas de l'écran (en mode portrait) ou sur la droite (en mode paysage). Ce menu affiche le nombre de points et le temps de jeu écoulé pour la partie en cours. Si possible, ces deux valeurs seront sauvegardées dans la liste des meilleurs scores. Le menu contient 5 éléments qui ont pour fonction (en allant de la gauche vers la droite):
-
-Le bouton \"Points\" affiche une nouvelle fenêtre contenant les meilleurs scores et le nombre de parties gagnées du même type que la partie en cours. 
-
-Le bouton \"Indice\" vous aide en vous montrant jusqu'à 3 possibilités de mouvement à la fois. Par contre, cela diminuera votre nombre de points de 25. Il est à noter que les mouvements triviaux comme déplacer les cartes dans un emplacement libre ou appuyer sur la pioche ne sont pas considérés comme des indices. Si aucun indice n'est montré, votre score ne diminuera pas. 
-
-Le bouton \"Menu\" donne accès à trois actions différentes : Démarrer une nouvelle partie en mélangeant les cartes. Redistribuer les cartes fait de même mais sans les mélanger, donc c'est un peu comme recommencer la partie en cours. La dernière option met fin à la partie et retourne au menu principal.
-
-Le bouton \"Annuler\" inverse le dernier mouvement, mais au prix de 25 points. Il n'est possible d'annuler que les 20 derniers mouvements.
-
-Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
 <string name="manual_feedback_text">"Vous avez trouvé un bug, une erreur ? Quelque chose pourrait être amélioré ? Devrais-je ajouter un autre type de jeu à la collection ? Peut-être voulez-vous aider à la traduction ? Ou autre idée ?
 
 J'apprécie beaucoup recevoir vos remarques, sous toutes ses formes. Si vous sentez le besoin de me contacter, vous devriez utiliser l'une de ses deux options :
@@ -454,10 +435,7 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="Settings_sound">"Activer le son du jeu"</string>
 <string name="Settings_sounds_title">"Sons"</string>
 <string name="Settings_sounds_text">"Activer les sons, configurer les effets sonores"</string>
-<string name="Settings_win_sound_title">"Effet sonore en cas de victoire"</string>
-<string name="Settings_background_music">"Musique d'ambiance"</string>
 <string name="settings_background_color_custom">"Personnaliser"</string>
-<string name="Settings_background_volume">"Volume de la musique d'ambiance"</string>
 <string name="settings_limit_number_of_recycles">"Limitation du nombre de donnes"</string>
 <string name="settings_limit_number_of_recycles_text">"Le retour des cartes de la défausse dans le talon est limité"</string>
 <string name="settings_number_of_recycles">"Nombre de retours"</string>
@@ -492,18 +470,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_canfield_size_of_reserve_title">"Changer la taille de la réserve (plus facile)"</string>
 <string name="settings_use_true_randomisation_title">"Utiliser la vraie randomisation"</string>
 <string name="settings_use_true_randomisation_text">"La randomisation par défaut permet d'éviter les cartes similaires les unes à côté des autres. Cochez cette case pour permettre une randomisation vraiment uniforme."</string>
-<string name="settings_developer_options">"Options de développement"</string>
-<string name="settings_developer_options_description">"Jouez avec des décors délirants!"</string>
-<string name="settings_developer_options_move_card_everwhere_title">"Déplacer les cartes partout"</string>
-<string name="settings_developer_options_move_card_everwhere_text">"Vous pouvez placer des cartes sur n'importe quelle pile"</string>
-<string name="settings_developer_options_lock_text">"Ces paramètres sont destinés à des fins de test uniquement, l'utilisation peut entraîner un comportement étrange et des plantages!"</string>
-<string name="settings_developer_options_play_every_card_title">"Jouez chaque carte"</string>
-<string name="settings_developer_options_play_every_card_text">"Vous pouvez jouer chaque carte révélée"</string>
-<string name="settings_developer_options_instant_win_title">"Gagner instantanément"</string>
-<string name="settings_developer_options_instant_win_text">"Gagnez chaque partie après avoir déplacé une carte"</string>
-<string name="settings_developer_options_no_saving_title">"Désactiver l'état du jeu de sauvegarde"</string>
-<string name="settings_developer_options_no_saving_text">"Les mouvements d'un jeu ne seront plus sauvegardés"</string>
-<string name="settings_developer_options_deal_correct_sequences_title">"Traiter les séquences correctes"</string>
 <string name="settings_max_number_undos">"Nombre maximum de mouvements d'annulation"</string>
 <string name="settings_expert_settings">"Réglages experts"</string>
 <string name="settings_expert_settings_text">"Peut être utile pour certaines personnes"</string>
@@ -534,24 +500,10 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_movement_speed_2">"Lente"</string>
 <string name="settings_movement_speed_3">"Normale"</string>
 <string name="settings_movement_speed_4">"Rapide"</string>
-<string name="settings_win_sounds_1">"Par défaut"</string>
-<string name="settings_win_sounds_2">"Piano"</string>
-<string name="settings_win_sounds_3">"Voix \"You win\" 8-Bit"</string>
-<string name="settings_win_sounds_4">"Foule en liesse"</string>
-<string name="settings_background_music_1">"Désactivée"</string>
-<string name="settings_background_music_2">"Thème 1"</string>
-<string name="settings_background_music_3">"Thème 2"</string>
-<string name="settings_background_music_4">"Thème 3"</string>
-<string name="settings_background_music_5">"Boîte à musique"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 Cartes (par défaut)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 Cartes"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 Cartes"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 Cartes"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"Désactivé"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"Couleur alternative"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"Même famille"</string>
-<string name="settings_developer_option_deal_correct_sequences_4">"Inversé couleur alternative"</string>
-<string name="settings_developer_option_deal_correct_sequences_5">"Inversé même familley"</string>
 
 <!-- Statistics -->
 <string name="statistics_text_won_games">"Remporté %1$d fois sur %2$d parties"</string>
@@ -574,7 +526,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="statistics_total_number_undos">"Mouvements Annuler utilisés"</string>
 <string name="statistics_total_points_earned">"Points gagnés"</string>
 <string name="statistics_no_entries">"Pas d'entrées, allez jouer des jeux !"</string>
-<string name="dialog_auto_move">"Mouvement automatique"</string>
 <string name="dialog_show_hints">"Afficher les indices"</string>
 <string name="manual_ui_text_part_1">"Un jeu affiche toujours un petit menu en bas de l'écran (en mode portrait) ou sur la droite (en mode paysage). Ce menu affiche le nombre de points et le temps de jeu écoulé pour la partie en cours. Si possible, ces deux valeurs seront sauvegardées dans la liste des meilleurs scores. Le menu contient 5 éléments qui ont pour fonction (en allant de la gauche vers la droite):
 
@@ -603,8 +554,6 @@ Le bouton \"Réglages\" ouvre simplement le menu des options."</string>
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"Aucun indice disponible !"</string>
-<string name="dialog_no_movement_possible">"Pas de mouvement à montrer !"</string>
-<string name="settings_show_advanced_settings_title">"Déverrouiller les catégories de développeurs"</string>
 <string name="settings_language_italian">"Italiens"</string>
 <string name="settings_language_portuguese_brazil">"Portugais (Brésil)"</string>
 <string name="settings_language_ukrainian">"Ukrainien"</string>
@@ -664,8 +613,6 @@ Voulez-vous supprimer les paramètres individuels pour tous les jeux de la liste
 <string name="settings_ensure_movability_min_moves_warning">"Attention : Si vous augmentez le montant, le temps d'attente avant le début d'une partie sera plus long. Changer les règles du jeu affectera aussi le temps d'attente !"</string>
 <string name="settings_ensure_movability_min_moves_text">"Modifier le nombre de mouvements que chaque jeu doit avoir au moins au début du jeu"</string>
 <string name="settings_number_input_error">"On ne peut pas sauver ces numéros!"</string>
-<string name="settings_developer_option_improve_auto_move_title">"Améliorez le mouvement automatique"</string>
-<string name="settings_developer_option_improve_auto_move_text">"Auto Move tentera de gagner la partie en utilisant également la pile principale"</string>
 <string name="black">"Noir"</string>
 <string name="white">"Blanc"</string>
 <string name="settings_ensure_movability_make_game_winnable_button_title">"Rendre certains jeux gagnants"</string>

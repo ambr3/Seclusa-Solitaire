@@ -63,9 +63,6 @@
 <string name="dialog_win_total">"Total: %1$d"</string>
 
 <!-- dialog mix cards -->
-<string name="dialog_mix_cards_title">"Mezclar Cartas"</string>
-<string name="dialog_mix_cards_text">"Esta opción mezcla todas las cartas, menos las secuencias correctas y las cartas en el pozo"</string>
-<string name="dialog_mix_cards_not_available">"Todavía hay movimientos posibles!"</string>
 
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Iniciar nuevo juego"</string>
@@ -82,9 +79,6 @@
 <string name="title_activity_statistics">"Estadísticas"</string>
 
 <!-- About activity -->
-<string name="about_tab_1">"Información"</string>
-<string name="about_tab_2">"Licencias"</string>
-<string name="about_tab_3">"Cambios"</string>
 <string name="about_developer">"Desarrollador"</string>
 <string name="about_developer_name">"Tobias Bielefeld"</string>
 <string name="about_compiled">"Compilado en"</string>
@@ -104,8 +98,6 @@
 <string name="about_poker_themes_usage">"Usado en el tema del Póker - Disponible en &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
 <string name="about_custom_color_picker_usage">"Usada para el selector de color propio"</string>
-<string name="about_sounds_title">"Sonidos"</string>
-<string name="about_sounds_usage">"Todos los sonidos fueron publicados originalmente en &lt;a href=https://freesound.org&gt;freesound.org&lt;/a&gt;, para mayor información revisar &lt;a href=https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/sounds/readme.txt&gt;link&lt;/a&gt;"</string>
 <string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
 <string name="about_sliding_tabs_usage">"Usada para las pestañas en la pantalla \"Acerca de\""</string>
 
@@ -133,17 +125,6 @@ Usa el menú de la izquierda para acceder a otra páginas del manual"</string>
 La aplicación cargará automáticamente el último juego jugado en un reinicio, si la aplicación se pausó en él. Este comportamiento se puede deshabilitar en la configuración, en \"General\".
 
 En la configuración también puede encontrar la sección \"Menú principal\", donde es posible ocultar y reordenar los juegos en el menú y cambiar el número de columnas, para que más juegos quepan en la pantalla a la vez."</string>
-<string name="manual_ui_text">"Un juego siempre mostrará un pequeño menú en la parte inferior de la pantalla (modo Retrato) o en el lado derecho (modo Paisaje). También mostrará el puntaje actual y el tiempo actual del juego. Si es posible, estos dos valores se guardarán en la lista de puntajes. El menú contiene 5 elementos, que tienen los siguientes efectos (botones de izquierda a derecha):
-
-El botón \"Puntuaciones\" mostrará una nueva ventana con los puntajes más altos y el recuento de los juegos ganados del juego actual.
-
-El botón \"Sugerencia\" te ayudará mostrando hasta 3 posibles movimientos de cartas a la vez. Pero esto disminuirá el puntaje actual en 25. Observe que los movimientos triviales como mover cada carta a un campo vacío o presionar sobre el pozo principal no se muestran como una pista. Si no se mostró ninguna pista, la puntuación no disminuirá.
-
-El botón \"Menú\" muestra tres acciones diferentes: Comenzar una nueva partida mezclando las cartas y repartiendo una nueva mano. Dar cartas de nuevo hará lo mismo, pero sin la mezcla, es como un reinicio del juego actual. La última opción finalizará el juego actual y devolverá la aplicación al menú principal.
-
-El botón \"Deshacer\" revertirá el último movimiento, pero esto costará 25 puntos. Esto se puede usar para hasta 20 últimos movimientos.
-
-El botón \"Configuración\" simplemente abre el menú de configuración."</string>
 <string name="manual_feedback_text">"¿Encontraste un bug o un error? ¿Algo que debería mejorar? ¿Debo agregar otro juego a la colección? ¿Tal vez quieres ayudar con algunas traducciones? ¿O tienes otra idea?
 
 Me complace recibir cualquier tipo de comentario. Si siente la necesidad de contactarme, debe considerar las siguientes dos opciones:
@@ -213,9 +194,6 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
 <string name="Settings_sound">"Habilitar sonidos en el juego"</string>
 <string name="Settings_sounds_title">"Sonidos"</string>
 <string name="Settings_sounds_text">"Habilitar sonidos, configurar diferentes efectos"</string>
-<string name="Settings_win_sound_title">"Sonido de victoria"</string>
-<string name="Settings_background_music">"Sonido de fondo"</string>
-<string name="Settings_background_volume">"Volúmen de la música de fondo"</string>
 <string name="settings_vegas_bet_amount">"Monto de la apuesta"</string>
 <string name="settings_menu_order_title">"Orden del menú"</string>
 <string name="settings_auto_start_new_game_title">"Iniciar un nuevo juego al ganar"</string>
@@ -230,9 +208,6 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
 <string name="settings_hide_time">"Esconder tiempo"</string>
 <string name="settings_hide_score">"Esconder puntaje"</string>
 <string name="settings_use_true_randomisation_title">"Usar verdadero aleatorio"</string>
-<string name="settings_developer_options">"Opciones de desarrollador"</string>
-<string name="settings_developer_options_move_card_everwhere_title">"Mover las cartas a cualquier lugar"</string>
-<string name="settings_developer_options_instant_win_title">"Ganar instantáneamente"</string>
 <string name="settings_expert_settings">"Configuración avanzada"</string>
 <string name="settings_spider_difficultiy_1">"1 (Fácil)"</string>
 <string name="settings_spider_difficultiy_2">"2 (Moderado)"</string>
@@ -251,17 +226,10 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
 <string name="settings_movement_speed_2">"Lento"</string>
 <string name="settings_movement_speed_3">"Normal"</string>
 <string name="settings_movement_speed_4">"Rápido"</string>
-<string name="settings_win_sounds_1">"Por defecto"</string>
-<string name="settings_win_sounds_2">"Piano"</string>
-<string name="settings_background_music_1">"Desactivada"</string>
 <string name="settings_canfield_size_of_reserve_1">"13 Cartas (por defecto)"</string>
 <string name="settings_canfield_size_of_reserve_2">"10 Cartas"</string>
 <string name="settings_canfield_size_of_reserve_3">"7 Cartas"</string>
 <string name="settings_canfield_size_of_reserve_4">"4 Cartas"</string>
-<string name="settings_developer_option_deal_correct_sequences_1">"Desactivado"</string>
-<string name="settings_developer_option_deal_correct_sequences_2">"Colores alternados"</string>
-<string name="settings_developer_option_deal_correct_sequences_3">"Misma familia"</string>
-<string name="settings_developer_option_deal_correct_sequences_4">"Colores alternados reversos"</string>
 
 <!-- Statistics -->
 <string name="statistics_text_won_games">"Ganados %1$d de %2$d juegos"</string>
@@ -284,15 +252,12 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
 <string name="statistics_total_number_undos">"Total de movimientos deshacer"</string>
 <string name="statistics_total_points_earned">"Total de puntos ganados"</string>
 <string name="statistics_no_entries">"No hay entradas, ve a jugar algunos juegos!"</string>
-<string name="dialog_auto_move">"Automovimiento"</string>
 <string name="dialog_show_hints">"Mostrar pistas"</string>
 <string name="manual_ui_text_part_6">"El botón \"Menú\" muestra tres diferentes acciones:"</string>
 <string name="manual_statistics_part_2">"El número de juegos jugados y ganados"</string>
 
 <!-- dialogs -->
 <string name="dialog_no_hint_available">"No hay mas pistas!"</string>
-<string name="dialog_no_movement_possible">"No hay mas movimientos para mostrar!"</string>
-<string name="settings_show_advanced_settings_title">"Mostrar las categorías de desarrollador"</string>
 <string name="settings_language_italian">"Italiano"</string>
 <string name="settings_language_portuguese_brazil">"Portugues (Brasil)"</string>
 <string name="settings_language_ukrainian">"Ucraniano"</string>
