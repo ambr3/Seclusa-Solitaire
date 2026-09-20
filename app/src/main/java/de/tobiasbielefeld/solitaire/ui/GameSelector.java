@@ -5,13 +5,6 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -32,8 +25,7 @@ import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
-public class GameSelector extends CustomAppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnTouchListener {
+public class GameSelector extends CustomAppCompatActivity implements View.OnTouchListener {
 
     private TableLayout tableLayout;
     private int menuColumns;
@@ -43,19 +35,6 @@ public class GameSelector extends CustomAppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_selector);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setItemIconTintList(null);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         tableLayout = findViewById(R.id.tableLayoutGameChooser);
 
@@ -72,33 +51,19 @@ public class GameSelector extends CustomAppCompatActivity
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer != null && drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+    /**
+     * opens the activity behind the clicked menu button at the top of the screen
+     */
+    public void openMenuOption(View view) {
+        int itemId = view.getId();
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        int itemId = item.getItemId();
         if (itemId == R.id.item_settings) {
             startActivity(new Intent(getApplicationContext(), Settings.class));
         } else if (itemId == R.id.item_manual) {
             startActivity(new Intent(getApplicationContext(), Manual.class));
         } else if (itemId == R.id.item_about) {
             startActivity(new Intent(getApplicationContext(), AboutActivity.class));
-        } else if (itemId == R.id.item_close) {
-            finish();
         }
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     /**

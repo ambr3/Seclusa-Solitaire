@@ -65,22 +65,6 @@
             android:layout_alignParentTop="true"
             android:background="@drawable/shadow_left_to_right" />
 
-        <FrameLayout
-            android:id="@+id/frameLayout2"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:background="#000000" />
-
-        <View
-            android:layout_width="4dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/shadow_right_to_left" />
-
         <TextView
             android:id="@+id/mainTextViewScore"
             android:layout_width="wrap_content"
@@ -88,8 +72,13 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/score_chip_background"
             android:maxLines="1"
+            android:paddingLeft="14dp"
+            android:paddingTop="4dp"
+            android:paddingRight="14dp"
+            android:paddingBottom="4dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -97,19 +86,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
-            android:layout_toStartOf="@+id/frameLayout"
-            android:layout_toLeftOf="@+id/frameLayout"
-            android:maxLines="1"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <FrameLayout
-            android:id="@+id/frameLayout"
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:background="#000000" />
+            android:layout_margin="8dp"
+            android:background="@drawable/score_chip_background"
+            android:maxLines="1"
+            android:paddingLeft="14dp"
+            android:paddingTop="4dp"
+            android:paddingRight="14dp"
+            android:paddingBottom="4dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <Button
             android:id="@+id/buttonMainAutoComplete"
@@ -132,11 +118,29 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:background="#e7e7e7"
+        android:background="@drawable/menu_bar_background"
         android:baselineAligned="false"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="visible">
+
+        <FrameLayout
+            android:id="@+id/mainButtonNewGame"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:onClick="menuClick">
+
+            <ImageView
+                android:id="@+id/button_new_game"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/menu_new_game"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/icon_new_game" />
+        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/mainButtonScores"

@@ -19,10 +19,6 @@
 package de.tobiasbielefeld.solitaire.classes;
 
 import android.content.Context;
-import android.graphics.Outline;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewOutlineProvider;
 
 /**
  * Custom image view to prevent bugs. Setting an animation listener to the translate anim to move
@@ -69,41 +65,10 @@ public class CustomImageView extends android.support.v7.widget.AppCompatImageVie
         switch (object) {
             case CARD:
                 isCard = true;
-                roundCardCorners();
                 break;
             case STACK:
                 isStack = true;
         }
-    }
-
-    /*
-     * Clips every card view to a rounded rectangle, so cards never turn back to sharp corners
-     * regardless of the card theme artwork. Only supported on API 21+ (hardware accelerated).
-     */
-    private void roundCardCorners() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setOutlineProvider(new ViewOutlineProvider() {
-                @Override
-                public void getOutline(View view, Outline outline) {
-                    int width = view.getWidth();
-                    int height = view.getHeight();
-
-                    if (width > 0 && height > 0) {
-                        outline.setRoundRect(0, 0, width, height, calcRoundedCornerRadius(width));
-                    }
-                }
-            });
-            setClipToOutline(true);
-        }
-    }
-
-    /*
-     * Corner radius for a card of the given pixel width: 4.5% of the width, but never smaller than
-     * one pixel so the rounding stays visible even on very narrow views. Pure math on the main
-     * thread, so it is tested directly by the JVM unit test in the same package.
-     */
-    static float calcRoundedCornerRadius(int widthPx) {
-        return Math.max(1f, widthPx * 0.045f);
     }
 
     @Override

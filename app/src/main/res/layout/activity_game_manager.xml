@@ -64,8 +64,13 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/score_chip_background"
             android:maxLines="1"
+            android:paddingLeft="14dp"
+            android:paddingTop="4dp"
+            android:paddingRight="14dp"
+            android:paddingBottom="4dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <ImageView
@@ -85,8 +90,13 @@
 
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/score_chip_background"
             android:maxLines="1"
+            android:paddingLeft="14dp"
+            android:paddingTop="4dp"
+            android:paddingRight="14dp"
+            android:paddingBottom="4dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <Button
@@ -109,23 +119,6 @@
             android:layout_alignParentTop="true"
             android:background="@drawable/shadow_top_to_bottom" />
 
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/shadow_bottom_to_top" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:background="#000000" />
-
     </RelativeLayout>
 
     <LinearLayout
@@ -133,8 +126,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
-        android:background="@color/menuBarBackground"
-        android:elevation="8dp"
+        android:background="@drawable/menu_bar_background"
         android:baselineAligned="false"
         android:gravity="center"
         android:orientation="horizontal"
@@ -143,6 +135,38 @@
         android:paddingRight="4dp"
         android:paddingBottom="2dp"
         android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/mainButtonNewGame"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="menuClick"
+            android:orientation="vertical"
+            android:paddingLeft="2dp"
+            android:paddingTop="5dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/button_new_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/menu_new_game"
+                app:srcCompat="@drawable/icon_new_game"
+                app:tint="@color/menuBarIcon" />
+
+            <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
+                style="@style/GameMenuButtonLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/menu_new_game" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/mainButtonScores"

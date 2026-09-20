@@ -29,7 +29,8 @@ import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * Little confirmation dialog for starting a new game
+ * Dialog for starting a new game. Asks whether the same cards should be dealt again (the default
+ * is to deal a fresh, randomly shuffled game).
  */
 
 public class DialogStartNewGame extends CustomDialogFragment {
@@ -38,10 +39,18 @@ public class DialogStartNewGame extends CustomDialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.dialog_start_new_game_title)
-                .setMessage(R.string.dialog_start_new_game_text)
-                .setPositiveButton(R.string.game_confirm, (dialog, id) -> gameLogic.newGame())
+                .setItems(R.array.new_game_menu, (dialog, which) -> {
+                    switch (which) {
+                        case 0:
+                            gameLogic.newGame();
+                            break;
+                        case 1:
+                            gameLogic.redeal();
+                            break;
+                    }
+                })
                 .setNegativeButton(R.string.game_cancel, (dialog, id) -> {
-                    // User cancelled the dialog
+                    // just cancel
                 });
 
         return applyFlags(builder.create());

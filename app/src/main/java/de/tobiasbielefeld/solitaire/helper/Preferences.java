@@ -182,6 +182,12 @@ public class Preferences {
     public static boolean DEFAULT_ENSURE_MOVABILITY;
     public static boolean DEFAULT_HIDE_AUTOCOMPLETE_BUTTON;
     public static boolean DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME;
+
+    public static final String VALUE_DIFFICULTY_EASY = "easy";
+    public static final String VALUE_DIFFICULTY_MEDIUM = "medium";
+    public static final String VALUE_DIFFICULTY_HARD = "hard";
+    public static final String DEFAULT_DIFFICULTY = VALUE_DIFFICULTY_MEDIUM;
+    public static final int VALUE_WINNABLE_MOVES = 500;
     public static boolean DEFAULT_HIDE_MENU_BUTTON;
     public static boolean DEFAULT_IMMERSIVE_MODE;
     public static boolean DEFAULT_DISABLE_UNDO_COSTS;
@@ -707,6 +713,34 @@ public class Preferences {
 
     public int getSavedEnsureMovabilityMinMoves() {
         return savedGameData.getInt(PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES, DEFAULT_ENSURE_MOVABILITY_MIN_MOVES);
+    }
+
+    public static String getDifficultyKey(String sharedPrefName) {
+        return "difficulty_" + sharedPrefName;
+    }
+
+    public String getSavedDifficulty() {
+        return savedSharedData.getString(getDifficultyKey(lg.getSharedPrefName()), VALUE_DIFFICULTY_MEDIUM);
+    }
+
+    public boolean isEnsureMovabilityEnabledForCurrentGame() {
+        String difficulty = getSavedDifficulty();
+
+        if (difficulty.equals(VALUE_DIFFICULTY_EASY)) {
+            return true;
+        } else if (difficulty.equals(VALUE_DIFFICULTY_HARD)) {
+            return false;
+        } else {
+            return getSavedEnsureMovability();
+        }
+    }
+
+    public int getSavedEnsureMovabilityMinMovesForCurrentGame() {
+        if (getSavedDifficulty().equals(VALUE_DIFFICULTY_EASY)) {
+            return VALUE_WINNABLE_MOVES;
+        } else {
+            return getSavedEnsureMovabilityMinMoves();
+        }
     }
 
     public int getSavedRecordListEntriesSize() {

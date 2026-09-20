@@ -173,12 +173,12 @@ try {
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
 
-        if (prefs.getSavedEnsureMovability()) {
+        if (prefs.isEnsureMovabilityEnabledForCurrentGame()) {
             gameLogic.save();
             stopUiUpdates = true;
             redealForEnsureMovability();
 
-            ensureMovability.start();
+            ensureMovability.start(prefs.getSavedEnsureMovabilityMinMovesForCurrentGame());
         } else {
             redeal();
         }

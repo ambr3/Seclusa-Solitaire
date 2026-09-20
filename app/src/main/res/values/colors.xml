@@ -11,6 +11,7 @@
     <color name="menuBarBackground">#FFFFFF</color>
     <color name="menuBarIcon">#455A64</color>
     <color name="menuBarLabel">#455A64</color>
+    <color name="settingsBackground">#F2F3F5</color>
 
     <!-- Green palette -->
     <color name="colorPrimaryGreen">#2E7D32</color>

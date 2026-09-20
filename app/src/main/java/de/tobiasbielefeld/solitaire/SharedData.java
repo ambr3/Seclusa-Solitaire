@@ -60,7 +60,6 @@ public class SharedData {
 
     //Strings
     public static String GAME = "game";
-    public static String RESTART_DIALOG = "dialogRestart";
     public static String WON_DIALOG = "dialogWon";
 
 

@@ -13,6 +13,18 @@
         <item>4</item>
     </string-array>
 
+    <string-array name="pref_difficulty_titles" translatable="false">
+        <item>@string/settings_difficulty_easy</item>
+        <item>@string/settings_difficulty_medium</item>
+        <item>@string/settings_difficulty_hard</item>
+    </string-array>
+
+    <string-array name="pref_difficulty_values" translatable="false">
+        <item>easy</item>
+        <item>medium</item>
+        <item>hard</item>
+    </string-array>
+
     <string-array name="pref_draw_values" translatable="false">
         <item>1</item>
         <item>3</item>
@@ -74,10 +86,9 @@
         <item>5</item>
     </string-array>
 
-    <string-array name="restart_menu" translatable="false">
-        <item>@string/dialog_start_new_game_title</item>
-        <item>@string/dialog_redeal_title</item>
-        <item>@string/item_return_to_main_menu</item>
+    <string-array name="new_game_menu" translatable="false">
+        <item>@string/menu_deal_new_cards</item>
+        <item>@string/menu_same_cards</item>
     </string-array>
 
     <string-array name="help_menu" translatable="false">

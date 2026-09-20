@@ -113,13 +113,91 @@
         <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar</item>
     </style>
 
+    <!-- Floating rounded boxes shown over the game for About, Manual and Settings screens. -->
+    <style name="AppThemeDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackground</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelected</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimAmount">0.2</item>
+        <item name="android:windowBackground">@drawable/dialog_activity_background</item>
+    </style>
+
+    <style name="AppThemeDialog.Green" parent="AppThemeDialog">
+        <item name="colorPrimary">@color/colorPrimaryGreen</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
+        <item name="colorAccent">@color/colorAccentGreen</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackgroundGreen</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelectedGreen</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme.Green</item>
+    </style>
+
+    <style name="AppThemeDialog.Blue" parent="AppThemeDialog">
+        <item name="colorPrimary">@color/colorPrimaryBlue</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkBlue</item>
+        <item name="colorAccent">@color/colorAccentBlue</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackgroundBlue</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelectedBlue</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme.Blue</item>
+    </style>
+
+    <style name="AppThemeDialog.Purple" parent="AppThemeDialog">
+        <item name="colorPrimary">@color/colorPrimaryPurple</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkPurple</item>
+        <item name="colorAccent">@color/colorAccentPurple</item>
+        <item name="themeGameSelectBackground">@color/gameSelectBackgroundPurple</item>
+        <item name="themeColorDrawerSelected">@color/colorDrawerSelectedPurple</item>
+        <item name="alertDialogTheme">@style/AppDialogTheme.Purple</item>
+    </style>
+
+    <!-- Settings inside a floating rounded box: keep the app bar but let the white card show around it. -->
+    <style name="AppThemeSettingsDialog" parent="AppThemeDialog">
+        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar.Dialog</item>
+    </style>
+
+    <style name="AppThemeSettingsDialog.Green" parent="AppThemeDialog.Green">
+        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar.Dialog</item>
+    </style>
+
+    <style name="AppThemeSettingsDialog.Blue" parent="AppThemeDialog.Blue">
+        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar.Dialog</item>
+    </style>
+
+    <style name="AppThemeSettingsDialog.Purple" parent="AppThemeDialog.Purple">
+        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar.Dialog</item>
+    </style>
+
     <style name="Widget.Settings.ActionBar" parent="Widget.AppCompat.Light.ActionBar">
         <item name="background">?attr/colorPrimary</item>
         <item name="titleTextStyle">@style/TextAppearance.Settings.ActionBar.Title</item>
     </style>
 
+    <style name="Widget.Settings.ActionBar.Dialog" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="background">@android:color/transparent</item>
+        <item name="titleTextStyle">@style/TextAppearance.Settings.ActionBar.Title.Dialog</item>
+    </style>
+
     <style name="TextAppearance.Settings.ActionBar.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="TextAppearance.Settings.ActionBar.Title.Dialog" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:letterSpacing">0.02</item>
     </style>

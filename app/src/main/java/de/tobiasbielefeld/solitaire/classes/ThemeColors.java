@@ -48,26 +48,34 @@ public class ThemeColors {
         switch (color) {
             case COLOR_GREEN:
                 return getVariant(baseTheme, R.style.AppThemeNoActionBar_Green,
-                        R.style.AppThemeActionBar_Green, R.style.AppThemeSettings_Green);
+                        R.style.AppThemeActionBar_Green, R.style.AppThemeSettings_Green,
+                        R.style.AppThemeDialog_Green, R.style.AppThemeSettingsDialog_Green);
             case COLOR_BLUE:
                 return getVariant(baseTheme, R.style.AppThemeNoActionBar_Blue,
-                        R.style.AppThemeActionBar_Blue, R.style.AppThemeSettings_Blue);
+                        R.style.AppThemeActionBar_Blue, R.style.AppThemeSettings_Blue,
+                        R.style.AppThemeDialog_Blue, R.style.AppThemeSettingsDialog_Blue);
             case COLOR_PURPLE:
                 return getVariant(baseTheme, R.style.AppThemeNoActionBar_Purple,
-                        R.style.AppThemeActionBar_Purple, R.style.AppThemeSettings_Purple);
+                        R.style.AppThemeActionBar_Purple, R.style.AppThemeSettings_Purple,
+                        R.style.AppThemeDialog_Purple, R.style.AppThemeSettingsDialog_Purple);
             case COLOR_ORANGE:
             default:
                 return baseTheme;
         }
     }
 
-    private static int getVariant(int baseTheme, int noActionBarVariant, int actionBarVariant, int settingsVariant) {
+    private static int getVariant(int baseTheme, int noActionBarVariant, int actionBarVariant,
+                                  int settingsVariant, int dialogVariant, int settingsDialogVariant) {
         if (baseTheme == R.style.AppThemeNoActionBar) {
             return noActionBarVariant;
         } else if (baseTheme == R.style.AppThemeActionBar) {
             return actionBarVariant;
         } else if (baseTheme == R.style.AppThemeSettings) {
             return settingsVariant;
+        } else if (baseTheme == R.style.AppThemeDialog) {
+            return dialogVariant;
+        } else if (baseTheme == R.style.AppThemeSettingsDialog) {
+            return settingsDialogVariant;
         }
 
         return baseTheme;

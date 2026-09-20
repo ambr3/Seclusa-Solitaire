@@ -157,7 +157,7 @@ public class DialogPreferenceOnlyForThisGame extends CustomDialogPreference {
     @Override
     protected View onCreateView(ViewGroup parent) {
         View view = super.onCreateView(parent);
-        view.setBackgroundResource(R.color.colorDrawerSelected);
+        view.setBackgroundResource(R.drawable.preference_card_only_for_game);
 
         //get rid of the stupid single line restriction for the title
         TextView textView = view.findViewById(android.R.id.title);

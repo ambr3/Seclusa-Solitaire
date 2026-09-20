@@ -41,7 +41,7 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity
      * action bar variant of the app theme.
      */
     protected int getBaseThemeRes() {
-        return R.style.AppThemeSettings;
+        return R.style.AppThemeSettingsDialog;
     }
 
     @Override
@@ -50,6 +50,9 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity
         getDelegate().installViewFactory();
         getDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
+        float width = getResources().getDisplayMetrics().widthPixels;
+        float height = getResources().getDisplayMetrics().heightPixels;
+        getWindow().setLayout((int) (width * 0.9f), (int) (height * 0.8f));
     }
 
     @Override

@@ -10,13 +10,9 @@
         android:title="@string/settings_menu" />
 
     <header
+        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$GamesPreferenceFragment"
         android:summary="@string/settings_games_description"
-        android:title="@string/settings_games">
-
-        <intent
-            android:targetClass="de.tobiasbielefeld.solitaire.ui.settings.SettingsGames"
-            android:targetPackage="com.ambr3.seclusasolitaire" />
-    </header>
+        android:title="@string/settings_games" />
 
     <header
         android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$SoundPreferenceFragment"

@@ -49,7 +49,7 @@ No accounts, no ads, no tracking — just privacy-first card games.
 
 ### 🎨 Interface
 - **Highly customizable** — 10 card themes, 10 card backgrounds, and 4 background colours
-- **Difficulty settings** — for Klondike, Spider, and Golf
+- **Difficulty settings** — easy / medium / hard for every game
 - **Left-handed mode** — mirror the card positions to the left side
 - **Landscape & tablet support** — with the option to lock orientation
 - **Tap to move or drag & drop** — your choice of controls
@@ -82,7 +82,7 @@ ee9572ee718afb5df1883d9ad27d1c0ced367ab54e3fb04a08aabc80ee05b766
 
 ### Security scan
 
-Each release APK is analyzed with [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) (Mobile Security Framework). The full report for this release is stored in the repository: [`security/mobsf-4.1.0.pdf`](security/mobsf-4.1.0.pdf).
+Each release APK is analyzed with [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) (Mobile Security Framework). The full report for this release is stored in the repository: [`security/mobsf-4.2.1.pdf`](security/mobsf-4.2.1.pdf).
 
 ## ⚠️ Disclaimer
 
@@ -126,7 +126,7 @@ Each release APK is analyzed with [MobSF](https://github.com/MobSF/Mobile-Securi
 - Deleted unused classes, audio and image resources
 - Fixed handler memory leaks on screen rotation
 
-Current version: **v4.1.0** (versionCode 410)
+Current version: **v4.2.1** (versionCode 421)
 
 [GPL-3.0](LICENSE.txt) — free to use, modify, and share, with the same freedom preserved for derivatives.
 

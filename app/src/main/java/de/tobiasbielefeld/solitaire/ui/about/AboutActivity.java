@@ -35,13 +35,19 @@ public class AboutActivity extends CustomAppCompatActivity {
 
     @Override
     protected int getBaseThemeRes() {
-        return R.style.AppThemeActionBar;
+        return R.style.AppThemeDialog;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activty_about);
+
+        float width = getResources().getDisplayMetrics().widthPixels;
+        float height = getResources().getDisplayMetrics().heightPixels;
+        getWindow().setLayout((int) (width * 0.9f), (int) (height * 0.8f));
+
+        setSupportActionBar(findViewById(R.id.about_toolbar));
 
         ActionBar actionBar = getSupportActionBar();
 

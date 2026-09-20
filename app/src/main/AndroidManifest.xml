@@ -11,7 +11,7 @@
         <activity
             android:name=".ui.about.AboutActivity"
             android:label="@string/title_activity_about"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/AppThemeDialog" />
         <activity
             android:name=".ui.statistics.StatisticsActivity"
             android:label="@string/title_activity_statistics"
@@ -19,19 +19,14 @@
         <activity
             android:name=".ui.settings.Settings"
             android:label="@string/title_activity_settings"
-            android:theme="@style/AppThemeSettings" />
-
-        <activity
-            android:name=".ui.settings.SettingsGames"
-            android:label="@string/settings_games"
-            android:theme="@style/AppThemeSettings" />
+            android:theme="@style/AppThemeSettingsDialog" />
 
         <activity android:name=".ui.GameManager" />
         <activity
             android:name=".ui.manual.Manual"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/game_manual"
-            android:theme="@style/AppThemeNoActionBar" />
+            android:theme="@style/AppThemeDialog" />
         <activity
             android:name=".ui.GameSelector"
             android:exported="true"

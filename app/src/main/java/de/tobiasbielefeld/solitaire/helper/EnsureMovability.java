@@ -36,13 +36,17 @@ public class EnsureMovability {
 
     private boolean paused = false;
 
+    private int minPossibleMovements;
+
     private ShowDialog showDialog;
 
     public void setShowDialog(ShowDialog callback) {
         showDialog = callback;
     }
 
-    public void start() {
+    public void start(int minPossibleMovements) {
+        this.minPossibleMovements = minPossibleMovements;
+
         dialog = new DialogEnsureMovability();
         showDialog.show(dialog);
 
@@ -93,17 +97,23 @@ public class EnsureMovability {
 
     private static class FindMoves extends AsyncTask<Object, Void, Boolean> {
         private int counter = 0;
+        private int dealCounter = 0;
+        private static final int MAX_DEALS = 2000;
         private boolean mainStackAlreadyFlipped = false;
         private boolean isInterrupted = false;
 
         @Override
         protected Boolean doInBackground(Object... objects) {
-            int minPossibleMovements = prefs.getSavedEnsureMovabilityMinMoves();
+            int minPossibleMovements = ensureMovability.minPossibleMovements;
 
             try {
                 while (true) {
                     if (isCancelled()) {
                         return false;
+                    }
+
+                    if (dealCounter > MAX_DEALS) {
+                        return true;
                     }
 
                     if (counter == minPossibleMovements || currentGame.winTest()) {
@@ -168,6 +178,7 @@ public class EnsureMovability {
             }
 
             counter = 0;
+            dealCounter++;
             mainStackAlreadyFlipped = false;
             gameLogic.newGameForEnsureMovability();
         }

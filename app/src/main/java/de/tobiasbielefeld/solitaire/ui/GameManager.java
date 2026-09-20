@@ -47,7 +47,7 @@ import de.tobiasbielefeld.solitaire.classes.CustomImageView;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.dialogs.DialogInGameHelpMenu;
-import de.tobiasbielefeld.solitaire.dialogs.DialogInGameMenu;
+import de.tobiasbielefeld.solitaire.dialogs.DialogStartNewGame;
 import de.tobiasbielefeld.solitaire.dialogs.DialogWon;
 import de.tobiasbielefeld.solitaire.handler.HandlerLoadGame;
 import de.tobiasbielefeld.solitaire.helper.Animate;
@@ -398,8 +398,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     }
 
     /**
-     * Handles key presses. The game shouldn't close when the back button is clicked, so show
-     * the restart dialog instead.
+     * Handles key presses. The back button saves the game and returns to the main menu.
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -408,7 +407,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            showRestartDialog();
+            exitToMainMenu();
             return true;
         }
 
@@ -863,8 +862,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             }
         } else if (viewId == R.id.mainButtonHint) {           //show a hint
             showHelpDialog();
-        } else if (viewId == R.id.mainButtonRestart) {        //show restart dialog
-            showRestartDialog();
+        } else if (viewId == R.id.mainButtonRestart) {        //return to the main menu
+            exitToMainMenu();
+        } else if (viewId == R.id.mainButtonNewGame) {         //start a new game, optional with the same cards
+            showNewGameDialog();
         } else if (viewId == R.id.mainButtonSettings) {       //open Settings activity
             Intent i = new Intent(this, Settings.class);
             startActivityForResult(i, 1);
@@ -953,15 +954,28 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     /**
      * do not show the dialog while the activity is paused. This would cause a force close
      */
-    public void showRestartDialog() {
+    public void showNewGameDialog() {
         try {
-            DialogInGameMenu dialogInGameMenu = new DialogInGameMenu();
-            dialogInGameMenu.show(getSupportFragmentManager(), RESTART_DIALOG);
+            DialogStartNewGame dialog = new DialogStartNewGame();
+            dialog.show(getSupportFragmentManager(), "NEW_GAME_DIALOG");
         } catch (Exception e) {
             if (BuildConfig.DEBUG) {
-                Log.e("showRestartDialog: ", e.toString());
+                Log.e("showNewGameDialog: ", e.toString());
             }
         }
+    }
+
+    /**
+     * saves the current game and returns to the main menu.
+     */
+    public void exitToMainMenu() {
+        if (hasLoaded) {
+            timer.save();
+            gameLogic.setWonAndReloaded();
+            gameLogic.save();
+        }
+
+        finish();
     }
 
     public void showHelpDialog() {

@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/games_Calculation">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Calculation"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+            android:defaultValue="@bool/default_calculation_alternative"
+            android:key="@string/pref_key_calculation_alternative"
+            android:summary="@string/settings_calculation_alternative_text"
+            android:title="@string/settings_calculation_alternative_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Canfield">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Canfield"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="3"
+            android:entries="@array/pref_draw_titles"
+            android:entryValues="@array/pref_draw_values"
+            android:key="@string/pref_key_canfield_draw"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_canfield_draw" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="@string/default_canfield_size_of_reserve"
+            android:entries="@array/pref_canfield_size_of_reserve_titles"
+            android:entryValues="@array/pref_canfield_size_of_reserve_values"
+            android:key="@string/pref_key_canfield_size_of_reserve"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_canfield_size_of_reserve_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_FortyEight">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_FortyEight"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+            android:defaultValue="@bool/default_fortyeight_limited_recycles"
+            android:key="@string/pref_key_fortyeight_limit_recycles"
+            android:summary="@string/settings_limit_number_of_recycles_text"
+            android:title="@string/settings_limit_number_of_recycles" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="@string/default_fortyeight_number_of_recycles"
+            android:dependency="@string/pref_key_fortyeight_limit_recycles"
+            android:entries="@array/pref_number_of_recycles_values"
+            android:entryValues="@array/pref_number_of_recycles_values"
+            android:key="@string/pref_key_fortyeight_number_of_recycles"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_number_of_recycles" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Golf">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Golf"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_golf_cyclic"
+            android:summary="@string/settings_golf_easy_description"
+            android:title="@string/settings_golf_easy" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Klondike">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Klondike"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="1"
+            android:entries="@array/pref_draw_titles"
+            android:entryValues="@array/pref_draw_values"
+            android:key="@string/pref_key_klondike_draw"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_klondike_draw" />
+
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+            android:defaultValue="@bool/default_klondike_limited_recycles"
+            android:key="@string/pref_key_klondike_limit_recycles"
+            android:summary="@string/settings_limit_number_of_recycles_text"
+            android:title="@string/settings_limit_number_of_recycles" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="@string/default_klondike_number_of_recycles"
+            android:dependency="@string/pref_key_klondike_limit_recycles"
+            android:entries="@array/pref_number_of_recycles_values"
+            android:entryValues="@array/pref_number_of_recycles_values"
+            android:key="@string/pref_key_klondike_number_of_recycles"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_number_of_recycles" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_mod3">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_mod3"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+            android:defaultValue="@bool/default_mod3_auto_move"
+            android:key="@string/pref_key_mod3_auto_move"
+            android:summary="@string/settings_mod3_auto_move_text"
+            android:title="@string/settings_auto_move_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_NapoleonsTomb">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_NapoleonsTomb"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="@string/default_napoleons_tomb_number_of_recycles"
+            android:entries="@array/pref_number_of_recycles_values"
+            android:entryValues="@array/pref_number_of_recycles_values"
+            android:key="@string/pref_key_napoleons_tomb_number_of_recycles"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_number_of_recycles" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Pyramid">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Pyramid"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="1"
+            android:entries="@array/pref_pyramid_difficulty_titles"
+            android:entryValues="@array/pref_pyramid_difficulty_values"
+            android:key="@string/pref_key_pyramid_difficulty"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_pyramid_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+            android:defaultValue="@bool/default_pyramid_auto_move"
+            android:key="@string/pref_key_pyramid_auto_move"
+            android:summary="@string/settings_pyramid_auto_move_text"
+            android:title="@string/settings_auto_move_title" />
+
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+            android:defaultValue="@bool/default_pyramid_limited_recycles"
+            android:key="@string/pref_key_pyramid_limit_recycles"
+            android:summary="@string/settings_limit_number_of_recycles_text"
+            android:title="@string/settings_limit_number_of_recycles" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="@string/default_pyramid_number_of_recycles"
+            android:dependency="@string/pref_key_pyramid_limit_recycles"
+            android:entries="@array/pref_number_of_recycles_values"
+            android:entryValues="@array/pref_number_of_recycles_values"
+            android:key="@string/pref_key_pyramid_number_of_recycles"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_number_of_recycles" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Spider">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Spider"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="1"
+            android:entries="@array/pref_spider_difficulty_titles"
+            android:entryValues="@array/pref_spider_difficulty_values"
+            android:key="@string/pref_key_spider_difficulty"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_spider_difficulty" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Spiderette">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Spiderette"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="1"
+            android:entries="@array/pref_spider_difficulty_titles"
+            android:entryValues="@array/pref_spider_difficulty_values"
+            android:key="@string/pref_key_spiderette_difficulty"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_spider_difficulty" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Vegas">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Vegas"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="3"
+            android:entries="@array/pref_draw_titles"
+            android:entryValues="@array/pref_draw_values"
+            android:key="@string/pref_key_vegas_draw"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_klondike_draw" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="@string/default_vegas_number_of_recycles"
+            android:entries="@array/pref_number_of_recycles_values"
+            android:entryValues="@array/pref_number_of_recycles_values"
+            android:key="@string/pref_key_vegas_number_of_recycles"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_number_of_recycles" />
+
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceVegasBetAmount
+            android:key="@string/pref_key_vegas_bet_amount"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/game_confirm"
+            android:summary=""
+            android:title="@string/settings_vegas_bet_amount" />
+
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+            android:defaultValue="@bool/default_vegas_money_enabled"
+            android:key="@string/pref_key_vegas_money_enabled"
+            android:summary="@string/settings_vegas_money_enabled_text"
+            android:title="@string/settings_vegas_money_enabled" />
+
+        <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceVegasResetMoney
+            android:dependency="@string/pref_key_vegas_money_enabled"
+            android:key="@string/pref_key_vegas_reset_money"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@string/game_confirm"
+            android:summary="@string/settings_vegas_money_reset_text"
+            android:title="@string/settings_vegas_money_reset" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Yukon">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Yukon"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="default"
+            android:entries="@array/pref_yukon_rules_titles"
+            android:entryValues="@array/pref_yukon_rules_values"
+            android:key="@string/pref_key_yukon_rules"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_yukon_rules" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_AcesUp">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_AcesUp"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Freecell">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Freecell"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_GrandfathersClock">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_GrandfathersClock"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Gypsy">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Gypsy"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_Maze">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_Maze"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_SimpleSimon">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_SimpleSimon"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/games_TriPeaks">
+
+        <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+            android:defaultValue="medium"
+            android:entries="@array/pref_difficulty_titles"
+            android:entryValues="@array/pref_difficulty_values"
+            android:key="difficulty_TriPeaks"
+            android:negativeButtonText="@string/game_cancel"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/settings_difficulty" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

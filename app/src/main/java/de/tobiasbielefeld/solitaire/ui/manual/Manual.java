@@ -62,9 +62,18 @@ public class Manual extends CustomAppCompatActivity
     boolean gamePageShown = false;
 
     @Override
+    protected int getBaseThemeRes() {
+        return R.style.AppThemeDialog;
+    }
+
+    @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(isLargeTablet(getApplicationContext()) ? R.layout.activity_manual_xlarge : R.layout.activity_manual);
+
+        float width = getResources().getDisplayMetrics().widthPixels;
+        float height = getResources().getDisplayMetrics().heightPixels;
+        getWindow().setLayout((int) (width * 0.9f), (int) (height * 0.8f));
 
         drawer = findViewById(R.id.drawer_layout);
         listView = findViewById(R.id.manual_listView);

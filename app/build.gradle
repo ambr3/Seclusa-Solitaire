@@ -27,8 +27,8 @@ android {
         applicationId "com.ambr3.seclusasolitaire"
         minSdk 29
         targetSdk 37
-        versionCode 410
-        versionName "4.1.0"
+        versionCode 421
+        versionName "4.2.1"
 
         vectorDrawables.useSupportLibrary = true
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"

@@ -63,6 +63,9 @@
 <!-- dialog start new game -->
 <string name="dialog_start_new_game_title">"Start new game"</string>
 <string name="dialog_start_new_game_text">"Your current progress will be lost and a new random game will be dealt."</string>
+<string name="menu_new_game">"New game"</string>
+<string name="menu_deal_new_cards">"Deal new cards"</string>
+<string name="menu_same_cards">"Keep the same cards"</string>
 
 <!-- dialog redeal -->
 <string name="dialog_redeal_title">"Give cards again"</string>
@@ -421,6 +424,11 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 <string name="settings_menu">"Main menu"</string>
 <string name="settings_menu_description">"Change number of columns, show and hide games"</string>
 <string name="settings_pyramid_difficulty">"Difficulty"</string>
+ <string name="settings_difficulty">"Difficulty"</string>
+ <string name="settings_difficulty_easy">"Easy"</string>
+ <string name="settings_difficulty_medium">"Medium"</string>
+ <string name="settings_difficulty_hard">"Hard"</string>
+ <string name="settings_difficulty_summary">"Easy deals hands that are very likely winnable. Medium uses the traditional rules. Hard deals fully random hands."</string>
 <string name="settings_menu_columns">"Number of columns"</string>
 <string name="settings_menu_games">"Show and hide games"</string>
 <string name="settings_menu_games_description">"Select which games are shown in the menu"</string>
