@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Shared neutral color roles (dark) -->
+    <color name="colorSurface">#141212</color>
+    <color name="colorOnSurface">#E5E1E0</color>
+    <color name="colorSurfaceContainerLowest">#0F0D0D</color>
+    <color name="colorSurfaceContainerLow">#1D1B1B</color>
+    <color name="colorSurfaceContainer">#211F1E</color>
+    <color name="colorSurfaceContainerHigh">#2B2929</color>
+    <color name="colorSurfaceContainerHighest">#363433</color>
+    <color name="colorSurfaceBright">#3A3837</color>
+    <color name="colorSurfaceDim">#141212</color>
+    <color name="colorSurfaceVariant">#4A4444</color>
+    <color name="colorOnSurfaceVariant">#CBC3C2</color>
+    <color name="colorOutline">#958D8D</color>
+    <color name="colorOutlineVariant">#4A4444</color>
+    <color name="colorError">#F2B8B5</color>
+    <color name="colorOnError">#601410</color>
+    <color name="colorErrorContainer">#8C1D18</color>
+    <color name="colorOnErrorContainer">#F9DEDC</color>
+    <color name="colorInverseSurface">#E5E1E0</color>
+    <color name="colorInverseOnSurface">#32302F</color>
+    <color name="colorScrim">#000000</color>
+
+    <!-- Default (Deep Orange) Material 3 palette (dark) -->
+    <color name="paletteOrangePrimary">#FFB77D</color>
+    <color name="paletteOrangeOnPrimary">#4A2800</color>
+    <color name="paletteOrangePrimaryContainer">#6C3B00</color>
+    <color name="paletteOrangeOnPrimaryContainer">#FFDCC2</color>
+    <color name="paletteOrangeSecondary">#E8BDAE</color>
+    <color name="paletteOrangeOnSecondary">#442A1F</color>
+    <color name="paletteOrangeSecondaryContainer">#5D4034</color>
+    <color name="paletteOrangeOnSecondaryContainer">#FFDCC2</color>
+    <color name="paletteOrangeTertiary">#D8C58D</color>
+    <color name="paletteOrangeOnTertiary">#3C2F05</color>
+    <color name="paletteOrangeTertiaryContainer">#54451A</color>
+    <color name="paletteOrangeOnTertiaryContainer">#F5E1A7</color>
+    <color name="paletteOrangeInversePrimary">#8B5000</color>
+
+    <!-- Green Material 3 palette (dark) -->
+    <color name="paletteGreenPrimary">#8BD596</color>
+    <color name="paletteGreenOnPrimary">#00391C</color>
+    <color name="paletteGreenPrimaryContainer">#00522C</color>
+    <color name="paletteGreenOnPrimaryContainer">#A8F2AD</color>
+    <color name="paletteGreenSecondary">#B9CCB4</color>
+    <color name="paletteGreenOnSecondary">#243A24</color>
+    <color name="paletteGreenSecondaryContainer">#3A4A3B</color>
+    <color name="paletteGreenOnSecondaryContainer">#D4E8CE</color>
+    <color name="paletteGreenTertiary">#A0CDD4</color>
+    <color name="paletteGreenOnTertiary">#00363B</color>
+    <color name="paletteGreenTertiaryContainer">#1F4C52</color>
+    <color name="paletteGreenOnTertiaryContainer">#BCE9F0</color>
+    <color name="paletteGreenInversePrimary">#1B6B37</color>
+
+    <!-- Blue Material 3 palette (dark) -->
+    <color name="paletteBluePrimary">#A9C7FF</color>
+    <color name="paletteBlueOnPrimary">#003062</color>
+    <color name="paletteBluePrimaryContainer">#00488F</color>
+    <color name="paletteBlueOnPrimaryContainer">#D6E3FF</color>
+    <color name="paletteBlueSecondary">#BEC6DC</color>
+    <color name="paletteBlueOnSecondary">#283041</color>
+    <color name="paletteBlueSecondaryContainer">#404759</color>
+    <color name="paletteBlueOnSecondaryContainer">#DAE2F9</color>
+    <color name="paletteBlueTertiary">#DDBBE1</color>
+    <color name="paletteBlueOnTertiary">#3E2844</color>
+    <color name="paletteBlueTertiaryContainer">#573E5C</color>
+    <color name="paletteBlueOnTertiaryContainer">#FAD8FE</color>
+    <color name="paletteBlueInversePrimary">#1565C0</color>
+
+    <!-- Purple Material 3 palette (dark) -->
+    <color name="palettePurplePrimary">#E4B3FF</color>
+    <color name="palettePurpleOnPrimary">#3D0066</color>
+    <color name="palettePurplePrimaryContainer">#52008B</color>
+    <color name="palettePurpleOnPrimaryContainer">#F3DAFF</color>
+    <color name="palettePurpleSecondary">#D5C8D7</color>
+    <color name="palettePurpleOnSecondary">#392F3C</color>
+    <color name="palettePurpleSecondaryContainer">#504553</color>
+    <color name="palettePurpleOnSecondaryContainer">#F1E6F3</color>
+    <color name="palettePurpleTertiary">#CFCF93</color>
+    <color name="palettePurpleOnTertiary">#373419</color>
+    <color name="palettePurpleTertiaryContainer">#4D4B2A</color>
+    <color name="palettePurpleOnTertiaryContainer">#ECECC9</color>
+    <color name="palettePurpleInversePrimary">#6A1B9A</color>
+
+    <!-- Selected drawer item background (dark variants) -->
+    <color name="colorDrawerSelected">#6C3B00</color>
+    <color name="colorDrawerSelectedGreen">#00522C</color>
+    <color name="colorDrawerSelectedBlue">#00488F</color>
+    <color name="colorDrawerSelectedPurple">#52008B</color>
+
+    <!-- Game menu bar chrome (dark) -->
+    <color name="menuBarIcon">#DDE3E8</color>
+    <color name="menuBarLabel">#DDE3E8</color>
+    <color name="settingsBackground">#211F1E</color>
+</resources>

@@ -117,8 +117,4 @@ public class Timer {
     public void setWinningTime() {
         winningTime = currentTime;
     }
-
-    public void setStartTime(long time) {
-        startTime = time;
-    }
 }

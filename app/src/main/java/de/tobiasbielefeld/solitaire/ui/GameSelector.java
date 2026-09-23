@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -30,6 +31,7 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
     private TableLayout tableLayout;
     private int menuColumns;
     private ArrayList<Integer> indexes = new ArrayList<>();
+    private long lastGameStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +90,10 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
         indexes.clear();
 
         int padding = (int) (getResources().getDimension(R.dimen.game_selector_images_padding));
+        int tileGap = (int) (getResources().getDimension(R.dimen.game_selector_tile_gap));
         TableRow.LayoutParams params = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT);
         params.weight = 1;
+        params.setMargins(tileGap, tileGap, tileGap, tileGap);
 
         //add the game buttons
         for (int i = 0; i < lg.getGameCount(); i++) {
@@ -107,8 +111,10 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
                 cell.setOrientation(LinearLayout.VERTICAL);
                 cell.setGravity(android.view.Gravity.CENTER);
                 cell.setLayoutParams(params);
+                cell.setBackgroundResource(R.drawable.game_selector_tile);
                 cell.setPadding(padding, padding, padding, padding);
                 cell.setLongClickable(true);
+                cell.setElevation(getResources().getDimension(R.dimen.game_selector_tile_elevation));
                 cell.setOnTouchListener(this);
 
                 ImageView imageView = new ImageView(this);
@@ -118,18 +124,7 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
                 imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 imageView.setImageBitmap(bitmaps.getMenu(index));
 
-                TextView label = new TextView(this);
-                label.setLayoutParams(new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT));
-                label.setGravity(android.view.Gravity.CENTER);
-                label.setText(lg.getGameName(getResources(), index));
-                label.setTextColor(getResources().getColor(R.color.white));
-                label.setTextSize(12);
-                label.setPadding(0, padding, 0, 0);
-
                 cell.addView(imageView);
-                cell.addView(label);
                 indexes.add(i);
                 row.addView(cell);
                 counter++;
@@ -142,6 +137,10 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
             dummy.setLayoutParams(params);
             row.addView(dummy);
         }
+
+        //warm up the card bitmaps on a background thread, so the first game isn't slowed down by
+        //decoding the card theme sheet on the main thread.
+        new Thread(bitmaps::preloadCardAssets).start();
     }
 
     @Override
@@ -223,6 +222,13 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
         if (prefs.getSavedCurrentGame() != DEFAULT_CURRENT_GAME) {
             return;
         }
+
+        //debounce rapid double-taps that would otherwise rebuild the whole game twice
+        long now = SystemClock.uptimeMillis();
+        if (now - lastGameStart < 500) {
+            return;
+        }
+        lastGameStart = now;
 
         prefs.saveCurrentGame(index);
         Intent intent = new Intent(getApplicationContext(), GameManager.class);

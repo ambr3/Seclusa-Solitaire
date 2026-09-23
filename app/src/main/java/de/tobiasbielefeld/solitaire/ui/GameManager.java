@@ -79,6 +79,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public boolean hasLoaded = false;                                          //used to call save() in onPause() only if load() has been called before
     public Button buttonAutoComplete;                                          //button for auto complete
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRecycles; //textViews for time, scores and re-deals
+    public LinearLayout mainButtonScores;                                      //score pill, opens statistics when tapped
+    public ImageView buttonScoresStar;                                         //star shown inside the score pill
     public RelativeLayout layoutGame;                                          //contains the game stacks and cards
     public ImageView highlight;
     private long firstTapTime;                                                 //stores the time of first tapping on a card
@@ -112,6 +114,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         layoutGame = findViewById(R.id.mainRelativeLayoutGame);
         mainTextViewTime = findViewById(R.id.mainTextViewTime);
         mainTextViewScore = findViewById(R.id.mainTextViewScore);
+        mainButtonScores = findViewById(R.id.mainButtonScores);
+        buttonScoresStar = findViewById(R.id.button_scores);
         mainTextViewRecycles = findViewById(R.id.textViewRecycles);
         buttonAutoComplete = findViewById(R.id.buttonMainAutoComplete);
         mainRelativeLayoutBackground = findViewById(R.id.mainRelativeLayoutBackground);
@@ -177,7 +181,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
             @Override
             public boolean additionalHaltCondition() {
-                return false;
+                return stopUiUpdates;
             }
         });
 
@@ -189,7 +193,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
             @Override
             public boolean additionalHaltCondition() {
-                return false;
+                return stopUiUpdates;
             }
         });
 
@@ -225,7 +229,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         setUiElementsColor();
 
         if (prefs.getSavedHideScore()) {
-            mainTextViewScore.setVisibility(GONE);
+            mainButtonScores.setVisibility(GONE);
         }
 
         if (prefs.getSavedHideTime()) {
@@ -700,6 +704,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         mainTextViewTime.setTextColor(textColor);
         mainTextViewScore.setTextColor(textColor);
+        buttonScoresStar.setColorFilter(textColor);
         hideMenu.setColorFilter(textColor);
         highlight.setColorFilter(textColor);
 
@@ -791,15 +796,19 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         RelativeLayout gameOverlayLower = findViewById(R.id.mainRelativeLayoutGameOverlayLower);
         RelativeLayout gameOverlayUpper = findViewById(R.id.mainRelativeLayoutGameOverlay);
 
+        int barMargin = (int) (16 * getResources().getDisplayMetrics().density);
+
         if (isLandscape) {
             params1 = new RelativeLayout.LayoutParams((int) getResources().getDimension(R.dimen.menuBarWidht), ViewGroup.LayoutParams.MATCH_PARENT);
 
             if (prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                params1.setMargins(0, barMargin, barMargin, barMargin);
                 params2.addRule(RelativeLayout.LEFT_OF, R.id.linearLayoutMenuBar);
                 params3.addRule(RelativeLayout.LEFT_OF, R.id.linearLayoutMenuBar);
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                params1.setMargins(barMargin, barMargin, 0, barMargin);
                 params2.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayoutMenuBar);
                 params3.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayoutMenuBar);
             }
@@ -808,11 +817,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
             if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+                params1.setMargins(barMargin, 0, barMargin, barMargin);
                 params2.addRule(RelativeLayout.ABOVE, R.id.linearLayoutMenuBar);
                 params3.addRule(RelativeLayout.ABOVE, R.id.linearLayoutMenuBar);
 
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+                params1.setMargins(barMargin, barMargin, barMargin, 0);
                 params2.addRule(RelativeLayout.BELOW, R.id.linearLayoutMenuBar);
                 params3.addRule(RelativeLayout.BELOW, R.id.linearLayoutMenuBar);
             }
@@ -893,7 +904,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                     setUiElementsColor();
                 }
                 if (data.hasExtra(getString(R.string.intent_update_score_visibility))) {
-                    mainTextViewScore.setVisibility(prefs.getSavedHideScore() ? GONE : VISIBLE);
+                    mainButtonScores.setVisibility(prefs.getSavedHideScore() ? GONE : VISIBLE);
                 }
                 if (data.hasExtra(getString(R.string.intent_update_time_visibility))) {
                     mainTextViewTime.setVisibility(prefs.getSavedHideTime() ? GONE : VISIBLE);

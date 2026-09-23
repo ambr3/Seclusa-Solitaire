@@ -273,7 +273,7 @@ public class Scores {
         savedHighScores = new long[MAX_SAVED_SCORES][3];
         savedRecentScores = new long[MAX_SAVED_SCORES][3];
         prefs.saveHighScores(savedHighScores);
-        prefs.saveRecentScores(savedHighScores);
+        prefs.saveRecentScores(savedRecentScores);
         prefs.saveTotalTimePlayed(0);
         prefs.saveTotalHintsShown(0);
         prefs.saveTotalNumberUndos(0);

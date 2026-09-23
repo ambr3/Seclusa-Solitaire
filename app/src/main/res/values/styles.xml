@@ -1,102 +1,245 @@
 <resources>
 
+    <!--
+        Material 3 themes. Every screen keeps its original style name, but the
+        AppCompat parents are replaced by Material 3 DayNight parents, so the
+        app now follows the system dark mode. The "surface" color roles come
+        from the values-night color qualifier, chromatic roles come from the
+        selected palette (ThemeColors). Dynamic colors (Android 12+) overlay
+        the palette when enabled in the settings.
+    -->
+
     <!-- Base application theme (Deep Orange default). -->
-    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppThemeNoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/paletteOrangePrimary</item>
+        <item name="colorOnPrimary">@color/paletteOrangeOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/paletteOrangePrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/paletteOrangeOnPrimaryContainer</item>
+        <item name="colorSecondary">@color/paletteOrangeSecondary</item>
+        <item name="colorOnSecondary">@color/paletteOrangeOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/paletteOrangeSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/paletteOrangeOnSecondaryContainer</item>
+        <item name="colorTertiary">@color/paletteOrangeTertiary</item>
+        <item name="colorOnTertiary">@color/paletteOrangeOnTertiary</item>
+        <item name="colorTertiaryContainer">@color/paletteOrangeTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/paletteOrangeOnTertiaryContainer</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+        <item name="colorErrorContainer">@color/colorErrorContainer</item>
+        <item name="colorOnErrorContainer">@color/colorOnErrorContainer</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/colorOnSurfaceVariant</item>
+        <item name="colorSurfaceContainerLowest">@color/colorSurfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/colorSurfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/colorSurfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/colorSurfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/colorSurfaceContainerHighest</item>
+        <item name="colorSurfaceBright">@color/colorSurfaceBright</item>
+        <item name="colorSurfaceDim">@color/colorSurfaceDim</item>
+        <item name="colorOutline">@color/colorOutline</item>
+        <item name="colorOutlineVariant">@color/colorOutlineVariant</item>
+        <item name="colorPrimaryInverse">@color/paletteOrangeInversePrimary</item>
+        <item name="colorSurfaceInverse">@color/colorInverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/colorInverseOnSurface</item>
+        <item name="scrimBackground">@color/colorScrim</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackground</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEnd</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelected</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.App.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.BodyMedium</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.App.LabelLarge</item>
         <item name="alertDialogTheme">@style/AppDialogTheme</item>
     </style>
 
     <style name="AppThemeNoActionBar.Green" parent="AppThemeNoActionBar">
-        <item name="colorPrimary">@color/colorPrimaryGreen</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
-        <item name="colorAccent">@color/colorAccentGreen</item>
+        <item name="colorPrimary">@color/paletteGreenPrimary</item>
+        <item name="colorOnPrimary">@color/paletteGreenOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/paletteGreenPrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/paletteGreenOnPrimaryContainer</item>
+        <item name="colorSecondary">@color/paletteGreenSecondary</item>
+        <item name="colorOnSecondary">@color/paletteGreenOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/paletteGreenSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/paletteGreenOnSecondaryContainer</item>
+        <item name="colorTertiary">@color/paletteGreenTertiary</item>
+        <item name="colorOnTertiary">@color/paletteGreenOnTertiary</item>
+        <item name="colorTertiaryContainer">@color/paletteGreenTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/paletteGreenOnTertiaryContainer</item>
+        <item name="colorPrimaryInverse">@color/paletteGreenInversePrimary</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackgroundGreen</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEndGreen</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelectedGreen</item>
         <item name="alertDialogTheme">@style/AppDialogTheme.Green</item>
     </style>
 
     <style name="AppThemeNoActionBar.Blue" parent="AppThemeNoActionBar">
-        <item name="colorPrimary">@color/colorPrimaryBlue</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkBlue</item>
-        <item name="colorAccent">@color/colorAccentBlue</item>
+        <item name="colorPrimary">@color/paletteBluePrimary</item>
+        <item name="colorOnPrimary">@color/paletteBlueOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/paletteBluePrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/paletteBlueOnPrimaryContainer</item>
+        <item name="colorSecondary">@color/paletteBlueSecondary</item>
+        <item name="colorOnSecondary">@color/paletteBlueOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/paletteBlueSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/paletteBlueOnSecondaryContainer</item>
+        <item name="colorTertiary">@color/paletteBlueTertiary</item>
+        <item name="colorOnTertiary">@color/paletteBlueOnTertiary</item>
+        <item name="colorTertiaryContainer">@color/paletteBlueTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/paletteBlueOnTertiaryContainer</item>
+        <item name="colorPrimaryInverse">@color/paletteBlueInversePrimary</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackgroundBlue</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEndBlue</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelectedBlue</item>
         <item name="alertDialogTheme">@style/AppDialogTheme.Blue</item>
     </style>
 
     <style name="AppThemeNoActionBar.Purple" parent="AppThemeNoActionBar">
-        <item name="colorPrimary">@color/colorPrimaryPurple</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkPurple</item>
-        <item name="colorAccent">@color/colorAccentPurple</item>
+        <item name="colorPrimary">@color/palettePurplePrimary</item>
+        <item name="colorOnPrimary">@color/palettePurpleOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/palettePurplePrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/palettePurpleOnPrimaryContainer</item>
+        <item name="colorSecondary">@color/palettePurpleSecondary</item>
+        <item name="colorOnSecondary">@color/palettePurpleOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/palettePurpleSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/palettePurpleOnSecondaryContainer</item>
+        <item name="colorTertiary">@color/palettePurpleTertiary</item>
+        <item name="colorOnTertiary">@color/palettePurpleOnTertiary</item>
+        <item name="colorTertiaryContainer">@color/palettePurpleTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/palettePurpleOnTertiaryContainer</item>
+        <item name="colorPrimaryInverse">@color/palettePurpleInversePrimary</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackgroundPurple</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEndPurple</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelectedPurple</item>
         <item name="alertDialogTheme">@style/AppDialogTheme.Purple</item>
     </style>
 
-    <style name="AppThemeActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <!-- Screens with an action bar (statistics, settings). -->
+    <style name="AppThemeActionBar" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/paletteOrangePrimary</item>
+        <item name="colorOnPrimary">@color/paletteOrangeOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/paletteOrangePrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/paletteOrangeOnPrimaryContainer</item>
+        <item name="colorSecondary">@color/paletteOrangeSecondary</item>
+        <item name="colorOnSecondary">@color/paletteOrangeOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/paletteOrangeSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/paletteOrangeOnSecondaryContainer</item>
+        <item name="colorTertiary">@color/paletteOrangeTertiary</item>
+        <item name="colorOnTertiary">@color/paletteOrangeOnTertiary</item>
+        <item name="colorTertiaryContainer">@color/paletteOrangeTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/paletteOrangeOnTertiaryContainer</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+        <item name="colorErrorContainer">@color/colorErrorContainer</item>
+        <item name="colorOnErrorContainer">@color/colorOnErrorContainer</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/colorOnSurfaceVariant</item>
+        <item name="colorSurfaceContainerLowest">@color/colorSurfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/colorSurfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/colorSurfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/colorSurfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/colorSurfaceContainerHighest</item>
+        <item name="colorSurfaceBright">@color/colorSurfaceBright</item>
+        <item name="colorSurfaceDim">@color/colorSurfaceDim</item>
+        <item name="colorOutline">@color/colorOutline</item>
+        <item name="colorOutlineVariant">@color/colorOutlineVariant</item>
+        <item name="colorPrimaryInverse">@color/paletteOrangeInversePrimary</item>
+        <item name="colorSurfaceInverse">@color/colorInverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/colorInverseOnSurface</item>
+        <item name="scrimBackground">@color/colorScrim</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackground</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEnd</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelected</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.App.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.BodyMedium</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.App.LabelLarge</item>
         <item name="alertDialogTheme">@style/AppDialogTheme</item>
     </style>
 
     <style name="AppThemeActionBar.Green" parent="AppThemeActionBar">
-        <item name="colorPrimary">@color/colorPrimaryGreen</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
-        <item name="colorAccent">@color/colorAccentGreen</item>
+        <item name="colorPrimary">@color/paletteGreenPrimary</item>
+        <item name="colorOnPrimary">@color/paletteGreenOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/paletteGreenPrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/paletteGreenOnPrimaryContainer</item>
+        <item name="colorSecondary">@color/paletteGreenSecondary</item>
+        <item name="colorOnSecondary">@color/paletteGreenOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/paletteGreenSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/paletteGreenOnSecondaryContainer</item>
+        <item name="colorTertiary">@color/paletteGreenTertiary</item>
+        <item name="colorOnTertiary">@color/paletteGreenOnTertiary</item>
+        <item name="colorTertiaryContainer">@color/paletteGreenTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/paletteGreenOnTertiaryContainer</item>
+        <item name="colorPrimaryInverse">@color/paletteGreenInversePrimary</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackgroundGreen</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEndGreen</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelectedGreen</item>
         <item name="alertDialogTheme">@style/AppDialogTheme.Green</item>
     </style>
 
     <style name="AppThemeActionBar.Blue" parent="AppThemeActionBar">
-        <item name="colorPrimary">@color/colorPrimaryBlue</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkBlue</item>
-        <item name="colorAccent">@color/colorAccentBlue</item>
+        <item name="colorPrimary">@color/paletteBluePrimary</item>
+        <item name="colorOnPrimary">@color/paletteBlueOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/paletteBluePrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/paletteBlueOnPrimaryContainer</item>
+        <item name="colorSecondary">@color/paletteBlueSecondary</item>
+        <item name="colorOnSecondary">@color/paletteBlueOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/paletteBlueSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/paletteBlueOnSecondaryContainer</item>
+        <item name="colorTertiary">@color/paletteBlueTertiary</item>
+        <item name="colorOnTertiary">@color/paletteBlueOnTertiary</item>
+        <item name="colorTertiaryContainer">@color/paletteBlueTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/paletteBlueOnTertiaryContainer</item>
+        <item name="colorPrimaryInverse">@color/paletteBlueInversePrimary</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackgroundBlue</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEndBlue</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelectedBlue</item>
         <item name="alertDialogTheme">@style/AppDialogTheme.Blue</item>
     </style>
 
     <style name="AppThemeActionBar.Purple" parent="AppThemeActionBar">
-        <item name="colorPrimary">@color/colorPrimaryPurple</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkPurple</item>
-        <item name="colorAccent">@color/colorAccentPurple</item>
+        <item name="colorPrimary">@color/palettePurplePrimary</item>
+        <item name="colorOnPrimary">@color/palettePurpleOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/palettePurplePrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/palettePurpleOnPrimaryContainer</item>
+        <item name="colorSecondary">@color/palettePurpleSecondary</item>
+        <item name="colorOnSecondary">@color/palettePurpleOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/palettePurpleSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/palettePurpleOnSecondaryContainer</item>
+        <item name="colorTertiary">@color/palettePurpleTertiary</item>
+        <item name="colorOnTertiary">@color/palettePurpleOnTertiary</item>
+        <item name="colorTertiaryContainer">@color/palettePurpleTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/palettePurpleOnTertiaryContainer</item>
+        <item name="colorPrimaryInverse">@color/palettePurpleInversePrimary</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackgroundPurple</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEndPurple</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelectedPurple</item>
         <item name="alertDialogTheme">@style/AppDialogTheme.Purple</item>
     </style>
 
-    <!-- Modern rounded dialogs used by all in-game menus; colour variants follow the theme. -->
-    <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@drawable/dialog_background</item>
+    <!-- Material 3 rounded alert dialogs; colour variants follow the theme. -->
+    <style name="AppDialogTheme" parent="Theme.Material3.DayNight.Dialog.Alert">
+        <item name="android:windowTitleStyle">@style/TextAppearance.App.TitleLarge</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.App.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.BodyMedium</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.App.LabelLarge</item>
+        <item name="android:textAppearanceListItem">@style/TextAppearance.App.BodyLarge</item>
+        <item name="android:textAppearanceListItemSecondary">@style/TextAppearance.App.BodyMedium</item>
     </style>
 
-    <style name="AppDialogTheme.Green" parent="AppDialogTheme">
-        <item name="colorPrimary">@color/colorPrimaryGreen</item>
-        <item name="colorAccent">@color/colorAccentGreen</item>
-    </style>
+    <style name="AppDialogTheme.Green" parent="AppDialogTheme" />
 
-    <style name="AppDialogTheme.Blue" parent="AppDialogTheme">
-        <item name="colorPrimary">@color/colorPrimaryBlue</item>
-        <item name="colorAccent">@color/colorAccentBlue</item>
-    </style>
+    <style name="AppDialogTheme.Blue" parent="AppDialogTheme" />
 
-    <style name="AppDialogTheme.Purple" parent="AppDialogTheme">
-        <item name="colorPrimary">@color/colorPrimaryPurple</item>
-        <item name="colorAccent">@color/colorAccentPurple</item>
-    </style>
+    <style name="AppDialogTheme.Purple" parent="AppDialogTheme" />
 
-    <!-- Settings screens: same theme as the rest of the app. Uses only @color/theme
-         resources (never literal hex) to avoid theme inflation crashes on old support libs. -->
+    <!-- Settings screens: same theme as the rest of the app. -->
     <style name="AppThemeSettings" parent="AppThemeActionBar">
         <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar</item>
     </style>
@@ -113,12 +256,24 @@
         <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar</item>
     </style>
 
-    <!-- Floating rounded boxes shown over the game for About, Manual and Settings screens. -->
-    <style name="AppThemeDialog" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <!-- Floating rounded box shown over the game for About, Manual and Settings screens. -->
+    <style name="AppThemeDialog" parent="Theme.Material3.DayNight.Dialog.Alert">
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.App.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.BodyMedium</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.App.LabelLarge</item>
+        <item name="android:textAppearanceListItem">@style/TextAppearance.App.BodyLarge</item>
+        <item name="android:textAppearanceListItemSecondary">@style/TextAppearance.App.BodyMedium</item>
+        <item name="colorPrimary">@color/paletteOrangePrimary</item>
+        <item name="colorPrimaryContainer">@color/paletteOrangePrimaryContainer</item>
+        <item name="colorSecondary">@color/paletteOrangeSecondary</item>
+        <item name="colorSecondaryContainer">@color/paletteOrangeSecondaryContainer</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorOnSurfaceVariant">@color/colorOnSurfaceVariant</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackground</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEnd</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelected</item>
         <item name="alertDialogTheme">@style/AppDialogTheme</item>
         <item name="windowNoTitle">true</item>
@@ -129,87 +284,124 @@
     </style>
 
     <style name="AppThemeDialog.Green" parent="AppThemeDialog">
-        <item name="colorPrimary">@color/colorPrimaryGreen</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
-        <item name="colorAccent">@color/colorAccentGreen</item>
+        <item name="colorPrimary">@color/paletteGreenPrimary</item>
+        <item name="colorPrimaryContainer">@color/paletteGreenPrimaryContainer</item>
+        <item name="colorSecondary">@color/paletteGreenSecondary</item>
+        <item name="colorSecondaryContainer">@color/paletteGreenSecondaryContainer</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackgroundGreen</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEndGreen</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelectedGreen</item>
         <item name="alertDialogTheme">@style/AppDialogTheme.Green</item>
     </style>
 
     <style name="AppThemeDialog.Blue" parent="AppThemeDialog">
-        <item name="colorPrimary">@color/colorPrimaryBlue</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkBlue</item>
-        <item name="colorAccent">@color/colorAccentBlue</item>
+        <item name="colorPrimary">@color/paletteBluePrimary</item>
+        <item name="colorPrimaryContainer">@color/paletteBluePrimaryContainer</item>
+        <item name="colorSecondary">@color/paletteBlueSecondary</item>
+        <item name="colorSecondaryContainer">@color/paletteBlueSecondaryContainer</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackgroundBlue</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEndBlue</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelectedBlue</item>
         <item name="alertDialogTheme">@style/AppDialogTheme.Blue</item>
     </style>
 
     <style name="AppThemeDialog.Purple" parent="AppThemeDialog">
-        <item name="colorPrimary">@color/colorPrimaryPurple</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkPurple</item>
-        <item name="colorAccent">@color/colorAccentPurple</item>
+        <item name="colorPrimary">@color/palettePurplePrimary</item>
+        <item name="colorPrimaryContainer">@color/palettePurplePrimaryContainer</item>
+        <item name="colorSecondary">@color/palettePurpleSecondary</item>
+        <item name="colorSecondaryContainer">@color/palettePurpleSecondaryContainer</item>
         <item name="themeGameSelectBackground">@color/gameSelectBackgroundPurple</item>
+        <item name="themeGameSelectBackgroundEnd">@color/gameSelectBackgroundEndPurple</item>
         <item name="themeColorDrawerSelected">@color/colorDrawerSelectedPurple</item>
         <item name="alertDialogTheme">@style/AppDialogTheme.Purple</item>
     </style>
 
-    <!-- Settings inside a floating rounded box: keep the app bar but let the white card show around it. -->
+    <!-- Settings inside a floating rounded box: keep the app bar but let the card show around it. -->
     <style name="AppThemeSettingsDialog" parent="AppThemeDialog">
-        <item name="windowNoTitle">false</item>
-        <item name="windowActionBar">true</item>
-        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar.Dialog</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/settings_header_activated</item>
+        <item name="android:listSelector">?attr/selectableItemBackground</item>
     </style>
 
     <style name="AppThemeSettingsDialog.Green" parent="AppThemeDialog.Green">
-        <item name="windowNoTitle">false</item>
-        <item name="windowActionBar">true</item>
-        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar.Dialog</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/settings_header_activated</item>
+        <item name="android:listSelector">?attr/selectableItemBackground</item>
     </style>
 
     <style name="AppThemeSettingsDialog.Blue" parent="AppThemeDialog.Blue">
-        <item name="windowNoTitle">false</item>
-        <item name="windowActionBar">true</item>
-        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar.Dialog</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/settings_header_activated</item>
+        <item name="android:listSelector">?attr/selectableItemBackground</item>
     </style>
 
     <style name="AppThemeSettingsDialog.Purple" parent="AppThemeDialog.Purple">
-        <item name="windowNoTitle">false</item>
-        <item name="windowActionBar">true</item>
-        <item name="android:actionBarStyle">@style/Widget.Settings.ActionBar.Dialog</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/settings_header_activated</item>
+        <item name="android:listSelector">?attr/selectableItemBackground</item>
     </style>
 
-    <style name="Widget.Settings.ActionBar" parent="Widget.AppCompat.Light.ActionBar">
+    <style name="Widget.Settings.ActionBar" parent="Widget.Material3.ActionBar.Solid">
         <item name="background">?attr/colorPrimary</item>
         <item name="titleTextStyle">@style/TextAppearance.Settings.ActionBar.Title</item>
     </style>
 
-    <style name="Widget.Settings.ActionBar.Dialog" parent="Widget.AppCompat.Light.ActionBar">
+    <style name="Widget.Settings.ActionBar.Dialog" parent="Widget.Material3.ActionBar.Solid">
         <item name="background">@android:color/transparent</item>
         <item name="titleTextStyle">@style/TextAppearance.Settings.ActionBar.Title.Dialog</item>
     </style>
 
-    <style name="TextAppearance.Settings.ActionBar.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+    <style name="TextAppearance.Settings.ActionBar.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="android:letterSpacing">0.02</item>
     </style>
 
-    <style name="TextAppearance.Settings.ActionBar.Title.Dialog" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+    <style name="TextAppearance.Settings.ActionBar.Title.Dialog" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">?attr/colorPrimary</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:letterSpacing">0.02</item>
     </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.Material3.Dark" />
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <!--
+        App-wide type scale. Uses the system font (Roboto) like the Decker weather app:
+        tight letter-spacing, bold headings and clear hierarchy instead of the default
+        Material 3 spacing/weights.
+    -->
+    <style name="TextAppearance.App.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="TextAppearance.App.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
 
-    <style name="AppThemeNoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="TextAppearance.App.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
 
-    <style name="AppThemeNoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="TextAppearance.App.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.App.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
+
+    <style name="AppThemeNoActionBar.AppBarOverlay" parent="ThemeOverlay.Material3.Dark" />
+
+    <style name="AppThemeNoActionBar.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
 
     <style name="GameMenuButtonLabel">
         <item name="android:textSize">11sp</item>
@@ -218,9 +410,8 @@
         <item name="android:letterSpacing">0.03</item>
     </style>
 
-    <style name="AboutSectionTitle" parent="TextAppearance.AppCompat.Medium">
+    <style name="AboutSectionTitle" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textColor">?attr/colorPrimary</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:letterSpacing">0.02</item>
         <item name="android:textStyle">bold</item>
     </style>

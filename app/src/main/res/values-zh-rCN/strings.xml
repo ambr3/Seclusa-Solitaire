@@ -38,7 +38,7 @@
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"坎菲尔德"</string>
 <string name="games_GrandfathersClock">"祖父的钟"</string>
-<string name="games_Vegas">"维加斯"</string>
+
 <string name="games_Calculation">"计算"</string>
 
 <!-- colors -->
@@ -113,7 +113,7 @@
 <string name="manual_startpage_text">"欢迎来到此游戏组合的手册！我希望这会解释所有的一切
 
 使用左侧栏菜单来查看其他手册页面。"</string>
-<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
+
 
 <!-- Settings -->
 <string name="settings_background_color">"背景色"</string>
@@ -169,11 +169,11 @@
 <string name="settings_force_tablet_layout_title">"强制平板布局"</string>
 <string name="settings_force_tablet_layout_text">"以大屏幕样式显示 （7英寸以上）"</string>
 <string name="settings_calculation_alternative_title">"保留卡牌"</string>
-<string name="settings_vegas_money_enabled">"保持当前平衡性"</string>
-<string name="settings_vegas_money_reset">"重置平衡性"</string>
+
+
 <string name="settings_auto_move_title">"自动移动"</string>
 <string name="settings_rules">"规则"</string>
-<string name="settings_money">"钱"</string>
+
 <string name="settings_support">"支持"</string>
 <string name="settings_hide_time">"隐藏时间"</string>
 <string name="settings_hide_score">"隐藏分数"</string>

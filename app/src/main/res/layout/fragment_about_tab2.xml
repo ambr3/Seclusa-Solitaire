@@ -14,10 +14,10 @@
         android:paddingRight="@dimen/card_view_padding_horizontal"
         android:paddingBottom="@dimen/card_view_padding_vertical">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardBackgroundColor="@color/white"
+            card_view:cardBackgroundColor="?attr/colorSurfaceContainer"
             card_view:cardCornerRadius="12dp"
             card_view:cardUseCompatPadding="true">
 
@@ -42,7 +42,7 @@
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_android_support_libraries_title"
-android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -55,14 +55,14 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:text="@string/about_android_support_libraries_license"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="?attr/colorOutlineVariant" />
 
 
                 <TextView
@@ -73,12 +73,12 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="@string/about_android_support_libraries_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardBackgroundColor="@color/white"
+            card_view:cardBackgroundColor="?attr/colorSurfaceContainer"
             card_view:cardCornerRadius="12dp"
             card_view:cardUseCompatPadding="true">
 
@@ -103,7 +103,7 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_material_icons_title"
-android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -116,14 +116,14 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:text="@string/about_material_icons_license"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="?attr/colorOutlineVariant" />
 
 
                 <TextView
@@ -134,12 +134,12 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="@string/about_material_icons_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardBackgroundColor="@color/white"
+            card_view:cardBackgroundColor="?attr/colorSurfaceContainer"
             card_view:cardCornerRadius="12dp"
             card_view:cardUseCompatPadding="true">
 
@@ -164,7 +164,7 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_material_icons_title"
-android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -177,14 +177,14 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:text="@string/about_material_icons_SIL"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="?attr/colorOutlineVariant" />
 
 
                 <TextView
@@ -196,13 +196,13 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="@string/about_material_icons_2_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardBackgroundColor="@color/white"
+            card_view:cardBackgroundColor="?attr/colorSurfaceContainer"
             card_view:cardCornerRadius="12dp"
             card_view:cardUseCompatPadding="true">
 
@@ -227,7 +227,7 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_card_themes_title"
-android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -240,14 +240,14 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:text="@string/about_card_themes_license"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="?attr/colorOutlineVariant" />
 
 
                 <TextView
@@ -259,12 +259,12 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="@string/about_card_themes_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardBackgroundColor="@color/white"
+            card_view:cardBackgroundColor="?attr/colorSurfaceContainer"
             card_view:cardCornerRadius="12dp"
             card_view:cardUseCompatPadding="true">
 
@@ -289,7 +289,7 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_poker_themes_title"
-android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -302,14 +302,14 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:text="@string/about_poker_themes_license"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="?attr/colorOutlineVariant" />
 
 
                 <TextView
@@ -321,12 +321,12 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="@string/about_poker_themes_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardBackgroundColor="@color/white"
+            card_view:cardBackgroundColor="?attr/colorSurfaceContainer"
             card_view:cardCornerRadius="12dp"
             card_view:cardUseCompatPadding="true">
 
@@ -351,7 +351,7 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_paris_themes_title"
-android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -364,14 +364,14 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:text="@string/about_paris_themes_license"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="?attr/colorOutlineVariant" />
 
 
                 <TextView
@@ -383,12 +383,12 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="@string/about_paris_themes_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardBackgroundColor="@color/white"
+            card_view:cardBackgroundColor="?attr/colorSurfaceContainer"
             card_view:cardCornerRadius="12dp"
             card_view:cardUseCompatPadding="true">
 
@@ -413,7 +413,7 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_custom_color_picker_title"
-android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -426,14 +426,14 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:text="@string/about_custom_color_picker_license"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="?attr/colorOutlineVariant" />
 
 
                 <TextView
@@ -444,13 +444,13 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="@string/about_custom_color_picker_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardBackgroundColor="@color/white"
+            card_view:cardBackgroundColor="?attr/colorSurfaceContainer"
             card_view:cardCornerRadius="12dp"
             card_view:cardUseCompatPadding="true">
 
@@ -475,7 +475,7 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:gravity="start"
                         android:singleLine="true"
                         android:text="@string/about_sliding_tabs_title"
-android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
 
                     <TextView
@@ -488,14 +488,14 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:text="@string/about_sliding_tabs_license"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@android:color/darker_gray" />
+                    android:background="?attr/colorOutlineVariant" />
 
 
                 <TextView
@@ -507,7 +507,7 @@ android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

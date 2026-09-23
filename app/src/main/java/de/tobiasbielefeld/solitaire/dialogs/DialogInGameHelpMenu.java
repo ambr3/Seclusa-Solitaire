@@ -21,8 +21,8 @@ package de.tobiasbielefeld.solitaire.dialogs;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
@@ -41,7 +41,7 @@ public class DialogInGameHelpMenu extends CustomDialogFragment {
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final GameManager gameManager = (GameManager) getActivity();
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity());
 
         builder.setTitle(R.string.settings_support)
                 .setItems(R.array.help_menu, (dialog, which) -> {

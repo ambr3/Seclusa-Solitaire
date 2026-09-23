@@ -24,14 +24,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="@string/settings_ensure_movability_min_moves_warning"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="@string/settings_ensure_movability_make_game_winnable_text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
 
             <Button
                 android:id="@+id/settings_ensure_movability_make_games_winnable"

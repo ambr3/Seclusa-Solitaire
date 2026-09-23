@@ -38,7 +38,7 @@
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
 <string name="games_GrandfathersClock">"Ava Horloĝo"</string>
-<string name="games_Vegas">"Vegaso"</string>
+
 <string name="games_Calculation">"Calculation"</string>
 
 <!-- colors -->
@@ -337,24 +337,10 @@ Movi ĉiujn kartojn de forĵeta stako al ĉefa stako: -200"</string>
 
 Vi povas movi tiom da kartoj (laŭ ĝusta ordo), kiom da liberaj kampoj estas disponeblaj. Tio ĉi respondas al regulo, ke nur unu karto povas esti movita unufoje, tamen se liberaj kampoj estas disponeblaj, oni povas movi kartojn unue al liberaj kampoj, kaj poste al alcela stako."</string>
 <string name="manual_GrandfathersClock_scoring">"De tablamaso al fundamenta stako: +50"</string>
-<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-<string name="manual_Vegas_objective">"Surmetu kartojn al fundamentaj stakoj por gajni monon."</string>
-<string name="manual_Vegas_rules">"Reguloj estas samaj kiel reguloj de “Klondiko”.
 
-Kartojn oni povas meti sur tablamasojn laŭ malkreskanta ordo kaj altern-kolore. Vi povas movi tutan serion da kartoj per unu fojo. Sur fundamentajn stakojn oni povas meti kartojn nur laŭ kreskanta ordo kaj sama emblemo. 
 
-Nur reĝojn oni povas meti sur malplenajn tablamasajn kampojn kaj nur asojn oni povas meti sur malplenajn fundamentajn stakojn. 
 
-Per frapeto de ĉefa stako, kartoj estos movitaj al forĵeta stako, kie vi povas uzi ilin. Nombro da kartoj dependas de elektitaj agordoj. Se “Depreni 1” estas elektita, unu karto estos movita. Se “Depreni 3” estas elektita, 3 kartoj estos movitaj samtempe. 
 
-Se la ĉefa stako malpleniĝos, vi plue povos frapeti ĝin por movi ĉiujn kartojn de forĵeta stako al ĉefa stako kaj reuzi ilin."</string>
-<string name="manual_Vegas_scoring">"Kiomo da gajnata mono dependas de monsumo agordebla en agordoj. Vi pagas ekz. 50$ komence de ludo kaj gajnas 1/10 da monsumo por ĉiu karto enmetita al fundamentaj stakoj.
-
-Ludo estos traktita kiel venkita kiam la poentaro pligrandas ol 0. Movado de karto reen el fundamenta stako kostas 2/10 da vetluda monsumo. 
-
-Uzo de konsilo aŭ de butono malfari ankaŭ kostas 1/10 da vetluda monsumo. 
-
-NOTO: vi ne ludas por vera mono en tiu ĉi ludo :)"</string>
 <string name="manual_Calculation_structure">"1 kartaro po 52 kartoj.
 
 4 tablamasoj, 4 fundamentaj stakoj, 1 ĉefa kaj 1 forĵeta stakoj."</string>
@@ -441,7 +427,7 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_limit_number_of_recycles">"Limigi nombron da redisdonoj"</string>
 <string name="settings_limit_number_of_recycles_text">"Movado de forĵeta stako al ĉefa stako estas limigita"</string>
 <string name="settings_number_of_recycles">"Nombro de reuzoj"</string>
-<string name="settings_vegas_bet_amount">"Vetluda monsumo"</string>
+
 <string name="settings_menu_order_title">"Ordo de menuo"</string>
 <string name="settings_menu_order_summary">"Frapetadu eron kaj poste ŝovu kaj demetu ĝin por reordigi menuon"</string>
 <string name="settings_auto_start_new_game_title">"Komenci novan ludon post venko"</string>
@@ -451,23 +437,23 @@ Sur tablamaso nur plej supraj kartoj povas esti movitaj kaj nur al fundamentaj s
 <string name="settings_force_tablet_layout_text">"Vidigi la aplikaĵon same kiel sur grandaj ekranoj (≥7\")"</string>
 <string name="settings_calculation_alternative_title">"Teni kartojn"</string>
 <string name="settings_calculation_alternative_text">"Je premado sur ĉefa stako: anstataŭ movi karton de forĵeta stako al tablamasa stako, teni ĝin sur la forĵeta stako."</string>
-<string name="settings_vegas_money_enabled">"Konservi nunan monstaton"</string>
-<string name="settings_vegas_money_enabled_text">"La monstato estos konservata tra sekvaj redisdonoj de Vegaso, tamen vi devu rekomencigi la mon-staton kaj komenci novan ludon por konservi rekordojn"</string>
-<string name="settings_vegas_money_reset">"Rekomencigi monstaton"</string>
-<string name="settings_vegas_money_reset_text">"La sekva redisdono de Vegas komenciĝos kun 0$"</string>
-<string name="settings_vegas_money_reset_confirm">"Ĉu vi certe volas rekomencigi vian monstaton? Tio ĉi estas neinversigebla."</string>
+
+
+
+
+
 <string name="settings_auto_move_title">"Aŭtomataj movoj"</string>
 <string name="settings_mod3_auto_move_text">"Aŭtomate movi asojn al la forĵeta stako, kiam tio eblas"</string>
 <string name="settings_pyramid_auto_move_text">"Aŭtomate movi reĝojn al la ruba stako, kiam tio eblas"</string>
 <string name="settings_rules">"Reguloj"</string>
-<string name="settings_money">"Mono"</string>
+
 <string name="settings_support">"Subteno"</string>
 <string name="settings_hide_time">"Kaŝi tempon"</string>
 <string name="settings_hide_score">"Kaŝi poentaron"</string>
 <string name="settings_single_tap_enable">"Aktivigi agojn pri unuoblaj frapetoj"</string>
-<string name="settings_vegas_bet_amount_text_1">"Unua redisdono kostas:"</string>
-<string name="settings_vegas_bet_amount_text_2">"Por movi karton al fundamenta stako gajnas:"</string>
-<string name="settings_vegas_bet_amount_summary">"Redisdono: -%1$d$, karto al fundamenta stako: +%2$d$"</string>
+
+
+
 <string name="settings_single_tap_all_games_text">"Unuoble frapetu karton por movi ĝin al la sekva ebla stako. Samaj agordoj kiel por duobla frapeto. Tio ĉi malaktivigos movojn “elekti-per-frapeto”."</string>
 <string name="settings_canfield_size_of_reserve_title">"Ŝanĝi amplekson da rezerva stako (pli facile)"</string>
 <string name="settings_use_true_randomisation_title">"Uzi veran hazardecon"</string>

@@ -21,6 +21,12 @@
             android:summary="%s"
             android:title="@string/settings_theme_color" />
 
+        <CheckBoxPreference
+            android:defaultValue="@bool/default_dynamic_colors"
+            android:key="@string/pref_key_dynamic_colors"
+            android:summary="@string/settings_dynamic_colors_summary"
+            android:title="@string/settings_dynamic_colors" />
+
         <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuBarPosition
             android:key="@string/pref_key_menu_bar_position"
             android:negativeButtonText="@string/game_cancel"

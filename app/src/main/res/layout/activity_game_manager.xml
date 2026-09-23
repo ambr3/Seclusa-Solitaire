@@ -57,21 +57,42 @@
             android:layout_alignParentTop="true"
             android:background="#000000" />
 
-        <TextView
-            android:id="@+id/mainTextViewTime"
+<LinearLayout
+            android:id="@+id/mainButtonScores"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="8dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/score_chip_background"
-            android:maxLines="1"
+            android:contentDescription="@string/title_activity_statistics"
+            android:gravity="center_vertical"
+            android:onClick="menuClick"
+            android:orientation="horizontal"
             android:paddingLeft="14dp"
             android:paddingTop="4dp"
             android:paddingRight="14dp"
-            android:paddingBottom="4dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:paddingBottom="4dp">
+
+            <ImageView
+                android:id="@+id/button_scores"
+                android:layout_width="26dp"
+                android:layout_height="34dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/icon_star" />
+
+            <TextView
+                android:id="@+id/mainTextViewScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:textSize="30sp" />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/mainImageViewResize"
@@ -83,14 +104,14 @@
             app:srcCompat="@drawable/icon_arrow_down" />
 
         <TextView
-            android:id="@+id/mainTextViewScore"
+            android:id="@+id/mainTextViewTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="8dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/score_chip_background"
             android:maxLines="1"
             android:paddingLeft="14dp"
@@ -169,70 +190,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/mainButtonScores"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackground"
-            android:onClick="menuClick"
-            android:orientation="vertical"
-            android:paddingLeft="2dp"
-            android:paddingTop="5dp"
-            android:paddingRight="2dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:id="@+id/button_scores"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/title_activity_statistics"
-                app:srcCompat="@drawable/icon_star"
-                app:tint="@color/menuBarIcon" />
-
-            <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
-                style="@style/GameMenuButtonLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="@string/title_activity_statistics" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/mainButtonHint"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackground"
-            android:onClick="menuClick"
-            android:orientation="vertical"
-            android:paddingLeft="2dp"
-            android:paddingTop="5dp"
-            android:paddingRight="2dp"
-            android:paddingBottom="5dp">
-
-            <ImageView
-                android:id="@+id/button_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/title_activity_statistics"
-                app:srcCompat="@drawable/icon_lightbulb_on"
-                app:tint="@color/menuBarIcon" />
-
-            <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
-                style="@style/GameMenuButtonLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:gravity="center"
-                android:maxLines="1"
-                android:text="@string/settings_support" />
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/mainButtonRestart"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -262,6 +219,38 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/menu_main_menu" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mainButtonHint"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="menuClick"
+            android:orientation="vertical"
+            android:paddingLeft="2dp"
+            android:paddingTop="5dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/button_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/settings_support"
+                app:srcCompat="@drawable/icon_lightbulb_on"
+                app:tint="@color/menuBarIcon" />
+
+            <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
+                style="@style/GameMenuButtonLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/settings_support" />
         </LinearLayout>
 
         <LinearLayout

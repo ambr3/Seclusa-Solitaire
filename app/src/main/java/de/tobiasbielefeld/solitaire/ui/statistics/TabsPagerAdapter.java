@@ -19,8 +19,9 @@
 package de.tobiasbielefeld.solitaire.ui.statistics;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import de.tobiasbielefeld.solitaire.R;
 
@@ -33,7 +34,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
     private final String[] TITLES;
 
     TabsPagerAdapter(FragmentManager fm, Context context) {
-        super(fm);
+        super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         TITLES = new String[]{context.getString(R.string.settings_other),
                 context.getString(R.string.statistics_high_scores), context.getString(R.string.statistics_recent_scores)};
     }
@@ -49,7 +50,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public android.support.v4.app.Fragment getItem(int index) {
+    public Fragment getItem(int index) {
         switch (index) {
             case 0:
                 return new StatisticsFragment();

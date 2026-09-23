@@ -1,15 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.astuetz.PagerSlidingTabStrip
-        android:id="@+id/tabs"
+    <LinearLayout
+        android:id="@+id/statistics_header"
         android:layout_width="match_parent"
-        android:layout_height="48dip" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/statistics_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:navigationContentDescription="@string/game_close"
+            app:navigationIcon="@drawable/ic_close"
+            app:navigationIconTint="?attr/colorPrimary"
+            app:title="@string/title_activity_statistics"
+            app:titleTextColor="?attr/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp">
+
+            <com.astuetz.PagerSlidingTabStrip
+                android:id="@+id/tabs"
+                android:layout_width="0dp"
+                android:layout_height="52dip"
+                android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/item_delete_all"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/statistics_button_delete"
+            android:textColor="?attr/colorOnErrorContainer"
+            android:textSize="15sp"
+            app:backgroundTint="?attr/colorErrorContainer"
+            app:icon="@android:drawable/ic_menu_delete"
+            app:iconTint="?attr/colorOnErrorContainer" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/item_hide_win"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@string/statistics_hide_win_percentage"
+            android:textColor="?attr/colorOnPrimaryContainer"
+            android:textSize="15sp"
+            app:backgroundTint="?attr/colorPrimaryContainer" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

@@ -19,18 +19,19 @@
 package de.tobiasbielefeld.solitaire.ui.statistics;
 
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.view.MenuInflater;
+import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.View;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.google.android.material.button.MaterialButton;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.dialogs.DialogHighScoreDelete;
-import de.tobiasbielefeld.solitaire.helper.EdgeToEdge;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
@@ -40,7 +41,7 @@ public class StatisticsActivity extends CustomAppCompatActivity {
 
     @Override
     protected int getBaseThemeRes() {
-        return R.style.AppThemeActionBar;
+        return R.style.AppThemeDialog;
     }
 
     @Override
@@ -48,45 +49,74 @@ public class StatisticsActivity extends CustomAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activty_statistics);
 
-        ActionBar actionBar = getSupportActionBar();
+        //floating rounded card over the game, like the Settings screen
+        float width = getResources().getDisplayMetrics().widthPixels;
+        float height = getResources().getDisplayMetrics().heightPixels;
+        getWindow().setLayout((int) (width * 0.9f), (int) (height * 0.8f));
 
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        Toolbar toolbar = findViewById(R.id.statistics_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         PagerSlidingTabStrip tabs = findViewById(R.id.tabs);
         tabs.setAllCaps(false);
+        tabs.setShouldExpand(true);
+        tabs.setIndicatorColor(resolveThemeColor(R.attr.colorPrimary));
+        tabs.setUnderlineColor(resolveThemeColor(R.attr.colorSurfaceVariant));
+        tabs.setDividerColor(0x00000000);
+        tabs.setTextColor(resolveThemeColor(R.attr.colorOnSurface));
+        tabs.setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 18,
+                getResources().getDisplayMetrics()));
+
+        MaterialButton deleteAllButton = findViewById(R.id.item_delete_all);
+        deleteAllButton.setOnClickListener(v -> {
+            DialogFragment deleteDialog = new DialogHighScoreDelete();
+            deleteDialog.show(getSupportFragmentManager(), "high_score_delete");
+        });
+
+        MaterialButton hideWinButton = findViewById(R.id.item_hide_win);
+        hideWinButton.setOnClickListener(v -> {
+            boolean checked = !prefs.getSavedStatisticsHideWinPercentage();
+
+            prefs.saveStatisticsHideWinPercentage(checked);
+            updateHideWinButtonState(hideWinButton);
+            if (callback != null) {
+                callback.sendNewState(checked);
+            }
+        });
+        updateHideWinButtonState(hideWinButton);
 
         ViewPager pager = findViewById(R.id.pager);
         TabsPagerAdapter adapter = new TabsPagerAdapter(getSupportFragmentManager(), this);
 
         pager.setAdapter(adapter);
         tabs.setViewPager(pager);
+    }
 
-        EdgeToEdge.applyContentInsets(this);
+    /**
+     * Resolves a theme attribute (such as an M3 color role) to its actual color value.
+     */
+    private int resolveThemeColor(int attributeId) {
+        TypedValue typedValue = new TypedValue();
+
+        getTheme().resolveAttribute(attributeId, typedValue, true);
+        return typedValue.data;
+    }
+
+    /**
+     * Syncs the visible "show/hide win percentage" button with the current preference.
+     */
+    private void updateHideWinButtonState(MaterialButton button) {
+        if (prefs.getSavedStatisticsHideWinPercentage()) {
+            button.setText(R.string.statistics_show_win_percentage);
+        } else {
+            button.setText(R.string.statistics_hide_win_percentage);
+        }
     }
 
     @Override
-    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_statistics, menu);
-        menu.getItem(1).setChecked(prefs.getSavedStatisticsHideWinPercentage());
-
-        return true;
-    }
-
     public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == R.id.item_delete) {
-            DialogFragment deleteDialog = new DialogHighScoreDelete();
-            deleteDialog.show(getSupportFragmentManager(), "high_score_delete");
-        } else if (itemId == R.id.item_hide) {
-            boolean checked = !prefs.getSavedStatisticsHideWinPercentage();
-
-            prefs.saveStatisticsHideWinPercentage(checked);
-            item.setChecked(checked);
-            callback.sendNewState(checked);
-        } else if (itemId == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
 

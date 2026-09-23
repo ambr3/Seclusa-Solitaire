@@ -21,14 +21,21 @@ package de.tobiasbielefeld.solitaire.ui.settings;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.support.v7.app.ActionBar;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+import androidx.annotation.LayoutRes;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +59,6 @@ import de.tobiasbielefeld.solitaire.games.FortyEight;
 import de.tobiasbielefeld.solitaire.games.Klondike;
 import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
-import de.tobiasbielefeld.solitaire.games.Vegas;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
@@ -67,7 +73,6 @@ public class Settings extends AppCompatPreferenceActivity {
     private Preference preferenceMenuColumns;
     private Preference preferenceMaxNumberUndos;
     private Preference preferenceGameLayoutMargins;
-    private Preference preferenceVegasBetAmount;
 
     private CheckBoxPreference preferenceSingleTapAllGames;
     private CheckBoxPreference preferenceTapToSelect;
@@ -101,9 +106,9 @@ public class Settings extends AppCompatPreferenceActivity {
 
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);     //remove huge padding in landscape
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
+        View headersList = findViewById(android.R.id.list);
+        if (headersList != null) {
+            headersList.setBackgroundResource(R.drawable.preference_card_single);
         }
 
         prefs.setCriticalSettings();
@@ -111,6 +116,40 @@ public class Settings extends AppCompatPreferenceActivity {
         if (returnIntent == null) {
             returnIntent = new Intent();
         }
+    }
+
+    /**
+     * Wraps the preference content in a layout with our own toolbar, so the Settings screen gets a
+     * visible X button to close it, matching the Manual and About screens.
+     */
+    @Override
+    public void setContentView(@LayoutRes int layoutResId) {
+        LinearLayout root = new LinearLayout(this);
+        root.setOrientation(LinearLayout.VERTICAL);
+
+        TypedValue colorPrimary = new TypedValue();
+        getTheme().resolveAttribute(R.attr.colorPrimary, colorPrimary, true);
+
+        Toolbar toolbar = new Toolbar(this);
+        toolbar.setBackgroundColor(Color.TRANSPARENT);
+        toolbar.setTitle(R.string.title_activity_settings);
+        toolbar.setTitleTextColor(colorPrimary.data);
+        android.graphics.drawable.Drawable closeIcon = getDrawable(R.drawable.ic_close);
+        if (closeIcon != null) {
+            closeIcon.setTint(colorPrimary.data);
+            toolbar.setNavigationIcon(closeIcon);
+        }
+        toolbar.setNavigationContentDescription(R.string.game_close);
+        toolbar.setNavigationOnClickListener(v -> finish());
+
+        root.addView(toolbar, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        View content = LayoutInflater.from(this).inflate(layoutResId, root, false);
+        root.addView(content, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
+
+        super.setContentView(root);
     }
 
     @Override
@@ -197,7 +236,7 @@ public class Settings extends AppCompatPreferenceActivity {
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
             bitmaps.resetMenuPreviews();
             restartApplication();
-        } else if (key.equals(PREF_KEY_THEME_COLOR)) {
+        } else if (key.equals(PREF_KEY_THEME_COLOR) || key.equals(PREF_KEY_DYNAMIC_COLORS)) {
             restartApplication();
         } else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
             updatePreferenceMenuBarPositionSummary();
@@ -252,8 +291,6 @@ public class Settings extends AppCompatPreferenceActivity {
             }
         } else if (key.equals(PREF_KEY_KLONDIKE_DRAW)) {
             showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Klondike)), this);
-        } else if (key.equals(PREF_KEY_VEGAS_DRAW)) {
-            showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Vegas)), this);
         } else if (key.equals(PREF_KEY_CANFIELD_DRAW)) {
             showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Canfield)), this);
         } else if (key.equals(PREF_KEY_SPIDER_DIFFICULTY)) {
@@ -281,17 +318,6 @@ public class Settings extends AppCompatPreferenceActivity {
         } else if (key.equals(PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES)) {
             if (currentGame instanceof FortyEight) {
                 gameLogic.setNumberOfRecycles(key, DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES);
-            }
-        } else if (key.equals(PREF_KEY_VEGAS_NUMBER_OF_RECYCLES)) {
-            if (currentGame instanceof Vegas) {
-                gameLogic.setNumberOfRecycles(key, DEFAULT_VEGAS_NUMBER_OF_RECYCLES);
-            }
-        } else if (key.equals(PREF_KEY_VEGAS_BET_AMOUNT) || key.equals(PREF_KEY_VEGAS_WIN_AMOUNT)) {
-            updatePreferenceVegasBetAmountSummary();
-            showToast(String.format(getString(R.string.settings_restart_game), getString(R.string.games_Vegas)), this);
-        } else if (key.equals(PREF_KEY_VEGAS_MONEY_ENABLED)) {
-            if (!prefs.getSavedVegasSaveMoneyEnabled()) {
-                prefs.saveVegasResetMoney(true);
             }
         } else if (key.equals(PREF_KEY_KLONDIKE_LIMITED_RECYCLES)) {
             if (currentGame instanceof Klondike) {
@@ -392,14 +418,6 @@ public class Settings extends AppCompatPreferenceActivity {
         preferenceMaxNumberUndos.setSummary(Integer.toString(amount));
     }
 
-    private void updatePreferenceVegasBetAmountSummary() {
-        int betAmount = prefs.getSavedVegasBetAmount();
-        int winAmount = prefs.getSavedVegasWinAmount();
-
-        preferenceVegasBetAmount.setSummary(String.format(Locale.getDefault(),
-                getString(R.string.settings_vegas_bet_amount_summary), betAmount, winAmount));
-    }
-
     private void updatePreferenceMenuBarPositionSummary() {
         String portrait, landscape;
         if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
@@ -477,10 +495,6 @@ public class Settings extends AppCompatPreferenceActivity {
             super.onCreate(savedInstanceState);
             prefs.setCriticalGameSettings();
             addPreferencesFromResource(R.xml.pref_games);
-
-            Settings settings = (Settings) getActivity();
-            settings.preferenceVegasBetAmount = findPreference(getString(R.string.pref_key_vegas_bet_amount));
-            settings.updatePreferenceVegasBetAmountSummary();
         }
     }
 

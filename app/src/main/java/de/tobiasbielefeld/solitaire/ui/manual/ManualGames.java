@@ -19,9 +19,10 @@
 package de.tobiasbielefeld.solitaire.ui.manual;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
@@ -34,6 +35,8 @@ import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import androidx.core.content.res.ResourcesCompat;
 
 import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
@@ -85,8 +88,20 @@ public class ManualGames extends Fragment implements View.OnClickListener {
         TypedValue typedValue = new TypedValue();
         getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
 
+        TypedValue textColor = new TypedValue();
+        getContext().getTheme().resolveAttribute(android.R.attr.textColorPrimary, textColor, true);
+        ColorStateList textColorPrimary = null;
+        if (textColor.resourceId != 0) {
+            textColorPrimary = ResourcesCompat.getColorStateList(getResources(), textColor.resourceId,
+                    getContext().getTheme());
+        }
+
         TableRow.LayoutParams params = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT);
         params.weight = 1;
+        int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 6, getResources().getDisplayMetrics());
+        int paddingX = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics());
+        int paddingY = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 14, getResources().getDisplayMetrics());
+        params.setMargins(margin, margin, margin, margin);
 
         //add each button
         for (int i = 0; i < lg.getGameCount(); i++) {
@@ -97,16 +112,20 @@ public class ManualGames extends Fragment implements View.OnClickListener {
                 tableLayout.addView(row);
             }
 
-            entry.setBackgroundResource(typedValue.resourceId);
+            entry.setBackgroundResource(R.drawable.manual_game_pill);
+            if (textColorPrimary != null) {
+                entry.setTextColor(textColorPrimary);
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                entry.setForeground(getContext().getResources().getDrawable(typedValue.resourceId, getContext().getTheme()));
+            }
             entry.setEllipsize(TextUtils.TruncateAt.END);
             entry.setMaxLines(1);
+            entry.setAllCaps(false);
+            entry.setPadding(paddingX, paddingY, paddingX, paddingY);
             entry.setLayoutParams(params);
             entry.setText(gameList[i]);
             entry.setOnClickListener(this);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                entry.setAllCaps(false);
-            }
 
             row.addView(entry);
         }
@@ -155,7 +174,6 @@ public class ManualGames extends Fragment implements View.OnClickListener {
             textObjective.setText(getString(getResources().getIdentifier("manual_" + gameName + "_objective", "string", getActivity().getPackageName())));
             textRules.setText(getString(getResources().getIdentifier("manual_" + gameName + "_rules", "string", getActivity().getPackageName())));
             textScoring.setText(getString(getResources().getIdentifier("manual_" + gameName + "_scoring", "string", getActivity().getPackageName())));
-            textBonus.setVisibility(gameName.equals("Vegas") ? View.GONE : View.VISIBLE);           //TODO: Manage this in a better way
 
             //when the back button is pressed, it should return to the main page from the games, not to the start page.
             //this way is easier than implementing an interface to control what happens in onBackPressed()

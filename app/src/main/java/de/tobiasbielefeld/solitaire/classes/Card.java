@@ -88,12 +88,7 @@ public class Card {
     public static void updateCardDrawableChoice() {
         boolean fourColors = prefs.getSavedFourColorMode();
 
-        for (int i = 0; i < 13; i++) {
-            drawables[i] = bitmaps.getCardFront(i, fourColors ? 1 : 0);
-            drawables[13 + i] = bitmaps.getCardFront(i, 2);
-            drawables[26 + i] = bitmaps.getCardFront(i, 3);
-            drawables[39 + i] = bitmaps.getCardFront(i, fourColors ? 5 : 4);
-        }
+        drawables = bitmaps.getCardFrontDrawables(fourColors);
 
         if (cards == null) {
             return;

@@ -19,10 +19,11 @@
 package de.tobiasbielefeld.solitaire;
 
 import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import de.tobiasbielefeld.solitaire.games.AcesUp;
 import de.tobiasbielefeld.solitaire.games.Calculation;
@@ -42,7 +43,6 @@ import de.tobiasbielefeld.solitaire.games.SimpleSimon;
 import de.tobiasbielefeld.solitaire.games.Spider;
 import de.tobiasbielefeld.solitaire.games.Spiderette;
 import de.tobiasbielefeld.solitaire.games.TriPeaks;
-import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.games.Yukon;
 
 import static de.tobiasbielefeld.solitaire.SharedData.*;
@@ -124,8 +124,6 @@ public class LoadGame {
             case 16:
                 return new TriPeaks();
             case 17:
-                return new Vegas();
-            case 18:
                 return new Yukon();
         }
     }
@@ -164,7 +162,6 @@ public class LoadGame {
         allGameInformation.add(new AllGameInformation(R.string.games_Spider, "Spider", false, 50));
         allGameInformation.add(new AllGameInformation(R.string.games_Spiderette, "Spiderette", false, 30));
         allGameInformation.add(new AllGameInformation(R.string.games_TriPeaks, "TriPeaks", true, 40));
-        allGameInformation.add(new AllGameInformation(R.string.games_Vegas, "Vegas", false, 30));
         allGameInformation.add(new AllGameInformation(R.string.games_Yukon, "Yukon", true, 80));
 
         GAME_COUNT = allGameInformation.size();
@@ -190,9 +187,6 @@ public class LoadGame {
         if (result.size() == 13) {               //Grandfather's clock
             result.add(5, 1);
         }
-        if (result.size() == 14) {               //Vegas
-            result.add(13, 1);
-        }
         if (result.size() == 15) {               //Calculation
             result.add(1, 1);
         }
@@ -204,6 +198,10 @@ public class LoadGame {
         }
         if (result.size() == 18) {               //Spiderette
             result.add(15, 1);
+        }
+
+        while (result.size() > getGameCount()) {   //a game was removed, drop the surplus entries
+            result.remove(result.size() - 1);
         }
 
         if (result.size() < getGameCount()) {
@@ -227,15 +225,43 @@ public class LoadGame {
     public ArrayList<Integer> getOrderedGameList() {
         ArrayList<Integer> result = prefs.getSavedMenuOrderList();
 
+        if (!result.isEmpty()) {
+            ArrayList<Integer> sanitized = new ArrayList<>(result.size());
+            HashSet<Integer> seen = new HashSet<>(getGameCount());
+            boolean corrupt = result.size() > getGameCount();
+
+            for (Integer value : result) {
+                if (value == null || value < 0 || value >= getGameCount() || seen.contains(value)) {
+                    corrupt = true;
+                    break;
+                }
+                seen.add(value);
+                sanitized.add(value);
+            }
+
+            if (corrupt) {                                  //fall back to the default order
+                result = new ArrayList<>(getGameCount());
+                for (int i = 0; i < getGameCount(); i++) {
+                    result.add(i);
+                }
+
+                return result;
+            }
+
+            result = sanitized;                             //valid partial order is padded below
+        }
+
         if (result.isEmpty()) {                                     //get default order
             for (int i = 0; i < getGameCount(); i++) {
                 result.add(i);
             }
         }
 
-        if (result.size() < getGameCount()) {                       //add new games at the end
-            for (int i = result.size(); i < getGameCount(); i++) {
-                result.add(i);
+        if (result.size() < getGameCount()) {                       //add missing games (e.g. added in an update) at the end
+            for (int i = 0; i < getGameCount(); i++) {
+                if (!result.contains(i)) {
+                    result.add(i);
+                }
             }
         }
 

@@ -76,6 +76,8 @@ public class GameLogic {
             saveRandomCards();
             currentGame.save();
             currentGame.saveRecycleCount();
+
+            prefs.backupGameData();
         }
     }
 
@@ -89,10 +91,10 @@ public class GameLogic {
      * load everything saved on start of a game. If the last game has been won put every card
      * outside the screen.
      * The main loading part is put in a try catch block, so when there goes something wrong
-     * on saving/loading, it won't crash the game. (in that case, it loads a new game)
+     * on saving/loading, it won't crash the game. In that case the last backup (created on every
+     * successful save) is restored first, and only if that also fails, a new game is started.
      */
     public void load(boolean withoutMovement) {
-        boolean firstRun = prefs.isFirstRun();
         won = prefs.isWon();
         wonAndReloaded = prefs.isWonAndReloaded();
         movedFirstCard = prefs.hasMovedFirstCard();
@@ -112,8 +114,32 @@ public class GameLogic {
             }
         }
 
-try {
-            if (firstRun) {
+        if (!tryLoadSavedGame(withoutMovement)) {
+            if (prefs.restoreGameDataBackup()) {
+                //the save was corrupt, but a backup of the last known good state exists
+                won = prefs.isWon();
+                wonAndReloaded = prefs.isWonAndReloaded();
+                movedFirstCard = prefs.hasMovedFirstCard();
+                showToast(gm.getString(R.string.game_load_recovered), gm);
+
+                if (!tryLoadSavedGame(withoutMovement)) {
+                    showToast(gm.getString(R.string.game_load_error), gm);
+                    newGame();
+                }
+            } else {
+                //saved data may be corrupt (e.g. interrupted write, version change). Fall back to a
+                //new game instead of crashing the app on resume.
+                showToast(gm.getString(R.string.game_load_error), gm);
+                newGame();
+            }
+        }
+
+        gm.hasLoaded = true;
+    }
+
+    private boolean tryLoadSavedGame(boolean withoutMovement) {
+        try {
+            if (prefs.isFirstRun()) {
                 newGame();
                 prefs.saveFirstRun(false);
             } else if (wonAndReloaded && prefs.getSavedAutoStartNewGame()) {
@@ -141,17 +167,15 @@ try {
                 currentGame.load();
                 currentGame.loadRecycleCount();
             }
+
+            return true;
         } catch (Exception e) {
-            //saved data may be corrupt (e.g. interrupted write, version change). Fall back to a
-            //new game instead of crashing the app on resume.
             if (BuildConfig.DEBUG) {
                 Log.e("GameLogic.load", "Failed to load saved game data: " + e.toString());
             }
-            showToast(gm.getString(R.string.game_load_error), gm);
-            newGame();
-        }
 
-        gm.hasLoaded = true;
+            return false;
+        }
     }
 
     public void checkForAutoCompleteButton(boolean withoutMovement) {

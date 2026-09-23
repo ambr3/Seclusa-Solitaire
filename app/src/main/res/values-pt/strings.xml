@@ -39,7 +39,7 @@ TriPeaks
 <string name="games_Gypsy">"Cigano"</string>
 <string name="games_mod3">"Mod3"</string>
 <string name="games_GrandfathersClock">"Relógio do Avô"</string>
-<string name="games_Vegas">"Vegas"</string>
+
 <string name="games_Calculation">"Cálculo"</string>
 
 <!-- colors -->
@@ -180,7 +180,7 @@ Devolver todas as cartas do monte de descartadas para o monte principal: -200"</
 <string name="settings_calculation_alternative_title">"Manter cartas"</string>
 <string name="settings_auto_move_title">"Movimento automático"</string>
 <string name="settings_rules">"Regras"</string>
-<string name="settings_money">"Dinheiro"</string>
+
 <string name="settings_support">"Ajuda"</string>
 <string name="settings_hide_time">"Ocultar tempo"</string>
 <string name="settings_hide_score">"Ocultar pontuação"</string>

@@ -187,11 +187,13 @@ public class EnsureMovability {
         protected void onPostExecute(Boolean result) {
             stopUiUpdates = false;
 
-            if (result && !isInterrupted) {
-                try {
-                    ensureMovability.dismissDialog();
-                } catch (IllegalStateException ignored) {
-                    //Meh
+            if (!isInterrupted) {
+                if (result) {
+                    try {
+                        ensureMovability.dismissDialog();
+                    } catch (IllegalStateException ignored) {
+                        //Meh
+                    }
                 }
 
                 gameLogic.redeal();

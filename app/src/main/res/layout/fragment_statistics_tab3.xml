@@ -18,11 +18,11 @@
         android:paddingRight="@dimen/card_view_padding_horizontal"
         android:paddingBottom="@dimen/card_view_padding_vertical">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="2dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainer"
+            app:cardCornerRadius="12dp"
             app:cardUseCompatPadding="true">
 
             <LinearLayout
@@ -52,7 +52,7 @@
                             android:paddingLeft="@dimen/statistics_table_padding"
                             android:paddingRight="@dimen/statistics_table_padding"
                             android:text="@string/game_score"
-                            android:textColor="@android:color/black"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="@dimen/statistics_text_size"
                             android:textStyle="bold" />
 
@@ -64,7 +64,7 @@
                             android:paddingLeft="@dimen/statistics_table_padding"
                             android:paddingRight="@dimen/statistics_table_padding"
                             android:text="@string/game_time"
-                            android:textColor="@android:color/black"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="@dimen/statistics_text_size"
                             android:textStyle="bold" />
 
@@ -76,7 +76,7 @@
                             android:paddingLeft="@dimen/statistics_table_padding"
                             android:paddingRight="@dimen/statistics_table_padding"
                             android:text="@string/statistics_date"
-                            android:textColor="@android:color/black"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="@dimen/statistics_text_size"
                             android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
                             android:paddingLeft="@dimen/statistics_table_padding"
                             android:paddingRight="@dimen/statistics_table_padding"
                             android:text="@string/statistics_time_of_day"
-                            android:textColor="@android:color/black"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="@dimen/statistics_text_size"
                             android:textStyle="bold" />
                     </TableRow>
@@ -103,11 +103,11 @@
                     android:gravity="center"
                     android:paddingBottom="10dp"
                     android:text="@string/statistics_no_entries"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    android:textAppearance="@style/TextAppearance.App.BodyLarge" />
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 </ScrollView>

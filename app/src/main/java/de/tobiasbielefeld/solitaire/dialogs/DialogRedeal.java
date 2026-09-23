@@ -20,8 +20,8 @@ package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
@@ -36,7 +36,7 @@ public class DialogRedeal extends CustomDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity());
         builder.setTitle(R.string.dialog_redeal_title)
                 .setMessage(R.string.dialog_redeal_text)
                 .setPositiveButton(R.string.game_confirm, (dialog, id) -> gameLogic.redeal())

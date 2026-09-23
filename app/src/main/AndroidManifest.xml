@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="internalOnly">
 
     <application
@@ -15,7 +16,7 @@
         <activity
             android:name=".ui.statistics.StatisticsActivity"
             android:label="@string/title_activity_statistics"
-            android:theme="@style/AppThemeActionBar" />
+            android:theme="@style/AppThemeDialog" />
         <activity
             android:name=".ui.settings.Settings"
             android:label="@string/title_activity_settings"
@@ -25,6 +26,7 @@
         <activity
             android:name=".ui.manual.Manual"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
             android:label="@string/game_manual"
             android:theme="@style/AppThemeDialog" />
         <activity
@@ -38,6 +40,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            tools:node="remove" />
     </application>
 
 </manifest>

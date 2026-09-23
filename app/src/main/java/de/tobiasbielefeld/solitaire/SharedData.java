@@ -270,6 +270,10 @@ public class SharedData {
     }
 
     public static int max(ArrayList<Integer> list) {
+        if (list == null || list.isEmpty()) {
+            return 0;
+        }
+
         int max = 0;
 
         for (int value : list) {
@@ -282,6 +286,10 @@ public class SharedData {
     }
 
     public static int min(ArrayList<Integer> list) {
+        if (list == null || list.isEmpty()) {
+            return 0;
+        }
+
         int min = list.get(0);
 
         for (int value : list) {

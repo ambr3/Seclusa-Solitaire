@@ -38,7 +38,7 @@
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
 <string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
-<string name="games_Vegas">"Vegas"</string>
+
 <string name="games_Calculation">"Calculation"</string>
 
 <!-- colors -->
@@ -337,22 +337,10 @@
 
  Kerralla voi siirtää niin monta korttia (jotka ovat oikeassa järjestyksessä) kuin on tyhjiä pinoja. Tämä perustuu sääntöön mikä määrää, että vain yhden kortin voi siirtää kerrallaan, mutta kun on tyhjiä pinoja, niin silloin kortit voidaan ensiksi siirtää tyhjiin pinoihin ja sen jälkeen kohdepinoon."</string>
 <string name="manual_GrandfathersClock_scoring">"Kortin siirto pöytäpinosta peruspinoon: +50"</string>
-<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-<string name="manual_Vegas_objective">"Siirrä kortit peruspinoihin voittaaksesi rahaa."</string>
-<string name="manual_Vegas_rules">"Säännöt ovat samat kuin \"Klondike\"-pelissä. Kortit voidaan asettaa pöytäpinoihin alenevassa järjestyksessä vuorovärein.
-        Peruspinoon voidaan asettaa vain vastaavan maan kortteja nousevassa järjestyksessä. Kokonainen korttisarjavoidaan siirtää kerralla.
 
- Ainoastaan kuninkaita voidaan laittaa tyhjään pöytäpinoon ja vain ässiä voidaan asettaa tyhjään peruspinoon.
 
- Painamalla käsipakasta kortit kääntyvät kääntöpakkaan josta niitä voidaan siirtää. Käännettävien korttien määrä määräytyy valittujen asetusten mukaan. Mikäli \"Nosta 1\" on valittuna, niin vain yksi kortti käännetään. Kun \"Nosta 3\" on valittuna, niin silloin kolme korttia käännetään kerralla.
 
- Painamalla tyhjää käsipakkaa kääntöpakka siirretään käsipakaksi ja kortit on jälleen käytettävissä."</string>
-<string name="manual_Vegas_scoring">"Voittosumma määräytyy asetuksissa määritellyn panoksen mukaan. Maksat pelin alussa esimerksi $50 ja jokaisesta peruspinoon siirretystä kortista voitat 1/10 panoksesta.
 
-Peli tulkitaan voitetuksi, kun tulos on yli 0. Kortin siirtäminen pois peruspinosta maksaa 2/10 panoksesta. 
-
-Vihje ja kumoa-toiminto maksavat 1/10 panoksesta. 
-\EROTUSLAUSUMA: Pelissä ei pelata oikeilla rahoilla :)"</string>
 <string name="manual_Calculation_structure">"Yksi pakka jossa 52 kortia.
         
 
@@ -441,7 +429,7 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="settings_limit_number_of_recycles">"Rajoita uudelleen jakojen määrää"</string>
 <string name="settings_limit_number_of_recycles_text">"Kääntäminen kääntöpakasta takaisin käsipakkaan on rajoitettu"</string>
 <string name="settings_number_of_recycles">"Kääntämisten määrä"</string>
-<string name="settings_vegas_bet_amount">"Panos"</string>
+
 <string name="settings_menu_order_title">"Valikon järjestys"</string>
 <string name="settings_menu_order_summary">"Paina pitkään valikon kohtaa, jonka jälkeen vedä ja pudota muuttaaksesi valikon järjestystä"</string>
 <string name="settings_auto_start_new_game_title">"Aloita uusi peli voiton jälkeen"</string>
@@ -451,23 +439,23 @@ Pöytäpinoista voi vain päällimmäiset kortit siirtää ja ne voidaan asettaa
 <string name="settings_force_tablet_layout_text">"Näytä sovellus samalla tavalla kuin isolla näytöllä (≥7\")"</string>
 <string name="settings_calculation_alternative_title">"Pidä kortit"</string>
 <string name="settings_calculation_alternative_text">"Painaminen käsipakasta: Sen sijaan, että kortti siirrettäisiin kääntöpakasta pöytäpinoon, pidä se kääntöpakassa."</string>
-<string name="settings_vegas_money_enabled">"Pidä nykyinen saldo"</string>
-<string name="settings_vegas_money_enabled_text">"Saldo siirretään tuleviin Vegasin jakoihin, mutta ennätysten tallentamiseksi pitää saldo nollata ja aloittaa uusi peli"</string>
-<string name="settings_vegas_money_reset">"Nollaa saldo"</string>
-<string name="settings_vegas_money_reset_text">"Seuraava Vegasin jaon alkusaldo on 0$"</string>
-<string name="settings_vegas_money_reset_confirm">"Haluatko todella nollata saldon? Tätä ei voi perua."</string>
+
+
+
+
+
 <string name="settings_auto_move_title">"Automaattiset siirrot"</string>
 <string name="settings_mod3_auto_move_text">"Siirrä ässät automaattisesti kääntöpakkaan kun mahdollista"</string>
 <string name="settings_pyramid_auto_move_text">"Siirrä kuninkaat automaattisesti kaatopakkaan kun mahdollista"</string>
 <string name="settings_rules">"Säännöt"</string>
-<string name="settings_money">"Raha"</string>
+
 <string name="settings_support">"Tuki"</string>
 <string name="settings_hide_time">"Piilota aika"</string>
 <string name="settings_hide_score">"Piilota tulos"</string>
 <string name="settings_single_tap_enable">"Salli siirrot yksittäisellä napautuksella"</string>
-<string name="settings_vegas_bet_amount_text_1">"Alkujako maksaa:"</string>
-<string name="settings_vegas_bet_amount_text_2">"Jokainen peruspinoon siirretty kortti tuottaa:"</string>
-<string name="settings_vegas_bet_amount_summary">"Alkujako: -%1$d$, kortti peruspinoon: +%2$d$"</string>
+
+
+
 <string name="settings_single_tap_all_games_text">"Paina korttia kerran siirtääksesi se seuraavaan mahdolliseen pinoon. Tämä noudattaa samaa asetusta kuin Kaksoisnapautus siirrot. Asetus poistaa Valitse napauttamalla siirrot käytöstä."</string>
 <string name="settings_canfield_size_of_reserve_title">"Muuta varapakan kokoa (helpompi)"</string>
 <string name="settings_use_true_randomisation_title">"Käytä todellista sattumanvaraisuutta"</string>

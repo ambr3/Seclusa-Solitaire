@@ -34,7 +34,7 @@ import android.widget.TextView;
  * <p>
  * https://stackoverflow.com/a/5535672/7016229
  */
-public class AutoResizingTextView extends android.support.v7.widget.AppCompatTextView {
+public class AutoResizingTextView extends androidx.appcompat.widget.AppCompatTextView {
 
     // Minimum text size for this text view
     public static final float MIN_TEXT_SIZE = 5;

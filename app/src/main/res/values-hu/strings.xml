@@ -38,7 +38,7 @@
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
 <string name="games_GrandfathersClock">"Grandfather's Clock"</string>
-<string name="games_Vegas">"Vegas"</string>
+
 <string name="games_Calculation">"Calculation"</string>
 
 <!-- colors -->
@@ -335,26 +335,10 @@ Helyezze vissza a kártyákat a dobásveremből a főverembe: -200"</string>
 
 Egyszerre több kártyát is mozgathat amelyek helyes sorrendben vannak, ha vannak üres táblavermek. Ez megfelel annak a szabálynak hogy egyszerre csak egy kártyát lehet áthelyezni, de ha üres táblavermek vannak akkor a kártyák ezeken keresztül egyszerre mozgathatók."</string>
 <string name="manual_GrandfathersClock_scoring">"A táblavermekből az alapvermekre: +50"</string>
-<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-<string name="manual_Vegas_objective">"Rakja a kártyákat az alapvermekbe, hogy pénzt nyerjen."</string>
-<string name="manual_Vegas_rules">"A szabályok megegyeznek a \"Klondike\" szabályaival.
 
-A kártyákat a táblavermeken lehet elhelyezni csökkenő sorrendben és váltakozó színekben. Egyszerre mozgathatja a kártyák egész sorát. Az alapvermeken a kártyák csak a növekvő sorrendben helyezhetők el a saját kártyacsaládjukban.
 
-Csak királyok helyezhetők el üres asztalivermekre és csak ászok helyezhetők el az üres alapvermeken.
 
-A főverem megnyomásával a kártyák a dobásverembe kerülnek, ahonnan felhasználhatók. A kártyák mennyisége a beállítástól függ. Ha az 1 lapdobást választotta, csak egy kártya lesz áthelyezve. A 3 lapdobás  beállításával engedélyezve van 3 kártya egyszerre történő dobása.
 
-Ha a főverem üres akkor újra megnyomhatja azt, hogy minden kártyát a dobásveremből a főveremre visszamozgasson és újra felhasználja őket."</string>
-<string name="manual_Vegas_scoring">"A megnyert pénz mennyisége a beállított tét függvénye.  Pl. a tét 52$ a játék elején és minden alapveremre helyezett kártyával 5$-t nyer.
-
-A játék megnyertként kerül mentésére (\"Statisztika\"), ha a \"Pontszám\"($) több mint 0.  Egy kártya visszahúzása az alapvermekből -2 * 5$.
-
-A tippek megjelenítése és a visszavonás funkció használatának költsége 5$.
-
-Van lehetőség arra, hogy több játékon keresztül megtartsa a már elért pontszámokat ($). (A játék beállításaiban tudja engedélyezni ezt a lehetőséget). Ebben az esetben a pontszám az egyenleg lenullázása (Reset) és \"Új játék indítása\" után lesz mentve.
-
-JOGI NYILATKOZAT: Nem valódi pénzzel játszik ebben a játékban.  :)"</string>
 <string name="manual_Calculation_structure">"1 db 52 lapos kártyacsomag.
 
 4 táblaverem, 4 alapverem, 1 fő és 1 dobásverem."</string>
@@ -441,7 +425,7 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="settings_limit_number_of_recycles">"Korlátozza az újra felhasználást"</string>
 <string name="settings_limit_number_of_recycles_text">"A dobásverem kártyáinak visszamozgatása a főverembe korlátozott"</string>
 <string name="settings_number_of_recycles">"Újra felhasználás száma"</string>
-<string name="settings_vegas_bet_amount">"Tét összege"</string>
+
 <string name="settings_menu_order_title">"Főmenü rendezése"</string>
 <string name="settings_menu_order_summary">"Nyomva tartva, húzással új helyre mozgathatja a bejegyzéseket."</string>
 <string name="settings_auto_start_new_game_title">"Elindít egy új játékot amikor nyert"</string>
@@ -451,23 +435,23 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="settings_force_tablet_layout_text">"Nagy képernyőhöz igazítja az alkalmazás megjelenítését. (≥7\")"</string>
 <string name="settings_calculation_alternative_title">"Tartsa a kártyákat"</string>
 <string name="settings_calculation_alternative_text">"A főverem megnyomásánál: Ahelyett, hogy a dobásveremről a kártyát a táblavermekre helyezné, tartsa a dobásvermen."</string>
-<string name="settings_vegas_money_enabled">"Megtartja az egyenleget"</string>
-<string name="settings_vegas_money_enabled_text">"Az egyenleg átkerül a következő Vegas játékba, a pontszám($) csak az egyenleg nullázása és \"Új játék indítása\" után kerül mentésre az eredmények közé."</string>
-<string name="settings_vegas_money_reset">"Egyenleg nullázása"</string>
-<string name="settings_vegas_money_reset_text">"A következő Vegas játék induló egyenlege 0$"</string>
-<string name="settings_vegas_money_reset_confirm">"Biztos hogy nullázza az egyenlegét? Ezt nem lehet visszavonni."</string>
+
+
+
+
+
 <string name="settings_auto_move_title">"Automatikus mozgatás"</string>
 <string name="settings_mod3_auto_move_text">"Automatikusan az ászveremre mozgatja az ászokat, ha lehetséges."</string>
 <string name="settings_pyramid_auto_move_text">"Automatikusan a hulladékveremre mozgatja a királyokat, ha lehetséges."</string>
 <string name="settings_rules">"Szabályok"</string>
-<string name="settings_money">"Pénz"</string>
+
 <string name="settings_support">"Támogatás"</string>
 <string name="settings_hide_time">"Elrejti az időt"</string>
 <string name="settings_hide_score">"Elrejti a pontszámot"</string>
 <string name="settings_single_tap_enable">"Engedélyezi az egyérintéses mozgásokat"</string>
-<string name="settings_vegas_bet_amount_text_1">"Kezdőtét összege:"</string>
-<string name="settings_vegas_bet_amount_text_2">"Minden alapveremre mozgatott kártya után kap:"</string>
-<string name="settings_vegas_bet_amount_summary">"Kezdőtét: -%1$d$, kártya az alapveremre: +%2$d$"</string>
+
+
+
 <string name="settings_single_tap_all_games_text">"Nyomja meg egyszer a kártyát, hogy áthelyezze a lehetséges veremre. Ugyanaz mint a kettős érintési módú mozgatások. Ez kikapcsolja a kiválasztás érintéssel mozgatásokat."</string>
 <string name="settings_canfield_size_of_reserve_title">"A tartalékverem mérete (könnyítés)"</string>
 <string name="settings_use_true_randomisation_title">"Használjon valódi véletlenszerűséget"</string>

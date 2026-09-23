@@ -14,8 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black" />
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurface" />
 
         <TextView
             android:id="@+id/textViewDialogOnlyForThisGame2"
@@ -24,16 +24,16 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text=""
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black" />
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurface" />
 
         <TextView
             android:id="@+id/textViewDialogOnlyForThisGame3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black" />
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurface" />
 
     </LinearLayout>
 

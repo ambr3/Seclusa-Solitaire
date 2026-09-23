@@ -20,9 +20,13 @@ package de.tobiasbielefeld.solitaire.classes;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.WindowManager;
+
+import com.google.android.material.color.DynamicColors;
+import com.google.android.material.color.DynamicColorsOptions;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
@@ -62,6 +66,10 @@ public class CustomAppCompatActivity extends AppCompatActivity {
         setTheme(ThemeColors.getThemeRes(this, getBaseThemeRes()));
         super.onCreate(savedInstanceState);
         reinitializeData(this);
+        if (prefs.getSavedDynamicColors() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            DynamicColors.applyToActivityIfAvailable(this,
+                    new DynamicColorsOptions.Builder().build());
+        }
     }
 
     /**

@@ -38,7 +38,7 @@ import android.content.Context;
  * isn't updated properly. My solution is to do the calculation part first and THEN move the image views.
  */
 
-public class CustomImageView extends android.support.v7.widget.AppCompatImageView {
+public class CustomImageView extends androidx.appcompat.widget.AppCompatImageView {
 
     private boolean animating, moveAtEnd;
     private float destX, destY;

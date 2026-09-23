@@ -1,36 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Default (Deep Orange) palette -->
-    <color name="colorPrimary">#EF6C00</color>
-    <color name="colorPrimaryDark">#E65100</color>
-    <color name="colorAccent">#FFA726</color>
-    <color name="colorDrawerSelected">#FFE0B2</color>
-    <color name="white">#ffffff</color>
+    <!--
+        Material 3 color roles. The neutral "surface" family is shared by every
+        color scheme; each palette below only overrides the chromatic roles.
+        Dark-mode values live in values-night/colors.xml.
+    -->
+
+    <!-- Shared neutral color roles (light) -->
+    <color name="colorSurface">#FCF8F7</color>
+    <color name="colorOnSurface">#1C1B1B</color>
+    <color name="colorSurfaceContainerLowest">#FFFFFF</color>
+    <color name="colorSurfaceContainerLow">#F6F1F0</color>
+    <color name="colorSurfaceContainer">#F0EBEA</color>
+    <color name="colorSurfaceContainerHigh">#EBE4E4</color>
+    <color name="colorSurfaceContainerHighest">#E5DEDD</color>
+    <color name="colorSurfaceBright">#FCF8F6</color>
+    <color name="colorSurfaceDim">#DCD5D4</color>
+    <color name="colorSurfaceVariant">#E8E0DE</color>
+    <color name="colorOnSurfaceVariant">#4A4444</color>
+    <color name="colorOutline">#7B7474</color>
+    <color name="colorOutlineVariant">#CBC3C2</color>
+    <color name="colorError">#B3261E</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorErrorContainer">#F9DEDC</color>
+    <color name="colorOnErrorContainer">#410E0B</color>
+    <color name="colorInverseSurface">#32302F</color>
+    <color name="colorInverseOnSurface">#F5EEED</color>
+    <color name="colorScrim">#000000</color>
+
+    <!-- Default (Deep Orange) Material 3 palette -->
+    <color name="paletteOrangePrimary">#8B5000</color>
+    <color name="paletteOrangeOnPrimary">#FFFFFF</color>
+    <color name="paletteOrangePrimaryContainer">#FFDCC2</color>
+    <color name="paletteOrangeOnPrimaryContainer">#2C1500</color>
+    <color name="paletteOrangeSecondary">#77574B</color>
+    <color name="paletteOrangeOnSecondary">#FFFFFF</color>
+    <color name="paletteOrangeSecondaryContainer">#FFDCC2</color>
+    <color name="paletteOrangeOnSecondaryContainer">#2C1500</color>
+    <color name="paletteOrangeTertiary">#6C5D2F</color>
+    <color name="paletteOrangeOnTertiary">#FFFFFF</color>
+    <color name="paletteOrangeTertiaryContainer">#F5E1A7</color>
+    <color name="paletteOrangeOnTertiaryContainer">#241A00</color>
+    <color name="paletteOrangeInversePrimary">#FFB77D</color>
+
+    <!-- Green Material 3 palette -->
+    <color name="paletteGreenPrimary">#1B6B37</color>
+    <color name="paletteGreenOnPrimary">#FFFFFF</color>
+    <color name="paletteGreenPrimaryContainer">#A8F2AD</color>
+    <color name="paletteGreenOnPrimaryContainer">#002106</color>
+    <color name="paletteGreenSecondary">#52634F</color>
+    <color name="paletteGreenOnSecondary">#FFFFFF</color>
+    <color name="paletteGreenSecondaryContainer">#D4E8CE</color>
+    <color name="paletteGreenOnSecondaryContainer">#101F10</color>
+    <color name="paletteGreenTertiary">#386469</color>
+    <color name="paletteGreenOnTertiary">#FFFFFF</color>
+    <color name="paletteGreenTertiaryContainer">#BCE9F0</color>
+    <color name="paletteGreenOnTertiaryContainer">#001F23</color>
+    <color name="paletteGreenInversePrimary">#8BD596</color>
+
+    <!-- Blue Material 3 palette -->
+    <color name="paletteBluePrimary">#1565C0</color>
+    <color name="paletteBlueOnPrimary">#FFFFFF</color>
+    <color name="paletteBluePrimaryContainer">#D6E3FF</color>
+    <color name="paletteBlueOnPrimaryContainer">#001B3F</color>
+    <color name="paletteBlueSecondary">#565E71</color>
+    <color name="paletteBlueOnSecondary">#FFFFFF</color>
+    <color name="paletteBlueSecondaryContainer">#DAE2F9</color>
+    <color name="paletteBlueOnSecondaryContainer">#131C2C</color>
+    <color name="paletteBlueTertiary">#705574</color>
+    <color name="paletteBlueOnTertiary">#FFFFFF</color>
+    <color name="paletteBlueTertiaryContainer">#FAD8FE</color>
+    <color name="paletteBlueOnTertiaryContainer">#28132D</color>
+    <color name="paletteBlueInversePrimary">#A9C7FF</color>
+
+    <!-- Purple Material 3 palette -->
+    <color name="palettePurplePrimary">#6A1B9A</color>
+    <color name="palettePurpleOnPrimary">#FFFFFF</color>
+    <color name="palettePurplePrimaryContainer">#F3DAFF</color>
+    <color name="palettePurpleOnPrimaryContainer">#260046</color>
+    <color name="palettePurpleSecondary">#6F6372</color>
+    <color name="palettePurpleOnSecondary">#FFFFFF</color>
+    <color name="palettePurpleSecondaryContainer">#F1E6F3</color>
+    <color name="palettePurpleOnSecondaryContainer">#28202B</color>
+    <color name="palettePurpleTertiary">#676750</color>
+    <color name="palettePurpleOnTertiary">#FFFFFF</color>
+    <color name="palettePurpleTertiaryContainer">#ECECC9</color>
+    <color name="palettePurpleOnTertiaryContainer">#211F00</color>
+    <color name="palettePurpleInversePrimary">#E4B3FF</color>
+
+    <!-- Deep felt tones behind the game selection screens (per palette) -->
     <color name="gameSelectBackground">#BF360C</color>
-    <color name="menuBarBackground">#FFFFFF</color>
+    <color name="gameSelectBackgroundGreen">#14532D</color>
+    <color name="gameSelectBackgroundBlue">#0D47A1</color>
+    <color name="gameSelectBackgroundPurple">#3F0F5E</color>
+
+    <!-- Deeper gradient anchor for the game selection hero -->
+    <color name="gameSelectBackgroundEnd">#7E2202</color>
+    <color name="gameSelectBackgroundEndGreen">#0B3B1E</color>
+    <color name="gameSelectBackgroundEndBlue">#082F66</color>
+    <color name="gameSelectBackgroundEndPurple">#27093B</color>
+
+    <!-- Selected drawer item background (used by the manual drawer) -->
+    <color name="colorDrawerSelected">#FFE0B2</color>
+    <color name="colorDrawerSelectedGreen">#C8E6C9</color>
+    <color name="colorDrawerSelectedBlue">#BBDEFB</color>
+    <color name="colorDrawerSelectedPurple">#E1BEE7</color>
+
+    <!-- Game menu bar chrome -->
     <color name="menuBarIcon">#455A64</color>
     <color name="menuBarLabel">#455A64</color>
     <color name="settingsBackground">#F2F3F5</color>
-
-    <!-- Green palette -->
-    <color name="colorPrimaryGreen">#2E7D32</color>
-    <color name="colorPrimaryDarkGreen">#1B5E20</color>
-    <color name="colorAccentGreen">#81C784</color>
-    <color name="colorDrawerSelectedGreen">#C8E6C9</color>
-    <color name="gameSelectBackgroundGreen">#14532D</color>
-
-    <!-- Blue palette -->
-    <color name="colorPrimaryBlue">#1565C0</color>
-    <color name="colorPrimaryDarkBlue">#0D47A1</color>
-    <color name="colorAccentBlue">#64B5F6</color>
-    <color name="colorDrawerSelectedBlue">#BBDEFB</color>
-    <color name="gameSelectBackgroundBlue">#0D47A1</color>
-
-    <!-- Purple palette -->
-    <color name="colorPrimaryPurple">#6A1B9A</color>
-    <color name="colorPrimaryDarkPurple">#4A148C</color>
-    <color name="colorAccentPurple">#CE93D8</color>
-    <color name="colorDrawerSelectedPurple">#E1BEE7</color>
-    <color name="gameSelectBackgroundPurple">#3F0F5E</color>
+    <color name="white">#FFFFFF</color>
 </resources>

@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/settings_ensure_movability_searching_games"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        android:textAppearance="?attr/textAppearanceTitleLarge" />
 
     <ProgressBar
         android:id="@+id/progressBar"

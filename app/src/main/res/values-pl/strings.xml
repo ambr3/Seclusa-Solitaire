@@ -38,7 +38,7 @@
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
 <string name="games_GrandfathersClock">"Zegarek Dziadka"</string>
-<string name="games_Vegas">"Vegas"</string>
+
 <string name="games_Calculation">"Calculation"</string>
 
 <!-- colors -->
@@ -337,24 +337,10 @@ Przeniesienie wszystkich kart ze stosu odrzutów do głównego: -200"</string>
 
 Możesz przenieść tyle kart (poprawnie uszeregowanych) jednocześnie, ile jest pustych pól. To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki, można kartę umieścić w pustej komórce i następnie na docelowym stosie."</string>
 <string name="manual_GrandfathersClock_scoring">"Ze stosu gry na stos bazowy: +50"</string>
-<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-<string name="manual_Vegas_objective">"Przenoś karty na stosy bazowe, aby wygrać więcej pieniędzy."</string>
-<string name="manual_Vegas_rules">"Zasady są identyczne jak w grze “Klondike”.
 
-Karty można umieszczać na stosach gry w kolejności malejącej i naprzemiennych kolorach. Możesz przenieść całą sekwencję kart naraz. Na stosach bazowych karty można układać tylko w kolejności rosnącej i tego samego koloru. 
 
-Tylko króli można kłaść na puste pola gry i tylko asy na puste pola bazowe. 
 
-Klikając główny stos karty trafią do stosu odrzutów, skąd możesz je użyć. Liczba kart zależy od wybranych ustawień. Jeżeli wybrałeś „Rozdaj 1”, tylko pojedyncza karta zostanie przeniesiona. Przy opcji „Rozdaj 3”, 3 karty zostaną przeniesione naraz. 
 
-Jeżeli stos główny jest pusty, wciąż możesz go kliknąć, aby przenieść wszystkie karty ze stosu odrzutów do stosu głównego i użyć ich ponownie."</string>
-<string name="manual_Vegas_scoring">"Ilość wygranych pieniędzy jest zależna od wysokości zakładu konfigurowalnego w opcjach. Płacisz np. 50$ za rozdanie i za każdą kartę umieszczoną na stosie bazowym otrzymujesz 1/10 kwoty zakładu.
-
-Gra zostanie uznana jako wygrana wtedy, gdy zdobędziesz więcej niż 0 punktów. Przeniesienie karty ze stosu bazowego kosztuje 2/10 kwoty zakładu. 
-
-Użycie podpowiedzi lub cofnięcie także kosztuje 1/10 kwoty zakładu. 
-
-NOTA: nie grasz o prawdziwą kasę w tej grze :)"</string>
 <string name="manual_Calculation_structure">"1 talia po 52 karty.
 
 4 stosów gry, 4 stosy bazowe, 1 główny stos i 1 stos odrzutów."</string>
@@ -441,7 +427,7 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_limit_number_of_recycles">"Ogranicz liczbę ponownych rozdań"</string>
 <string name="settings_limit_number_of_recycles_text">"Ogranicz możliwość ponownego wykorzystania kart ze stosu odrzutów"</string>
 <string name="settings_number_of_recycles">"Liczba ponownych rozdań"</string>
-<string name="settings_vegas_bet_amount">"Kwota zakładu"</string>
+
 <string name="settings_menu_order_title">"Kolejność menu"</string>
 <string name="settings_menu_order_summary">"Stuknij i przytrzymaj wpis, a następnie przeciągnij i upuść go w żądane miejsce"</string>
 <string name="settings_auto_start_new_game_title">"Rozpocznij nową grę po wygranej"</string>
@@ -451,23 +437,23 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_force_tablet_layout_text">"Wyświetl aplikację tak jak na dużych ekranach (≥7\")"</string>
 <string name="settings_calculation_alternative_title">"Trzymaj karty"</string>
 <string name="settings_calculation_alternative_text">"Po stuknięciu w stos główny: zamiast przeniesienia karty ze stosu odrzutów na stos gry, zatrzymaj ją na stosu odrzutów."</string>
-<string name="settings_vegas_money_enabled">"Zapamiętaj stan konta"</string>
-<string name="settings_vegas_money_enabled_text">"Stan konta nie będzie kasowany pomiędzy ponownymi rozdaniami gry Vegas, ale będziesz musiał zresetować stan i rozpocząć nową grę, aby zapisać najlepszy wynik"</string>
-<string name="settings_vegas_money_reset">"Resetuj stan konta"</string>
-<string name="settings_vegas_money_reset_text">"Następne rozdanie gry Vegas rozpoczniesz z 0$"</string>
-<string name="settings_vegas_money_reset_confirm">"Czy na pewno chcesz zresetować stan konta? Jest to nieodwracalne."</string>
+
+
+
+
+
 <string name="settings_auto_move_title">"Automatyczne ruchy"</string>
 <string name="settings_mod3_auto_move_text">"Automatycznie przenoś asy na stos odrzutów, kiedy jest to możliwe"</string>
 <string name="settings_pyramid_auto_move_text">"Automatycznie przenoś króli na stos śmieciowy, kiedy jest to możliwe"</string>
 <string name="settings_rules">"Zasady"</string>
-<string name="settings_money">"Kasa"</string>
+
 <string name="settings_support">"Wsparcie"</string>
 <string name="settings_hide_time">"Ukryj czas"</string>
 <string name="settings_hide_score">"Ukryj punktację"</string>
 <string name="settings_single_tap_enable">"Włącz ruchy przy pojedynczym stuknięciu"</string>
-<string name="settings_vegas_bet_amount_text_1">"Za pierwsze rozdanie kart płacisz:"</string>
-<string name="settings_vegas_bet_amount_text_2">"Za przeniesienie każdej karty na stos bazowy dostajesz:"</string>
-<string name="settings_vegas_bet_amount_summary">"Rozdanie -%1$d$, wrzucenie karty: +%2$d$"</string>
+
+
+
 <string name="settings_single_tap_all_games_text">"Stuknij pojedynczo w kartę, aby przenieść ją na następny możliwy stos. Ustawienie takie same jak ruchów podwójnych. Wyłączone zostaną ruchy „wybierz przez stuknięcie”."</string>
 <string name="settings_canfield_size_of_reserve_title">"Zmień wielkość stosu rezerwowego (łatwiej)"</string>
 <string name="settings_use_true_randomisation_title">"Stosowanie prawdziwej losowości"</string>

@@ -5,11 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/about_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@android:color/transparent"
+        app:navigationContentDescription="@string/game_close"
+        app:navigationIcon="@drawable/ic_close"
+        app:navigationIconTint="?attr/colorPrimary"
         app:title="@string/title_activity_about"
         app:titleTextColor="?attr/colorPrimary" />
 

@@ -24,6 +24,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.text.Layout;
 import android.text.StaticLayout;
@@ -52,6 +54,10 @@ public class Bitmaps {
     private Resources res;
     private Bitmap menu, menuText, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
     private Bitmap[] menuBitMaps;
+    private Bitmap[] cardFrontCache;
+    private boolean cardFrontCacheFourColors;
+    private int cardBackCacheX = -1, cardBackCacheY = -1;
+    private Bitmap cardBackCache;
     private int savedCardTheme;
 
     public boolean checkResources() {
@@ -207,6 +213,49 @@ public class Bitmaps {
      * @return a single bitmap of the card
      */
     public Bitmap getCardFront(int posX, int posY) {
+        return Bitmap.createBitmap(getCardFrontSheet(), posX * cardFrontWidth,
+                posY * cardFrontHeight, cardFrontWidth, cardFrontHeight);
+    }
+
+    /**
+     * Returns the 52 individual card bitmaps of the currently selected theme, decoded and cached.
+     * Used on the game start path so the theme sheet only has to be cropped once per theme change.
+     *
+     * @param fourColors Whether the four-color mode is enabled
+     * @return an array of 52 card bitmaps, in the same order as the cards array
+     */
+    public Bitmap[] getCardFrontDrawables(boolean fourColors) {
+        if (cardFrontCache == null || savedCardTheme != prefs.getSavedCardTheme()
+                || cardFrontCacheFourColors != fourColors) {
+            cardFrontCache = new Bitmap[52];
+            cardFrontCacheFourColors = fourColors;
+
+            for (int i = 0; i < 13; i++) {
+                cardFrontCache[i] = getCardFront(i, fourColors ? 1 : 0);
+                cardFrontCache[13 + i] = getCardFront(i, 2);
+                cardFrontCache[26 + i] = getCardFront(i, 3);
+                cardFrontCache[39 + i] = getCardFront(i, fourColors ? 5 : 4);
+            }
+        }
+
+        return cardFrontCache;
+    }
+
+    /**
+     * Warms up the card assets, so they don't have to be decoded on the game start path. Called
+     * while the game selector screen is shown.
+     */
+    public void preloadCardAssets() {
+        getCardFrontDrawables(prefs.getSavedFourColorMode());
+        getCardBack(prefs.getSavedCardBackground(), prefs.getSavedCardBackgroundColor());
+    }
+
+    /**
+     * Decodes the card theme sheet according to the preference, if it isn't already cached.
+     *
+     * @return the decoded card theme sheet
+     */
+    private Bitmap getCardFrontSheet() {
 
         if (cardFront == null || savedCardTheme != prefs.getSavedCardTheme()) {
 
@@ -252,8 +301,7 @@ public class Bitmaps {
             cardFrontHeight = cardFront.getHeight() / 6;
         }
 
-        return Bitmap.createBitmap(cardFront, posX * cardFrontWidth,
-                posY * cardFrontHeight, cardFrontWidth, cardFrontHeight);
+        return cardFront;
     }
 
     /**
@@ -265,14 +313,36 @@ public class Bitmaps {
      */
     public Bitmap getCardBack(int posX, int posY) {
 
+        if (cardBackCache != null && cardBackCacheX == posX && cardBackCacheY == posY) {
+            return cardBackCache;
+        }
+
         if (cardBack == null) {
             cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards);
             cardBackWidth = cardBack.getWidth() / NUM_CARD_BACKGROUNDS;
             cardBackHeight = cardBack.getHeight() / 4;
         }
 
-        return Bitmap.createBitmap(cardBack, posX * cardBackWidth,
+        Bitmap source = Bitmap.createBitmap(cardBack, posX * cardBackWidth,
                 posY * cardBackHeight, cardBackWidth, cardBackHeight);
+
+        //the card fronts are rounded in the source files, but the backs are not. Round the back the
+        //same way, so face-down cards don't show a square edge next to rounded face-up cards.
+        Bitmap rounded = Bitmap.createBitmap(cardBackWidth, cardBackHeight, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(rounded);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        float radius = cardBackWidth * 0.10f;
+        Path path = new Path();
+        RectF rect = new RectF(0, 0, cardBackWidth, cardBackHeight);
+        path.addRoundRect(rect, radius, radius, Path.Direction.CW);
+        canvas.clipPath(path);
+        canvas.drawBitmap(source, 0, 0, paint);
+
+        cardBackCache = rounded;
+        cardBackCacheX = posX;
+        cardBackCacheY = posY;
+
+        return rounded;
     }
 
     /**

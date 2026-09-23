@@ -91,6 +91,7 @@ public class LocaleChanger {
 
         Configuration configuration = context.getResources().getConfiguration();
         configuration.setLocale(locale);
+        configuration.fontScale = 1.15f;
 
         return context.createConfigurationContext(configuration);
     }

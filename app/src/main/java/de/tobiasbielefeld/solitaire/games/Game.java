@@ -20,8 +20,8 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.annotation.CallSuper;
-import android.support.v4.widget.TextViewCompat;
+import androidx.annotation.CallSuper;
+import androidx.core.widget.TextViewCompat;
 import android.view.Gravity;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -348,12 +348,11 @@ public abstract class Game {
 
     /**
      * use this method to do something with the score, when the game is won or canceled (new game started)
-     * So you can do other stuff for the high score list. For example, a game in Vegas is already won, when
-     * the player makes profit, not only when all cards could be played on the foundation
+     * So you can do other stuff for the high score list. For example, a game could be already won when
+     * the player reaches a certain score, not only when all cards could be played on the foundation
      * <p>
      * Return false, if you want the  addNewScore() method to break, so possible high scores won't
-     * be saved. (eg in Vegas, if the player keeps the current balance, only save high score when
-     * the balance is resetting). Return false other wise (default)
+     * be saved. Return false otherwise (default)
      */
     public boolean processScore(long currentScore) {
         return true;
@@ -732,7 +731,7 @@ public abstract class Game {
     }
 
     public boolean movementDoneRecently(Card card, Stack destination) {
-        for (int i = recordList.entries.size() - 1; i >= recordList.entries.size() - 5 && i > 0; i--) {
+        for (int i = recordList.entries.size() - 1; i >= recordList.entries.size() - 5 && i >= 0; i--) {
             RecordList.Entry entry = recordList.entries.get(i);
 
             for (int j = 0; j < entry.getCurrentCards().size(); j++) {
@@ -905,7 +904,7 @@ public abstract class Game {
                 case SAME_FAMILY:
                     return topCardColor == cardColor && (topCardValue == cardValue - 1 || (wrap && topCardValue == 13 && cardValue == 1));
                 case DOESNT_MATTER:
-                    return topCardValue == cardValue - 1 || (wrap && topCardValue == 1 && cardValue == 13);
+                    return topCardValue == cardValue - 1 || (wrap && topCardValue == 13 && cardValue == 1);
             }
         }
 
@@ -1109,10 +1108,6 @@ public abstract class Game {
 
     public boolean addCardToMovementTest(Card card) {
         return addCardToMovementGameTest(card);
-    }
-
-    public int getMainStackId() {
-        return mainStackIDs[0];
     }
 
     public void setRecycleCounterCallback(RecycleCounterCallback callback) {

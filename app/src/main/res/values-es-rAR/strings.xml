@@ -42,7 +42,7 @@
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
 <string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
-<string name="games_Vegas">"Vegas"</string>
+
 <string name="games_Calculation">"Calculation"</string>
 
 <!-- colors -->
@@ -194,16 +194,16 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
 <string name="Settings_sound">"Habilitar sonidos en el juego"</string>
 <string name="Settings_sounds_title">"Sonidos"</string>
 <string name="Settings_sounds_text">"Habilitar sonidos, configurar diferentes efectos"</string>
-<string name="settings_vegas_bet_amount">"Monto de la apuesta"</string>
+
 <string name="settings_menu_order_title">"Orden del menú"</string>
 <string name="settings_auto_start_new_game_title">"Iniciar un nuevo juego al ganar"</string>
 <string name="settings_force_tablet_layout_title">"Forzar diseño para tablet"</string>
 <string name="settings_calculation_alternative_title">"Mantener cartas"</string>
-<string name="settings_vegas_money_enabled">"Mantener el balance actual"</string>
-<string name="settings_vegas_money_reset">"Restablecer balance"</string>
+
+
 <string name="settings_auto_move_title">"Mover automáticamente"</string>
 <string name="settings_rules">"Reglas"</string>
-<string name="settings_money">"Dinero"</string>
+
 <string name="settings_support">"Ayuda"</string>
 <string name="settings_hide_time">"Esconder tiempo"</string>
 <string name="settings_hide_score">"Esconder puntaje"</string>

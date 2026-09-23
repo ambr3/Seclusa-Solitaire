@@ -72,6 +72,10 @@ public class RecordList {
      * @param cards The card list to add
      */
     public void add(ArrayList<Card> cards) {
+        if (maxRecords <= 0) {
+            return;
+        }
+
         if (entries.size() >= maxRecords) {
             entries.remove(0);
         }
@@ -87,6 +91,10 @@ public class RecordList {
      * @param origin Other stack as origin, where the cards can be returned to
      */
     public void add(ArrayList<Card> cards, Stack origin) {
+        if (maxRecords <= 0) {
+            return;
+        }
+
         if (entries.size() >= maxRecords) {
             entries.remove(0);
         }
@@ -104,6 +112,10 @@ public class RecordList {
      * @param origins Other stacks as origin, where the cards can be returned to
      */
     public void add(ArrayList<Card> cards, ArrayList<Stack> origins) {
+        if (maxRecords <= 0) {
+            return;
+        }
+
         if (entries.size() >= maxRecords) {
             entries.remove(0);
         }

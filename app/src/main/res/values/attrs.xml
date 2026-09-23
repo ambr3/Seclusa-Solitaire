@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="themeGameSelectBackground" format="color" />
+    <attr name="themeGameSelectBackgroundEnd" format="color" />
     <attr name="themeColorDrawerSelected" format="color" />
 </resources>

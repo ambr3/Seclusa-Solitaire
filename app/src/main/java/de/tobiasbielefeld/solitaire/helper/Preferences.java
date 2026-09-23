@@ -7,6 +7,8 @@ import android.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -23,6 +25,7 @@ public class Preferences {
 
     private SharedPreferences savedSharedData;
     private SharedPreferences savedGameData;
+    private Context context;
 
     //Strings
     public static String PREF_KEY_HIDE_STATUS_BAR;
@@ -49,8 +52,6 @@ public class Preferences {
     public static String PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE;
     public static String PREF_KEY_DISABLE_UNDO_COSTS;
     public static String PREF_KEY_DISABLE_HINT_COSTS;
-    public static String PREF_KEY_VEGAS_OLD_SCORE;
-    public static String PREF_KEY_VEGAS_TIME;
     public static String PREF_KEY_GAME_REDEAL_COUNT;
     public static String PREF_KEY_GAME_WON;
     public static String PREF_KEY_GAME_WON_AND_RELOADED;
@@ -80,8 +81,6 @@ public class Preferences {
     public static String PREF_KEY_YUKON_RULES_OLD;
     public static String PREF_KEY_KLONDIKE_DRAW;
     public static String PREF_KEY_KLONDIKE_DRAW_OLD;
-    public static String PREF_KEY_VEGAS_DRAW;
-    public static String PREF_KEY_VEGAS_DRAW_OLD;
     public static String PREF_KEY_GOLF_CYCLIC;
     public static String PREF_KEY_CANFIELD_DRAW;
     public static String PREF_KEY_CANFIELD_DRAW_OLD;
@@ -110,6 +109,8 @@ public class Preferences {
     public static String PREF_KEY_TEXT_COLOR;
     public static String PREF_KEY_THEME_COLOR;
     public static String DEFAULT_THEME_COLOR;
+    public static String PREF_KEY_DYNAMIC_COLORS;
+    public static boolean DEFAULT_DYNAMIC_COLORS;
     public static String PREF_KEY_SOUND_ENABLED;
     public static String PREF_KEY_PYRAMID_LIMITED_RECYCLES;
     public static String PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
@@ -118,11 +119,6 @@ public class Preferences {
     public static String PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
     public static String PREF_KEY_KLONDIKE_LIMITED_RECYCLES;
     public static String PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES;
-    public static String PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
-    public static String PREF_KEY_VEGAS_BET_AMOUNT;
-    public static String PREF_KEY_VEGAS_BET_AMOUNT_OLD;
-    public static String PREF_KEY_VEGAS_WIN_AMOUNT;
-    public static String PREF_KEY_VEGAS_WIN_AMOUNT_OLD;
     public static String PREF_KEY_MENU_ORDER;
     public static String PREF_KEY_AUTO_START_NEW_GAME;
     public static String PREF_KEY_FORCE_TABLET_LAYOUT;
@@ -131,9 +127,6 @@ public class Preferences {
     public static String PREF_KEY_HIDE_TIME;
     public static String PREF_KEY_HIDE_SCORE;
     public static String PREF_KEY_HIDE_AUTOCOMPLETE_BUTTON;
-    public static String PREF_KEY_VEGAS_MONEY;
-    public static String PREF_KEY_VEGAS_MONEY_ENABLED;
-    public static String PREF_KEY_VEGAS_RESET_MONEY;
     public static String PREF_KEY_MOD3_AUTO_MOVE;
     public static String PREF_KEY_PYRAMID_AUTO_MOVE;
     public static String PREF_KEY_SINGLE_TAP_ALL_GAMES;
@@ -145,7 +138,6 @@ public class Preferences {
     public static String PREF_KEY_HIDE_MENU_BAR;
     public static String DEFAULT_CANFIELD_DRAW;
     public static String DEFAULT_KLONDIKE_DRAW;
-    public static String DEFAULT_VEGAS_DRAW;
     public static String DEFAULT_YUKON_RULES;
     public static String DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
     public static String DEFAULT_MENU_BAR_POSITION_PORTRAIT;
@@ -159,7 +151,6 @@ public class Preferences {
     public static String DEFAULT_BACKGROUND_COLOR;
     public static String DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
     public static String DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
-    public static String DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
     public static String DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
     public static String DEFAULT_MOVEMENT_SPEED;
     public static String DEFAULT_CANFIELD_SIZE_OF_RESERVE;
@@ -172,9 +163,6 @@ public class Preferences {
     public static int DEFAULT_WINNING_TIME;
     public static int DEFAULT_BACKGROUND_COLOR_TYPE;
     public static int DEFAULT_BACKGROUND_COLOR_CUSTOM;
-    public static int DEFAULT_VEGAS_BET_AMOUNT;
-    public static int DEFAULT_VEGAS_WIN_AMOUNT;
-    public static int DEFAULT_VEGAS_MONEY;
     public static int DEFAULT_MAX_NUMBER_UNDOS;
     public static int DEFAULT_ENSURE_MOVABILITY_MIN_MOVES;
     public static int DEFAULT_TEXT_COLOR;
@@ -212,8 +200,6 @@ public class Preferences {
     public static boolean DEFAULT_FORCE_TABLET_LAYOUT;
     public static boolean DEFAULT_HIDE_TIME;
     public static boolean DEFAULT_HIDE_SCORE;
-    public static boolean DEFAULT_VEGAS_MONEY_ENABLED;
-    public static boolean DEFAULT_VEGAS_RESET_MONEY;
     public static boolean DEFAULT_SINGLE_TAP_ALL_GAMES;
     public static boolean DEFAULT_PYRAMID_LIMITED_RECYCLES;
     public static boolean DEFAULT_FORTYEIGHT_LIMITED_RECYCLES;
@@ -226,6 +212,7 @@ public class Preferences {
     public Preferences(Context context) {
         loadStrings(context.getResources());
 
+        this.context = context;
         savedSharedData = PreferenceManager.getDefaultSharedPreferences(context);
         setGamePreferences(context);
     }
@@ -233,6 +220,57 @@ public class Preferences {
     public void setGamePreferences(Context context) {
         savedGameData = context.getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
 
+    }
+
+    /**
+     * Copies the complete saved data of the current game to a backup file after a successful save,
+     * so a corrupt save can be reverted to the last known good state.
+     */
+    public void backupGameData() {
+        SharedPreferences backup = context.getSharedPreferences(lg.getSharedPrefName() + "_bak", MODE_PRIVATE);
+        SharedPreferences.Editor editor = backup.edit().clear();
+
+        copyPreferences(savedGameData.getAll(), editor);
+        editor.apply();
+    }
+
+    /**
+     * Restores the last known good game save from the backup file.
+     *
+     * @return true, if a valid backup was found and restored, false otherwise
+     */
+    public boolean restoreGameDataBackup() {
+        SharedPreferences backup = context.getSharedPreferences(lg.getSharedPrefName() + "_bak", MODE_PRIVATE);
+
+        if (backup.getAll().isEmpty()) {
+            return false;
+        }
+
+        SharedPreferences.Editor editor = savedGameData.edit().clear();
+        copyPreferences(backup.getAll(), editor);
+        return editor.commit();       //commit() instead of apply(), so the data is readable right away
+    }
+
+    private void copyPreferences(Map<String, ?> values, SharedPreferences.Editor editor) {
+        for (Map.Entry<String, ?> entry : values.entrySet()) {
+            Object value = entry.getValue();
+            String key = entry.getKey();
+
+            if (value instanceof String) {
+                editor.putString(key, (String) value);
+            } else if (value instanceof Long) {
+                editor.putLong(key, (Long) value);
+            } else if (value instanceof Integer) {
+                editor.putInt(key, (Integer) value);
+            } else if (value instanceof Boolean) {
+                editor.putBoolean(key, (Boolean) value);
+            } else if (value instanceof Float) {
+                editor.putFloat(key, (Float) value);
+            } else if (value instanceof Set) {
+                //noinspection unchecked
+                editor.putStringSet(key, (Set<String>) value);
+            }
+        }
     }
 
     public void registerListener(SharedPreferences.OnSharedPreferenceChangeListener listener) {
@@ -266,8 +304,6 @@ public class Preferences {
         PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES = res.getString(R.string.pref_key_ensure_movability_min_moves);
         PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME = res.getString(R.string.pref_key_settings_only_for_this_game);
         PREF_KEY_DEALING_CARDS = "pref_key_dealing_cards";
-        PREF_KEY_VEGAS_TIME = "pref_key_vegas_time";
-        PREF_KEY_VEGAS_OLD_SCORE = "pref_key_vegas_old_score";
         PREF_KEY_ORDER = "order";
         PREF_KEY_LONGEST_RUN = "longest_run";
         PREF_KEY_RUN_COUNTER = "run_counter";
@@ -275,11 +311,9 @@ public class Preferences {
         PREF_KEY_HIDE_STATUS_BAR = res.getString(R.string.pref_key_hide_status_bar);
         PREF_KEY_YUKON_RULES = res.getString(R.string.pref_key_yukon_rules);
         PREF_KEY_KLONDIKE_DRAW = res.getString(R.string.pref_key_klondike_draw);
-        PREF_KEY_VEGAS_DRAW = res.getString(R.string.pref_key_vegas_draw);
         PREF_KEY_CANFIELD_DRAW = res.getString(R.string.pref_key_canfield_draw);
         PREF_KEY_YUKON_RULES_OLD = PREF_KEY_YUKON_RULES + OLD;
         PREF_KEY_KLONDIKE_DRAW_OLD = PREF_KEY_KLONDIKE_DRAW + OLD;
-        PREF_KEY_VEGAS_DRAW_OLD = PREF_KEY_VEGAS_DRAW + OLD;
         PREF_KEY_CANFIELD_DRAW_OLD = PREF_KEY_CANFIELD_DRAW + OLD;
         PREF_KEY_GOLF_CYCLIC = res.getString(R.string.pref_key_golf_cyclic);
         PREF_KEY_PYRAMID_DIFFICULTY = res.getString(R.string.pref_key_pyramid_difficulty);
@@ -310,12 +344,7 @@ public class Preferences {
         PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES = res.getString(R.string.pref_key_fortyeight_limit_recycles);
         PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_pyramid_number_of_recycles);
         PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_fortyeight_number_of_recycles);
-        PREF_KEY_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_vegas_number_of_recycles);
-        PREF_KEY_VEGAS_BET_AMOUNT = res.getString(R.string.pref_key_vegas_bet_amount);
-        PREF_KEY_VEGAS_WIN_AMOUNT = res.getString(R.string.pref_key_vegas_win_amount);
         PREF_KEY_MENU_ORDER = res.getString(R.string.pref_key_menu_order);
-        PREF_KEY_VEGAS_BET_AMOUNT_OLD = PREF_KEY_VEGAS_BET_AMOUNT + OLD;
-        PREF_KEY_VEGAS_WIN_AMOUNT_OLD = PREF_KEY_VEGAS_WIN_AMOUNT + OLD;
         PREF_KEY_AUTO_START_NEW_GAME = res.getString(R.string.pref_key_auto_start_new_game);
         PREF_KEY_FORCE_TABLET_LAYOUT = res.getString(R.string.pref_key_force_tablet_layout);
         PREF_KEY_KLONDIKE_LIMITED_RECYCLES = res.getString(R.string.pref_key_klondike_limit_recycles);
@@ -327,9 +356,6 @@ public class Preferences {
         PREF_KEY_CALCULATION_ALTERNATIVE_OLD = PREF_KEY_CALCULATION_ALTERNATIVE + OLD;
         PREF_KEY_HIDE_TIME = res.getString(R.string.pref_key_hide_time);
         PREF_KEY_HIDE_SCORE = res.getString(R.string.pref_key_hide_score);
-        PREF_KEY_VEGAS_MONEY = res.getString(R.string.pref_key_vegas_money);
-        PREF_KEY_VEGAS_MONEY_ENABLED = res.getString(R.string.pref_key_vegas_money_enabled);
-        PREF_KEY_VEGAS_RESET_MONEY = res.getString(R.string.pref_key_vegas_reset_money);
         PREF_KEY_MOD3_AUTO_MOVE = res.getString(R.string.pref_key_mod3_auto_move);
         PREF_KEY_PYRAMID_AUTO_MOVE = res.getString(R.string.pref_key_pyramid_auto_move);
         PREF_KEY_SINGLE_TAP_ALL_GAMES = res.getString(R.string.pref_key_single_tap_all_games);
@@ -358,6 +384,8 @@ public class Preferences {
         PREF_KEY_TEXT_COLOR = res.getString(R.string.pref_key_text_color);
         PREF_KEY_THEME_COLOR = res.getString(R.string.pref_key_theme_color);
         DEFAULT_THEME_COLOR = res.getString(R.string.default_theme_color);
+        PREF_KEY_DYNAMIC_COLORS = res.getString(R.string.pref_key_dynamic_colors);
+        DEFAULT_DYNAMIC_COLORS = res.getBoolean(R.bool.default_dynamic_colors);
 
         PREF_KEY_SCORE = res.getString(R.string.score);
         PREF_KEY_SAVED_SCORES = res.getString(R.string.saved_scores);
@@ -399,8 +427,6 @@ public class Preferences {
         DEFAULT_CALCULATION_ALTERNATIVE = res.getBoolean(R.bool.default_calculation_alternative);
         DEFAULT_HIDE_TIME = res.getBoolean(R.bool.default_hide_time);
         DEFAULT_HIDE_SCORE = res.getBoolean(R.bool.default_hide_score);
-        DEFAULT_VEGAS_MONEY_ENABLED = res.getBoolean(R.bool.default_vegas_money_enabled);
-        DEFAULT_VEGAS_RESET_MONEY = res.getBoolean(R.bool.default_vegas_reset_money);
         DEFAULT_MOD3_AUTO_MOVE = res.getBoolean(R.bool.default_mod3_auto_move);
         DEFAULT_PYRAMID_AUTO_MOVE = res.getBoolean(R.bool.default_pyramid_auto_move);
         DEFAULT_SINGLE_TAP_ALL_GAMES = res.getBoolean(R.bool.default_single_tap_all_games);
@@ -436,14 +462,10 @@ public class Preferences {
         DEFAULT_MOVEMENT_SPEED = res.getString(R.string.default_movement_speed);
         DEFAULT_SOUND_ENABLED = res.getBoolean(R.bool.default_sound_enabled);
         DEFAULT_FORCE_TABLET_LAYOUT = res.getBoolean(R.bool.default_force_tablet_layout);
-        DEFAULT_VEGAS_BET_AMOUNT = res.getInteger(R.integer.default_vegas_bet_amount);
-        DEFAULT_VEGAS_WIN_AMOUNT = res.getInteger(R.integer.default_vegas_win_amount);
-        DEFAULT_VEGAS_MONEY = res.getInteger(R.integer.default_vegas_money);
         DEFAULT_ENSURE_MOVABILITY_MIN_MOVES = res.getInteger(R.integer.default_ensure_movability_min_moves);
         DEFAULT_MAX_NUMBER_UNDOS = res.getInteger(R.integer.default_max_number_undos);
         DEFAULT_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.default_pyramid_number_of_recycles);
         DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES = res.getString(R.string.default_fortyeight_number_of_recycles);
-        DEFAULT_VEGAS_NUMBER_OF_RECYCLES = res.getString(R.string.default_vegas_number_of_recycles);
         DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES = res.getString(R.string.default_klondike_number_of_recycles);
         DEFAULT_PYRAMID_LIMITED_RECYCLES = res.getBoolean(R.bool.default_pyramid_limited_recycles);
         DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
@@ -451,7 +473,6 @@ public class Preferences {
         DEFAULT_DISABLE_HINT_COSTS = res.getBoolean(R.bool.default_disable_hint_costs);
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
-        DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
         DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
         DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES = res.getString(R.string.default_napoleons_tomb_number_of_recycles);
     }
@@ -605,7 +626,6 @@ public class Preferences {
     public void setCriticalGameSettings() {
         saveCanfieldDrawMode(getSavedCanfieldDrawMode());
         saveKlondikeDrawMode(getSavedKlondikeDrawMode());
-        saveVegasDrawMode(getSavedVegasDrawMode());
         saveSpiderDifficulty(getSavedSpiderDifficulty());
         saveSpideretteDifficulty(getSavedSpideretteDifficulty());
         saveYukonRules(getSavedYukonRules());
@@ -637,17 +657,8 @@ public class Preferences {
         return savedGameData.getLong(PREF_KEY_TIMER_WINNING_TIME, DEFAULT_WINNING_TIME);
     }
 
-    public long getSavedVegasMoney() {
-        return savedGameData.getLong(PREF_KEY_VEGAS_MONEY, DEFAULT_VEGAS_MONEY);
-    }
 
-    public long getSavedVegasOldScore() {
-        return savedGameData.getLong(PREF_KEY_VEGAS_OLD_SCORE, 0);
-    }
 
-    public long getSavedVegasTime() {
-        return savedGameData.getLong(PREF_KEY_VEGAS_TIME, 0);
-    }
 
     public long[][] getSavedHighScores() {
         long savedScores[][] = new long[MAX_SAVED_SCORES][3];
@@ -830,17 +841,8 @@ public class Preferences {
         savedGameData.edit().putLong(PREF_KEY_TIMER_WINNING_TIME, value).apply();
     }
 
-    public void saveVegasMoney(long value) {
-        savedGameData.edit().putLong(PREF_KEY_VEGAS_MONEY, value).apply();
-    }
 
-    public void saveVegasOldScore(long value) {
-        savedGameData.edit().putLong(PREF_KEY_VEGAS_OLD_SCORE, value).apply();
-    }
 
-    public void saveVegasTime(long value) {
-        savedGameData.edit().putLong(PREF_KEY_VEGAS_TIME, value).apply();
-    }
 
     public void saveHighScores(long savedScores[][]) {
         ArrayList<Long> listScores = new ArrayList<>();
@@ -1020,21 +1022,9 @@ public class Preferences {
         }
     }
 
-    public int getSavedVegasBetAmount() {
-        return savedSharedData.getInt(PREF_KEY_VEGAS_BET_AMOUNT, DEFAULT_VEGAS_BET_AMOUNT);
-    }
 
-    public int getSavedVegasWinAmount() {
-        return savedSharedData.getInt(PREF_KEY_VEGAS_WIN_AMOUNT, DEFAULT_VEGAS_WIN_AMOUNT);
-    }
 
-    public int getSavedVegasBetAmountOld() {
-        return savedSharedData.getInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, DEFAULT_VEGAS_BET_AMOUNT);
-    }
 
-    public int getSavedVegasWinAmountOld() {
-        return savedSharedData.getInt(PREF_KEY_VEGAS_WIN_AMOUNT_OLD, DEFAULT_VEGAS_WIN_AMOUNT);
-    }
 
     public int getSavedCurrentGame() {
         return savedSharedData.getInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
@@ -1064,6 +1054,10 @@ public class Preferences {
         return savedSharedData.getString(PREF_KEY_THEME_COLOR, DEFAULT_THEME_COLOR);
     }
 
+    public boolean getSavedDynamicColors() {
+        return savedSharedData.getBoolean(PREF_KEY_DYNAMIC_COLORS, DEFAULT_DYNAMIC_COLORS);
+    }
+
     public int getSavedMenuColumnsPortrait() {
         return parseInt(savedSharedData.getString(PREF_KEY_MENU_COLUMNS_PORTRAIT, DEFAULT_MENU_COLUMNS_PORTRAIT), parseInt(DEFAULT_MENU_COLUMNS_PORTRAIT, 4));
     }
@@ -1081,7 +1075,10 @@ public class Preferences {
     }
 
     public float getSavedMovementSpeed() {
-        return parseFloat(savedSharedData.getString(PREF_KEY_MOVEMENT_SPEED, DEFAULT_MOVEMENT_SPEED), parseFloat(DEFAULT_MOVEMENT_SPEED, 2));
+        final float defaultSpeed = parseFloat(DEFAULT_MOVEMENT_SPEED, 2);
+        final float value = parseFloat(savedSharedData.getString(PREF_KEY_MOVEMENT_SPEED, DEFAULT_MOVEMENT_SPEED), defaultSpeed);
+
+        return value <= 0 ? defaultSpeed : value;
     }
 
     public int getSavedMaxNumberUndos() {
@@ -1104,16 +1101,9 @@ public class Preferences {
         return savedSharedData.getString(PREF_KEY_KLONDIKE_DRAW, DEFAULT_KLONDIKE_DRAW);
     }
 
-    public String getSavedVegasDrawMode() {
-        return savedSharedData.getString(PREF_KEY_VEGAS_DRAW, DEFAULT_VEGAS_DRAW);
-    }
 
-    public String getSavedKlondikeVegasDrawModeOld(int which) {
-        if (which == 1) {
-            return savedSharedData.getString(PREF_KEY_KLONDIKE_DRAW_OLD, DEFAULT_KLONDIKE_DRAW);
-        } else {
-            return savedSharedData.getString(PREF_KEY_VEGAS_DRAW_OLD, DEFAULT_VEGAS_DRAW);
-        }
+    public String getSavedKlondikeDrawModeOld() {
+        return savedSharedData.getString(PREF_KEY_KLONDIKE_DRAW_OLD, DEFAULT_KLONDIKE_DRAW);
     }
 
     public String getSavedSpiderDifficulty() {
@@ -1237,13 +1227,7 @@ public class Preferences {
         return savedSharedData.getBoolean(PREF_KEY_PYRAMID_AUTO_MOVE, DEFAULT_PYRAMID_AUTO_MOVE);
     }
 
-    public boolean getSavedVegasSaveMoneyEnabled() {
-        return savedSharedData.getBoolean(PREF_KEY_VEGAS_MONEY_ENABLED, DEFAULT_VEGAS_MONEY_ENABLED);
-    }
 
-    public boolean getSavedVegasResetMoney() {
-        return savedSharedData.getBoolean(PREF_KEY_VEGAS_RESET_MONEY, DEFAULT_VEGAS_RESET_MONEY);
-    }
 
     public boolean getSavedHideTime() {
         if (hasSettingsOnlyForThisGame()) {
@@ -1379,13 +1363,7 @@ public class Preferences {
         }
     }
 
-    public void saveVegasBetAmount(int value) {
-        savedSharedData.edit().putInt(PREF_KEY_VEGAS_BET_AMOUNT, value).apply();
-    }
 
-    public void saveVegasWinAmount(int value) {
-        savedSharedData.edit().putInt(PREF_KEY_VEGAS_WIN_AMOUNT, value).apply();
-    }
 
     public void saveGameLayoutMarginsPortrait(int value) {
         if (hasSettingsOnlyForThisGame()) {
@@ -1403,13 +1381,7 @@ public class Preferences {
         }
     }
 
-    public void saveVegasBetAmountOld() {
-        savedSharedData.edit().putInt(PREF_KEY_VEGAS_BET_AMOUNT_OLD, getSavedVegasBetAmount()).apply();
-    }
 
-    public void saveVegasWinAmountOld() {
-        savedSharedData.edit().putInt(PREF_KEY_VEGAS_WIN_AMOUNT_OLD, getSavedVegasWinAmount()).apply();
-    }
 
     public void saveCurrentGame(int value) {
         savedSharedData.edit().putInt(PREF_KEY_CURRENT_GAME, value).apply();
@@ -1431,17 +1403,10 @@ public class Preferences {
         savedSharedData.edit().putString(PREF_KEY_KLONDIKE_DRAW, value).apply();
     }
 
-    public void saveKlondikeVegasDrawModeOld(int which) {
-        if (which == 1) {
-            savedSharedData.edit().putString(PREF_KEY_KLONDIKE_DRAW_OLD, getSavedKlondikeDrawMode()).apply();
-        } else {
-            savedSharedData.edit().putString(PREF_KEY_VEGAS_DRAW_OLD, getSavedVegasDrawMode()).apply();
-        }
+    public void saveKlondikeDrawModeOld() {
+        savedSharedData.edit().putString(PREF_KEY_KLONDIKE_DRAW_OLD, getSavedKlondikeDrawMode()).apply();
     }
 
-    public void saveVegasDrawMode(String value) {
-        savedSharedData.edit().putString(PREF_KEY_VEGAS_DRAW, value).apply();
-    }
 
     public void saveSpiderDifficulty(String value) {
         savedSharedData.edit().putString(PREF_KEY_SPIDER_DIFFICULTY, value).apply();
@@ -1523,9 +1488,6 @@ public class Preferences {
         savedSharedData.edit().putString(PREF_KEY_MENU_COLUMNS_LANDSCAPE, value).apply();
     }
 
-    public void saveVegasResetMoney(boolean value) {
-        savedSharedData.edit().putBoolean(PREF_KEY_VEGAS_RESET_MONEY, value).apply();
-    }
 
     public void saveSingleTapAllGames(boolean value) {
         savedSharedData.edit().putBoolean(PREF_KEY_SINGLE_TAP_ALL_GAMES, value).apply();

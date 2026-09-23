@@ -38,7 +38,7 @@
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
 <string name="games_GrandfathersClock">"Grandfather\'s Clock"</string>
-<string name="games_Vegas">"Vegas"</string>
+
 <string name="games_Calculation">"Cálculo"</string>
 
 <!-- colors -->
@@ -124,7 +124,7 @@ Nas configurações, você também pode encontrar a seção \"Menu principal\", 
 Não é possível mover cartas da pilha de descarte para a pilha principal (exceto usando o botão Desfazer)."</string>
 <string name="manual_Golf_objective">"Mova cada carta da mesa para a pilha de descarte."</string>
 <string name="settings_rules">"Regras"</string>
-<string name="settings_money">"Dinheiro"</string>
+
 <string name="settings_support">"Ajuda"</string>
 <string name="settings_hide_time">"Ocultar tempo"</string>
 <string name="settings_hide_score">"Ocultar pontuação"</string>

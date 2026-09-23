@@ -38,7 +38,7 @@
 <string name="games_mod3">"Mod3"</string>
 <string name="games_Canfield">"Canfield"</string>
 <string name="games_GrandfathersClock">"Bestefarsklokke"</string>
-<string name="games_Vegas">"Vegas"</string>
+
 <string name="games_Calculation">"Kalkulering"</string>
 
 <!-- colors -->
@@ -172,8 +172,8 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="manual_GrandfathersClock_scoring">"Fra tablå til hjem: +50"</string>
 
 <!-- Is this meant to be a placeholder string? -->
-<string name="manual_Vegas_structure">@string/manual_Klondike_structure</string>
-<string name="manual_Vegas_objective">"Spill kortene til hjemmebunkene for å tjene mere penger."</string>
+
+
 <string name="manual_Calculation_structure">"1 stokk med 52 kort.
 
 4 tablåbunker, 4 hjemmebunker, 1 hovedbunke og 1 forkastningsbunke"</string>
@@ -245,7 +245,7 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_limit_number_of_recycles">"Begrens antall resirkuleringer"</string>
 <string name="settings_limit_number_of_recycles_text">"Resirkulering av søplet tilbake i hovedbunken er begrenset"</string>
 <string name="settings_number_of_recycles">"Antall resirkuleringer"</string>
-<string name="settings_vegas_bet_amount">"Innsatsmengde"</string>
+
 <string name="settings_menu_order_title">"Menyrekkefølge"</string>
 <string name="settings_menu_order_summary">"Klikk lenge på en oppføring, og så dra-og-slipp for å stokke om på menyoppføringene"</string>
 <string name="settings_auto_start_new_game_title">"Start en ny omgang når du har vunnet"</string>
@@ -255,22 +255,22 @@ Flytt et kort tilbake til den fjerde rekken av tablået: -75"</string>
 <string name="settings_force_tablet_layout_text">"Vis appen som om den var på en stor skjerm (≥18cm)"</string>
 <string name="settings_calculation_alternative_title">"Behold kortene"</string>
 <string name="settings_calculation_alternative_text">"Ved trykk på hovedbunken: I stedet for å flytte kortet fra forkastningsbunken til tablået, behold den i forkastningsbunken."</string>
-<string name="settings_vegas_money_enabled">"Behold den nåværende saldoen"</string>
-<string name="settings_vegas_money_reset">"Tilbakestill saldoen"</string>
-<string name="settings_vegas_money_reset_text">"Den neste Vegas-utdelingen vil begynne på 0$"</string>
-<string name="settings_vegas_money_reset_confirm">"Vil du virkelig tilbakestille saldoen din? Dette kan ikke bli angret på."</string>
+
+
+
+
 <string name="settings_auto_move_title">"Automatiske bevegelser"</string>
 <string name="settings_mod3_auto_move_text">"Flytt automatisk essene til forkastningsbunken hvis det er mulig"</string>
 <string name="settings_pyramid_auto_move_text">"Flytt automatisk kongene til søpla hvis det er mulig"</string>
 <string name="settings_rules">"Regler"</string>
-<string name="settings_money">"Penger"</string>
+
 <string name="settings_support">"Kundestøtte"</string>
 <string name="settings_hide_time">"Skjul tiden"</string>
 <string name="settings_hide_score">"Skjul poengsummen"</string>
 <string name="settings_single_tap_enable">"Aktiver enkelttrykksbevegelser"</string>
-<string name="settings_vegas_bet_amount_text_1">"Begynnende utdelingskostnader:"</string>
-<string name="settings_vegas_bet_amount_text_2">"Hvert kort som spilles til hjemmebunkene, tjener:"</string>
-<string name="settings_vegas_bet_amount_summary">"Begynnende utdeling: -%1$d$, kort til hjemmebunke: +%2$d$"</string>
+
+
+
 <string name="settings_canfield_size_of_reserve_title">"Endre størrelsen til reservebunken (Enklere)"</string>
 <string name="settings_use_true_randomisation_title">"Bruk sann tilfeldiggjøring"</string>
 <string name="settings_use_true_randomisation_text">"Den ordinære tilfeldiggjøreren unngår å plassere lignende kort nær hverandre. Huk av dette for å skru på en fullstendig tilfeldig tilfeldiggjører"</string>

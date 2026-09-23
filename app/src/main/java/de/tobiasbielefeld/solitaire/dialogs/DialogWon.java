@@ -19,8 +19,8 @@ package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -51,7 +51,7 @@ public class DialogWon extends CustomDialogFragment {
     @NonNull
     public Dialog onCreateDialog(Bundle savedState) {
         final GameManager gameManager = (GameManager) getActivity();
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_won, null);

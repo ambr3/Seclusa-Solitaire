@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeGameSelectBackground"
+    android:background="@drawable/game_selector_background"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="de.tobiasbielefeld.solitaire.ui.GameSelector">

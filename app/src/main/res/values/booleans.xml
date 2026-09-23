@@ -21,8 +21,6 @@
     <bool name="default_calculation_alternative">false</bool>
     <bool name="default_hide_time">false</bool>
     <bool name="default_hide_score">false</bool>
-    <bool name="default_vegas_money_enabled">false</bool>
-    <bool name="default_vegas_reset_money">false</bool>
     <bool name="default_single_tap_all_games">false</bool>
     <bool name="default_mod3_auto_move">true</bool>
     <bool name="default_pyramid_auto_move">true</bool>
@@ -37,4 +35,5 @@
     <bool name="default_ensure_movability">false</bool>
     <bool name="default_hide_auto_complete_button">false</bool>
     <bool name="default_statistics_hide_win_percentage">false</bool>
+    <bool name="default_dynamic_colors">false</bool>
 </resources>

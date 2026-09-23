@@ -41,8 +41,6 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 public class Klondike extends Game {
 
-    protected int whichGame;
-
     public Klondike() {
         setNumberOfDecks(1);
         setNumberOfStacks(15);
@@ -51,9 +49,6 @@ public class Klondike extends Game {
         setFoundationStackIDs(7, 8, 9, 10);
         setDiscardStackIDs(11, 12, 13);
         setMainStackIDs(14);
-
-        //1 stands for Klondike, 2 for Vegas
-        whichGame = 1;
 
         setNumberOfRecycles(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES, DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
 
@@ -119,10 +114,10 @@ public class Klondike extends Game {
         //dealWinnableGame();
 
         //save the new settings, so it only takes effect on new deals
-        prefs.saveKlondikeVegasDrawModeOld(whichGame);
+        prefs.saveKlondikeDrawModeOld();
 
         //deal cards to trash according to the draw option
-        if (prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("1")) {
+        if (prefs.getSavedKlondikeDrawModeOld().equals("1")) {
             moveToStack(getMainStack().getTopCard(), stacks[13], OPTION_NO_RECORD);
             stacks[13].getCard(0).flipUp();
         } else {
@@ -142,7 +137,7 @@ public class Klondike extends Game {
     }
 
     public int onMainStackTouch() {
-        boolean deal3 = prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("3");
+        boolean deal3 = prefs.getSavedKlondikeDrawModeOld().equals("3");
 
         //if there are cards on the main stack
         if (getMainStack().getSize() > 0) {
@@ -268,7 +263,7 @@ public class Klondike extends Game {
         }
 
         //for deal3 mode, discard and main stack have to be empty too
-        if (prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("3") || hasLimitedRecycles()) {
+        if (prefs.getSavedKlondikeDrawModeOld().equals("3") || hasLimitedRecycles()) {
             return getMainStack().getSize() <= 0 && stacks[11].getSize() <= 0 && stacks[12].getSize() <= 0 && stacks[13].getSize() <= 1;
         }
 
@@ -462,7 +457,7 @@ public class Klondike extends Game {
             return;
         }
 
-        boolean deal1 = prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("1");
+        boolean deal1 = prefs.getSavedKlondikeDrawModeOld().equals("1");
         checkEmptyDiscardStack(getMainStack(), stacks[11], stacks[12], stacks[13], deal1);
     }
 

@@ -14,7 +14,7 @@
         android:paddingLeft="10dp"
         android:paddingBottom="10dp"
         android:text="@string/dialog_win_titel"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        android:textAppearance="?attr/textAppearanceTitleLarge" />
 
     <LinearLayout
         android:id="@+id/dialog_won_layout_scores"
@@ -34,8 +34,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/dialog_win_score"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@android:color/black" />
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurface" />
 
             <TextView
                 android:id="@+id/dialog_won_text2"
@@ -44,8 +44,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/dialog_win_bonus"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@android:color/black" />
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?attr/colorOnSurface" />
         </LinearLayout>
 
         <TextView
@@ -54,8 +54,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/dialog_win_total"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black" />
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurface" />
 
     </LinearLayout>
 

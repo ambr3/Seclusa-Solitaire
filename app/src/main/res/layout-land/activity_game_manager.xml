@@ -65,21 +65,41 @@
             android:layout_alignParentTop="true"
             android:background="@drawable/shadow_left_to_right" />
 
-        <TextView
-            android:id="@+id/mainTextViewScore"
+        <LinearLayout
+            android:id="@+id/mainButtonScores"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="8dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/score_chip_background"
-            android:maxLines="1"
+            android:contentDescription="@string/title_activity_statistics"
+            android:gravity="center_vertical"
+            android:onClick="menuClick"
+            android:orientation="horizontal"
             android:paddingLeft="14dp"
             android:paddingTop="4dp"
             android:paddingRight="14dp"
-            android:paddingBottom="4dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:paddingBottom="4dp">
+
+            <ImageView
+                android:id="@+id/button_scores"
+                android:layout_width="14dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginRight="6dp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/icon_star" />
+
+            <TextView
+                android:id="@+id/mainTextViewScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/mainTextViewTime"
@@ -89,6 +109,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_margin="8dp"
+            android:layout_marginBottom="4dp"
             android:background="@drawable/score_chip_background"
             android:maxLines="1"
             android:paddingLeft="14dp"
@@ -118,65 +139,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
         android:background="@drawable/menu_bar_background"
         android:baselineAligned="false"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="visible">
-
-        <FrameLayout
-            android:id="@+id/mainButtonNewGame"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:onClick="menuClick">
-
-            <ImageView
-                android:id="@+id/button_new_game"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/menu_new_game"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_new_game" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/mainButtonScores"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:onClick="menuClick">
-
-            <ImageView
-                android:id="@+id/button_scores"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/title_activity_statistics"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_star" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/mainButtonHint"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:onClick="menuClick">
-
-            <ImageView
-                android:id="@+id/button_hint"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="?attr/selectableItemBackground"
-                android:contentDescription="@string/title_activity_statistics"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_lightbulb_on" />
-        </FrameLayout>
 
         <FrameLayout
             android:id="@+id/mainButtonRestart"
@@ -193,7 +161,46 @@
                 android:contentDescription="@string/menu_main_menu"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_menu" />
+                app:srcCompat="@drawable/icon_menu"
+                app:tint="@color/menuBarIcon" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/mainButtonHint"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:onClick="menuClick">
+
+            <ImageView
+                android:id="@+id/button_hint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/settings_support"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/icon_lightbulb_on"
+                app:tint="@color/menuBarIcon" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/mainButtonNewGame"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:onClick="menuClick">
+
+            <ImageView
+                android:id="@+id/button_new_game"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/menu_new_game"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/icon_new_game"
+                app:tint="@color/menuBarIcon" />
         </FrameLayout>
 
         <FrameLayout
@@ -211,7 +218,8 @@
                 android:contentDescription="@string/menu_undo"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_undo" />
+                app:srcCompat="@drawable/icon_undo"
+                app:tint="@color/menuBarIcon" />
         </FrameLayout>
 
         <FrameLayout
@@ -229,7 +237,8 @@
                 android:contentDescription="@string/menu_settings"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                app:srcCompat="@drawable/icon_settings_black" />
+                app:srcCompat="@drawable/icon_settings_black"
+                app:tint="@color/menuBarIcon" />
         </FrameLayout>
 
     </LinearLayout>
