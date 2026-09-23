@@ -23,9 +23,9 @@
 
 **Seclusa Solitaire** is a fork of [Simple Solitaire Collection](https://github.com/TobiasBielefeld/Simple-Solitaire) by Tobias Bielefeld, modified according to the GPL.
 
-## A note from the developer
+## A note from me
 
-Modernising this app has taken me a lot of late nights, most of them spent with the help of AI. I'm not a professional developer, so it's been hard going — and honestly, I could not have done it without AI. I test as carefully as I can on my own, and when I'm happy with the result I'll push it as **v5.0.0** and hopefully get it onto F-Droid. In the meantime, the current **v4.x.x** releases remain very usable.
+Modernising this app has taken me a lot of late nights, I've had help of AI. I'm not a professional developer, so it's been hard going and honestly, I could not have done it without AI.
 
 If you build or modify it yourself, please audit the code before relying on it — all changes are plain GPL-3.0 and open to review.
 
@@ -49,7 +49,7 @@ If you build or modify it yourself, please audit the code before relying on it �
 
 ## Privacy
 
-Your data is your business — that's the whole point.
+Your data is your business
 
 - **Zero permissions** — no internet, location, or storage
 - **No network** — the app can't send your data anywhere
@@ -68,8 +68,6 @@ Download the signed APK from the [Releases page](https://github.com/ambr3/Seclus
     <img src="obtainium-badge.png" alt="Get it on Obtainium" width="161">
   </a>
 </p>
-
-Obtainium verifies the APK signature against the project's published certificate and fetches updates automatically.
 
 To verify an APK is signed by this project, check its signing certificate against this SHA-256 fingerprint:
 
