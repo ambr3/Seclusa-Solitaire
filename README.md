@@ -25,13 +25,13 @@
 
 ## A note from me
 
-Modernising this app hastaken me a lot of late nights, I've had help of AI. I'm not a professional developer, so it's not been easy at my skill level and honestly, I could not have done it without AI.
+Modernising this app has taken me a lot of late nights, I've had a lot of help using AI. I'm not a professional developer, so it's not been easy at my skill level and honestly, I could not have done it without AI.
 
 I wanted to add this note for full transparency. Yes I use ai for my PWA apps I make but I have a lot more understanding in building PWA than I do in android apps. 
 
-I forked this because I played Simple Solitaire daily and as it was archived I wanted to modernise it and hopefully make it more safe. 
+I forked this because I played Simple Solitaire daily and as it was archived, I wanted to modernise it and hopefully make it more safe and privacy focused. 
 
-If you build or modify it yourself, please audit the code before relying on it — all changes are plain GPL-3.0 and open to review.
+If you build or modify it yourself, please audit the code before relying on it, all changes are to GPL-3.0 and open to review.
 
 ---
 
