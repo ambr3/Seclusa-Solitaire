@@ -314,10 +314,13 @@ public class SharedData {
      */
     @SuppressLint("ShowToast")
     public static void showToast(String text, Context context) {
+        // Use application context so the static Toast cannot retain an Activity.
+        Context appContext = context.getApplicationContext();
         if (toast == null) {
-            toast = Toast.makeText(context, text, Toast.LENGTH_LONG);
-        } else
+            toast = Toast.makeText(appContext, text, Toast.LENGTH_LONG);
+        } else {
             toast.setText(text);
+        }
 
         toast.show();
     }

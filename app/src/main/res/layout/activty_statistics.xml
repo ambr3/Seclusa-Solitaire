@@ -25,40 +25,46 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:paddingHorizontal="12dp"
-            android:paddingVertical="8dp">
+            android:paddingBottom="8dp">
 
             <com.astuetz.PagerSlidingTabStrip
                 android:id="@+id/tabs"
-                android:layout_width="0dp"
-                android:layout_height="52dip"
-                android:layout_weight="1" />
+                android:layout_width="match_parent"
+                android:layout_height="48dip" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/item_delete_all"
-            style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/statistics_button_delete"
-            android:textColor="?attr/colorOnErrorContainer"
-            android:textSize="15sp"
-            app:backgroundTint="?attr/colorErrorContainer"
-            app:icon="@android:drawable/ic_menu_delete"
-            app:iconTint="?attr/colorOnErrorContainer" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end|center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="4dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/item_hide_win"
-            style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/statistics_hide_win_percentage"
-            android:textColor="?attr/colorOnPrimaryContainer"
-            android:textSize="15sp"
-            app:backgroundTint="?attr/colorPrimaryContainer" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/item_delete_all"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:text="@string/statistics_button_delete"
+                    android:textColor="?attr/colorOnErrorContainer"
+                    android:textSize="14sp"
+                    app:backgroundTint="?attr/colorErrorContainer"
+                    app:icon="@android:drawable/ic_menu_delete"
+                    app:iconTint="?attr/colorOnErrorContainer" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/item_hide_win"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/statistics_hide_win_percentage"
+                    android:textColor="?attr/colorOnPrimaryContainer"
+                    android:textSize="14sp"
+                    app:backgroundTint="?attr/colorPrimaryContainer" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

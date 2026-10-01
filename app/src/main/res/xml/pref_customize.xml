@@ -10,7 +10,7 @@
     </PreferenceCategory>
 
 
-    <PreferenceCategory android:title="@string/manual_ui">
+    <PreferenceCategory>
         <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
             android:defaultValue="@string/default_theme_color"
             android:entries="@array/pref_theme_color_titles"
@@ -20,7 +20,9 @@
             android:positiveButtonText="@null"
             android:summary="%s"
             android:title="@string/settings_theme_color" />
+    </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/manual_ui">
         <CheckBoxPreference
             android:defaultValue="@bool/default_dynamic_colors"
             android:key="@string/pref_key_dynamic_colors"

@@ -20,6 +20,9 @@ local.properties
 
 # Signing credentials (never commit)
 keystore.properties
+*.jks
+*.keystore
+*password*.txt
 
 # Windows thumbnail db
 Thumbs.db
@@ -37,3 +40,6 @@ Thumbs.db
 .gradle
 build/
 AUDIT.md
+
+# Local release APKs (use GitHub Releases)
+release/

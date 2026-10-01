@@ -40,16 +40,19 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
 
         tableLayout = findViewById(R.id.tableLayoutGameChooser);
 
-        if (!prefs.getSavedStartWithMenu()) {
-            int savedGame = prefs.getSavedCurrentGame();
+        // currentGame is a session guard (cleared when leaving a game). lastPlayedGame
+        // persists so "Start to main menu" off can resume after a clean exit.
+        prefs.saveCurrentGame(DEFAULT_CURRENT_GAME);
 
-            if (savedGame != DEFAULT_CURRENT_GAME) {
+        if (!prefs.getSavedStartWithMenu() && savedInstanceState == null) {
+            int lastPlayed = prefs.getSavedLastPlayedGame();
+
+            if (lastPlayed != DEFAULT_CURRENT_GAME) {
+                prefs.saveCurrentGame(lastPlayed);
                 Intent intent = new Intent(getApplicationContext(), GameManager.class);
-                intent.putExtra(GAME, savedGame);
+                intent.putExtra(GAME, lastPlayed);
                 startActivityForResult(intent, 0);
             }
-        } else {
-            prefs.saveCurrentGame(DEFAULT_CURRENT_GAME);
         }
     }
 
@@ -231,6 +234,7 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
         lastGameStart = now;
 
         prefs.saveCurrentGame(index);
+        prefs.saveLastPlayedGame(index);
         Intent intent = new Intent(getApplicationContext(), GameManager.class);
         intent.putExtra(GAME, index);
         startActivityForResult(intent, 0);

@@ -91,6 +91,7 @@ public class Preferences {
     public static String PREF_KEY_SPIDERETTE_DIFFICULTY_OLD;
     public static String PREF_KEY_LANGUAGE;
     public static String PREF_KEY_CURRENT_GAME;
+    public static String PREF_KEY_LAST_PLAYED_GAME;
     public static String PREF_KEY_ORIENTATION;
     public static String PREF_KEY_MENU_GAMES;
     public static String PREF_KEY_4_COLOR_MODE;
@@ -210,16 +211,18 @@ public class Preferences {
     public static boolean DEFAULT_USE_TRUE_RANDOMISATION;
 
     public Preferences(Context context) {
-        loadStrings(context.getResources());
+        // Hold application context only — Preferences is a long-lived static.
+        Context appContext = context.getApplicationContext();
+        loadStrings(appContext.getResources());
 
-        this.context = context;
-        savedSharedData = PreferenceManager.getDefaultSharedPreferences(context);
-        setGamePreferences(context);
+        this.context = appContext;
+        savedSharedData = PreferenceManager.getDefaultSharedPreferences(appContext);
+        setGamePreferences(appContext);
     }
 
     public void setGamePreferences(Context context) {
-        savedGameData = context.getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
-
+        savedGameData = context.getApplicationContext()
+                .getSharedPreferences(lg.getSharedPrefName(), MODE_PRIVATE);
     }
 
     /**
@@ -323,6 +326,7 @@ public class Preferences {
         PREF_KEY_SPIDERETTE_DIFFICULTY_OLD = PREF_KEY_SPIDERETTE_DIFFICULTY + OLD;
         PREF_KEY_LANGUAGE = res.getString(R.string.pref_key_language);
         PREF_KEY_CURRENT_GAME = res.getString(R.string.pref_key_current_game);
+        PREF_KEY_LAST_PLAYED_GAME = res.getString(R.string.pref_key_last_played_game);
         PREF_KEY_MENU_GAMES = res.getString(R.string.pref_key_menu_games);
         PREF_KEY_HIDE_MENU_BUTTON = res.getString(R.string.pref_key_hide_menu_button);
         PREF_KEY_ORIENTATION = res.getString(R.string.pref_key_orientation);
@@ -1030,6 +1034,14 @@ public class Preferences {
         return savedSharedData.getInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);
     }
 
+    /**
+     * Last game the player opened. Survives returning to the menu so
+     * "Start to main menu" off can resume into that game on next launch.
+     */
+    public int getSavedLastPlayedGame() {
+        return savedSharedData.getInt(PREF_KEY_LAST_PLAYED_GAME, DEFAULT_CURRENT_GAME);
+    }
+
     public int getSavedOrientation() {
         return parseInt(savedSharedData.getString(PREF_KEY_ORIENTATION, DEFAULT_ORIENTATION), parseInt(DEFAULT_ORIENTATION, 1));
     }
@@ -1385,6 +1397,10 @@ public class Preferences {
 
     public void saveCurrentGame(int value) {
         savedSharedData.edit().putInt(PREF_KEY_CURRENT_GAME, value).apply();
+    }
+
+    public void saveLastPlayedGame(int value) {
+        savedSharedData.edit().putInt(PREF_KEY_LAST_PLAYED_GAME, value).apply();
     }
 
     public void saveLocale(String locale) {

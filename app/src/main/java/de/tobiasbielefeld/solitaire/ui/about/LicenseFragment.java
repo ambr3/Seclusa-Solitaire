@@ -19,8 +19,8 @@
 package de.tobiasbielefeld.solitaire.ui.about;
 
 import android.os.Bundle;
+import androidx.core.text.HtmlCompat;
 import androidx.fragment.app.Fragment;
-import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,10 +58,10 @@ public class LicenseFragment extends Fragment {
                 textSlidingTabsLicense, textAndroidSupportLicense, textParisLicenseUsage};
 
         //explicitly set the strings here, otherwise the links in them wouldn't show properly
-        textCardThemesLicenseUsage.setText(Html.fromHtml(getString(R.string.about_card_themes_usage)));
-        textPokerLicenseUsage.setText(Html.fromHtml(getString(R.string.about_poker_themes_usage)));
-        textParisLicenseUsage.setText(Html.fromHtml(getString(R.string.about_paris_themes_usage)));
-        textMaterialIconsUsage2.setText(Html.fromHtml(getString(R.string.about_material_icons_2_usage)));
+        textCardThemesLicenseUsage.setText(HtmlCompat.fromHtml(getString(R.string.about_card_themes_usage), HtmlCompat.FROM_HTML_MODE_LEGACY));
+        textPokerLicenseUsage.setText(HtmlCompat.fromHtml(getString(R.string.about_poker_themes_usage), HtmlCompat.FROM_HTML_MODE_LEGACY));
+        textParisLicenseUsage.setText(HtmlCompat.fromHtml(getString(R.string.about_paris_themes_usage), HtmlCompat.FROM_HTML_MODE_LEGACY));
+        textMaterialIconsUsage2.setText(HtmlCompat.fromHtml(getString(R.string.about_material_icons_2_usage), HtmlCompat.FROM_HTML_MODE_LEGACY));
 
         for (TextView textView : textViews) {
             textView.setMovementMethod(LinkMovementMethod.getInstance());

@@ -167,6 +167,11 @@ public class ManualGames extends Fragment implements View.OnClickListener {
     }
 
     private void loadGameText(String gameName) {
+        // Intent extras / args must be safe resource-name fragments only.
+        if (gameName == null || !gameName.matches("[A-Za-z0-9_]+")) {
+            return;
+        }
+
         try {
             //load everything
             textName.setText((getString(getResources().getIdentifier("games_" + gameName, "string", getActivity().getPackageName()))));

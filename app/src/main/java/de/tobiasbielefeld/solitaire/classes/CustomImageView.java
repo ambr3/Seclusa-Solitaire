@@ -109,6 +109,14 @@ public class CustomImageView extends androidx.appcompat.widget.AppCompatImageVie
     public void stopAnim() {
         animating = false;
         clearAnimation();
+
+        // Snap to the pending destination so cards aren't left mid-flight when
+        // animations are interrupted (load / redeal / activity destroy).
+        if (moveAtEnd) {
+            moveAtEnd = false;
+            setX(destX);
+            setY(destY);
+        }
     }
 
     public boolean isAnimating() {

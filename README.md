@@ -55,13 +55,16 @@ If you build or modify it yourself, please audit the code before relying on it, 
 
 Your data is your business
 
-- **Zero permissions** — no internet, location, or storage
-- **No network** — the app can't send your data anywhere
+- **Zero permissions** — no `<uses-permission>` entries (no internet, location, or storage)
+- **No network** — the app process cannot phone home; it declares no `INTERNET` permission
 - **Zero tracking** — no analytics, no ads, no third-party trackers
-- **Stays on device** — game state and scores live in app-private storage
+- **Stays on device** — game state and scores live in app-private storage; Android backup and device-to-device transfer of app data are disabled
+- **About links only on tap** — attribution/license links in About open the system browser when you choose to tap them; nothing is fetched on launch
 - **Open source** — GPL-3.0, read every line
 
 ## Installation
+
+### Android APK
 
 Download the signed APK from the [Releases page](https://github.com/ambr3/Seclusa-Solitaire/releases) and install it on your device.
 
@@ -98,10 +101,12 @@ Each release APK is also analyzed with [MobSF](https://github.com/MobSF/Mobile-S
 
 - Forked as *Seclusa Solitaire* under its own app ID (`com.ambr3.seclusasolitaire`)
 - Zero permissions — no internet, location, or storage access
-- Disabled Google's automatic app-data backup
+- Disabled Google's automatic app-data backup and device-to-device data extraction
+- Non-launcher activities are explicitly non-exported; cleartext traffic disabled
 - Replaced the card-shuffle RNG with `SecureRandom`
 - Removed developer/cheat options (instant win, play every card, etc.) from release builds
 - Hardened preference loading so corrupted stored values fall back safely instead of crashing
+- Release builds minify/shrink with ProGuard and strip `Log` calls
 
 ### Platform & build
 

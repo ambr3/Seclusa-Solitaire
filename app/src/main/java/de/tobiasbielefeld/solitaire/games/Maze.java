@@ -27,7 +27,7 @@ public class Maze extends Game {
         setNumberOfStacks(ROWS * COLS);
         setDealFromID(0);
         setLastTableauID(ROWS * COLS - 1);
-        setDiscardStackIDs(ROWS * COLS);
+        // No discard stack — kings leave play via removeFromGame(), not a discard pile.
     }
 
     @Override

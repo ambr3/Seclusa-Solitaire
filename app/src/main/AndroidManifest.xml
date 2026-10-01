@@ -6,23 +6,33 @@
     <application
         android:name=".MainApplication"
         android:allowBackup="false"
+        android:fullBackupContent="@xml/backup_rules"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:usesCleartextTraffic="false"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppThemeNoActionBar">
+        android:theme="@style/AppThemeNoActionBar"
+        tools:targetApi="31">
         <activity
             android:name=".ui.about.AboutActivity"
+            android:exported="false"
             android:label="@string/title_activity_about"
             android:theme="@style/AppThemeDialog" />
         <activity
             android:name=".ui.statistics.StatisticsActivity"
+            android:exported="false"
             android:label="@string/title_activity_statistics"
             android:theme="@style/AppThemeDialog" />
         <activity
             android:name=".ui.settings.Settings"
+            android:exported="false"
             android:label="@string/title_activity_settings"
             android:theme="@style/AppThemeSettingsDialog" />
 
-        <activity android:name=".ui.GameManager" />
+        <activity
+            android:name=".ui.GameManager"
+            android:exported="false" />
         <activity
             android:name=".ui.manual.Manual"
             android:configChanges="keyboardHidden|orientation|screenSize"

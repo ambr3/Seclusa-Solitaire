@@ -623,13 +623,26 @@ public class Stack {
                         view.getX() + view.getWidth(),
                         view.getY() + view.getHeight());
             case LEFT:
-                return new RectF(getTopCard().getX(), view.getY(),
-                        view.getX() + view.getWidth(),
-                        view.getY() + view.getHeight());
+                // Mirror isOnLocation(): left-handed mode fans the opposite way.
+                if (leftHandedModeEnabled()) {
+                    return new RectF(view.getX(), view.getY(),
+                            getTopCard().getX() + view.getWidth(),
+                            view.getY() + view.getHeight());
+                } else {
+                    return new RectF(getTopCard().getX(), view.getY(),
+                            view.getX() + view.getWidth(),
+                            view.getY() + view.getHeight());
+                }
             case RIGHT:
-                return new RectF(view.getX(), view.getY(),
-                        getTopCard().getX() + view.getWidth(),
-                        view.getY() + view.getHeight());
+                if (leftHandedModeEnabled()) {
+                    return new RectF(getTopCard().getX(), view.getY(),
+                            view.getX() + view.getWidth(),
+                            view.getY() + view.getHeight());
+                } else {
+                    return new RectF(view.getX(), view.getY(),
+                            getTopCard().getX() + view.getWidth(),
+                            view.getY() + view.getHeight());
+                }
         }
     }
 

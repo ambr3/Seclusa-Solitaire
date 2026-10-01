@@ -776,9 +776,14 @@ public abstract class Game {
         Card cardToMove = null;
         int sequenceLength = 0;
         Stack emptyStack = null;
+        int lastTableau = getLastTableauId();
 
-        //find an empty stack to move to.
-        for (int i = 0; i < 10; i++) {
+        if (lastTableau < 0) {
+            return null;
+        }
+
+        // Only consider tableau stacks — never foundations/main/discard.
+        for (int i = 0; i <= lastTableau; i++) {
             if (stacks[i].isEmpty()) {
                 emptyStack = stacks[i];
             }
@@ -788,10 +793,10 @@ public abstract class Game {
             return null;
         }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i <= lastTableau; i++) {
             Stack sourceStack = stacks[i];
 
-            if (sourceStack.isEmpty() || foundationStacksContain(i)) {
+            if (sourceStack.isEmpty()) {
                 continue;
             }
 
@@ -1016,12 +1021,16 @@ public abstract class Game {
 
     public void incrementRecycleCounter() {
         recycleCounter++;
-        recycleCounterCallback.updateTextView();
+        if (recycleCounterCallback != null) {
+            recycleCounterCallback.updateTextView();
+        }
     }
 
     public void decrementRecycleCounter() {
         recycleCounter--;
-        recycleCounterCallback.updateTextView();
+        if (recycleCounterCallback != null) {
+            recycleCounterCallback.updateTextView();
+        }
     }
 
     public void saveRecycleCount() {
@@ -1030,7 +1039,9 @@ public abstract class Game {
 
     public void loadRecycleCount() {
         recycleCounter = prefs.getSavedRecycleCounter(totalRecycles);
-        recycleCounterCallback.updateTextView();
+        if (recycleCounterCallback != null) {
+            recycleCounterCallback.updateTextView();
+        }
     }
 
     public boolean hasArrow() {

@@ -285,8 +285,12 @@ public class GameLogic {
      */
     public void testIfWon() {
         if (!won && !autoComplete.isRunning() && currentGame.winTest()) {
+            // Keep won/played counts aligned — only count a win when the game
+            // also counted as played (player moved at least one card).
             incrementPlayedGames();
-            incrementNumberWonGames();
+            if (movedFirstCard) {
+                incrementNumberWonGames();
+            }
             scores.updateBonus();
             scores.addNewScore(movedFirstCard);
             recordList.reset();

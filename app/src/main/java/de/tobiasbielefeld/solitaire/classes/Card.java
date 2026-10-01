@@ -196,6 +196,7 @@ public class Card {
 
         if (isInvisible) {
             setLocationWithoutMovement(pX, pY);
+            return;
         }
 
         if (!stopUiUpdates) {

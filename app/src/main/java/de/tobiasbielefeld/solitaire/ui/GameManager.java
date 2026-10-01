@@ -151,8 +151,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         if (savedInstanceState != null && savedInstanceState.containsKey(GAME)) {
             currentGame = lg.loadClass(gm, savedInstanceState.getInt(GAME));
+            prefs.saveLastPlayedGame(savedInstanceState.getInt(GAME));
         } else {
-            currentGame = lg.loadClass(gm, getIntent().getIntExtra(GAME, -1));
+            int gameIndex = getIntent().getIntExtra(GAME, -1);
+            currentGame = lg.loadClass(gm, gameIndex);
+            if (gameIndex != DEFAULT_CURRENT_GAME) {
+                prefs.saveLastPlayedGame(gameIndex);
+            }
         }
 
         /*

@@ -44,7 +44,8 @@
             android:paddingRight="12dp"
             android:paddingBottom="6dp"
             android:text="@string/title_activity_about"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_settings"
@@ -59,7 +60,8 @@
             android:paddingRight="12dp"
             android:paddingBottom="6dp"
             android:text="@string/settings"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_manual"
@@ -74,7 +76,8 @@
             android:paddingRight="12dp"
             android:paddingBottom="6dp"
             android:text="@string/title_activity_manual"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

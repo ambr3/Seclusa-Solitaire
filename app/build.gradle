@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystorePropertiesFile = new File("${System.getenv('HOME') ?: System.properties['user.home']}/dev/keystores/solitaire/keystore.properties")
 def keystoreProperties = new Properties()
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
@@ -27,8 +27,8 @@ android {
         applicationId "com.ambr3.seclusasolitaire"
         minSdk 29
         targetSdk 37
-        versionCode 431
-        versionName "4.3.1"
+        versionCode 432
+        versionName "4.3.2"
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
     }
@@ -39,6 +39,7 @@ android {
 
     buildTypes {
         release {
+            debuggable false
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
