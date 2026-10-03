@@ -43,3 +43,6 @@ AUDIT.md
 
 # Local release APKs (use GitHub Releases)
 release/
+
+# Local emulator AVD created for agent testing
+.avd/
