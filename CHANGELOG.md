@@ -4,6 +4,9 @@ All notable changes to **Seclusa Solitaire**.
 
 ## Unreleased
 
+### Added
+- F-Droid install section + badge linking to the Seclusa F-Droid repo
+
 ### Changed
 - Settings boolean options use Material Switch slides instead of checkboxes
 - Version **4.3.2** — audit hardening (backup/export/cleartext), JitPack for ambilwarna

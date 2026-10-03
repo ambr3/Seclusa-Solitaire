@@ -64,6 +64,28 @@ Your data is your business
 
 ## Installation
 
+### F-Droid (recommended)
+
+Install via the [Seclusa F-Droid](https://ambr3.github.io/seclusa-fdroid/) repository (GitHub Pages). Same signed APKs as GitHub Releases; F-Droid only checks for updates.
+
+1. Install the [F-Droid client](https://f-droid.org/).
+2. Open **Settings → Repositories → +**.
+3. Add this repository URL (fingerprint included):
+
+```
+https://ambr3.github.io/seclusa-fdroid/fdroid/repo?fingerprint=2462DF4F9948237CB60596149114523606EDA87C9BB72DB14CF3852ED4B4D33B
+```
+
+4. Search for **Seclusa Solitaire** and install.
+
+<p align="center">
+  <a href="https://ambr3.github.io/seclusa-fdroid/fdroid/repo?fingerprint=2462DF4F9948237CB60596149114523606EDA87C9BB72DB14CF3852ED4B4D33B">
+    <img src="fdroid-badge.png" alt="Get it on F-Droid" width="200">
+  </a>
+</p>
+
+Repo home: https://ambr3.github.io/seclusa-fdroid/ · Source: https://github.com/ambr3/seclusa-fdroid
+
 ### Android APK
 
 Download the signed APK from the [Releases page](https://github.com/ambr3/Seclusa-Solitaire/releases) and install it on your device.
