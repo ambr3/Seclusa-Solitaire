@@ -22,7 +22,7 @@ import android.content.SharedPreferences;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -56,7 +56,7 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 public class DialogPreferenceOnlyForThisGame extends CustomDialogPreference {
 
     private Context context;
-    private CheckBox widget;
+    private CompoundButton widget;
 
 
     public DialogPreferenceOnlyForThisGame(Context context, AttributeSet attrs) {
