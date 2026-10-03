@@ -82,7 +82,9 @@ To verify an APK is signed by this project, check its signing certificate agains
 ee9572ee718afb5df1883d9ad27d1c0ced367ab54e3fb04a08aabc80ee05b766
 ```
 
-Each release APK is also analyzed with [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF). The latest report is stored in the repository: [`security/mobsf-4.3.2.pdf`](security/mobsf-4.3.2.pdf) (85/100, grade A).
+Each release APK is also analyzed with [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF). The latest report is stored in the repository: [`security/mobsf-4.3.2.pdf`](security/mobsf-4.3.2.pdf) — **85/100, grade A**.
+
+MobSF may flag an “insecure random number generator” and leftover log calls in the release APK. Those are **false positives** after ProGuard minify: card shuffling uses `java.security.SecureRandom`, and release builds strip `android.util.Log` via `-assumenosideeffects`. Domain strings in the report come from About attribution links (opened only if you tap them); the app has no `INTERNET` permission and cannot phone home.
 
 ---
 
