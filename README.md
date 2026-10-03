@@ -82,7 +82,7 @@ To verify an APK is signed by this project, check its signing certificate agains
 ee9572ee718afb5df1883d9ad27d1c0ced367ab54e3fb04a08aabc80ee05b766
 ```
 
-Each release APK is also analyzed with [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF). The latest report is stored in the repository: [`security/mobsf-4.3.1.pdf`](security/mobsf-4.3.1.pdf).
+Each release APK is also analyzed with [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF). The latest report is stored in the repository: [`security/mobsf-4.3.2.pdf`](security/mobsf-4.3.2.pdf) (85/100, grade A).
 
 ---
 
@@ -132,7 +132,7 @@ Each release APK is also analyzed with [MobSF](https://github.com/MobSF/Mobile-S
 
 Seclusa Solitaire ships without **any** gambling/gaming aspects. The Vegas variant (a Klondike scoring mode) tracked a simulated bet amount, win amount and a "balance" in app settings. Even though that money was purely fictional — a local number, never real currency, never connected to anything — betting mechanics have no place in this collection. The game and every trace of its betting/scoring settings were removed for good.
 
-Current version: **v4.3.1** (versionCode 431)
+Current version: **v4.3.2** (versionCode 432)
 
 ---
 
