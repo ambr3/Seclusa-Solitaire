@@ -399,6 +399,10 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         activityPaused = false;
 
+        // Re-apply in case Settings changed colour while this activity stayed alive.
+        loadBackgroundColor();
+        setUiElementsColor();
+
         timer.load();
         autoComplete.resume();
         hint.resume();
@@ -782,60 +786,76 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public void updateMenuBar() {
         boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
 
-        //params for the menu bar
-        RelativeLayout.LayoutParams params1;
-
-        //params for the gameLayout
+        RelativeLayout.LayoutParams params1; // menu bar
+        RelativeLayout.LayoutParams paramsChrome; // score/time bar
         RelativeLayout.LayoutParams params2 = new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         applyGameLayoutMargins(params2, isLandscape);
-
-        //params for the game overlay
         RelativeLayout.LayoutParams params3 = new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
 
         LinearLayout menu = findViewById(R.id.linearLayoutMenuBar);
+        RelativeLayout chromeBar = findViewById(R.id.bottomChromeBar);
         RelativeLayout gameWindow = findViewById(R.id.mainRelativeLayoutGame);
         RelativeLayout gameOverlayLower = findViewById(R.id.mainRelativeLayoutGameOverlayLower);
         RelativeLayout gameOverlayUpper = findViewById(R.id.mainRelativeLayoutGameOverlay);
 
         int barMargin = (int) (16 * getResources().getDisplayMetrics().density);
+        int chromeH = (int) getResources().getDimension(R.dimen.game_bottom_chrome_height);
+
+        paramsChrome = new RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, chromeH);
 
         if (isLandscape) {
-            params1 = new RelativeLayout.LayoutParams((int) getResources().getDimension(R.dimen.menuBarWidht), ViewGroup.LayoutParams.MATCH_PARENT);
+            params1 = new RelativeLayout.LayoutParams(
+                    (int) getResources().getDimension(R.dimen.menuBarWidht),
+                    ViewGroup.LayoutParams.MATCH_PARENT);
 
             if (prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
                 params1.setMargins(0, barMargin, barMargin, barMargin);
+                paramsChrome.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+                paramsChrome.addRule(RelativeLayout.LEFT_OF, R.id.linearLayoutMenuBar);
                 params2.addRule(RelativeLayout.LEFT_OF, R.id.linearLayoutMenuBar);
                 params3.addRule(RelativeLayout.LEFT_OF, R.id.linearLayoutMenuBar);
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
                 params1.setMargins(barMargin, barMargin, 0, barMargin);
+                paramsChrome.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+                paramsChrome.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayoutMenuBar);
                 params2.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayoutMenuBar);
                 params3.addRule(RelativeLayout.RIGHT_OF, R.id.linearLayoutMenuBar);
             }
+            params2.addRule(RelativeLayout.ABOVE, R.id.bottomChromeBar);
+            params3.addRule(RelativeLayout.ABOVE, R.id.bottomChromeBar);
         } else {
-            params1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) getResources().getDimension(R.dimen.menuBarHeight));
+            params1 = new RelativeLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    (int) getResources().getDimension(R.dimen.menuBarHeight));
 
             if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
                 params1.setMargins(barMargin, 0, barMargin, barMargin);
-                params2.addRule(RelativeLayout.ABOVE, R.id.linearLayoutMenuBar);
-                params3.addRule(RelativeLayout.ABOVE, R.id.linearLayoutMenuBar);
-
+                paramsChrome.addRule(RelativeLayout.ABOVE, R.id.linearLayoutMenuBar);
+                params2.addRule(RelativeLayout.ABOVE, R.id.bottomChromeBar);
+                params3.addRule(RelativeLayout.ABOVE, R.id.bottomChromeBar);
             } else {
                 params1.addRule(RelativeLayout.ALIGN_PARENT_TOP);
                 params1.setMargins(barMargin, barMargin, barMargin, 0);
+                paramsChrome.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
                 params2.addRule(RelativeLayout.BELOW, R.id.linearLayoutMenuBar);
+                params2.addRule(RelativeLayout.ABOVE, R.id.bottomChromeBar);
                 params3.addRule(RelativeLayout.BELOW, R.id.linearLayoutMenuBar);
+                params3.addRule(RelativeLayout.ABOVE, R.id.bottomChromeBar);
             }
         }
 
-
         menu.setLayoutParams(params1);
+        if (chromeBar != null) {
+            chromeBar.setLayoutParams(paramsChrome);
+        }
         gameWindow.setLayoutParams(params2);
         gameOverlayLower.setLayoutParams(params2);
         gameOverlayUpper.setLayoutParams(params3);

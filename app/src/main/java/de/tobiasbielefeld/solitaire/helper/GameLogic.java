@@ -324,21 +324,37 @@ public class GameLogic {
             if (prefs.getSavedUseTrueRandomisation()) {
                 index = random.nextInt(i + 1);
             } else {
-                //choose a new card as long the chosen card is too similar to the previous card in the array
-                //(same value or color) also limit the loop to max 10 iterations to avoid infinite loops
+                // Avoid adjacent same value/color (clumps broken further in breakColorClumps).
                 counter = 0;
 
                 do {
                     index = random.nextInt(i + 1);
                     counter++;
                 }
-                while ((array[index].getValue() == array[i + 1].getValue() || array[index].getColor() == array[i + 1].getColor()) && counter < 10);
+                while ((array[index].getValue() == array[i + 1].getValue()
+                        || array[index].getColor() == array[i + 1].getColor()) && counter < 20);
             }
 
             dummy = array[i];
             array[i] = array[index];
             array[index] = dummy;
         }
+
+        if (!prefs.getSavedUseTrueRandomisation()) {
+            breakColorClumps(array);
+        }
+    }
+
+    /**
+     * Breaks runs of 4+ same colour in the shuffled deal so tableau openings
+     * are less likely to be all-red or all-black blocks.
+     */
+    private void breakColorClumps(Card[] array) {
+        DeckShuffle.breakColorClumps(array.length, i -> array[i].getColor(), (a, b) -> {
+            Card tmp = array[a];
+            array[a] = array[b];
+            array[b] = tmp;
+        });
     }
 
     /**

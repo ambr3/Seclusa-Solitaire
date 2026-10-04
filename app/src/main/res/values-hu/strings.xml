@@ -91,8 +91,6 @@
 <string name="about_poker_themes_usage">"A póker téma használja - Megtalálható a &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net -en.&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
 <string name="about_custom_color_picker_usage">"Az egyéni színkiválasztóhoz lett használva."</string>
-<string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
-<string name="about_sliding_tabs_usage">"\"A játékról\" képernyőn lévő fülekhez lett használva."</string>
 
 <!-- Manual -->
 <string name="manual_games">"Játékok"</string>
@@ -336,9 +334,6 @@ Helyezze vissza a kártyákat a dobásveremből a főverembe: -200"</string>
 Egyszerre több kártyát is mozgathat amelyek helyes sorrendben vannak, ha vannak üres táblavermek. Ez megfelel annak a szabálynak hogy egyszerre csak egy kártyát lehet áthelyezni, de ha üres táblavermek vannak akkor a kártyák ezeken keresztül egyszerre mozgathatók."</string>
 <string name="manual_GrandfathersClock_scoring">"A táblavermekből az alapvermekre: +50"</string>
 
-
-
-
 <string name="manual_Calculation_structure">"1 db 52 lapos kártyacsomag.
 
 4 táblaverem, 4 alapverem, 1 fő és 1 dobásverem."</string>
@@ -436,10 +431,6 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="settings_calculation_alternative_title">"Tartsa a kártyákat"</string>
 <string name="settings_calculation_alternative_text">"A főverem megnyomásánál: Ahelyett, hogy a dobásveremről a kártyát a táblavermekre helyezné, tartsa a dobásvermen."</string>
 
-
-
-
-
 <string name="settings_auto_move_title">"Automatikus mozgatás"</string>
 <string name="settings_mod3_auto_move_text">"Automatikusan az ászveremre mozgatja az ászokat, ha lehetséges."</string>
 <string name="settings_pyramid_auto_move_text">"Automatikusan a hulladékveremre mozgatja a királyokat, ha lehetséges."</string>
@@ -449,8 +440,6 @@ A táblavermekből csak a felső lapokat lehet mozgatni és csak az alapvermekbe
 <string name="settings_hide_time">"Elrejti az időt"</string>
 <string name="settings_hide_score">"Elrejti a pontszámot"</string>
 <string name="settings_single_tap_enable">"Engedélyezi az egyérintéses mozgásokat"</string>
-
-
 
 <string name="settings_single_tap_all_games_text">"Nyomja meg egyszer a kártyát, hogy áthelyezze a lehetséges veremre. Ugyanaz mint a kettős érintési módú mozgatások. Ez kikapcsolja a kiválasztás érintéssel mozgatásokat."</string>
 <string name="settings_canfield_size_of_reserve_title">"A tartalékverem mérete (könnyítés)"</string>

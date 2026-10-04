@@ -46,3 +46,6 @@ release/
 
 # Local emulator AVD created for agent testing
 .avd/
+
+# Local emulator screenshots
+screen-*.png

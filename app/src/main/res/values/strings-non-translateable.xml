@@ -3,6 +3,7 @@
 <resources>
 
     <string name="app_name" translatable="false">Seclusa Solitaire</string>
+    <string name="app_name_menu" translatable="false">Seclusa\nSolitaire</string>
 
 
     <!-- Preference Keys -->
@@ -48,6 +49,7 @@
     <string name="pref_key_background_color_custom" translatable="false">pref_key_background_color_custom</string>
     <string name="pref_key_movement_speed" translatable="false">pref_key_movement_speed</string>
     <string name="pref_key_sound_enabled" translatable="false">pref_key_sound_enabled</string>
+    <string name="pref_key_sound_win_enabled" translatable="false">pref_key_sound_win_enabled</string>
     <string name="pref_key_pyramid_limit_recycles" translatable="false">pref_key_pyramid_limit_recycles</string>
     <string name="pref_key_fortyeight_limit_recycles" translatable="false">pref_key_fortyeight_limit_recycles</string>
     <string name="pref_key_pyramid_number_of_recycles" translatable="false">pref_key_pyramid_number_of_recycles</string>
@@ -82,7 +84,7 @@
     <string name="pref_cat_key_only_for_this_game" translatable="false">pref_cat_key_only_for_this_game</string>
     <string name="pref_key_text_color" translatable="false">pref_key_text_color</string>
     <string name="pref_key_theme_color" translatable="false">pref_key_theme_color</string>
-    <string name="default_theme_color" translatable="false">blue</string>
+    <string name="default_theme_color" translatable="false">green</string>
     <string name="pref_key_dynamic_colors" translatable="false">pref_key_dynamic_colors</string>
     <string name="pref_key_statistics_hide_win_percentage" translatable="false">pref_key_statistics_hide_win_percentage</string>
 
@@ -100,9 +102,6 @@
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
-    <string name="app_market_URL" translatable="false">market://details?id=com.ambr3.seclusasolitaire</string>
-    <string name="app_web_URL" translatable="false">https://play.google.com/store/apps/details?id=com.ambr3.seclusasolitaire</string>
-    <string name="github_issues_URL" translatable="false">https://github.com/ambr3/Seclusa-Solitaire/issues</string>
     <string name="about_app_github_link" translatable="false"><a href="https://github.com/ambr3/Seclusa-Solitaire">GitHub</a></string>
     <string name="about_app_license_link" translatable="false"><a href="https://www.gnu.org/licenses/gpl.html">GPL 3.0+</a></string>
 
@@ -167,7 +166,6 @@
     <string name="about_paris_themes_license" translatable="false"><a href="https://www.gnu.org/licenses/lgpl-2.1.html">LGPL 2.1</a></string>
     <string name="about_poker_themes_license" translatable="false"><a href="https://www.gnu.org/licenses/lgpl-3.0.en.html">LGPL 3</a></string>
     <string name="about_custom_color_picker_license" translatable="false"><a href="https://github.com/yukuku/ambilwarna/blob/master/LICENSE">Apache 2.0</a></string>
-    <string name="about_sliding_tabs_license" translatable="false"><a href="https://github.com/astuetz/PagerSlidingTabStrip#license">Apache 2.0</a></string>
     <string name="about_material_icons_SIL" translatable="false"><a href="https://open.sil.org/licenses/ofl">SIL OFL 1.1</a></string>
     <string name="about_android_support_libraries_license" translatable="false"><a href="https://github.com/android/platform_frameworks_support/blob/master/LICENSE.txt">Apache 2.0</a></string>
 

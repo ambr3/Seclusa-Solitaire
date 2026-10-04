@@ -22,6 +22,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -32,7 +33,12 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.WrapperListAdapter;
 
 import androidx.annotation.LayoutRes;
 import androidx.appcompat.widget.Toolbar;
@@ -101,14 +107,23 @@ public class Settings extends AppCompatPreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        reinitializeData(getApplicationContext());
+        // After super: theme is applied, so bitmap label colours resolve correctly.
         super.onCreate(savedInstanceState);
+        reinitializeData(this);
 
         ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);     //remove huge padding in landscape
 
-        View headersList = findViewById(android.R.id.list);
+        ListView headersList = getListView();
         if (headersList != null) {
-            headersList.setBackgroundResource(R.drawable.preference_card_single);
+            // Each settings section is its own pill (not one fused card).
+            float density = getResources().getDisplayMetrics().density;
+            int pad = (int) (10 * density);
+            headersList.setBackgroundColor(Color.TRANSPARENT);
+            headersList.setDivider(new ColorDrawable(Color.TRANSPARENT));
+            headersList.setDividerHeight((int) (16 * density));
+            headersList.setPadding(pad, (int) (10 * density), pad, pad);
+            headersList.setClipToPadding(false);
+            headersList.setSelector(android.R.color.transparent);
         }
 
         prefs.setCriticalSettings();
@@ -160,6 +175,150 @@ public class Settings extends AppCompatPreferenceActivity {
     @Override
     public void onBuildHeaders(List<Header> target) {
         loadHeadersFromResource(R.xml.pref_headers, target);
+    }
+
+    @Override
+    public void setListAdapter(ListAdapter adapter) {
+        if (adapter == null) {
+            super.setListAdapter(null);
+            return;
+        }
+        super.setListAdapter(new HeaderPillAdapter(adapter));
+    }
+
+    /**
+     * Wraps preference-header rows so each Settings section shows as a separate pill card.
+     */
+    private class HeaderPillAdapter implements WrapperListAdapter {
+        private final ListAdapter wrapped;
+
+        HeaderPillAdapter(ListAdapter wrapped) {
+            this.wrapped = wrapped;
+        }
+
+        @Override
+        public ListAdapter getWrappedAdapter() {
+            return wrapped;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            float density = getResources().getDisplayMetrics().density;
+            int gap = (int) (8 * density);
+            int pad = (int) (16 * density);
+
+            FrameLayout wrap;
+            View inner;
+            if (convertView instanceof FrameLayout && "header_pill".equals(convertView.getTag())) {
+                wrap = (FrameLayout) convertView;
+                View old = wrap.getChildCount() > 0 ? wrap.getChildAt(0) : null;
+                inner = wrapped.getView(position, old, wrap);
+                if (inner.getParent() != wrap) {
+                    wrap.removeAllViews();
+                    wrap.addView(inner, new FrameLayout.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT));
+                }
+            } else {
+                wrap = new FrameLayout(parent.getContext());
+                wrap.setTag("header_pill");
+                wrap.setPadding(0, gap, 0, gap);
+                inner = wrapped.getView(position, null, wrap);
+                wrap.addView(inner, new FrameLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT));
+            }
+
+            ListView headers = getListView();
+            boolean activated = headers != null && headers.getCheckedItemPosition() == position;
+            // Selected header (tablet multipane): primary fill + on-primary text so labels stay readable.
+            inner.setActivated(activated);
+            if (activated) {
+                inner.setBackgroundResource(R.drawable.settings_header_activated);
+            } else {
+                inner.setBackgroundResource(R.drawable.preference_card_single);
+            }
+            inner.setPadding(pad, pad, pad, pad);
+            // Idle: primary accent on light face. Selected: on-primary over primary fill.
+            int titleColor = activated
+                    ? resolveThemeColor(R.attr.colorOnPrimary, Color.WHITE)
+                    : resolveThemeColor(R.attr.colorPrimary, Color.BLACK);
+            int summaryColor = activated
+                    ? Color.argb(220, Color.red(titleColor), Color.green(titleColor), Color.blue(titleColor))
+                    : resolveThemeColor(R.attr.colorOnSurfaceVariant, Color.GRAY);
+            TextView title = inner.findViewById(android.R.id.title);
+            TextView summary = inner.findViewById(android.R.id.summary);
+            if (title != null) {
+                title.setTextColor(titleColor);
+            }
+            if (summary != null) {
+                summary.setTextColor(summaryColor);
+            }
+            return wrap;
+        }
+
+        private int resolveThemeColor(int attr, int fallback) {
+            TypedValue value = new TypedValue();
+            if (getTheme().resolveAttribute(attr, value, true)) {
+                return value.data;
+            }
+            return fallback;
+        }
+
+        @Override
+        public boolean areAllItemsEnabled() {
+            return wrapped.areAllItemsEnabled();
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            return wrapped.isEnabled(position);
+        }
+
+        @Override
+        public void registerDataSetObserver(android.database.DataSetObserver observer) {
+            wrapped.registerDataSetObserver(observer);
+        }
+
+        @Override
+        public void unregisterDataSetObserver(android.database.DataSetObserver observer) {
+            wrapped.unregisterDataSetObserver(observer);
+        }
+
+        @Override
+        public int getCount() {
+            return wrapped.getCount();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return wrapped.getItem(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return wrapped.getItemId(position);
+        }
+
+        @Override
+        public boolean hasStableIds() {
+            return wrapped.hasStableIds();
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return wrapped.getItemViewType(position);
+        }
+
+        @Override
+        public int getViewTypeCount() {
+            return wrapped.getViewTypeCount();
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return wrapped.isEmpty();
+        }
     }
 
     /*
@@ -237,6 +396,8 @@ public class Settings extends AppCompatPreferenceActivity {
             bitmaps.resetMenuPreviews();
             restartApplication();
         } else if (key.equals(PREF_KEY_THEME_COLOR) || key.equals(PREF_KEY_DYNAMIC_COLORS)) {
+            bitmaps.setResources(this);
+            bitmaps.resetMenuPreviews();
             restartApplication();
         } else if (key.equals(PREF_KEY_MENU_BAR_POS_LANDSCAPE) || key.equals(PREF_KEY_MENU_BAR_POS_PORTRAIT)) {
             updatePreferenceMenuBarPositionSummary();

@@ -91,8 +91,6 @@
 <string name="about_poker_themes_usage">"用于扑克牌的主题 - 可用于 &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - 版权所有 2015 - 克里斯 · 阿格莱 - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna 库"</string>
 <string name="about_custom_color_picker_usage">"使用于自定义色彩选取器"</string>
-<string name="about_sliding_tabs_title">"PagerSlidingTabStrip 库"</string>
-<string name="about_sliding_tabs_usage">"使用于 “关于游戏” 屏幕的条目"</string>
 
 <!-- Manual -->
 <string name="manual_games">"游戏"</string>
@@ -113,7 +111,6 @@
 <string name="manual_startpage_text">"欢迎来到此游戏组合的手册！我希望这会解释所有的一切
 
 使用左侧栏菜单来查看其他手册页面。"</string>
-
 
 <!-- Settings -->
 <string name="settings_background_color">"背景色"</string>
@@ -169,7 +166,6 @@
 <string name="settings_force_tablet_layout_title">"强制平板布局"</string>
 <string name="settings_force_tablet_layout_text">"以大屏幕样式显示 （7英寸以上）"</string>
 <string name="settings_calculation_alternative_title">"保留卡牌"</string>
-
 
 <string name="settings_auto_move_title">"自动移动"</string>
 <string name="settings_rules">"规则"</string>

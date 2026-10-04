@@ -29,10 +29,15 @@
             android:paddingHorizontal="12dp"
             android:paddingBottom="8dp">
 
-            <com.astuetz.PagerSlidingTabStrip
+            <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="48dip" />
+                android:layout_height="48dp"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="?attr/colorPrimary"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="?attr/colorPrimary"
+                app:tabTextColor="?attr/colorOnSurface" />
 
             <LinearLayout
                 android:layout_width="match_parent"

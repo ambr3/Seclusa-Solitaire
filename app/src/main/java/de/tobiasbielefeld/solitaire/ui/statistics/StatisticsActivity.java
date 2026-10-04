@@ -19,15 +19,13 @@
 package de.tobiasbielefeld.solitaire.ui.statistics;
 
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.MenuItem;
-import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.DialogFragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.astuetz.PagerSlidingTabStrip;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.tabs.TabLayout;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
@@ -58,16 +56,6 @@ public class StatisticsActivity extends CustomAppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(v -> finish());
 
-        PagerSlidingTabStrip tabs = findViewById(R.id.tabs);
-        tabs.setAllCaps(false);
-        tabs.setShouldExpand(true);
-        tabs.setIndicatorColor(resolveThemeColor(R.attr.colorPrimary));
-        tabs.setUnderlineColor(resolveThemeColor(R.attr.colorSurfaceVariant));
-        tabs.setDividerColor(0x00000000);
-        tabs.setTextColor(resolveThemeColor(R.attr.colorOnSurface));
-        tabs.setTextSize((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 18,
-                getResources().getDisplayMetrics()));
-
         MaterialButton deleteAllButton = findViewById(R.id.item_delete_all);
         deleteAllButton.setOnClickListener(v -> {
             DialogFragment deleteDialog = new DialogHighScoreDelete();
@@ -86,21 +74,12 @@ public class StatisticsActivity extends CustomAppCompatActivity {
         });
         updateHideWinButtonState(hideWinButton);
 
+        TabLayout tabs = findViewById(R.id.tabs);
         ViewPager pager = findViewById(R.id.pager);
         TabsPagerAdapter adapter = new TabsPagerAdapter(getSupportFragmentManager(), this);
 
         pager.setAdapter(adapter);
-        tabs.setViewPager(pager);
-    }
-
-    /**
-     * Resolves a theme attribute (such as an M3 color role) to its actual color value.
-     */
-    private int resolveThemeColor(int attributeId) {
-        TypedValue typedValue = new TypedValue();
-
-        getTheme().resolveAttribute(attributeId, typedValue, true);
-        return typedValue.data;
+        tabs.setupWithViewPager(pager);
     }
 
     /**

@@ -546,7 +546,8 @@ public class Stack {
             default:
                 break;
             case DOWN:
-                spacingMax = (float) (layoutGame.getHeight() - Card.height); // - menuResize.getHeight());
+                // Keep the full face of the bottom card inside the playfield (above Score/Time).
+                spacingMax = (float) (layoutGame.getHeight() - Card.height);
                 break;
             case UP:
                 spacingMax = 0;

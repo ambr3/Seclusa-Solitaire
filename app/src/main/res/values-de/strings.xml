@@ -91,8 +91,6 @@
 <string name="about_poker_themes_usage">"Wird als Poker Thema benutzt - Verfügbar auf &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna Bibliothek"</string>
 <string name="about_custom_color_picker_usage">"Wird für die benutzerdefinierte Farbauswahl benutzt"</string>
-<string name="about_sliding_tabs_title">"PagerSlidingTabStrip Bibliothek"</string>
-<string name="about_sliding_tabs_usage">"Wird für die Tabs im \"Über das Spiel\" Bildschirm verwendet"</string>
 
 <!-- Manual -->
 <string name="manual_games">"Spiele"</string>
@@ -330,9 +328,6 @@ Bewege alle Karten vom Ablage-Stapel zurück zum Haupt-Stapel: -200"</string>
 Man kann so viele Karten einer korrekten Sequenz auf einmal bewegen, wie es freie Spielfelder gibt. Dies entspricht der Regel, dass nur eine Karte auf einmal bewegt werden darf, aber Karten einer Sequenz können zuerst auf die freien Felder aufgeteilt werden und anschließend auf dem Zielstapel zusammengesetzt werden."</string>
 <string name="manual_GrandfathersClock_scoring">"Vom Tableau zur Foundation: +50"</string>
 
-
-
-
 <string name="manual_Calculation_structure">"1 Deck aus 52 Karten.
 
 4 Tableau-Stapel, 4 Foundation-Stapel, 1 Haupt- und 1 Ablage-Stapel."</string>
@@ -430,10 +425,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_calculation_alternative_title">"Behalte Karten"</string>
 <string name="settings_calculation_alternative_text">"Beim Drücken auf dem Haupt-Stapel: Bewege Karten vom Ablage-Stapel nicht zum Tableau, behalte sie auf dem Ablage-Stapel"</string>
 
-
-
-
-
 <string name="settings_auto_move_title">"Automatische Bewegung"</string>
 <string name="settings_mod3_auto_move_text">"Bewege falls möglich Asse automatisch zum Ablage-Stapel"</string>
 <string name="settings_pyramid_auto_move_text">"Bewege falls möglich Könige automatisch zum Foundation-Stapel"</string>
@@ -443,8 +434,6 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
 <string name="settings_hide_time">"Verstecke Zeit"</string>
 <string name="settings_hide_score">"Verstecke Score"</string>
 <string name="settings_single_tap_enable">"Erlaube Einmaltipp-Bewegungen"</string>
-
-
 
 <string name="settings_single_tap_all_games_text">"Tippe eine Karte einmal an, um sie zum nächstbesten Stapel zu bewegen. Dies folgt denselben Einstellungen wie Doppeltipp-Bewegungen. Außerdem werden Auswahl-Bewegungen deaktivert."</string>
 <string name="settings_canfield_size_of_reserve_title">"Ändere Größe der Reserve (Einfacher)"</string>

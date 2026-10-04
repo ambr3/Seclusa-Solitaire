@@ -98,8 +98,6 @@
 <string name="about_poker_themes_usage">"Usado en el tema del Póker - Disponible en &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
 <string name="about_custom_color_picker_usage">"Usada para el selector de color propio"</string>
-<string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
-<string name="about_sliding_tabs_usage">"Usada para las pestañas en la pantalla \"Acerca de\""</string>
 
 <!-- Manual -->
 <string name="manual_games">"Juegos"</string>
@@ -199,7 +197,6 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
 <string name="settings_auto_start_new_game_title">"Iniciar un nuevo juego al ganar"</string>
 <string name="settings_force_tablet_layout_title">"Forzar diseño para tablet"</string>
 <string name="settings_calculation_alternative_title">"Mantener cartas"</string>
-
 
 <string name="settings_auto_move_title">"Mover automáticamente"</string>
 <string name="settings_rules">"Reglas"</string>

@@ -103,10 +103,9 @@ public class SharedData {
      * @param context Used to get the resources
      */
     public static void reinitializeData(Context context) {
-        //Bitmaps
-        if (!bitmaps.checkResources()) {
-            bitmaps.setResources(context.getResources());
-        }
+        // Always refresh bitmaps from a themed Context — process can survive theme/locale
+        // restarts, so cached menu labels would otherwise keep the old colours.
+        bitmaps.setResources(context);
 
         if (lg.getGameCount() == 0) {
             lg.loadAllGames();

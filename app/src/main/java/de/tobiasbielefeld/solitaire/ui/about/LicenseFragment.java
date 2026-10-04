@@ -49,13 +49,11 @@ public class LicenseFragment extends Fragment {
         TextView textPokerLicenseUsage = view.findViewById(R.id.about_license_poker_theme_usage);
         TextView textParisLicenseUsage = view.findViewById(R.id.about_license_paris_theme_usage);
         TextView textCustomColorPickerLicense = view.findViewById(R.id.about_license_custom_color_picker);
-        TextView textSlidingTabsLicense = view.findViewById(R.id.about_license_sliding_tabs);
         TextView textAndroidSupportLicense = view.findViewById(R.id.about_license_android_support_libraries);
 
         TextView[] textViews = new TextView[]{textMaterialIconsLicense, textMaterialIconsLicense2, textMaterialIconsUsage2,
                 textCardThemesLicense, textCardThemesLicenseUsage, textPokerLicense, textPokerLicenseUsage,
-                textCustomColorPickerLicense,
-                textSlidingTabsLicense, textAndroidSupportLicense, textParisLicenseUsage};
+                textCustomColorPickerLicense, textAndroidSupportLicense, textParisLicenseUsage};
 
         //explicitly set the strings here, otherwise the links in them wouldn't show properly
         textCardThemesLicenseUsage.setText(HtmlCompat.fromHtml(getString(R.string.about_card_themes_usage), HtmlCompat.FROM_HTML_MODE_LEGACY));

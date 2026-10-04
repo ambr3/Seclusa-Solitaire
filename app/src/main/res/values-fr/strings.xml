@@ -91,8 +91,6 @@
 <string name="about_poker_themes_usage">"Utilisé comme thème 'Poker' - Disponible sur &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"Bibliothèque AmbilWarna"</string>
 <string name="about_custom_color_picker_usage">"Utilisé pour le sélecteur de couleur personnalisé"</string>
-<string name="about_sliding_tabs_title">"Bibliothèque PagerSlidingTabStrip"</string>
-<string name="about_sliding_tabs_usage">"Utilisé pour les onglets dans l'écran 'À propos du jeu'"</string>
 
 <!-- Manual -->
 <string name="manual_games">"Jeux de cartes"</string>
@@ -336,9 +334,6 @@ Déplacer les cartes de la défausse à la pioche : -200"</string>
 Vous pouvez déplacer autant de cartes désirées à la fois (si la pile est dans le bon ordre), qu'il y a d'emplacements libres sur le tableau. Cela suit la règle qu'une seule carte peut être déplacée à la fois, et où, comme chaque emplacement libre peut contenir n'importe quelle carte, ceux-ci servent d'intermédiaires. "</string>
 <string name="manual_GrandfathersClock_scoring">"Du tableau à une pile de base : +50"</string>
 
-
-
-
 <string name="manual_Calculation_structure">"1 jeu de 52 cartes.
 
 4 colonnes sur le tableau, 4 piles de bases, 1 talon, 1 défausse."</string>
@@ -436,10 +431,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_calculation_alternative_title">"Conserver les cartes"</string>
 <string name="settings_calculation_alternative_text">"Sur la presse au talon: au lieu de déplacer la carte de la défausse au tableau, gardez-le sur la défausse."</string>
 
-
-
-
-
 <string name="settings_auto_move_title">"Mouvement automatique"</string>
 <string name="settings_mod3_auto_move_text">"Déplacer automatiquement les As vers la défausse au rebut, si possible"</string>
 <string name="settings_pyramid_auto_move_text">"Déplacer automatiquement les rois à la défausse, si possible."</string>
@@ -449,8 +440,6 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
 <string name="settings_hide_time">"Masquer l'heure"</string>
 <string name="settings_hide_score">"Masquer les points"</string>
 <string name="settings_single_tap_enable">"Activer clic simple"</string>
-
-
 
 <string name="settings_single_tap_all_games_text">"Appuyez une fois sur une carte pour la déplacer vers la pile suivante. Il suit les mêmes réglages que les mouvements Double-Tap. Ceci désactive la sélection par un appui rapide."</string>
 <string name="settings_canfield_size_of_reserve_title">"Changer la taille de la réserve (plus facile)"</string>

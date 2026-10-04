@@ -18,9 +18,11 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -31,6 +33,7 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.Log;
+import android.util.TypedValue;
 
 import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
@@ -52,6 +55,8 @@ public class Bitmaps {
             cardBackWidth, cardBackHeight, cardFrontWidth, cardFrontHeight,
             cardPreviewWidth, cardPreviewHeight, cardPreview2Width, cardPreview2Height;
     private Resources res;
+    private int menuLabelBg = Color.WHITE;
+    private int menuLabelFg = Color.BLACK;
     private Bitmap menu, menuText, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
     private Bitmap[] menuBitMaps;
     private Bitmap[] cardFrontCache;
@@ -64,8 +69,18 @@ public class Bitmaps {
         return res != null;
     }
 
-    public void setResources(Resources res) {
-        this.res = res;
+    public void setResources(Context context) {
+        this.res = context.getResources();
+        TypedValue value = new TypedValue();
+        // Stronger themed label strip (primary / onPrimary) vs flat white.
+        if (context.getTheme().resolveAttribute(R.attr.colorPrimary, value, true)) {
+            menuLabelBg = value.data;
+        }
+        if (context.getTheme().resolveAttribute(R.attr.colorOnPrimary, value, true)) {
+            menuLabelFg = value.data;
+        }
+        // Theme may have changed — rebuild menu previews with new label colours.
+        menuBitMaps = null;
     }
 
     /**
@@ -110,12 +125,55 @@ public class Bitmaps {
 
         //get the game name picture
         Bitmap gameText = drawTextToBitmap(lg.getGameName(res, index));
-        //append both parts
-        bitmap = putTogether(gamePicture, gameText);
+        //append both parts, then round + shadow so tiles pop on the menu
+        bitmap = polishMenuTile(putTogether(gamePicture, gameText));
 
         menuBitMaps[index] = bitmap;
 
         return bitmap;
+    }
+
+    /** Rounded face, light rim and soft drop-shadow baked into the menu preview. */
+    private Bitmap polishMenuTile(Bitmap src) {
+        float density = res.getDisplayMetrics().density;
+        // Minimal pad — keep the face bulky; just enough for rim + light shadow.
+        int pad = Math.max(3, Math.round(3 * density));
+        float radius = 14f * density;
+        int w = src.getWidth() + pad * 2;
+        int h = src.getHeight() + pad * 2;
+
+        Bitmap out = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(out);
+
+        Paint shadow = new Paint(Paint.ANTI_ALIAS_FLAG);
+        shadow.setColor(Color.argb(110, 0, 0, 0));
+        shadow.setMaskFilter(new BlurMaskFilter(3.5f * density, BlurMaskFilter.Blur.NORMAL));
+        RectF shadowRect = new RectF(pad * 0.5f, pad * 0.7f, w - pad * 0.35f, h - pad * 0.25f);
+        canvas.drawRoundRect(shadowRect, radius, radius, shadow);
+
+        RectF face = new RectF(pad, pad, w - pad, h - pad);
+        Path clip = new Path();
+        clip.addRoundRect(face, radius, radius, Path.Direction.CW);
+        canvas.save();
+        canvas.clipPath(clip);
+        canvas.drawBitmap(src, pad, pad, null);
+        canvas.restore();
+
+        Paint glow = new Paint(Paint.ANTI_ALIAS_FLAG);
+        glow.setStyle(Paint.Style.STROKE);
+        glow.setStrokeWidth(3f * density);
+        glow.setColor(Color.argb(140, Color.red(menuLabelBg), Color.green(menuLabelBg), Color.blue(menuLabelBg)));
+        RectF glowRect = new RectF(face.left - 0.5f * density, face.top - 0.5f * density,
+                face.right + 0.5f * density, face.bottom + 0.5f * density);
+        canvas.drawRoundRect(glowRect, radius + 0.5f * density, radius + 0.5f * density, glow);
+
+        Paint rim = new Paint(Paint.ANTI_ALIAS_FLAG);
+        rim.setStyle(Paint.Style.STROKE);
+        rim.setStrokeWidth(2.5f * density);
+        rim.setColor(Color.argb(230, 255, 255, 255));
+        canvas.drawRoundRect(face, radius, radius, rim);
+
+        return out;
     }
 
     /*
@@ -125,48 +183,46 @@ public class Bitmaps {
      * https://www.skoumal.net/en/android-drawing-multiline-text-on-bitmap/
      */
     private Bitmap drawTextToBitmap(String text) {
-
-        // prepare canvas
         float scale = res.getDisplayMetrics().density;
-        Bitmap bitmap = Bitmap.createBitmap(menuText);
 
-        android.graphics.Bitmap.Config bitmapConfig = bitmap.getConfig();
-
-        if (bitmapConfig == null) {                                                                  //set default bitmap config if none
-            bitmapConfig = android.graphics.Bitmap.Config.ARGB_8888;
+        if (menuText == null) {
+            menuText = BitmapFactory.decodeResource(res, R.drawable.backgrounds_menu_text);
         }
 
-        bitmap = bitmap.copy(bitmapConfig, true);                                                   //make bitmap mutable
+        int width = menuText.getWidth();
+        int height = menuText.getHeight();
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
 
-        TextPaint paint = new TextPaint(Paint.ANTI_ALIAS_FLAG);                                       //new antialiased Paint
-        paint.setShadowLayer(1f, 0f, 1f, Color.WHITE);                                              //text shadow
-        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));                        //set bold
-        paint.setColor(Color.rgb(0, 0, 0));                                                           //set black color
+        // Themed label strip — solid primary with a light top edge for depth.
+        Paint bgPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        bgPaint.setColor(menuLabelBg);
+        canvas.drawRect(0, 0, width, height, bgPaint);
+        Paint edgePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        edgePaint.setColor(Color.argb(60, 255, 255, 255));
+        canvas.drawRect(0, 0, width, Math.max(1, scale), edgePaint);
 
-        int textWidth = canvas.getWidth() - (int) (5 * scale);                                      //set text width to canvas width minus 5dp padding
+        TextPaint paint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        paint.setColor(menuLabelFg);
+        paint.setShadowLayer(2f * scale, 0f, 1f * scale, Color.argb(90, 0, 0, 0));
+
+        int textWidth = canvas.getWidth() - (int) (5 * scale);
         int textHeight;
         int textScale = 80;
         StaticLayout textLayout;
 
-        //try to generate the text with the biggest size possible first. If the text height is greater
-        //than the bitmap height, shrink it and try again. minimum scale factor is set to 10 (very small)
         do {
             paint.setTextSize(textScale);
-
-            textLayout = new StaticLayout(text, paint, textWidth,                                   // nit StaticLayout for text
+            textLayout = new StaticLayout(text, paint, textWidth,
                     Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
-
-            textHeight = textLayout.getHeight();                                                    //get height of multiline text
-
-            textScale--;                                                                            //reduce text size for possible next iteration
+            textHeight = textLayout.getHeight();
+            textScale--;
         } while (textHeight >= bitmap.getHeight() && textScale > 10);
 
-        // get position of text's top left corner
-        float x = (bitmap.getWidth() - textWidth) / 2;
-        float y = (bitmap.getHeight() - textHeight) / 2;
+        float x = (bitmap.getWidth() - textWidth) / 2f;
+        float y = (bitmap.getHeight() - textHeight) / 2f;
 
-        // draw text to the Canvas center
         canvas.save();
         canvas.translate(x, y);
         textLayout.draw(canvas);
@@ -179,7 +235,8 @@ public class Bitmaps {
      * puts two bitmaps vertically together
      */
     private static Bitmap putTogether(Bitmap bmp1, Bitmap bmp2) {
-        Bitmap bmOverlay = Bitmap.createBitmap(bmp1.getWidth(), bmp1.getHeight() + bmp2.getHeight(), bmp1.getConfig());
+        Bitmap bmOverlay = Bitmap.createBitmap(bmp1.getWidth(), bmp1.getHeight() + bmp2.getHeight(),
+                Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bmOverlay);
         canvas.drawBitmap(bmp1, 0, 0, null);
         canvas.drawBitmap(bmp2, 0, bmp1.getHeight(), null);

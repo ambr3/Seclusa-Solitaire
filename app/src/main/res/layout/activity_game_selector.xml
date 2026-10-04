@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/game_selector_background"
+    android:clipChildren="false"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="de.tobiasbielefeld.solitaire.ui.GameSelector">
@@ -17,73 +18,82 @@
         android:background="@drawable/menu_bar_background"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="16dp"
+        android:paddingLeft="10dp"
         android:paddingTop="6dp"
-        android:paddingRight="8dp"
+        android:paddingRight="6dp"
         android:paddingBottom="6dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/app_name"
+            android:breakStrategy="balanced"
+            android:hyphenationFrequency="none"
+            android:lineSpacingMultiplier="0.95"
+            android:maxLines="2"
+            android:text="@string/app_name_menu"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_about"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="3dp"
             android:background="@drawable/header_button_background"
             android:onClick="openMenuOption"
-            android:paddingLeft="12dp"
-            android:paddingTop="6dp"
-            android:paddingRight="12dp"
-            android:paddingBottom="6dp"
-            android:text="@string/title_activity_about"
+            android:paddingLeft="11dp"
+            android:paddingTop="8dp"
+            android:paddingRight="11dp"
+            android:paddingBottom="8dp"
+            android:text="@string/game_selector_about_short"
             android:textColor="@android:color/white"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
             android:background="@drawable/header_button_background"
             android:onClick="openMenuOption"
-            android:paddingLeft="12dp"
-            android:paddingTop="6dp"
-            android:paddingRight="12dp"
-            android:paddingBottom="6dp"
+            android:paddingLeft="11dp"
+            android:paddingTop="8dp"
+            android:paddingRight="11dp"
+            android:paddingBottom="8dp"
             android:text="@string/settings"
             android:textColor="@android:color/white"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_manual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="2dp"
             android:background="@drawable/header_button_background"
             android:onClick="openMenuOption"
-            android:paddingLeft="12dp"
-            android:paddingTop="6dp"
-            android:paddingRight="12dp"
-            android:paddingBottom="6dp"
+            android:paddingLeft="11dp"
+            android:paddingTop="8dp"
+            android:paddingRight="11dp"
+            android:paddingBottom="8dp"
             android:text="@string/title_activity_manual"
             android:textColor="@android:color/white"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false">
 
         <View
             android:layout_width="match_parent"

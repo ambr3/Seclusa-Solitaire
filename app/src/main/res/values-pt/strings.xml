@@ -92,8 +92,6 @@ TriPeaks
 <string name="about_poker_themes_usage">"Utilizado como tema Póquer - Disponível em &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Direitos de Autor 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"Biblioteca AmbilWarna"</string>
 <string name="about_custom_color_picker_usage">"Utilizado para o coletor de cor personalizado"</string>
-<string name="about_sliding_tabs_title">"Biblioteca PagerSlidingTabStrip"</string>
-<string name="about_sliding_tabs_usage">"Utilizado nas abas no ecrã \"Sobre o Jogo\""</string>
 
 <!-- Manual -->
 <string name="manual_games">"Jogos"</string>

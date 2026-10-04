@@ -58,7 +58,7 @@ public class Sounds {
     }
 
     public void playWinSound() {
-        if (prefs.getSavedSoundEnabled()) {
+        if (prefs.getSavedSoundWinEnabled()) {
             sp.play(soundList[5], 1, 1, 0, 0, 1);
         }
     }

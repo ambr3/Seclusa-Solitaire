@@ -5,20 +5,33 @@ All notable changes to **Seclusa Solitaire**.
 ## Unreleased
 
 ### Added
-- F-Droid install section + badge linking to the Seclusa F-Droid repo
+- Separate Settings toggle for the winning sound
+- Unit tests for difficulty deal-filter rules and colour-clump shuffle
+- Fresh phone/tablet screenshots (menu + Klondike) under `pictures/screenshots/`
 
 ### Changed
+- Statistics tabs use Material TabLayout (dropped abandoned PagerSlidingTabStrip)
+- Track `gradle/gradle-daemon-jvm.properties` for reproducible Gradle JDK 25 toolchain
+- Default theme colour is green
 - Settings boolean options use Material Switch slides instead of checkboxes
-- Version **4.3.2** — audit hardening (backup/export/cleartext), JitPack for ambilwarna
-- Stop tracking `release/*.apk` in git (distribute via GitHub Releases)
-
-### Security
-- MobSF scan for v4.3.2 — 85/100 (grade A); report at `security/mobsf-4.3.2.pdf`
-- README: note MobSF RNG/log findings as false positives (SecureRandom + ProGuard Log strip)
+- Settings options each use their own pill card (clearer spacing)
+- Settings header pills and option rows have clearer gaps in portrait
+- Settings pills are light with a theme-colour accent rim/title
+- Main menu game pills are square (equal width/height) in portrait and landscape
+- Medium difficulty now filters deals for playable starts (min 20 moves)
+- Shuffle breaks long same-colour clumps (when true randomisation is off)
 
 ### Fixed
-- Manifest: non-launcher activities not exported; network security config; backup excluded
-
+- README: default theme is green; six playfield background colours
+- Drop unused Play Store / GitHub-issues URL string resources
+- Theme colour change now fully restarts the task so the menu background updates
+- Theme change refreshes menu preview label colours (cached bitmaps cleared)
+- Menu square pills fit previews without stretching
+- Playfield background/text colours re-apply when returning from Settings
+- Settings pill text stays readable when selected (no fade / contrast washout)
+- Phone landscape card sizing overflow for all games (tablets unchanged)
+- Phone playfield inset so Score/Time chips never cover cards
+- Main menu title wraps to 2 lines on phone; game grid fits one screen (no scroll)
 
 ### Removed
-- Browser PWA (`pwa/`) — Android app only
+- Abandoned PagerSlidingTabStrip dependency (and its About license entry)

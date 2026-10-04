@@ -8,62 +8,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.GameManager">
 
+    <!-- Score/Time live here — below the playfield, never over cards. -->
     <RelativeLayout
-        android:id="@+id/mainRelativeLayoutGame"
+        android:id="@+id/bottomChromeBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/game_bottom_chrome_height"
+        android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/linearLayoutMenuBar"
-        android:layout_toLeftOf="@+id/linearLayoutMenuBar">
-
-        <ImageView
-            android:id="@+id/card_highlight"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:visibility="gone"
-            app:srcCompat="@drawable/card_highlight" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/mainRelativeLayoutGameOverlayLower"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toStartOf="@+id/linearLayoutMenuBar"
-        android:layout_toLeftOf="@+id/linearLayoutMenuBar">
-
-        <TextView
-            android:id="@+id/textViewRecycles"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/circle"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:text="0"
-            android:visibility="gone" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/mainRelativeLayoutGameOverlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toStartOf="@+id/linearLayoutMenuBar"
-        android:layout_toLeftOf="@+id/linearLayoutMenuBar">
-
-        <ImageView
-            android:id="@+id/mainImageViewResize"
-            android:layout_width="30dp"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="menuClick"
-            app:srcCompat="@drawable/icon_arrow_right" />
-
-        <View
-            android:layout_width="4dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/shadow_left_to_right" />
+        android:layout_toLeftOf="@+id/linearLayoutMenuBar"
+        android:clipChildren="true"
+        android:gravity="center_vertical"
+        android:paddingEnd="4dp"
+        android:paddingRight="4dp">
 
         <LinearLayout
             android:id="@+id/mainButtonScores"
@@ -71,12 +27,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
             android:layout_marginStart="2dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginBottom="2dp"
             android:background="@drawable/score_chip_background"
             android:contentDescription="@string/title_activity_statistics"
             android:elevation="6dp"
@@ -109,28 +62,90 @@
             android:id="@+id/mainTextViewTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginBottom="2dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:background="@drawable/score_chip_background"
             android:elevation="6dp"
+            android:ellipsize="end"
             android:maxLines="1"
+            android:maxWidth="200dp"
             android:paddingLeft="12dp"
             android:paddingTop="4dp"
             android:paddingRight="12dp"
             android:paddingBottom="4dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainRelativeLayoutGame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomChromeBar"
+        android:layout_toStartOf="@+id/linearLayoutMenuBar"
+        android:layout_toLeftOf="@+id/linearLayoutMenuBar"
+        android:clipChildren="true"
+        android:clipToPadding="true">
+
+        <ImageView
+            android:id="@+id/card_highlight"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/card_highlight" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainRelativeLayoutGameOverlayLower"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomChromeBar"
+        android:layout_toStartOf="@+id/linearLayoutMenuBar"
+        android:layout_toLeftOf="@+id/linearLayoutMenuBar">
+
+        <TextView
+            android:id="@+id/textViewRecycles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="0"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainRelativeLayoutGameOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomChromeBar"
+        android:layout_toStartOf="@+id/linearLayoutMenuBar"
+        android:layout_toLeftOf="@+id/linearLayoutMenuBar">
+
+        <ImageView
+            android:id="@+id/mainImageViewResize"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="menuClick"
+            app:srcCompat="@drawable/icon_arrow_right" />
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/shadow_left_to_right" />
 
         <Button
             android:id="@+id/buttonMainAutoComplete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/mainTextViewTime"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
             android:background="@drawable/autocomplete_button_background"

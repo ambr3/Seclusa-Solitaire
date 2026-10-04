@@ -19,6 +19,7 @@
 package de.tobiasbielefeld.solitaire.games;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import androidx.annotation.CallSuper;
 import androidx.core.widget.TextViewCompat;
@@ -494,14 +495,35 @@ public abstract class Game {
      * @param landscapeValue The limiting number of cards in the biggest column of the layout
      */
     protected void setUpCardWidth(RelativeLayout layoutGame, boolean isLandscape, int portraitValue, int landscapeValue) {
-        Card.width = isLandscape ? layoutGame.getWidth() / (landscapeValue) : layoutGame.getWidth() / (portraitValue);
+        int cardsInRow = isLandscape ? landscapeValue : portraitValue;
+
+        // Phone landscape: height-fit like setUpCardDimensions (tablets keep width-only).
+        if (isLandscape && isPhoneLandscape(layoutGame)) {
+            setUpCardDimensions(layoutGame, cardsInRow, PHONE_LANDSCAPE_MIN_CARD_COLUMNS);
+            return;
+        }
+
+        Card.width = layoutGame.getWidth() / cardsInRow;
         Card.height = (int) (Card.width * 1.5);
+        applyCardLayoutParams();
+    }
+
+    // stuff that the games should use to set up other stuff
+
+    /** Min card-heights that must fit on a phone in landscape (foundation + tableau + chrome). */
+    private static final int PHONE_LANDSCAPE_MIN_CARD_COLUMNS = 4;
+
+    private static boolean isPhoneLandscape(RelativeLayout layoutGame) {
+        return !isLargeTablet(layoutGame.getContext())
+                && layoutGame.getResources().getConfiguration().orientation
+                == Configuration.ORIENTATION_LANDSCAPE;
+    }
+
+    private void applyCardLayoutParams() {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
         for (Card card : cards) card.view.setLayoutParams(params);
         for (Stack stack : stacks) stack.view.setLayoutParams(params);
     }
-
-    // stuff that the games should use to set up other stuff
 
     /**
      * use this to automatically set up the dimensions (then the call of setUpCardWidth() isn't necessary).
@@ -518,10 +540,16 @@ public abstract class Game {
 
         int testWidth1, testHeight1, testWidth2, testHeight2;
 
+        // Phone landscape: never allow fewer than 4 card-heights (same fit as Klondike).
+        int columnLimit = cardsInColumn;
+        if (isPhoneLandscape(layoutGame)) {
+            columnLimit = Math.max(cardsInColumn, PHONE_LANDSCAPE_MIN_CARD_COLUMNS);
+        }
+
         testWidth1 = layoutGame.getWidth() / cardsInRow;
         testHeight1 = (int) (testWidth1 * 1.5);
 
-        testHeight2 = layoutGame.getHeight() / cardsInColumn;
+        testHeight2 = layoutGame.getHeight() / columnLimit;
         testWidth2 = (int) (testHeight2 / 1.5);
 
         if (testHeight1 < testHeight2) {
@@ -532,9 +560,7 @@ public abstract class Game {
             Card.height = testHeight2;
         }
 
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Card.width, Card.height);
-        for (Card card : cards) card.view.setLayoutParams(params);
-        for (Stack stack : stacks) stack.view.setLayoutParams(params);
+        applyCardLayoutParams();
     }
 
     /**

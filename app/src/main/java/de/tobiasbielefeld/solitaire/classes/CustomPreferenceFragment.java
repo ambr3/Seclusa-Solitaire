@@ -2,6 +2,8 @@ package de.tobiasbielefeld.solitaire.classes;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -55,21 +57,34 @@ public class CustomPreferenceFragment extends PreferenceFragment {
         }
 
         int count = screen.getPreferenceCount();
+        // Root-level toggles (not inside a PreferenceCategory) still need MaterialSwitch rows.
+        java.util.ArrayList<Preference> rootPrefs = new java.util.ArrayList<>();
         for (int i = 0; i < count; i++) {
             Preference preference = screen.getPreference(i);
-            if (preference instanceof PreferenceGroup) {
+            if (preference instanceof PreferenceGroup && !(preference instanceof PreferenceScreen)) {
                 applySectionCard((PreferenceGroup) preference);
+            } else if (!(preference instanceof PreferenceGroup)) {
+                rootPrefs.add(preference);
             } else {
                 preference.setLayoutResource(R.layout.settings_preference_row_middle);
             }
         }
+        applyRootPrefs(rootPrefs);
 
         View view = getView();
         if (view != null) {
             ListView listView = view.findViewById(android.R.id.list);
             if (listView != null) {
-                listView.setDivider(null);
-                listView.setDividerHeight(0);
+                float density = getResources().getDisplayMetrics().density;
+                int pad = (int) (6 * density);
+                listView.setDivider(new ColorDrawable(Color.TRANSPARENT));
+                listView.setDividerHeight((int) (8 * density));
+                listView.setPadding(pad, pad, pad, pad);
+                listView.setClipToPadding(false);
+                listView.setSelector(android.R.color.transparent);
+                listView.setCacheColorHint(Color.TRANSPARENT);
+                // Avoid pressed/activated overlays washing out pill text on tablet multipane.
+                listView.setChoiceMode(ListView.CHOICE_MODE_NONE);
             }
         }
     }
@@ -78,19 +93,22 @@ public class CustomPreferenceFragment extends PreferenceFragment {
         category.setLayoutResource(R.layout.settings_preference_category);
         int count = category.getPreferenceCount();
         for (int i = 0; i < count; i++) {
-            Preference preference = category.getPreference(i);
-            boolean checkbox = preference instanceof TwoStatePreference;
-            int layout;
-            if (count == 1) {
-                layout = checkbox ? R.layout.settings_preference_checkbox_row_single : R.layout.settings_preference_row_single;
-            } else if (i == 0) {
-                layout = checkbox ? R.layout.settings_preference_checkbox_row_first : R.layout.settings_preference_row_first;
-            } else if (i == count - 1) {
-                layout = checkbox ? R.layout.settings_preference_checkbox_row_last : R.layout.settings_preference_row_last;
-            } else {
-                layout = checkbox ? R.layout.settings_preference_checkbox_row_middle : R.layout.settings_preference_row_middle;
-            }
-            preference.setLayoutResource(layout);
+            category.getPreference(i).setLayoutResource(rowLayout(category.getPreference(i), i, count));
         }
+    }
+
+    private void applyRootPrefs(java.util.ArrayList<Preference> rootPrefs) {
+        int count = rootPrefs.size();
+        for (int i = 0; i < count; i++) {
+            rootPrefs.get(i).setLayoutResource(rowLayout(rootPrefs.get(i), i, count));
+        }
+    }
+
+    private int rowLayout(Preference preference, int index, int count) {
+        // Each option is its own rounded pill (not fused first/middle/last blocks).
+        boolean checkbox = preference instanceof TwoStatePreference;
+        return checkbox
+                ? R.layout.settings_preference_checkbox_row_single
+                : R.layout.settings_preference_row_single;
     }
 }

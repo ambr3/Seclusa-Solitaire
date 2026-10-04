@@ -6,14 +6,14 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -91,11 +91,19 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
         //clear the complete layout first
         tableLayout.removeAllViewsInLayout();
         indexes.clear();
+        // Let tile elevation/shadows draw outside cell bounds.
+        tableLayout.setClipChildren(false);
+        tableLayout.setClipToPadding(false);
+        View parent = tableLayout.getParent() instanceof ViewGroup
+                ? (ViewGroup) tableLayout.getParent() : null;
+        if (parent != null) {
+            ((ViewGroup) parent).setClipChildren(false);
+            ((ViewGroup) parent).setClipToPadding(false);
+        }
 
         int padding = (int) (getResources().getDimension(R.dimen.game_selector_images_padding));
         int tileGap = (int) (getResources().getDimension(R.dimen.game_selector_tile_gap));
-        TableRow.LayoutParams params = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT);
-        params.weight = 1;
+        TableRow.LayoutParams params = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f);
         params.setMargins(tileGap, tileGap, tileGap, tileGap);
 
         //add the game buttons
@@ -107,27 +115,46 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
 
                 if (counter % menuColumns == 0) {
                     row = new TableRow(this);
-                    tableLayout.addView(row);
+                    row.setClipChildren(false);
+                    row.setClipToPadding(false);
+                    // Equal-height rows fill the page (no scroll).
+                    TableLayout.LayoutParams rowLp = new TableLayout.LayoutParams(
+                            TableLayout.LayoutParams.MATCH_PARENT, 0, 1f);
+                    tableLayout.addView(row, rowLp);
                 }
 
-                LinearLayout cell = new LinearLayout(this);
-                cell.setOrientation(LinearLayout.VERTICAL);
-                cell.setGravity(android.view.Gravity.CENTER);
+                // Square pill (width == height), centred in the cell — same shape in both orientations.
+                FrameLayout cell = new FrameLayout(this);
                 cell.setLayoutParams(params);
-                cell.setBackgroundResource(R.drawable.game_selector_tile);
                 cell.setPadding(padding, padding, padding, padding);
-                cell.setLongClickable(true);
-                cell.setElevation(getResources().getDimension(R.dimen.game_selector_tile_elevation));
-                cell.setOnTouchListener(this);
 
                 ImageView imageView = new ImageView(this);
-                imageView.setLayoutParams(new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
-                imageView.setAdjustViewBounds(true);
+                FrameLayout.LayoutParams imageLp = new FrameLayout.LayoutParams(0, 0);
+                imageLp.gravity = Gravity.CENTER;
+                imageView.setLayoutParams(imageLp);
+                // Fit uniformly inside the square (previews are taller than wide — no stretch).
                 imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                imageView.setAdjustViewBounds(true);
                 imageView.setImageBitmap(bitmaps.getMenu(index));
-
+                imageView.setLongClickable(true);
+                imageView.setOnTouchListener(this);
                 cell.addView(imageView);
+                cell.addOnLayoutChangeListener((v, l, t, r, b, ol, ot, or, ob) -> {
+                    int availW = v.getWidth() - v.getPaddingLeft() - v.getPaddingRight();
+                    int availH = v.getHeight() - v.getPaddingTop() - v.getPaddingBottom();
+                    if (availW <= 0 || availH <= 0) {
+                        return;
+                    }
+                    int side = Math.min(availW, availH);
+                    FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) imageView.getLayoutParams();
+                    if (lp.width != side || lp.height != side) {
+                        lp.width = side;
+                        lp.height = side;
+                        lp.gravity = Gravity.CENTER;
+                        imageView.setLayoutParams(lp);
+                    }
+                });
+
                 indexes.add(i);
                 row.addView(cell);
                 counter++;
@@ -215,10 +242,12 @@ public class GameSelector extends CustomAppCompatActivity implements View.OnTouc
      * @param view The clicked view.
      */
     private void startGame(View view) {
-        TableRow row = (TableRow) view.getParent();
+        // Touch target is the ImageView; cell is its FrameLayout parent in the TableRow.
+        View cell = view.getParent() instanceof View ? (View) view.getParent() : view;
+        TableRow row = (TableRow) cell.getParent();
         TableLayout table = (TableLayout) row.getParent();
         ArrayList<Integer> orderedList = lg.getOrderedGameList();
-        int index = indexes.get(table.indexOfChild(row) * menuColumns + row.indexOfChild(view));
+        int index = indexes.get(table.indexOfChild(row) * menuColumns + row.indexOfChild(cell));
         index = orderedList.indexOf(index);
 
         //avoid loading two games at once when pressing two buttons at once

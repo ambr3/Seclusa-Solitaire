@@ -1,8 +1,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
-        android:defaultValue="@bool/default_sound_enabled"
-        android:key="@string/pref_key_sound_enabled"
-        android:title="@string/Settings_sound" />
+    <PreferenceCategory>
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+            android:defaultValue="@bool/default_sound_enabled"
+            android:key="@string/pref_key_sound_enabled"
+            android:title="@string/Settings_sound" />
+
+        <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
+            android:defaultValue="@bool/default_sound_enabled"
+            android:key="@string/pref_key_sound_win_enabled"
+            android:title="@string/Settings_sound_win" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

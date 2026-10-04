@@ -44,8 +44,8 @@ If you build or modify it yourself, please audit the code before relying on it, 
 
 ## Interface
 
-- **Highly customizable** — 10 card themes, 10 card backgrounds, 4 background colours
-- **Material 3** — modern themes with system dark mode, four colour palettes (Deep Orange, Green, Blue, Purple) and dynamic colours on Android 12+
+- **Highly customizable** — 10 card themes, 10 card backgrounds, 6 playfield background colours
+- **Material 3** — modern themes with system dark mode, four colour palettes (Green default, Deep Orange, Blue, Purple) and dynamic colours on Android 12+
 - **Difficulty settings** — easy / medium / hard for every game
 - **Left-handed mode** — mirror the card positions to the left side
 - **Landscape & tablet support** — with the option to lock orientation
@@ -116,7 +116,7 @@ MobSF may flag an “insecure random number generator” and leftover log calls 
 
 - **Full Material 3 migration** — every screen now runs on `Theme.Material3` DayNight themes with the complete M3 colour-role system (surface containers, outlines, error states) instead of the old primary/accent handful
 - **Native dark mode** — light and dark colour palettes in `values/` and `values-night/`, following the system setting
-- **Four colour palettes** — Deep Orange (default), Green, Blue and Purple, each with full light+dark role definitions
+- **Four colour palettes** — Green (default), Deep Orange, Blue and Purple, each with full light+dark role definitions
 - **Dynamic colours** — Material You Wallpaper colours on Android 12+, switchable from Settings
 - **Custom type scale** — a clear, tight Material 3 text hierarchy (bold headings, sans-serif body) across games, dialogs, About, Manual and Settings
 - **Refreshed surfaces** — rounded Material 3 dialogs, card-style Settings preferences, pill-shaped Manual buttons, a redesigned score chip, and a theme-aware Menu-order list

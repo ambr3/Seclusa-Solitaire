@@ -113,6 +113,7 @@ public class Preferences {
     public static String PREF_KEY_DYNAMIC_COLORS;
     public static boolean DEFAULT_DYNAMIC_COLORS;
     public static String PREF_KEY_SOUND_ENABLED;
+    public static String PREF_KEY_SOUND_WIN_ENABLED;
     public static String PREF_KEY_PYRAMID_LIMITED_RECYCLES;
     public static String PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
     public static String PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
@@ -172,11 +173,11 @@ public class Preferences {
     public static boolean DEFAULT_HIDE_AUTOCOMPLETE_BUTTON;
     public static boolean DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME;
 
-    public static final String VALUE_DIFFICULTY_EASY = "easy";
-    public static final String VALUE_DIFFICULTY_MEDIUM = "medium";
-    public static final String VALUE_DIFFICULTY_HARD = "hard";
+    public static final String VALUE_DIFFICULTY_EASY = DifficultyPolicy.EASY;
+    public static final String VALUE_DIFFICULTY_MEDIUM = DifficultyPolicy.MEDIUM;
+    public static final String VALUE_DIFFICULTY_HARD = DifficultyPolicy.HARD;
     public static final String DEFAULT_DIFFICULTY = VALUE_DIFFICULTY_MEDIUM;
-    public static final int VALUE_WINNABLE_MOVES = 500;
+    public static final int VALUE_WINNABLE_MOVES = DifficultyPolicy.WINNABLE_MOVES;
     public static boolean DEFAULT_HIDE_MENU_BUTTON;
     public static boolean DEFAULT_IMMERSIVE_MODE;
     public static boolean DEFAULT_DISABLE_UNDO_COSTS;
@@ -344,6 +345,7 @@ public class Preferences {
         PREF_KEY_BACKGROUND_COLOR_CUSTOM = res.getString(R.string.pref_key_background_color_custom);
         PREF_KEY_MOVEMENT_SPEED = res.getString(R.string.pref_key_movement_speed);
         PREF_KEY_SOUND_ENABLED = res.getString(R.string.pref_key_sound_enabled);
+        PREF_KEY_SOUND_WIN_ENABLED = res.getString(R.string.pref_key_sound_win_enabled);
         PREF_KEY_PYRAMID_LIMITED_RECYCLES = res.getString(R.string.pref_key_pyramid_limit_recycles);
         PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES = res.getString(R.string.pref_key_fortyeight_limit_recycles);
         PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES = res.getString(R.string.pref_key_pyramid_number_of_recycles);
@@ -739,23 +741,14 @@ public class Preferences {
     }
 
     public boolean isEnsureMovabilityEnabledForCurrentGame() {
-        String difficulty = getSavedDifficulty();
-
-        if (difficulty.equals(VALUE_DIFFICULTY_EASY)) {
-            return true;
-        } else if (difficulty.equals(VALUE_DIFFICULTY_HARD)) {
-            return false;
-        } else {
-            return getSavedEnsureMovability();
-        }
+        // Easy + Medium filter deals; Hard is fully random. Expert "ensure movability"
+        // still applies when difficulty is unset/custom.
+        return DifficultyPolicy.isEnsureMovabilityEnabled(getSavedDifficulty(), getSavedEnsureMovability());
     }
 
     public int getSavedEnsureMovabilityMinMovesForCurrentGame() {
-        if (getSavedDifficulty().equals(VALUE_DIFFICULTY_EASY)) {
-            return VALUE_WINNABLE_MOVES;
-        } else {
-            return getSavedEnsureMovabilityMinMoves();
-        }
+        return DifficultyPolicy.minMovesForDifficulty(
+                getSavedDifficulty(), getSavedEnsureMovabilityMinMoves());
     }
 
     public int getSavedRecordListEntriesSize() {
@@ -1291,6 +1284,17 @@ public class Preferences {
 
     public boolean getSavedSoundEnabled() {
         return savedSharedData.getBoolean(PREF_KEY_SOUND_ENABLED, DEFAULT_SOUND_ENABLED);
+    }
+
+    /**
+     * Winning jingle. If the user never set this key, follow the main game-sound toggle
+     * so existing installs keep the previous behaviour.
+     */
+    public boolean getSavedSoundWinEnabled() {
+        if (!savedSharedData.contains(PREF_KEY_SOUND_WIN_ENABLED)) {
+            return getSavedSoundEnabled();
+        }
+        return savedSharedData.getBoolean(PREF_KEY_SOUND_WIN_ENABLED, DEFAULT_SOUND_ENABLED);
     }
 
     public boolean getSingleTapAllGames() {

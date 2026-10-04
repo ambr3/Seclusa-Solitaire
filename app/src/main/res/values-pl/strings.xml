@@ -91,8 +91,6 @@
 <string name="about_poker_themes_usage">"Użyty jako styl Pokerowy - dostępny na &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"Biblioteka AmbilWarna"</string>
 <string name="about_custom_color_picker_usage">"Użyta dla wybieraka kolorów"</string>
-<string name="about_sliding_tabs_title">"Biblioteka PagerSlidingTabStrip"</string>
-<string name="about_sliding_tabs_usage">"Użyta dla kart na ekranie „o grze”"</string>
 
 <!-- Manual -->
 <string name="manual_games">"Gry"</string>
@@ -338,9 +336,6 @@ Przeniesienie wszystkich kart ze stosu odrzutów do głównego: -200"</string>
 Możesz przenieść tyle kart (poprawnie uszeregowanych) jednocześnie, ile jest pustych pól. To odpowiada zasadzie, że możesz przenosić karty pojedynczo, ale jeżeli są dostępne puste komórki, można kartę umieścić w pustej komórce i następnie na docelowym stosie."</string>
 <string name="manual_GrandfathersClock_scoring">"Ze stosu gry na stos bazowy: +50"</string>
 
-
-
-
 <string name="manual_Calculation_structure">"1 talia po 52 karty.
 
 4 stosów gry, 4 stosy bazowe, 1 główny stos i 1 stos odrzutów."</string>
@@ -438,10 +433,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_calculation_alternative_title">"Trzymaj karty"</string>
 <string name="settings_calculation_alternative_text">"Po stuknięciu w stos główny: zamiast przeniesienia karty ze stosu odrzutów na stos gry, zatrzymaj ją na stosu odrzutów."</string>
 
-
-
-
-
 <string name="settings_auto_move_title">"Automatyczne ruchy"</string>
 <string name="settings_mod3_auto_move_text">"Automatycznie przenoś asy na stos odrzutów, kiedy jest to możliwe"</string>
 <string name="settings_pyramid_auto_move_text">"Automatycznie przenoś króli na stos śmieciowy, kiedy jest to możliwe"</string>
@@ -451,8 +442,6 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
 <string name="settings_hide_time">"Ukryj czas"</string>
 <string name="settings_hide_score">"Ukryj punktację"</string>
 <string name="settings_single_tap_enable">"Włącz ruchy przy pojedynczym stuknięciu"</string>
-
-
 
 <string name="settings_single_tap_all_games_text">"Stuknij pojedynczo w kartę, aby przenieść ją na następny możliwy stos. Ustawienie takie same jak ruchów podwójnych. Wyłączone zostaną ruchy „wybierz przez stuknięcie”."</string>
 <string name="settings_canfield_size_of_reserve_title">"Zmień wielkość stosu rezerwowego (łatwiej)"</string>

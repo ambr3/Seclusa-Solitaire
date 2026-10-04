@@ -91,8 +91,6 @@
 <string name="about_poker_themes_usage">"Usato come tema per il Poker - Disponibile su &lt;a href=https://sourceforge.net/projects/vector-cards/&gt;sourceforge.net&lt;/a&gt; - Copyright 2015 - Chris Aguilar - conjurenation@gmail.com"</string>
 <string name="about_custom_color_picker_title">"AmbilWarna library"</string>
 <string name="about_custom_color_picker_usage">"Usata per il color picker personalizzato"</string>
-<string name="about_sliding_tabs_title">"PagerSlidingTabStrip library"</string>
-<string name="about_sliding_tabs_usage">"Usata per le tab nella schermata \"Sul Gioco\""</string>
 
 <!-- Manual -->
 <string name="manual_games">"Giochi"</string>
