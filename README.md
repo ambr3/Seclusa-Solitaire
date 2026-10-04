@@ -18,20 +18,11 @@
 
 <p align="center"><strong>v4.3.3</strong></p>
 
----
-
 <p align="center">
-  <img src="pictures/screenshots/phone-menu-portrait.png" alt="Phone menu" width="220">
-  &nbsp;
-  <img src="pictures/screenshots/phone-klondike.png" alt="Phone Klondike" width="220">
-</p>
-
-<p align="center">
-  <img src="pictures/screenshots/tablet-menu.png" alt="Tablet menu" width="420">
-</p>
-
-<p align="center">
-  <img src="pictures/screenshots/tablet-klondike.png" alt="Tablet Klondike" width="420">
+  <img src="pictures/screenshots/phone-menu-portrait.png" alt="Phone menu" height="160">
+  <img src="pictures/screenshots/phone-klondike.png" alt="Phone Klondike" height="160">
+  <img src="pictures/screenshots/tablet-menu.png" alt="Tablet menu" height="160">
+  <img src="pictures/screenshots/tablet-klondike.png" alt="Tablet Klondike" height="160">
 </p>
 
 ---
@@ -58,35 +49,22 @@ I’m not a professional Android developer — I’ve used AI a lot while modern
 
 ## Install
 
-### F-Droid (recommended)
+<p align="center">
+  <a href="https://ambr3.github.io/seclusa-fdroid/fdroid/repo?fingerprint=2462DF4F9948237CB60596149114523606EDA87C9BB72DB14CF3852ED4B4D33B"><img src="fdroid-badge.png" alt="Get it on F-Droid" height="56"></a>
+  &nbsp;
+  <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/%7B%22id%22%3A%20%22com.ambr3.seclusasolitaire%22%2C%20%22url%22%3A%20%22https%3A%2F%2Fgithub.com%2Fambr3%2FSeclusa-Solitaire%22%2C%20%22author%22%3A%20%22ambr3%22%2C%20%22name%22%3A%20%22Seclusa%20Solitaire%22%2C%20%22preferredApkIndex%22%3A%200%2C%20%22additionalSettings%22%3A%20%22%7B%5C%22includePrereleases%5C%22%3A%20false%2C%20%5C%22fallbackToOlderReleases%5C%22%3A%20true%2C%20%5C%22autoApkFiltering%5C%22%3A%20true%2C%20%5C%22appName%5C%22%3A%20%5C%22Seclusa%20Solitaire%5C%22%7D%22%7D"><img src="obtainium-badge.png" alt="Get it on Obtainium" height="56"></a>
+  &nbsp;
+  <a href="https://github.com/ambr3/Seclusa-Solitaire/releases"><img src="github-apk-badge.svg" alt="Get APK on GitHub" height="56"></a>
+</p>
 
-[Seclusa F-Droid repo](https://ambr3.github.io/seclusa-fdroid/) — same signed APKs as GitHub Releases.
-
-1. Install [F-Droid](https://f-droid.org/)
-2. **Settings → Repositories → +** and add:
+<details>
+<summary>F-Droid repo URL (with fingerprint)</summary>
 
 ```
 https://ambr3.github.io/seclusa-fdroid/fdroid/repo?fingerprint=2462DF4F9948237CB60596149114523606EDA87C9BB72DB14CF3852ED4B4D33B
 ```
 
-3. Search **Seclusa Solitaire** and install
-
-<p align="center">
-  <a href="https://ambr3.github.io/seclusa-fdroid/fdroid/repo?fingerprint=2462DF4F9948237CB60596149114523606EDA87C9BB72DB14CF3852ED4B4D33B">
-    <img src="fdroid-badge.png" alt="Get it on F-Droid" width="200">
-  </a>
-</p>
-
-### APK / Obtainium
-
-- [GitHub Releases](https://github.com/ambr3/Seclusa-Solitaire/releases)
-- [Obtainium](https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/%7B%22id%22%3A%20%22com.ambr3.seclusasolitaire%22%2C%20%22url%22%3A%20%22https%3A%2F%2Fgithub.com%2Fambr3%2FSeclusa-Solitaire%22%2C%20%22author%22%3A%20%22ambr3%22%2C%20%22name%22%3A%20%22Seclusa%20Solitaire%22%2C%20%22preferredApkIndex%22%3A%200%2C%20%22additionalSettings%22%3A%20%22%7B%5C%22includePrereleases%5C%22%3A%20false%2C%20%5C%22fallbackToOlderReleases%5C%22%3A%20true%2C%20%5C%22autoApkFiltering%5C%22%3A%20true%2C%20%5C%22appName%5C%22%3A%20%5C%22Seclusa%20Solitaire%5C%22%7D%22%7D):
-
-<p align="center">
-  <a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/%7B%22id%22%3A%20%22com.ambr3.seclusasolitaire%22%2C%20%22url%22%3A%20%22https%3A%2F%2Fgithub.com%2Fambr3%2FSeclusa-Solitaire%22%2C%20%22author%22%3A%20%22ambr3%22%2C%20%22name%22%3A%20%22Seclusa%20Solitaire%22%2C%20%22preferredApkIndex%22%3A%200%2C%20%22additionalSettings%22%3A%20%22%7B%5C%22includePrereleases%5C%22%3A%20false%2C%20%5C%22fallbackToOlderReleases%5C%22%3A%20true%2C%20%5C%22autoApkFiltering%5C%22%3A%20true%2C%20%5C%22appName%5C%22%3A%20%5C%22Seclusa%20Solitaire%5C%22%7D%22%7D">
-    <img src="obtainium-badge.png" alt="Get it on Obtainium" width="161">
-  </a>
-</p>
+</details>
 
 Signing certificate SHA-256:
 

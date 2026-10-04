@@ -4,7 +4,11 @@ All notable changes to **Seclusa Solitaire**.
 
 ## Unreleased
 
+### Changed
+- README: smaller one-row screenshots; F-Droid / Obtainium / GitHub install badges on one row
+
 ## 4.3.3 — 2026-10-04
+
 
 ### Added
 - Separate Settings toggle for the winning sound
