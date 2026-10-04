@@ -1,9 +1,16 @@
 ## Screenshots
-<img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/1.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/2.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/3.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/4.png" width=200 height=356> 
-<img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/6.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/7.png" width=200 height=356> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/8.png" width=200 height=356> 
 
-<img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/11.png" width=356 height=200> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/12.png" width=356 height=200> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/13.png" width=356 height=200> 
-<img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/14.png" width=356 height=200> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/15.png" width=356 height=200> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/16.png" width=356 height=200> 
-<img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/17.png" width=356 height=200> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/18.png" width=356 height=200> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/19.png" width=356 height=200> 
-<img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/20.png" width=356 height=200> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/21.png" width=356 height=200> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/5.png" width=356 height=200> 
-<img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/9.png" width=356 height=200> <img src="https://github.com/TobiasBielefeld/Simple-Solitaire/blob/master/pictures/screenshots/10.png" width=356 height=200> 
+Phone:
+
+<p>
+  <img src="pictures/screenshots/phone-menu-portrait.png" alt="Phone menu" width="220">
+  <img src="pictures/screenshots/phone-klondike.png" alt="Phone Klondike" width="220">
+  <img src="pictures/screenshots/phone-menu-landscape.png" alt="Phone menu landscape" width="360">
+</p>
+
+Tablet:
+
+<p>
+  <img src="pictures/screenshots/tablet-menu.png" alt="Tablet menu" width="420">
+  <img src="pictures/screenshots/tablet-klondike.png" alt="Tablet Klondike" width="420">
+</p>

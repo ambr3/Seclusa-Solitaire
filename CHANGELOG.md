@@ -12,6 +12,12 @@ All notable changes to **Seclusa Solitaire**.
 - Fresh phone/tablet screenshots (menu + Klondike) under `pictures/screenshots/`
 
 ### Changed
+- README simplified; shows current phone/tablet screenshots
+
+### Security
+- MobSF scan for v4.3.3 — 85/100 (grade A); report at `security/mobsf-4.3.3.pdf`
+
+### Changed
 - Statistics tabs use Material TabLayout (dropped abandoned PagerSlidingTabStrip)
 - Track `gradle/gradle-daemon-jvm.properties` for reproducible Gradle JDK 25 toolchain
 - Default theme colour is green
