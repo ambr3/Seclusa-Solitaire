@@ -4,6 +4,8 @@ All notable changes to **Seclusa Solitaire**.
 
 ## Unreleased
 
+## 4.3.3 — 2026-10-04
+
 ### Added
 - Separate Settings toggle for the winning sound
 - Unit tests for difficulty deal-filter rules and colour-clump shuffle

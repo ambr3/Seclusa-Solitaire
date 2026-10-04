@@ -156,7 +156,7 @@ MobSF may flag an “insecure random number generator” and leftover log calls 
 
 Seclusa Solitaire ships without **any** gambling/gaming aspects. The Vegas variant (a Klondike scoring mode) tracked a simulated bet amount, win amount and a "balance" in app settings. Even though that money was purely fictional — a local number, never real currency, never connected to anything — betting mechanics have no place in this collection. The game and every trace of its betting/scoring settings were removed for good.
 
-Current version: **v4.3.2** (versionCode 432)
+Current version: **v4.3.3** (versionCode 433)
 
 ---
 
