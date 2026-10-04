@@ -6,6 +6,7 @@ All notable changes to **Seclusa Solitaire**.
 
 ### Changed
 - README: smaller one-row screenshots; F-Droid / Obtainium / GitHub install badges on one row
+- README “A note from me” links to the Seclusa about page
 
 ## 4.3.3 — 2026-10-04
 

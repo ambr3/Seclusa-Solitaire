@@ -31,7 +31,8 @@ Fork of [Simple Solitaire Collection](https://github.com/TobiasBielefeld/Simple-
 
 ### A note from me
 
-I’m not a professional Android developer — I’ve used AI a lot while modernising this, and I’m transparent about that. I forked it because I played Simple Solitaire daily after it was archived, and I wanted something safer and more private. Audit the code before you rely on it; everything is GPL-3.0 and open to review.
+I’m not a professional Android developer. *[read more about me here](https://ambr3.pages.dev/#about)*. I’ve used AI while modernising this and I want to be transparent about that. I forked it because I played Simple Solitaire daily after it was archived, and I wanted something safer and more private. Audit the code before you rely on it. Everything is GPL-3.0 and open to review.
+
 
 ## Features
 
