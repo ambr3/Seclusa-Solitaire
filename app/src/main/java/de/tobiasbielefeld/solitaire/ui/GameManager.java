@@ -88,6 +88,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private RelativeLayout mainRelativeLayoutBackground;
     private boolean activityPaused;
     public ImageView hideMenu;
+    public ImageView buttonResize;
+    public View buttonResizeBar;
     public LinearLayout menuBar;
     private HandlerLoadGame handlerLoadGame;
 
@@ -120,6 +122,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         buttonAutoComplete = findViewById(R.id.buttonMainAutoComplete);
         mainRelativeLayoutBackground = findViewById(R.id.mainRelativeLayoutBackground);
         hideMenu = findViewById(R.id.mainImageViewResize);
+        buttonResize = findViewById(R.id.button_resize);
+        buttonResizeBar = findViewById(R.id.mainButtonResize);
         menuBar = findViewById(R.id.linearLayoutMenuBar);
 
         /*
@@ -714,7 +718,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         mainTextViewTime.setTextColor(textColor);
         mainTextViewScore.setTextColor(textColor);
         buttonScoresStar.setColorFilter(textColor);
-        hideMenu.setColorFilter(textColor);
         highlight.setColorFilter(textColor);
 
         for (Stack stack : stacks) {
@@ -877,7 +880,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         resetTappedCard();
 
         int viewId = view.getId();
-        if (viewId == R.id.mainImageViewResize) {
+        if (viewId == R.id.mainImageViewResize || viewId == R.id.mainButtonResize) {
             if (menuBar.getVisibility() == VISIBLE) {
                 menuBar.setVisibility(GONE);
                 prefs.saveHideMenuBar(true);
@@ -940,34 +943,69 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
     private void updateHideMenuButton(boolean isLandscape) {
         boolean menuBarVisible = menuBar.getVisibility() == VISIBLE;
+        boolean showControl = !prefs.getHideMenuButton();
 
-        if (prefs.getHideMenuButton()) {
-            hideMenu.setVisibility(GONE);
+        // In-bar control when the menu is open; floating peek when collapsed.
+        if (buttonResizeBar != null) {
+            buttonResizeBar.setVisibility(showControl && menuBarVisible ? VISIBLE : GONE);
+        }
+        if (hideMenu != null) {
+            hideMenu.setVisibility(showControl && !menuBarVisible ? VISIBLE : GONE);
+        }
+
+        if (!showControl) {
+            return;
+        }
+
+        int collapseIcon;
+        int expandIcon;
+        if (!isLandscape) {
+            boolean bottom = prefs.getSavedMenuBarPosPortrait().equals("bottom");
+            collapseIcon = bottom ? R.drawable.icon_arrow_down : R.drawable.icon_arrow_up;
+            expandIcon = bottom ? R.drawable.icon_arrow_up : R.drawable.icon_arrow_down;
         } else {
-            hideMenu.setVisibility(VISIBLE);
+            boolean right = prefs.getSavedMenuBarPosLandscape().equals("right");
+            collapseIcon = right ? R.drawable.icon_arrow_right : R.drawable.icon_arrow_left;
+            expandIcon = right ? R.drawable.icon_arrow_left : R.drawable.icon_arrow_right;
+        }
 
-            if (!isLandscape) {
-                if (prefs.getSavedMenuBarPosPortrait().equals("bottom")) {
-                    hideMenu.setImageResource(menuBarVisible
-                            ? R.drawable.icon_arrow_down
-                            : R.drawable.icon_arrow_up);
-                } else {
-                    hideMenu.setImageResource(menuBarVisible
-                            ? R.drawable.icon_arrow_up
-                            : R.drawable.icon_arrow_down);
-                }
+        if (buttonResize != null && menuBarVisible) {
+            buttonResize.setImageResource(collapseIcon);
+        }
+        if (hideMenu != null && !menuBarVisible) {
+            hideMenu.setImageResource(expandIcon);
+            positionHideMenuPeek(isLandscape);
+        }
+    }
+
+    /** Places the collapsed-menu peek on the same edge as the menu bar. */
+    private void positionHideMenuPeek(boolean isLandscape) {
+        int margin = (int) (16 * getResources().getDisplayMetrics().density);
+        int size = (int) getResources().getDimension(R.dimen.menuBarWidht);
+        RelativeLayout.LayoutParams peek = new RelativeLayout.LayoutParams(size, size);
+
+        if (isLandscape) {
+            peek.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            if (prefs.getSavedMenuBarPosLandscape().equals("right")) {
+                peek.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                peek.setMargins(0, 0, margin, margin);
             } else {
-                if (prefs.getSavedMenuBarPosLandscape().equals("right")) {
-                    hideMenu.setImageResource(menuBarVisible
-                            ? R.drawable.icon_arrow_right
-                            : R.drawable.icon_arrow_left);
-                } else {
-                    hideMenu.setImageResource(menuBarVisible
-                            ? R.drawable.icon_arrow_left
-                            : R.drawable.icon_arrow_right);
-                }
+                peek.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                peek.setMargins(margin, 0, 0, margin);
+            }
+        } else {
+            peek.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+            peek.height = (int) getResources().getDimension(R.dimen.menuBarHeight);
+            peek.addRule(RelativeLayout.CENTER_HORIZONTAL);
+            if (prefs.getSavedMenuBarPosPortrait().equals("bottom")) {
+                peek.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+                peek.setMargins(margin, 0, margin, margin);
+            } else {
+                peek.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+                peek.setMargins(margin, margin, margin, 0);
             }
         }
+        hideMenu.setLayoutParams(peek);
     }
 
     private void updateNumberOfRecycles() {

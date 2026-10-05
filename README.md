@@ -16,7 +16,7 @@
   <img alt="Android" src="https://img.shields.io/badge/platform-Android-3ddc84.svg">
 </p>
 
-<p align="center"><strong>v4.3.3</strong></p>
+<p align="center"><strong>v4.3.4</strong></p>
 
 <p align="center">
   <img src="pictures/screenshots/phone-menu-portrait.png" alt="Phone menu" height="160">

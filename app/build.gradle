@@ -27,8 +27,8 @@ android {
         applicationId "com.ambr3.seclusasolitaire"
         minSdk 29
         targetSdk 37
-        versionCode 433
-        versionName "4.3.3"
+        versionCode 434
+        versionName "4.3.4"
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
     }

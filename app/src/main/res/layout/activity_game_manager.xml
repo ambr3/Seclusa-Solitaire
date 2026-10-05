@@ -124,12 +124,18 @@
 
         <ImageView
             android:id="@+id/mainImageViewResize"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/menu_bar_background"
+            android:contentDescription="@string/settings_hide_menu_button"
             android:onClick="menuClick"
-            app:srcCompat="@drawable/icon_arrow_down" />
+            android:padding="10dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/icon_arrow_up"
+            app:tint="@color/menuBarIcon" />
 
         <Button
             android:id="@+id/buttonMainAutoComplete"
@@ -336,6 +342,38 @@
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="@string/menu_settings" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mainButtonResize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="menuClick"
+            android:orientation="vertical"
+            android:paddingLeft="2dp"
+            android:paddingTop="5dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/button_resize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/menu_hide_bar"
+                app:srcCompat="@drawable/icon_arrow_down"
+                app:tint="@color/menuBarIcon" />
+
+            <de.tobiasbielefeld.solitaire.classes.AutoResizingTextView
+                style="@style/GameMenuButtonLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/menu_hide_bar" />
         </LinearLayout>
 
     </LinearLayout>

@@ -73,6 +73,7 @@
 <string name="dialog_start_new_game_title">"Start new game"</string>
 <string name="dialog_start_new_game_text">"Your current progress will be lost and a new random game will be dealt."</string>
 <string name="menu_new_game">"New game"</string>
+<string name="menu_hide_bar">"Hide"</string>
 <string name="menu_deal_new_cards">"Deal new cards"</string>
 <string name="menu_same_cards">"Keep the same cards"</string>
 

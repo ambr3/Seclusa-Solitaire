@@ -4,9 +4,18 @@ All notable changes to **Seclusa Solitaire**.
 
 ## Unreleased
 
+## 4.3.4 — 2026-10-05
+
 ### Changed
 - README: smaller one-row screenshots; F-Droid / Obtainium / GitHub install badges on one row
+- Settings left-column header pills sit closer together
+- In-game hide-menu control lives in the menu bar (menu-bar style); peek button when collapsed
+- Dark mode: cooler surfaces, elevated preference pills, dark frosted game chrome
+
+### Fixed
+- Settings left-column selection highlight updates when switching sections (no scroll needed)
 - README “A note from me” links to the Seclusa about page
+- Dark mode contrast (muddy near-black pills; light icons on white menu glass)
 
 ## 4.3.3 — 2026-10-04
 

@@ -33,6 +33,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -105,6 +106,8 @@ public class Settings extends AppCompatPreferenceActivity {
     //created. Android 7 calls onCreate for each fragment and would create new intents
     static Intent returnIntent;
 
+    private HeaderPillAdapter headerPillAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // After super: theme is applied, so bitmap label colours resolve correctly.
@@ -120,8 +123,8 @@ public class Settings extends AppCompatPreferenceActivity {
             int pad = (int) (10 * density);
             headersList.setBackgroundColor(Color.TRANSPARENT);
             headersList.setDivider(new ColorDrawable(Color.TRANSPARENT));
-            headersList.setDividerHeight((int) (16 * density));
-            headersList.setPadding(pad, (int) (10 * density), pad, pad);
+            headersList.setDividerHeight((int) (6 * density));
+            headersList.setPadding(pad, (int) (8 * density), pad, pad);
             headersList.setClipToPadding(false);
             headersList.setSelector(android.R.color.transparent);
         }
@@ -180,16 +183,27 @@ public class Settings extends AppCompatPreferenceActivity {
     @Override
     public void setListAdapter(ListAdapter adapter) {
         if (adapter == null) {
+            headerPillAdapter = null;
             super.setListAdapter(null);
             return;
         }
-        super.setListAdapter(new HeaderPillAdapter(adapter));
+        headerPillAdapter = new HeaderPillAdapter(adapter);
+        super.setListAdapter(headerPillAdapter);
+    }
+
+    @Override
+    public void onHeaderClick(Header header, int position) {
+        super.onHeaderClick(header, position);
+        // Rebind so previously selected pills drop the green face (ListView won't recycle them).
+        if (headerPillAdapter != null) {
+            headerPillAdapter.notifyDataSetChanged();
+        }
     }
 
     /**
      * Wraps preference-header rows so each Settings section shows as a separate pill card.
      */
-    private class HeaderPillAdapter implements WrapperListAdapter {
+    private class HeaderPillAdapter extends BaseAdapter implements WrapperListAdapter {
         private final ListAdapter wrapped;
 
         HeaderPillAdapter(ListAdapter wrapped) {
@@ -204,7 +218,7 @@ public class Settings extends AppCompatPreferenceActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             float density = getResources().getDisplayMetrics().density;
-            int gap = (int) (8 * density);
+            int gap = (int) (3 * density);
             int pad = (int) (16 * density);
 
             FrameLayout wrap;
@@ -276,16 +290,6 @@ public class Settings extends AppCompatPreferenceActivity {
         }
 
         @Override
-        public void registerDataSetObserver(android.database.DataSetObserver observer) {
-            wrapped.registerDataSetObserver(observer);
-        }
-
-        @Override
-        public void unregisterDataSetObserver(android.database.DataSetObserver observer) {
-            wrapped.unregisterDataSetObserver(observer);
-        }
-
-        @Override
         public int getCount() {
             return wrapped.getCount();
         }
@@ -312,7 +316,7 @@ public class Settings extends AppCompatPreferenceActivity {
 
         @Override
         public int getViewTypeCount() {
-            return wrapped.getViewTypeCount();
+            return Math.max(1, wrapped.getViewTypeCount());
         }
 
         @Override

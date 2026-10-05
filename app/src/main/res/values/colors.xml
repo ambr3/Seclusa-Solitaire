@@ -107,9 +107,18 @@
     <color name="colorDrawerSelectedBlue">#BBDEFB</color>
     <color name="colorDrawerSelectedPurple">#E1BEE7</color>
 
-    <!-- Game menu bar chrome -->
+    <!-- Game menu bar chrome (light frosted glass over felt) -->
     <color name="menuBarIcon">#455A64</color>
     <color name="menuBarLabel">#455A64</color>
+    <color name="menuBarSurface">#1AFFFFFF</color>
+    <color name="menuBarStroke">#80FFFFFF</color>
+    <color name="scoreChipSurface">#1AFFFFFF</color>
+    <color name="scoreChipStroke">#80FFFFFF</color>
+    <color name="headerButtonSurface">#33FFFFFF</color>
+    <color name="headerButtonStroke">#66FFFFFF</color>
+
+    <!-- Settings: light shell; preference pills stay near-white -->
     <color name="settingsBackground">#F2F3F5</color>
+    <color name="colorPreferenceCard">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
 </resources>

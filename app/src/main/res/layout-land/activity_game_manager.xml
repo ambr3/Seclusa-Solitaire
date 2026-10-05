@@ -124,14 +124,22 @@
         android:layout_toStartOf="@+id/linearLayoutMenuBar"
         android:layout_toLeftOf="@+id/linearLayoutMenuBar">
 
+        <!-- Shown only when the menu bar is collapsed — same look as a menu-bar cell. -->
         <ImageView
             android:id="@+id/mainImageViewResize"
-            android:layout_width="30dp"
-            android:layout_height="40dp"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="16dp"
+            android:background="@drawable/menu_bar_background"
+            android:contentDescription="@string/settings_hide_menu_button"
             android:onClick="menuClick"
-            app:srcCompat="@drawable/icon_arrow_right" />
+            android:padding="10dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/icon_arrow_left"
+            app:tint="@color/menuBarIcon" />
 
         <View
             android:layout_width="4dp"
@@ -270,6 +278,25 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 app:srcCompat="@drawable/icon_settings_black"
+                app:tint="@color/menuBarIcon" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/mainButtonResize"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:onClick="menuClick">
+
+            <ImageView
+                android:id="@+id/button_resize"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/menu_hide_bar"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:srcCompat="@drawable/icon_arrow_right"
                 app:tint="@color/menuBarIcon" />
         </FrameLayout>
 
