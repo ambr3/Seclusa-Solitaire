@@ -1,0 +1,4 @@
+* Dark mode contrast: cooler surfaces, elevated Settings pills, dark frosted menu/score chrome
+* Hide-menu control lives in the menu bar; peek button when collapsed
+* Settings header pills: tighter spacing and reliable selection highlight
+* README install badges / screenshots tidy; MobSF 85/A + VirusTotal clean for 4.3.4

@@ -17,6 +17,10 @@ All notable changes to **Seclusa Solitaire**.
 - README “A note from me” links to the Seclusa about page
 - Dark mode contrast (muddy near-black pills; light icons on white menu glass)
 
+### Security
+- MobSF scan for v4.3.4 — 85/100 (grade A); report at `security/mobsf-4.3.4.pdf`
+- VirusTotal for v4.3.4 — no vendors flagged malicious; report at `security/virustotal4.3.4.pdf`
+
 ## 4.3.3 — 2026-10-04
 
 
