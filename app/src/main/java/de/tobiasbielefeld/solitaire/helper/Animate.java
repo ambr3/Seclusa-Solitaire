@@ -28,7 +28,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
@@ -103,7 +103,7 @@ public class Animate {
     public void wonAnimationPhase2() {
         int direction = 0;
         int counter = 0;
-        Random rand = getPrng();
+        SecureRandom rand = getPrng();
 
         PointF newPositions[] = new PointF[cards.length];
 

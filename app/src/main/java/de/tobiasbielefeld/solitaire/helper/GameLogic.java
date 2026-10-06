@@ -21,7 +21,7 @@ package de.tobiasbielefeld.solitaire.helper;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.security.SecureRandom;
 
 import de.tobiasbielefeld.solitaire.BuildConfig;
 import de.tobiasbielefeld.solitaire.R;
@@ -325,7 +325,7 @@ public class GameLogic {
     public void randomize(Card[] array) {
         int index;
         Card dummy;
-        Random random = getPrng();
+        SecureRandom random = getPrng();
 
         int counter;
 

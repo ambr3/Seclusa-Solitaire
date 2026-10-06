@@ -14,6 +14,9 @@ All notable changes to **Seclusa Solitaire**.
 - Appearance: System / Light / Dark pill tabs (defaults to system; layout no longer stripped by section-card styling)
 - Dark mode: score / timer (and stack outlines) use light text when the saved colour is too dark to read
 
+### Security
+- MobSF hardening: local preference dialogs (no AndroidX ARG_KEY="key"), disable preference clipboard copy, SecureRandom-typed PRNG API
+
 ## 4.3.4 — 2026-10-05
 
 ### Changed

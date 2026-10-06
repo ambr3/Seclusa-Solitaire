@@ -28,7 +28,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Random;
 import java.security.SecureRandom;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -302,7 +301,7 @@ public class SharedData {
 
     private static final SecureRandom secureRandom = new SecureRandom();
 
-    public static Random getPrng() {
+    public static SecureRandom getPrng() {
         return secureRandom;
     }
 

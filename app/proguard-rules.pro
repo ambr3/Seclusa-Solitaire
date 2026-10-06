@@ -26,6 +26,11 @@
 -keep class de.tobiasbielefeld.solitaire.dialogs.DialogPreference* { *; }
 -keep class de.tobiasbielefeld.solitaire.checkboxpreferences.** { *; }
 
+# Preference summary copy uses ClipboardManager — never enabled in this app.
+-assumevalues class androidx.preference.Preference {
+    boolean isCopyingEnabled() return false;
+}
+
 -assumenosideeffects class android.util.Log {
     public static boolean isLoggable(java.lang.String, int);
     public static int v(...);
