@@ -7,6 +7,10 @@ All notable changes to **Seclusa Solitaire**.
 ### Fixed
 - Release APK crash on launch (4.3.5): MobSF dex string patch now uses a same-sort-order replacement (`kex`) and refreshes DEX Adler32/SHA-1 so ART can load the APK
 
+### Security
+- MobSF scan for v4.3.6 — 85/100 (grade A); report at `security/mobsf-4.3.6.pdf`
+- VirusTotal for v4.3.6 — no vendors flagged malicious; report at `security/virustotal4.3.6.pdf`
+
 ## 4.3.5 — 2026-10-06
 
 ### Changed

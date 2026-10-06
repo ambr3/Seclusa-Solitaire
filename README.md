@@ -75,7 +75,7 @@ ee9572ee718afb5df1883d9ad27d1c0ced367ab54e3fb04a08aabc80ee05b766
 
 ## Security
 
-Each release is scanned with [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) and [VirusTotal](https://www.virustotal.com/). Latest: [`security/mobsf-4.3.5.pdf`](security/mobsf-4.3.5.pdf) — **96/100, grade A**; [`security/virustotal4.3.5.pdf`](security/virustotal4.3.5.pdf) — **no vendors flagged malicious**.
+Each release is scanned with [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) and [VirusTotal](https://www.virustotal.com/). Latest: [`security/mobsf-4.3.6.pdf`](security/mobsf-4.3.6.pdf) — **85/100, grade A**; [`security/virustotal4.3.6.pdf`](security/virustotal4.3.6.pdf) — **no vendors flagged malicious**.
 
 MobSF may still flag RNG / log calls — **false positives** after minify: shuffling uses `SecureRandom`, and release builds strip `android.util.Log`. Domain strings in reports are About links only (tap to open); there is no `INTERNET` permission.
 
