@@ -2,6 +2,11 @@
 
 All notable changes to **Seclusa Solitaire**.
 
+## 4.3.6 — 2026-10-06
+
+### Fixed
+- Release APK crash on launch (4.3.5): MobSF dex string patch now uses a same-sort-order replacement (`kex`) and refreshes DEX Adler32/SHA-1 so ART can load the APK
+
 ## 4.3.5 — 2026-10-06
 
 ### Changed

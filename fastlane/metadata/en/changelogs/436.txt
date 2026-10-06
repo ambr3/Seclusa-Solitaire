@@ -1,0 +1,2 @@
+* Hotfix: release APK failed to start (DEX checksum after MobSF string patch)
+* Includes 4.3.5: Settings AndroidX, night-mode tabs, deal filter, MobSF 96/A

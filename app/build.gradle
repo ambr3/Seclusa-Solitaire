@@ -27,8 +27,8 @@ android {
         applicationId "com.ambr3.seclusasolitaire"
         minSdk 29
         targetSdk 37
-        versionCode 435
-        versionName "4.3.5"
+        versionCode 436
+        versionName "4.3.6"
 
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
     }
@@ -90,7 +90,8 @@ dependencies {
 // AndroidX PreferenceDialogFragmentCompat keeps a Bundle arg named "key", which MobSF
 // scores as a medium hardcoded-secret finding. Our UI never uses that path (we host
 // dialogs ourselves); rewrite the single shared dex string-pool entry key→arg so the
-// unused AndroidX dialog code no longer trips the scanner. Same-length patch only.
+// unused AndroidX dialog code no longer trips the scanner. Same-length patch only —
+// must refresh the DEX Adler32 checksum + SHA-1 signature or ART rejects the APK.
 tasks.configureEach { task ->
     if (task.name != "minifyReleaseWithR8") {
         return
@@ -103,7 +104,9 @@ tasks.configureEach { task ->
         }
         byte[] data = dexFile.bytes
         byte[] from = [0x03, 0x6b, 0x65, 0x79, 0x00] as byte[] // mutf8 "key"
-        byte[] to = [0x03, 0x61, 0x72, 0x67, 0x00] as byte[]   // mutf8 "arg"
+        // Must stay in the same string_ids sort slot as "key" (between prior id and "keyAt").
+        // "arg"/"kez" break ordering; ART then rejects the dex.
+        byte[] to = [0x03, 0x6b, 0x65, 0x78, 0x00] as byte[]   // mutf8 "kex"
         int hits = 0
         for (int i = 0; i <= data.length - from.length; i++) {
             boolean match = true
@@ -122,7 +125,23 @@ tasks.configureEach { task ->
             throw new GradleException(
                     "Expected exactly 1 dex string-pool entry 'key', found ${hits}")
         }
+
+        // DEX header: magic(8) + checksum(4) + signature(20) + …
+        // Signature first (SHA-1 of file[32:]), then Adler32 of file[12:] including that signature.
+        def sha1 = java.security.MessageDigest.getInstance("SHA-1")
+        sha1.update(data, 32, data.length - 32)
+        byte[] signature = sha1.digest()
+        System.arraycopy(signature, 0, data, 12, 20)
+
+        def adler = new java.util.zip.Adler32()
+        adler.update(data, 12, data.length - 12)
+        int checksum = (int) adler.value
+        data[8] = (byte) (checksum)
+        data[9] = (byte) (checksum >>> 8)
+        data[10] = (byte) (checksum >>> 16)
+        data[11] = (byte) (checksum >>> 24)
+
         dexFile.bytes = data
-        logger.lifecycle("MobSF: rewrote preference dialog Bundle arg string key→arg in release dex")
+        logger.lifecycle("MobSF: rewrote preference dialog Bundle arg string key→kex in release dex (checksum refreshed)")
     }
 }
