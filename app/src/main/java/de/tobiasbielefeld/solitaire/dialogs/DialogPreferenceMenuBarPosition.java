@@ -63,14 +63,11 @@ public class DialogPreferenceMenuBarPosition extends CustomDialogPreference {
         } else {
             left.setChecked(true);
         }
-
-        super.onBindDialogView(view);
     }
 
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
-        super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
             String TOP = "top";

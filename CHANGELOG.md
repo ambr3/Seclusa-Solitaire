@@ -2,7 +2,17 @@
 
 All notable changes to **Seclusa Solitaire**.
 
-## Unreleased
+## 4.3.5 — 2026-10-06
+
+### Changed
+- Difficulty deal filter: Easy needs a hint-bot win plus 3 opening moves; Medium needs ~40 greedy moves (was 20); exhausted searches keep the best deal seen
+- Settings / menus themed to match preference pills: Material dialog theme for framework prefs, pill radio/spinner/hide-game rows, ensure-movability & undo dialogs, Statistics pill tabs, frosted recycle chip & themed autocomplete button
+- Night mode: true-neutral charcoal (dropped green-grey cast), softer accents, quieter pill rims, clearer shell vs card contrast
+- Settings migrated off deprecated PreferenceActivity to AndroidX PreferenceFragmentCompat
+- Won / new-game / help menus use outline pill option buttons instead of flat list rows
+- Settings dialog uses nearly full width in landscape (lifted Material dialog width cap)
+- Appearance: System / Light / Dark pill tabs (defaults to system; layout no longer stripped by section-card styling)
+- Dark mode: score / timer (and stack outlines) use light text when the saved colour is too dark to read
 
 ## 4.3.4 — 2026-10-05
 

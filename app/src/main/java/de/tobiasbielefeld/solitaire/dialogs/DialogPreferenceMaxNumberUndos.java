@@ -47,9 +47,6 @@ public class DialogPreferenceMaxNumberUndos extends CustomDialogPreference {
         input = view.findViewById(R.id.settings_max_number_undos_input);
 
         input.setText(stringFormat(Integer.toString(prefs.getSavedMaxNumberUndos())));
-
-
-        super.onBindDialogView(view);
     }
 
     @Override

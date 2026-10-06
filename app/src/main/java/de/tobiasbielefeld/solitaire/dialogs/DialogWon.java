@@ -11,20 +11,18 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
  */
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import java.util.Locale;
 
@@ -51,44 +49,16 @@ public class DialogWon extends CustomDialogFragment {
     @NonNull
     public Dialog onCreateDialog(Bundle savedState) {
         final GameManager gameManager = (GameManager) getActivity();
-        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity());
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
+        View header = inflater.inflate(R.layout.dialog_won, null);
 
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_won, null);
+        LinearLayout layoutScores = header.findViewById(R.id.dialog_won_layout_scores);
 
-        builder.setCustomTitle(view)
-                .setItems(R.array.won_menu, (dialog, which) -> {
-                    // "which" argument contains index of selected item
-                    switch (which) {
-                        case 0:
-                            gameLogic.newGame();
-                            break;
-                        case 1:
-                            gameLogic.redeal();
-                            break;
-                        case 2:
-                            if (gameManager.hasLoaded) {
-                                timer.save();
-                                gameLogic.setWonAndReloaded();
-                                gameLogic.save();
-                            }
-
-                            gameManager.finish();
-                            break;
-                    }
-                })
-                .setNegativeButton(R.string.game_cancel, (dialog, id) -> {
-                    //just cancel
-                });
-
-        LinearLayout layoutScores = view.findViewById(R.id.dialog_won_layout_scores);
-
-        //only show the calculation of the score if bonus is enabled
         if (currentGame.isBonusEnabled()) {
             layoutScores.setVisibility(View.VISIBLE);
-            TextView text1 = view.findViewById(R.id.dialog_won_text1);
-            TextView text2 = view.findViewById(R.id.dialog_won_text2);
-            TextView text3 = view.findViewById(R.id.dialog_won_text3);
+            TextView text1 = header.findViewById(R.id.dialog_won_text1);
+            TextView text2 = header.findViewById(R.id.dialog_won_text2);
+            TextView text3 = header.findViewById(R.id.dialog_won_text3);
 
             score = (savedState != null && savedState.containsKey(KEY_SCORE))
                     ? savedState.getLong(KEY_SCORE)
@@ -100,21 +70,40 @@ public class DialogWon extends CustomDialogFragment {
                     ? savedState.getLong(KEY_TOTAL)
                     : scores.getScore();
 
-            text1.setText(String.format(Locale.getDefault(), getContext()
+            text1.setText(String.format(Locale.getDefault(), requireContext()
                     .getString(R.string.dialog_win_score), score));
-            text2.setText(String.format(Locale.getDefault(), getContext()
+            text2.setText(String.format(Locale.getDefault(), requireContext()
                     .getString(R.string.dialog_win_bonus), bonus));
-            text3.setText(String.format(Locale.getDefault(), getContext()
+            text3.setText(String.format(Locale.getDefault(), requireContext()
                     .getString(R.string.dialog_win_total), total));
         } else {
             layoutScores.setVisibility(View.GONE);
         }
 
-        return applyFlags(builder.create());
+        return applyFlags(OptionPillDialog.create(requireActivity(), null, header, R.array.won_menu, which -> {
+            switch (which) {
+                case 0:
+                    gameLogic.newGame();
+                    break;
+                case 1:
+                    gameLogic.redeal();
+                    break;
+                case 2:
+                    if (gameManager != null && gameManager.hasLoaded) {
+                        timer.save();
+                        gameLogic.setWonAndReloaded();
+                        gameLogic.save();
+                    }
+                    if (gameManager != null) {
+                        gameManager.finish();
+                    }
+                    break;
+            }
+        }));
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putLong(KEY_SCORE, score);
         outState.putLong(KEY_BONUS, bonus);

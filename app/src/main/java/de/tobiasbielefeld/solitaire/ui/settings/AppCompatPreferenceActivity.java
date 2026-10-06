@@ -4,19 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatDelegate;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.color.DynamicColors;
 import com.google.android.material.color.DynamicColorsOptions;
@@ -29,38 +24,40 @@ import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 /**
- * A {@link android.preference.PreferenceActivity} which implements and proxies the necessary calls
- * to be used with AppCompat.
- * <p>
- * This is auto generated with the "Create settings activity" tool from Android Studio.
+ * AppCompat host for Settings (replaces deprecated PreferenceActivity).
  */
-
-public abstract class AppCompatPreferenceActivity extends PreferenceActivity
+public abstract class AppCompatPreferenceActivity extends AppCompatActivity
         implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    private AppCompatDelegate mDelegate;
-
-    /**
-     * Returns the base theme style this settings screen should use. Settings screens use the
-     * action bar variant of the app theme.
-     */
     protected int getBaseThemeRes() {
         return R.style.AppThemeSettingsDialog;
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         setTheme(ThemeColors.getThemeRes(this, getBaseThemeRes()));
-        getDelegate().installViewFactory();
-        getDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
         if (prefs != null && prefs.getSavedDynamicColors() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             DynamicColors.applyToActivityIfAvailable(this,
                     new DynamicColorsOptions.Builder().build());
         }
+        applyDialogWindowSize();
+    }
+
+    @Override
+    public void onConfigurationChanged(android.content.res.Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        applyDialogWindowSize();
+    }
+
+    /** Wider in landscape — Material dialog defaults are too narrow for Settings multipane. */
+    protected void applyDialogWindowSize() {
         float width = getResources().getDisplayMetrics().widthPixels;
         float height = getResources().getDisplayMetrics().heightPixels;
-        getWindow().setLayout((int) (width * 0.9f), (int) (height * 0.8f));
+        boolean landscape = width > height;
+        float widthFrac = landscape ? 0.96f : 0.92f;
+        float heightFrac = landscape ? 0.92f : 0.85f;
+        getWindow().setLayout((int) (width * widthFrac), (int) (height * heightFrac));
     }
 
     @Override
@@ -69,111 +66,39 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity
     }
 
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        getDelegate().onPostCreate(savedInstanceState);
         EdgeToEdge.applyContentInsets(this);
-    }
-
-    ActionBar getSupportActionBar() {
-        return getDelegate().getSupportActionBar();
-    }
-
-    @NonNull
-    @Override
-    public MenuInflater getMenuInflater() {
-        return getDelegate().getMenuInflater();
     }
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
-        getDelegate().setContentView(layoutResID);
+        super.setContentView(layoutResID);
     }
 
     @Override
-    public void setContentView(View view) {
-        getDelegate().setContentView(view);
-    }
-
-    @Override
-    public void setContentView(View view, ViewGroup.LayoutParams params) {
-        getDelegate().setContentView(view, params);
-    }
-
-    @Override
-    public void addContentView(View view, ViewGroup.LayoutParams params) {
-        getDelegate().addContentView(view, params);
-    }
-
     protected void onResume() {
         super.onResume();
-
         prefs.registerListener(this);
         showOrHideStatusBar();
         setOrientation();
     }
 
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        getDelegate().onPostResume();
-    }
-
-    @Override
-    protected void onTitleChanged(CharSequence title, int color) {
-        super.onTitleChanged(title, color);
-        getDelegate().setTitle(title);
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        getDelegate().onConfigurationChanged(newConfig);
-    }
-
     protected void onPause() {
         super.onPause();
-
         prefs.unregisterListener(this);
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        getDelegate().onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        getDelegate().onDestroy();
-    }
-
-    public void invalidateOptionsMenu() {
-        getDelegate().invalidateOptionsMenu();
-    }
-
-    private AppCompatDelegate getDelegate() {
-        if (mDelegate == null) {
-            mDelegate = AppCompatDelegate.create(this, null);
-        }
-        return mDelegate;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            case android.R.id.home:
-                super.onBackPressed();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            getOnBackPressedDispatcher().onBackPressed();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Applies the user setting of the status bar.
-     */
     protected void showOrHideStatusBar() {
         if (prefs.getSavedHideStatusBar()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -183,12 +108,9 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity
         }
     }
 
-    /**
-     * Fully restarts the task so theme/locale changes recreate every activity
-     * (CLEAR_TOP alone reuses the existing GameSelector without reapplying setTheme).
-     */
     protected void restartApplication() {
-        Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
+        Intent i = getBaseContext().getPackageManager()
+                .getLaunchIntentForPackage(getBaseContext().getPackageName());
 
         if (i != null) {
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -197,21 +119,18 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity
         }
     }
 
-    /**
-     * Applies the user setting of the screen orientation.
-     */
     protected void setOrientation() {
         switch (prefs.getSavedOrientation()) {
-            case 1: //follow system settings
+            case 1:
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER);
                 break;
-            case 2: //portrait
+            case 2:
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
                 break;
-            case 3: //landscape
+            case 3:
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 break;
-            case 4: //landscape upside down
+            case 4:
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
                 break;
         }

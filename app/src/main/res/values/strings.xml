@@ -381,11 +381,17 @@ On the tableau, only top cards can be moved and they can only be moved to the fo
 
 <!-- Settings -->
 <string name="settings_background_color">"Background colour"</string>
-<string name="settings_theme_color">"Theme colour"</string>
-<string name="settings_theme_color_green">"Green"</string>
-<string name="settings_theme_color_orange">"Orange"</string>
-<string name="settings_theme_color_blue">"Blue"</string>
-<string name="settings_theme_color_purple">"Purple"</string>
+ <string name="settings_theme_color">"Theme colour"</string>
+ <string name="settings_theme_color_green">"Green"</string>
+ <string name="settings_theme_color_orange">"Orange"</string>
+ <string name="settings_theme_color_blue">"Blue"</string>
+ <string name="settings_theme_color_purple">"Purple"</string>
+ <string name="settings_appearance">"Appearance"</string>
+ <string name="settings_night_mode">"Light / dark mode"</string>
+ <string name="settings_night_mode_system">"System"</string>
+ <string name="settings_night_mode_light">"Light"</string>
+ <string name="settings_night_mode_dark">"Dark"</string>
+ <string name="settings_night_mode_summary">"Choose light, dark, or follow the device setting"</string>
 <string name="settings_dynamic_colors">"Dynamic colours"</string>
 <string name="settings_dynamic_colors_summary">"Use the wallpaper colours on Android 12 or newer (overrides the theme colour choice)"</string>
 <string name="settings_hide_status_bar">"Hide status bar"</string>

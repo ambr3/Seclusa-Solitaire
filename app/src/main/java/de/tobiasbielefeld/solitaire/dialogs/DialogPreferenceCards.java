@@ -19,10 +19,8 @@
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -72,8 +70,6 @@ public class DialogPreferenceCards extends CustomDialogPreference implements Vie
             ImageView imageView = (ImageView) linearLayouts[i].getChildAt(0);
             imageView.setImageBitmap(bitmaps.getCardPreview(i, row));
         }
-
-        super.onBindDialogView(view);
     }
 
     public void onClick(View v) {
@@ -107,17 +103,11 @@ public class DialogPreferenceCards extends CustomDialogPreference implements Vie
         getDialog().dismiss();
     }
 
-    /*
-     * Get the layout from the preference, so I can get the imageView from the widgetLayout
-     */
     @Override
-    protected View onCreateView(ViewGroup parent) {
-        View view = super.onCreateView(parent);
-
-        image = view.findViewById(R.id.preference_cards_imageView);
-        updateSummary();
-
-        return view;
+    public void onBindViewHolder(androidx.preference.PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        image = holder.itemView.findViewById(R.id.preference_cards_imageView);
+        applyWidget();
     }
 
     /**
@@ -125,7 +115,6 @@ public class DialogPreferenceCards extends CustomDialogPreference implements Vie
      */
     public void updateSummary() {
         String text;
-        Bitmap cardPreview;
         int row = prefs.getSavedFourColorMode() ? 1 : 0;
         int selectedTheme = prefs.getSavedCardTheme();
 
@@ -163,12 +152,16 @@ public class DialogPreferenceCards extends CustomDialogPreference implements Vie
                 break;
         }
 
-        cardPreview = bitmaps.getCardPreview2(selectedTheme - 1, row);
-
-        if (image != null) {
-            image.setImageBitmap(cardPreview);
-        }
-
         setSummary(text);
+        applyWidget();
+    }
+
+    private void applyWidget() {
+        if (image == null) {
+            return;
+        }
+        int row = prefs.getSavedFourColorMode() ? 1 : 0;
+        int selectedTheme = prefs.getSavedCardTheme();
+        image.setImageBitmap(bitmaps.getCardPreview2(selectedTheme - 1, row));
     }
 }

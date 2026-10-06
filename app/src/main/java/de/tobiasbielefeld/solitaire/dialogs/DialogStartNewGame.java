@@ -1,5 +1,4 @@
 /* Copyright (C) 2016  Tobias Bielefeld
- * Copyright (C) 2016  Tobias Bielefeld
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -12,16 +11,14 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
  */
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.app.Dialog;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
@@ -37,9 +34,11 @@ public class DialogStartNewGame extends CustomDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity());
-        builder.setTitle(R.string.dialog_start_new_game_title)
-                .setItems(R.array.new_game_menu, (dialog, which) -> {
+        return applyFlags(OptionPillDialog.create(
+                requireActivity(),
+                R.string.dialog_start_new_game_title,
+                R.array.new_game_menu,
+                which -> {
                     switch (which) {
                         case 0:
                             gameLogic.newGame();
@@ -48,11 +47,6 @@ public class DialogStartNewGame extends CustomDialogFragment {
                             gameLogic.redeal();
                             break;
                     }
-                })
-                .setNegativeButton(R.string.game_cancel, (dialog, id) -> {
-                    // just cancel
-                });
-
-        return applyFlags(builder.create());
+                }));
     }
 }

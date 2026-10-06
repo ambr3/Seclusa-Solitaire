@@ -20,7 +20,7 @@ package de.tobiasbielefeld.solitaire.classes;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 
 import de.tobiasbielefeld.solitaire.R;
 

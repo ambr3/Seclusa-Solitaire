@@ -20,14 +20,18 @@ package de.tobiasbielefeld.solitaire;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
+
+import androidx.preference.PreferenceManager;
 
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
+import de.tobiasbielefeld.solitaire.helper.NightMode;
 
 /**
- * Application class to load custom locales
+ * Application class to load custom locales and appearance mode
  */
 
 public class MainApplication extends Application {
@@ -35,6 +39,16 @@ public class MainApplication extends Application {
     protected void attachBaseContext(Context base) {
         LocaleChanger.setDefaultLocale(Locale.getDefault());
         super.attachBaseContext(LocaleChanger.onAttach(base));
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String mode = preferences.getString(
+                getString(R.string.pref_key_night_mode),
+                getString(R.string.default_night_mode));
+        NightMode.apply(mode);
     }
 
     @Override

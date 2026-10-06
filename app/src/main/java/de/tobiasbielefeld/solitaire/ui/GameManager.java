@@ -713,7 +713,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     }
 
     private void setUiElementsColor() {
-        int textColor = prefs.getSavedTextColor();
+        int textColor = resolveUiTextColor(prefs.getSavedTextColor());
 
         mainTextViewTime.setTextColor(textColor);
         mainTextViewScore.setTextColor(textColor);
@@ -725,6 +725,23 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         }
 
         currentGame.textViewSetColor(textColor);
+    }
+
+    /** Default black text is unreadable on dark score chips / felt — lighten in night mode. */
+    private int resolveUiTextColor(int color) {
+        boolean night = (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)
+                == Configuration.UI_MODE_NIGHT_YES;
+        if (!night) {
+            return color;
+        }
+        int r = (color >> 16) & 0xFF;
+        int g = (color >> 8) & 0xFF;
+        int b = color & 0xFF;
+        double luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+        if (luminance >= 140) {
+            return color;
+        }
+        return getResources().getColor(R.color.menuBarLabel, getTheme());
     }
 
     public void applyGameLayoutMargins(RelativeLayout.LayoutParams params, boolean isLandscape) {

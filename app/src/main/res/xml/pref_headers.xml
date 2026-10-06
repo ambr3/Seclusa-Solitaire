@@ -1,38 +1,54 @@
-<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
-    <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$CustomizationPreferenceFragment"
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.tobiasbielefeld.solitaire.ui.settings.HeaderPreference
+        android:key="hdr_customize"
+        android:layout="@layout/settings_header_row"
         android:summary="@string/settings_customization_description"
-        android:title="@string/settings_customization" />
+        android:title="@string/settings_customization"
+        app:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$CustomizationPreferenceFragment" />
 
-    <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$MenuPreferenceFragment"
+    <de.tobiasbielefeld.solitaire.ui.settings.HeaderPreference
+        android:key="hdr_menu"
+        android:layout="@layout/settings_header_row"
         android:summary="@string/settings_menu_description"
-        android:title="@string/settings_menu" />
+        android:title="@string/settings_menu"
+        app:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$MenuPreferenceFragment" />
 
-    <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$GamesPreferenceFragment"
+    <de.tobiasbielefeld.solitaire.ui.settings.HeaderPreference
+        android:key="hdr_games"
+        android:layout="@layout/settings_header_row"
         android:summary="@string/settings_games_description"
-        android:title="@string/settings_games" />
+        android:title="@string/settings_games"
+        app:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$GamesPreferenceFragment" />
 
-    <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$SoundPreferenceFragment"
+    <de.tobiasbielefeld.solitaire.ui.settings.HeaderPreference
+        android:key="hdr_sounds"
+        android:layout="@layout/settings_header_row"
         android:summary="@string/Settings_sounds_text"
-        android:title="@string/Settings_sounds_title" />
+        android:title="@string/Settings_sounds_title"
+        app:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$SoundPreferenceFragment" />
 
-    <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$AdditionalMovementsPreferenceFragment"
+    <de.tobiasbielefeld.solitaire.ui.settings.HeaderPreference
+        android:key="hdr_movements"
+        android:layout="@layout/settings_header_row"
         android:summary="@string/settings_additional_movements_description"
-        android:title="@string/settings_additional_movements" />
+        android:title="@string/settings_additional_movements"
+        app:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$AdditionalMovementsPreferenceFragment" />
 
-    <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$OtherPreferenceFragment"
+    <de.tobiasbielefeld.solitaire.ui.settings.HeaderPreference
+        android:key="hdr_other"
+        android:layout="@layout/settings_header_row"
         android:summary="@string/settings_other_description"
-        android:title="@string/settings_other" />
+        android:title="@string/settings_other"
+        app:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$OtherPreferenceFragment" />
 
-    <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$ExpertSettingsPreferenceFragment"
+    <de.tobiasbielefeld.solitaire.ui.settings.HeaderPreference
+        android:key="hdr_expert"
+        android:layout="@layout/settings_header_row"
         android:summary="@string/settings_expert_settings_text"
-        android:title="@string/settings_expert_settings" />
+        android:title="@string/settings_expert_settings"
+        app:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$ExpertSettingsPreferenceFragment" />
 
-
-</preference-headers>
+</PreferenceScreen>

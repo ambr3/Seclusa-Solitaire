@@ -82,8 +82,9 @@ public class DialogPreferenceEnsureMovabilityMinMoves
             LinearLayout entry = (LinearLayout) LayoutInflater.from(getContext())
                     .inflate(R.layout.dialog_ensure_movability_min_moves_entry, null);
 
-            ((TextView) entry.getChildAt(0)).setText(gameInfoList.get(i).getName(getContext().getResources()));
-            final EditText newInput = (EditText) entry.getChildAt(1);
+            ((TextView) entry.findViewById(R.id.settings_ensure_movability_game_name))
+                    .setText(gameInfoList.get(i).getName(getContext().getResources()));
+            final EditText newInput = entry.findViewById(R.id.settings_ensure_movability_game_input);
             inputs.add(newInput);
 
             newInput.setOnFocusChangeListener((view1, hasFocus) -> {
@@ -103,8 +104,6 @@ public class DialogPreferenceEnsureMovabilityMinMoves
             container.addView(entry);
 
         }
-
-        super.onBindDialogView(view);
     }
 
     @Override

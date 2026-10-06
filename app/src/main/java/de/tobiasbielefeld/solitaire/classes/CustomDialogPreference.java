@@ -1,49 +1,76 @@
 package de.tobiasbielefeld.solitaire.classes;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
-import android.preference.DialogPreference;
-import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.DialogPreference;
+import androidx.preference.PreferenceViewHolder;
 
 /**
- * Custom CheckBox preference to get rid of the single line restriction of its title
+ * AndroidX DialogPreference with the old onBindDialogView / onDialogClosed hooks.
  */
-
 public class CustomDialogPreference extends DialogPreference {
+
+    private AlertDialog activeDialog;
+
+    public CustomDialogPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
 
     public CustomDialogPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public CustomDialogPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     public CustomDialogPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public CustomDialogPreference(Context context) {
         super(context);
     }
 
     @Override
-    protected View onCreateView(ViewGroup parent) {
-        View view = super.onCreateView(parent);
-
-        //get rid of the stupid single line restriction for the title
-        TextView textView = view.findViewById(android.R.id.title);
-        if (textView != null) {
-            textView.setSingleLine(false);
+    public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        View title = holder.findViewById(android.R.id.title);
+        if (title instanceof android.widget.TextView) {
+            ((android.widget.TextView) title).setSingleLine(false);
+            ((android.widget.TextView) title).setMaxLines(3);
         }
+    }
 
-        return view;
+    protected void onBindDialogView(View view) {
+    }
+
+    protected void onDialogClosed(boolean positiveResult) {
+    }
+
+    protected void onDialogShown(@NonNull AlertDialog dialog) {
+    }
+
+    void attachActiveDialog(@Nullable AlertDialog dialog) {
+        activeDialog = dialog;
+    }
+
+    @Nullable
+    public AlertDialog getDialog() {
+        return activeDialog;
+    }
+
+    /** Unwraps ContextThemeWrapper so callers can reach the Settings activity. */
+    @Nullable
+    protected Context getActivityContext() {
+        Context context = getContext();
+        while (context instanceof android.content.ContextWrapper) {
+            if (context instanceof android.app.Activity) {
+                return context;
+            }
+            context = ((android.content.ContextWrapper) context).getBaseContext();
+        }
+        return null;
     }
 }

@@ -60,13 +60,11 @@ public class DialogPreferenceMenuOrder extends CustomDialogPreference {
         listView.setList(gameList);
         listView.setAdapter(adapter);
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        super.onBindDialogView(view);
     }
 
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
-        super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
             ArrayList<Integer> list = new ArrayList<>();

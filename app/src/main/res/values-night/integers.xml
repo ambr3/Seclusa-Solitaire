@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="default_text_color">0xFFF2F4F5</integer> <!-- light — matches menuBarLabel -->
+</resources>

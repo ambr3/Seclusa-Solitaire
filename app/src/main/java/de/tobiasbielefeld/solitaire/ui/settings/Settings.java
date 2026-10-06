@@ -4,16 +4,6 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
  */
 
 package de.tobiasbielefeld.solitaire.ui.settings;
@@ -22,30 +12,26 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.WrapperListAdapter;
 
 import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.preference.CheckBoxPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceScreen;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.LoadGame;
@@ -67,14 +53,21 @@ import de.tobiasbielefeld.solitaire.games.Klondike;
 import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 
+import static android.content.Context.MODE_PRIVATE;
 import static de.tobiasbielefeld.solitaire.SharedData.*;
 import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
-/**
- * Settings activity created with the "Create settings activity" tool from Android Studio.
- */
+import de.tobiasbielefeld.solitaire.helper.NightMode;
 
-public class Settings extends AppCompatPreferenceActivity {
+/**
+ * Settings activity — AndroidX PreferenceFragmentCompat host (no PreferenceActivity).
+ */
+public class Settings extends AppCompatPreferenceActivity
+        implements PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
+
+    private static final String STATE_SELECTED_HEADER = "state_selected_header";
+    private static final String TAG_HEADERS = "settings_headers";
+    private static final String TAG_DETAIL = "settings_detail";
 
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
@@ -98,48 +91,65 @@ public class Settings extends AppCompatPreferenceActivity {
     private CheckBoxPreferenceHideTime preferenceHideTime;
 
     private PreferenceCategory categoryOnlyForThisGame;
-
     CustomizationPreferenceFragment customizationPreferenceFragment;
 
-    //make this static so the preference fragments use the same intent
-    //don't forget: Android 8 doesn't call onCreate for the fragments, so there only one intent is
-    //created. Android 7 calls onCreate for each fragment and would create new intents
     static Intent returnIntent;
 
-    private HeaderPillAdapter headerPillAdapter;
+    private View headersContainer;
+    private View detailContainer;
+    private String selectedHeaderKey;
+    private boolean multiPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // After super: theme is applied, so bitmap label colours resolve correctly.
         super.onCreate(savedInstanceState);
         reinitializeData(this);
-
-        ((ViewGroup) getListView().getParent()).setPadding(0, 0, 0, 0);     //remove huge padding in landscape
-
-        ListView headersList = getListView();
-        if (headersList != null) {
-            // Each settings section is its own pill (not one fused card).
-            float density = getResources().getDisplayMetrics().density;
-            int pad = (int) (10 * density);
-            headersList.setBackgroundColor(Color.TRANSPARENT);
-            headersList.setDivider(new ColorDrawable(Color.TRANSPARENT));
-            headersList.setDividerHeight((int) (6 * density));
-            headersList.setPadding(pad, (int) (8 * density), pad, pad);
-            headersList.setClipToPadding(false);
-            headersList.setSelector(android.R.color.transparent);
-        }
-
         prefs.setCriticalSettings();
 
         if (returnIntent == null) {
             returnIntent = new Intent();
         }
+
+        setContentView(R.layout.activity_settings);
+        headersContainer = findViewById(R.id.settings_headers);
+        detailContainer = findViewById(R.id.settings_detail);
+        multiPane = isLargeTablet(this);
+
+        if (savedInstanceState != null) {
+            selectedHeaderKey = savedInstanceState.getString(STATE_SELECTED_HEADER);
+        }
+
+        if (getSupportFragmentManager().findFragmentByTag(TAG_HEADERS) == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.settings_headers, new SettingsHeadersFragment(), TAG_HEADERS)
+                    .commit();
+        }
+
+        applyPaneVisibility(getSupportFragmentManager().findFragmentByTag(TAG_DETAIL) != null);
+
+        if (multiPane && selectedHeaderKey == null) {
+            headersContainer.post(() -> openHeader("hdr_customize", false));
+        } else if (multiPane && selectedHeaderKey != null
+                && getSupportFragmentManager().findFragmentByTag(TAG_DETAIL) == null) {
+            String key = selectedHeaderKey;
+            headersContainer.post(() -> openHeader(key, false));
+        }
+
+        getOnBackPressedDispatcher().addCallback(this, new androidx.activity.OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (!multiPane && getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                    getSupportFragmentManager().popBackStack();
+                    selectedHeaderKey = null;
+                    applyPaneVisibility(false);
+                    refreshHeaderSelection();
+                } else {
+                    finish();
+                }
+            }
+        });
     }
 
-    /**
-     * Wraps the preference content in a layout with our own toolbar, so the Settings screen gets a
-     * visible X button to close it, matching the Manual and About screens.
-     */
     @Override
     public void setContentView(@LayoutRes int layoutResId) {
         LinearLayout root = new LinearLayout(this);
@@ -168,168 +178,99 @@ public class Settings extends AppCompatPreferenceActivity {
                 ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
 
         super.setContentView(root);
+        headersContainer = findViewById(R.id.settings_headers);
+        detailContainer = findViewById(R.id.settings_detail);
     }
 
     @Override
-    public boolean onIsMultiPane() {
-        return isLargeTablet(this);
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (selectedHeaderKey != null) {
+            outState.putString(STATE_SELECTED_HEADER, selectedHeaderKey);
+        }
     }
 
     @Override
-    public void onBuildHeaders(List<Header> target) {
-        loadHeadersFromResource(R.xml.pref_headers, target);
+    public boolean onPreferenceStartFragment(@NonNull PreferenceFragmentCompat caller, @NonNull Preference pref) {
+        String key = pref.getKey();
+        if (key != null && key.startsWith("hdr_")) {
+            openHeader(key, true);
+            return true;
+        }
+        String fragmentName = pref.getFragment();
+        if (fragmentName == null) {
+            return false;
+        }
+        openFragment(fragmentName, true);
+        return true;
     }
 
-    @Override
-    public void setListAdapter(ListAdapter adapter) {
-        if (adapter == null) {
-            headerPillAdapter = null;
-            super.setListAdapter(null);
+    void openHeader(String headerKey, boolean userClick) {
+        SettingsHeadersFragment headers = (SettingsHeadersFragment)
+                getSupportFragmentManager().findFragmentByTag(TAG_HEADERS);
+        if (headers == null) {
             return;
         }
-        headerPillAdapter = new HeaderPillAdapter(adapter);
-        super.setListAdapter(headerPillAdapter);
+        Preference pref = headers.findPreference(headerKey);
+        if (pref == null || pref.getFragment() == null) {
+            return;
+        }
+        selectedHeaderKey = headerKey;
+        headers.setSelectedHeader(headerKey);
+        openFragment(pref.getFragment(), userClick && !multiPane);
     }
 
-    @Override
-    public void onHeaderClick(Header header, int position) {
-        super.onHeaderClick(header, position);
-        // Rebind so previously selected pills drop the green face (ListView won't recycle them).
-        if (headerPillAdapter != null) {
-            headerPillAdapter.notifyDataSetChanged();
+    private void openFragment(String fragmentName, boolean addToBackStack) {
+        Fragment fragment = getSupportFragmentManager().getFragmentFactory()
+                .instantiate(getClassLoader(), fragmentName);
+        androidx.fragment.app.FragmentTransaction tx = getSupportFragmentManager().beginTransaction()
+                .replace(R.id.settings_detail, fragment, TAG_DETAIL);
+        if (addToBackStack) {
+            tx.addToBackStack(null);
         }
+        tx.commit();
+        applyPaneVisibility(true);
     }
 
-    /**
-     * Wraps preference-header rows so each Settings section shows as a separate pill card.
-     */
-    private class HeaderPillAdapter extends BaseAdapter implements WrapperListAdapter {
-        private final ListAdapter wrapped;
-
-        HeaderPillAdapter(ListAdapter wrapped) {
-            this.wrapped = wrapped;
+    private void applyPaneVisibility(boolean showingDetail) {
+        if (headersContainer == null || detailContainer == null) {
+            return;
         }
-
-        @Override
-        public ListAdapter getWrappedAdapter() {
-            return wrapped;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            float density = getResources().getDisplayMetrics().density;
-            int gap = (int) (3 * density);
-            int pad = (int) (16 * density);
-
-            FrameLayout wrap;
-            View inner;
-            if (convertView instanceof FrameLayout && "header_pill".equals(convertView.getTag())) {
-                wrap = (FrameLayout) convertView;
-                View old = wrap.getChildCount() > 0 ? wrap.getChildAt(0) : null;
-                inner = wrapped.getView(position, old, wrap);
-                if (inner.getParent() != wrap) {
-                    wrap.removeAllViews();
-                    wrap.addView(inner, new FrameLayout.LayoutParams(
-                            ViewGroup.LayoutParams.MATCH_PARENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT));
-                }
-            } else {
-                wrap = new FrameLayout(parent.getContext());
-                wrap.setTag("header_pill");
-                wrap.setPadding(0, gap, 0, gap);
-                inner = wrapped.getView(position, null, wrap);
-                wrap.addView(inner, new FrameLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT));
+        if (multiPane) {
+            headersContainer.setVisibility(View.VISIBLE);
+            detailContainer.setVisibility(View.VISIBLE);
+            ViewGroup.LayoutParams lp = headersContainer.getLayoutParams();
+            if (lp instanceof LinearLayout.LayoutParams) {
+                ((LinearLayout.LayoutParams) lp).weight = 1f;
+                headersContainer.setLayoutParams(lp);
             }
-
-            ListView headers = getListView();
-            boolean activated = headers != null && headers.getCheckedItemPosition() == position;
-            // Selected header (tablet multipane): primary fill + on-primary text so labels stay readable.
-            inner.setActivated(activated);
-            if (activated) {
-                inner.setBackgroundResource(R.drawable.settings_header_activated);
-            } else {
-                inner.setBackgroundResource(R.drawable.preference_card_single);
+            ViewGroup.LayoutParams dp = detailContainer.getLayoutParams();
+            if (dp instanceof LinearLayout.LayoutParams) {
+                ((LinearLayout.LayoutParams) dp).weight = 2f;
+                detailContainer.setLayoutParams(dp);
             }
-            inner.setPadding(pad, pad, pad, pad);
-            // Idle: primary accent on light face. Selected: on-primary over primary fill.
-            int titleColor = activated
-                    ? resolveThemeColor(R.attr.colorOnPrimary, Color.WHITE)
-                    : resolveThemeColor(R.attr.colorPrimary, Color.BLACK);
-            int summaryColor = activated
-                    ? Color.argb(220, Color.red(titleColor), Color.green(titleColor), Color.blue(titleColor))
-                    : resolveThemeColor(R.attr.colorOnSurfaceVariant, Color.GRAY);
-            TextView title = inner.findViewById(android.R.id.title);
-            TextView summary = inner.findViewById(android.R.id.summary);
-            if (title != null) {
-                title.setTextColor(titleColor);
+        } else if (showingDetail) {
+            headersContainer.setVisibility(View.GONE);
+            detailContainer.setVisibility(View.VISIBLE);
+            ViewGroup.LayoutParams dp = detailContainer.getLayoutParams();
+            if (dp instanceof LinearLayout.LayoutParams) {
+                ((LinearLayout.LayoutParams) dp).weight = 1f;
+                detailContainer.setLayoutParams(dp);
             }
-            if (summary != null) {
-                summary.setTextColor(summaryColor);
-            }
-            return wrap;
-        }
-
-        private int resolveThemeColor(int attr, int fallback) {
-            TypedValue value = new TypedValue();
-            if (getTheme().resolveAttribute(attr, value, true)) {
-                return value.data;
-            }
-            return fallback;
-        }
-
-        @Override
-        public boolean areAllItemsEnabled() {
-            return wrapped.areAllItemsEnabled();
-        }
-
-        @Override
-        public boolean isEnabled(int position) {
-            return wrapped.isEnabled(position);
-        }
-
-        @Override
-        public int getCount() {
-            return wrapped.getCount();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return wrapped.getItem(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return wrapped.getItemId(position);
-        }
-
-        @Override
-        public boolean hasStableIds() {
-            return wrapped.hasStableIds();
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-            return wrapped.getItemViewType(position);
-        }
-
-        @Override
-        public int getViewTypeCount() {
-            return Math.max(1, wrapped.getViewTypeCount());
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return wrapped.isEmpty();
+        } else {
+            headersContainer.setVisibility(View.VISIBLE);
+            detailContainer.setVisibility(View.GONE);
         }
     }
 
-    /*
-     * Update settings when the shared preferences get new values. It uses a lot of if/else instead
-     * of switch/case because only this way i can use getString() to get the xml values, otherwise
-     * I would need to write the strings manually in the cases.
-     */
+    private void refreshHeaderSelection() {
+        SettingsHeadersFragment headers = (SettingsHeadersFragment)
+                getSupportFragmentManager().findFragmentByTag(TAG_HEADERS);
+        if (headers != null) {
+            headers.setSelectedHeader(selectedHeaderKey);
+        }
+    }
+
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME)) {
 
@@ -399,7 +340,11 @@ public class Settings extends AppCompatPreferenceActivity {
         } else if (key.equals(PREF_KEY_LANGUAGE)) {
             bitmaps.resetMenuPreviews();
             restartApplication();
-        } else if (key.equals(PREF_KEY_THEME_COLOR) || key.equals(PREF_KEY_DYNAMIC_COLORS)) {
+        } else if (key.equals(PREF_KEY_THEME_COLOR) || key.equals(PREF_KEY_DYNAMIC_COLORS)
+                || key.equals(PREF_KEY_NIGHT_MODE)) {
+            if (key.equals(PREF_KEY_NIGHT_MODE)) {
+                NightMode.apply(sharedPreferences.getString(key, DEFAULT_NIGHT_MODE));
+            }
             bitmaps.setResources(this);
             bitmaps.resetMenuPreviews();
             restartApplication();
@@ -510,227 +455,216 @@ public class Settings extends AppCompatPreferenceActivity {
         super.finish();
     }
 
-    /**
-     * Tests if a loaded fragment is valid
-     *
-     * @param fragmentName The name of the fragment to test
-     * @return True if it's valid, false otherwise
-     */
-    protected boolean isValidFragment(String fragmentName) {
-        return PreferenceFragment.class.getName().equals(fragmentName)
-                || CustomizationPreferenceFragment.class.getName().equals(fragmentName)
-                || OtherPreferenceFragment.class.getName().equals(fragmentName)
-                || MenuPreferenceFragment.class.getName().equals(fragmentName)
-                || AdditionalMovementsPreferenceFragment.class.getName().equals(fragmentName)
-                || SoundPreferenceFragment.class.getName().equals(fragmentName)
-                || ExpertSettingsPreferenceFragment.class.getName().equals(fragmentName)
-                || GamesPreferenceFragment.class.getName().equals(fragmentName);
-
-    }
-
     private void updatePreferenceMenuColumnsSummary() {
+        if (preferenceMenuColumns == null) {
+            return;
+        }
         int portraitValue = prefs.getSavedMenuColumnsPortrait();
         int landscapeValue = prefs.getSavedMenuColumnsLandscape();
-
         String text = String.format(Locale.getDefault(), "%s: %d\n%s: %d",
-                getString(R.string.settings_portrait), portraitValue, getString(R.string.settings_landscape), landscapeValue);
-
+                getString(R.string.settings_portrait), portraitValue,
+                getString(R.string.settings_landscape), landscapeValue);
         preferenceMenuColumns.setSummary(text);
     }
 
     private void updatePreferenceGameLayoutMarginsSummary() {
+        if (preferenceGameLayoutMargins == null) {
+            return;
+        }
         String textPortrait = "", textLandscape = "";
-
         switch (prefs.getSavedGameLayoutMarginsPortrait()) {
-            case 0:
-                textPortrait = getString(R.string.settings_game_layout_margins_none);
-                break;
-            case 1:
-                textPortrait = getString(R.string.settings_game_layout_margins_small);
-                break;
-            case 2:
-                textPortrait = getString(R.string.settings_game_layout_margins_medium);
-                break;
-            case 3:
-                textPortrait = getString(R.string.settings_game_layout_margins_large);
-                break;
+            case 0: textPortrait = getString(R.string.settings_game_layout_margins_none); break;
+            case 1: textPortrait = getString(R.string.settings_game_layout_margins_small); break;
+            case 2: textPortrait = getString(R.string.settings_game_layout_margins_medium); break;
+            case 3: textPortrait = getString(R.string.settings_game_layout_margins_large); break;
         }
-
         switch (prefs.getSavedGameLayoutMarginsLandscape()) {
-            case 0:
-                textLandscape = getString(R.string.settings_game_layout_margins_none);
-                break;
-            case 1:
-                textLandscape = getString(R.string.settings_game_layout_margins_small);
-                break;
-            case 2:
-                textLandscape = getString(R.string.settings_game_layout_margins_medium);
-                break;
-            case 3:
-                textLandscape = getString(R.string.settings_game_layout_margins_large);
-                break;
+            case 0: textLandscape = getString(R.string.settings_game_layout_margins_none); break;
+            case 1: textLandscape = getString(R.string.settings_game_layout_margins_small); break;
+            case 2: textLandscape = getString(R.string.settings_game_layout_margins_medium); break;
+            case 3: textLandscape = getString(R.string.settings_game_layout_margins_large); break;
         }
-
         String text = String.format(Locale.getDefault(), "%s: %s\n%s: %s",
-                getString(R.string.settings_portrait), textPortrait, getString(R.string.settings_landscape), textLandscape);
-
+                getString(R.string.settings_portrait), textPortrait,
+                getString(R.string.settings_landscape), textLandscape);
         preferenceGameLayoutMargins.setSummary(text);
     }
 
     private void updatePreferenceMaxNumberUndos() {
-        int amount = prefs.getSavedMaxNumberUndos();
-
-        preferenceMaxNumberUndos.setSummary(Integer.toString(amount));
+        if (preferenceMaxNumberUndos == null) {
+            return;
+        }
+        preferenceMaxNumberUndos.setSummary(Integer.toString(prefs.getSavedMaxNumberUndos()));
     }
 
     private void updatePreferenceMenuBarPositionSummary() {
-        String portrait, landscape;
-        if (prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)) {
-            portrait = getString(R.string.settings_menu_bar_position_bottom);
-        } else {
-            portrait = getString(R.string.settings_menu_bar_position_top);
+        if (preferenceMenuBarPosition == null) {
+            return;
         }
-
-        if (prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)) {
-            landscape = getString(R.string.settings_menu_bar_position_right);
-        } else {
-            landscape = getString(R.string.settings_menu_bar_position_left);
-        }
-
+        String portrait = prefs.getSavedMenuBarPosPortrait().equals(DEFAULT_MENU_BAR_POSITION_PORTRAIT)
+                ? getString(R.string.settings_menu_bar_position_bottom)
+                : getString(R.string.settings_menu_bar_position_top);
+        String landscape = prefs.getSavedMenuBarPosLandscape().equals(DEFAULT_MENU_BAR_POSITION_LANDSCAPE)
+                ? getString(R.string.settings_menu_bar_position_right)
+                : getString(R.string.settings_menu_bar_position_left);
         String text = String.format(Locale.getDefault(), "%s: %s\n%s: %s",
-                getString(R.string.settings_portrait), portrait, getString(R.string.settings_landscape), landscape);
-
+                getString(R.string.settings_portrait), portrait,
+                getString(R.string.settings_landscape), landscape);
         preferenceMenuBarPosition.setSummary(text);
     }
 
-    public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_customize);
-            setHasOptionsMenu(true);
-
-            Settings settings = (Settings) getActivity();
-
-            settings.customizationPreferenceFragment = this;
-
-            settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
-            settings.preferenceCards = (DialogPreferenceCards) findPreference(getString(R.string.pref_key_cards));
-            settings.preferenceGameLayoutMargins = findPreference(getString(R.string.pref_key_game_layout_margins));
-            settings.preferenceCardBackground = (DialogPreferenceCardBackground) findPreference(getString(R.string.pref_key_cards_background));
-            settings.preferenceBackgroundColor = (DialogPreferenceBackgroundColor) findPreference(getString(R.string.pref_key_background_color));
-            settings.preferenceTextColor = (DialogPreferenceTextColor) findPreference(getString(R.string.pref_key_text_color));
-
-            settings.preferenceFourColorMode = (CheckBoxPreferenceFourColorMode) findPreference(getString(R.string.dummy_pref_key_4_color_mode));
-            settings.preferenceHideAutoCompleteButton = (CheckBoxPreferenceHideAutoCompleteButton) findPreference(getString(R.string.dummy_pref_key_hide_auto_complete_button));
-            settings.preferenceHideMenuButton = (CheckBoxPreferenceHideMenuButton) findPreference(getString(R.string.dummy_pref_key_hide_menu_button));
-            settings.preferenceHideScore = (CheckBoxPreferenceHideScore) findPreference(getString(R.string.dummy_pref_key_hide_score));
-            settings.preferenceHideTime = (CheckBoxPreferenceHideTime) findPreference(getString(R.string.dummy_pref_key_hide_time));
-            settings.dialogPreferenceOnlyForThisGame = (DialogPreferenceOnlyForThisGame) findPreference(getString(R.string.pref_key_settings_only_for_this_game));
-
-            //the preferenceCategory for the dialogPreferenceOnlyForThisGame is only used to make
-            //the widget update on Android 8+ devices (otherwise it wouldn't due to a bug)
-            //So remove the title with an empty layout of the category to make it (nearly) disappear
-            settings.categoryOnlyForThisGame = (PreferenceCategory) findPreference(getString(R.string.pref_cat_key_only_for_this_game));
-            settings.categoryOnlyForThisGame.setLayoutResource(R.layout.empty);
-
-            settings.preferenceFourColorMode.update();
-            settings.preferenceHideAutoCompleteButton.update();
-            settings.preferenceHideMenuButton.update();
-            settings.preferenceHideScore.update();
-            settings.preferenceHideTime.update();
-
-            settings.updatePreferenceGameLayoutMarginsSummary();
-            settings.updatePreferenceMenuBarPositionSummary();
-            settings.hidePreferenceOnlyForThisGame();
-        }
-    }
-
     public void hidePreferenceOnlyForThisGame() {
-        if (dialogPreferenceOnlyForThisGame.canBeHidden()) {
+        if (dialogPreferenceOnlyForThisGame != null && dialogPreferenceOnlyForThisGame.canBeHidden()
+                && customizationPreferenceFragment != null && categoryOnlyForThisGame != null) {
             customizationPreferenceFragment.getPreferenceScreen().removePreference(categoryOnlyForThisGame);
         }
     }
 
-    public static class GamesPreferenceFragment extends CustomPreferenceFragment {
+    public static class SettingsHeadersFragment extends CustomPreferenceFragment {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.pref_headers, rootKey);
+            finishPreferenceSetup();
+        }
+
+        void setSelectedHeader(@Nullable String key) {
+            PreferenceScreen screen = getPreferenceScreen();
+            if (screen == null) {
+                return;
+            }
+            for (int i = 0; i < screen.getPreferenceCount(); i++) {
+                Preference pref = screen.getPreference(i);
+                if (pref instanceof HeaderPreference) {
+                    ((HeaderPreference) pref).setSelected(key != null && key.equals(pref.getKey()));
+                }
+            }
+        }
+    }
+
+    public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.pref_customize, rootKey);
+            finishPreferenceSetup();
+
+            Settings settings = (Settings) getActivity();
+            if (settings == null) {
+                return;
+            }
+            settings.customizationPreferenceFragment = this;
+            settings.preferenceMenuBarPosition = findPreference(getString(R.string.pref_key_menu_bar_position));
+            settings.preferenceCards = findPreference(getString(R.string.pref_key_cards));
+            settings.preferenceGameLayoutMargins = findPreference(getString(R.string.pref_key_game_layout_margins));
+            settings.preferenceCardBackground = findPreference(getString(R.string.pref_key_cards_background));
+            settings.preferenceBackgroundColor = findPreference(getString(R.string.pref_key_background_color));
+            settings.preferenceTextColor = findPreference(getString(R.string.pref_key_text_color));
+            settings.preferenceFourColorMode = findPreference(getString(R.string.dummy_pref_key_4_color_mode));
+            settings.preferenceHideAutoCompleteButton = findPreference(getString(R.string.dummy_pref_key_hide_auto_complete_button));
+            settings.preferenceHideMenuButton = findPreference(getString(R.string.dummy_pref_key_hide_menu_button));
+            settings.preferenceHideScore = findPreference(getString(R.string.dummy_pref_key_hide_score));
+            settings.preferenceHideTime = findPreference(getString(R.string.dummy_pref_key_hide_time));
+            settings.dialogPreferenceOnlyForThisGame = findPreference(getString(R.string.pref_key_settings_only_for_this_game));
+            settings.categoryOnlyForThisGame = findPreference(getString(R.string.pref_cat_key_only_for_this_game));
+            if (settings.categoryOnlyForThisGame != null) {
+                settings.categoryOnlyForThisGame.setLayoutResource(R.layout.empty);
+            }
+            if (settings.preferenceFourColorMode != null) settings.preferenceFourColorMode.update();
+            if (settings.preferenceHideAutoCompleteButton != null) settings.preferenceHideAutoCompleteButton.update();
+            if (settings.preferenceHideMenuButton != null) settings.preferenceHideMenuButton.update();
+            if (settings.preferenceHideScore != null) settings.preferenceHideScore.update();
+            if (settings.preferenceHideTime != null) settings.preferenceHideTime.update();
+            if (settings.preferenceCards != null) settings.preferenceCards.updateSummary();
+            if (settings.preferenceCardBackground != null) settings.preferenceCardBackground.updateSummary();
+            if (settings.preferenceBackgroundColor != null) settings.preferenceBackgroundColor.updateSummary();
+            if (settings.preferenceTextColor != null) settings.preferenceTextColor.updateSummary();
+            if (settings.dialogPreferenceOnlyForThisGame != null) {
+                settings.dialogPreferenceOnlyForThisGame.updateAppearance();
+            }
+            settings.updatePreferenceGameLayoutMarginsSummary();
+            settings.updatePreferenceMenuBarPositionSummary();
+            settings.hidePreferenceOnlyForThisGame();
+        }
 
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
+        public void onDestroyView() {
+            Settings settings = (Settings) getActivity();
+            if (settings != null && settings.customizationPreferenceFragment == this) {
+                settings.customizationPreferenceFragment = null;
+            }
+            super.onDestroyView();
+        }
+    }
+
+    public static class GamesPreferenceFragment extends CustomPreferenceFragment {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             prefs.setCriticalGameSettings();
-            addPreferencesFromResource(R.xml.pref_games);
+            setPreferencesFromResource(R.xml.pref_games, rootKey);
+            finishPreferenceSetup();
         }
     }
 
     public static class OtherPreferenceFragment extends CustomPreferenceFragment {
-
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_other);
-            setHasOptionsMenu(true);
-
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.pref_other, rootKey);
+            finishPreferenceSetup();
             Settings settings = (Settings) getActivity();
-
-            settings.preferenceImmersiveMode = (CheckBoxPreference) findPreference(getString(R.string.pref_key_immersive_mode));
-
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            if (settings == null) {
+                return;
+            }
+            settings.preferenceImmersiveMode = findPreference(getString(R.string.pref_key_immersive_mode));
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT && settings.preferenceImmersiveMode != null) {
                 settings.preferenceImmersiveMode.setEnabled(false);
             }
         }
     }
 
     public static class SoundPreferenceFragment extends CustomPreferenceFragment {
-
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_sounds);
-            setHasOptionsMenu(true);
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.pref_sounds, rootKey);
+            finishPreferenceSetup();
         }
     }
 
     public static class MenuPreferenceFragment extends CustomPreferenceFragment {
-
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_menu);
-            setHasOptionsMenu(true);
-
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.pref_menu, rootKey);
+            finishPreferenceSetup();
             Settings settings = (Settings) getActivity();
-
+            if (settings == null) {
+                return;
+            }
             settings.preferenceMenuColumns = findPreference(getString(R.string.pref_key_menu_columns));
             settings.updatePreferenceMenuColumnsSummary();
         }
     }
 
     public static class AdditionalMovementsPreferenceFragment extends CustomPreferenceFragment {
-
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_movement_methods);
-            setHasOptionsMenu(true);
-
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.pref_movement_methods, rootKey);
+            finishPreferenceSetup();
             Settings settings = (Settings) getActivity();
-
-            settings.preferenceSingleTapAllGames = (CheckBoxPreference) findPreference(getString(R.string.pref_key_single_tap_all_games));
-            settings.preferenceTapToSelect = (CheckBoxPreference) findPreference(getString(R.string.pref_key_tap_to_select_enable));
+            if (settings == null) {
+                return;
+            }
+            settings.preferenceSingleTapAllGames = findPreference(getString(R.string.pref_key_single_tap_all_games));
+            settings.preferenceTapToSelect = findPreference(getString(R.string.pref_key_tap_to_select_enable));
         }
     }
 
     public static class ExpertSettingsPreferenceFragment extends CustomPreferenceFragment {
-
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_expert_settings);
-            setHasOptionsMenu(true);
-
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.pref_expert_settings, rootKey);
+            finishPreferenceSetup();
             Settings settings = (Settings) getActivity();
-
+            if (settings == null) {
+                return;
+            }
             settings.preferenceMaxNumberUndos = findPreference(getString(R.string.pref_key_max_number_undos));
             settings.updatePreferenceMaxNumberUndos();
         }

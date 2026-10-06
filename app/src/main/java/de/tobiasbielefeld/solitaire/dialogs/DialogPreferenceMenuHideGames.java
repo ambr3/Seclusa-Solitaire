@@ -12,16 +12,13 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
  */
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -62,41 +59,25 @@ public class DialogPreferenceMenuHideGames extends CustomDialogPreference implem
         ArrayList<Integer> results = lg.getMenuShownList();
         gameOrder = lg.getOrderedGameList();
 
-        TypedValue typedValue = new TypedValue();
-        getContext().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
-        int padding = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_layout_padding));
-        int margin = (int) (getContext().getResources().getDimension(R.dimen.dialog_menu_button_margin));
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(margin, 0, margin, 0);
-
         ArrayList<String> sortedGameList = lg.getOrderedGameNameList(getContext().getResources());
+        LayoutInflater inflater = LayoutInflater.from(getContext());
 
         for (int i = 0; i < lg.getGameCount(); i++) {
-            LinearLayout entry = new LinearLayout(getContext());
-            entry.setBackgroundResource(typedValue.resourceId);
-            entry.setPadding(padding, padding, padding, padding);
+            LinearLayout entry = (LinearLayout) inflater.inflate(R.layout.dialog_menu_hide_game_row, container, false);
             entry.setOnClickListener(this);
 
-            CheckBox checkBox = new CheckBox(getContext());
-            checkBox.setLayoutParams(layoutParams);
+            CheckBox checkBox = entry.findViewById(R.id.dialog_hide_game_checkbox);
             int index = gameOrder.indexOf(i);
             checkBox.setChecked(results.get(index) == 1);
 
-            TextView textView = new TextView(getContext());
-            textView.setTypeface(null, Typeface.BOLD);
+            TextView textView = entry.findViewById(R.id.dialog_hide_game_name);
             textView.setText(sortedGameList.get(i));
-
-            entry.addView(checkBox);
-            entry.addView(textView);
 
             checkBoxes.add(checkBox);
             linearLayouts.add(entry);
 
             container.addView(entry);
         }
-
-
-        super.onBindDialogView(view);
     }
 
     @SuppressWarnings("SuspiciousMethodCalls")
@@ -108,7 +89,6 @@ public class DialogPreferenceMenuHideGames extends CustomDialogPreference implem
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
-        super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
             ArrayList<Integer> list = new ArrayList<>();

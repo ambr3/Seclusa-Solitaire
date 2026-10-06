@@ -59,14 +59,11 @@ public class DialogPreferenceGameLayoutMargins extends CustomDialogPreference {
 
         portrait[prefs.getSavedGameLayoutMarginsPortrait()].setChecked(true);
         landscape[prefs.getSavedGameLayoutMarginsLandscape()].setChecked(true);
-
-        super.onBindDialogView(view);
     }
 
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
-        super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
             int portraitValue = 0, landscapeValue = 0;

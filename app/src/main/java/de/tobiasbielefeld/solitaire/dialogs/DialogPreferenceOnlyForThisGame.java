@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
@@ -111,8 +110,6 @@ public class DialogPreferenceOnlyForThisGame extends CustomDialogPreference {
             textView2.setVisibility(GONE);
             textView3.setVisibility(GONE);
         }
-
-        super.onBindDialogView(view);
     }
 
     @Override
@@ -142,49 +139,52 @@ public class DialogPreferenceOnlyForThisGame extends CustomDialogPreference {
                     }
                 }
 
-                ((Settings) getContext()).hidePreferenceOnlyForThisGame();
+                Context activity = getActivityContext();
+                if (activity instanceof Settings) {
+                    ((Settings) activity).hidePreferenceOnlyForThisGame();
+                }
                 showToast(context.getString(R.string.settings_dialog_only_for_this_game_removed_all), context);
             }
         }
-
-
-        super.onDialogClosed(positiveResult);
     }
 
-    /*
-     * Get the layout from the preference, so I can get the imageView from the widgetLayout
-     */
     @Override
-    protected View onCreateView(ViewGroup parent) {
-        View view = super.onCreateView(parent);
+    public void onBindViewHolder(androidx.preference.PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        View view = holder.itemView;
         view.setBackgroundResource(R.drawable.preference_card_only_for_game);
 
-        //get rid of the stupid single line restriction for the title
         TextView textView = view.findViewById(android.R.id.title);
         if (textView != null) {
             textView.setSingleLine(false);
         }
 
         widget = view.findViewById(R.id.preference_only_for_this_game_switch);
+        applyWidget();
+    }
 
+    /** Call once after preferences are loaded — not from onBindViewHolder. */
+    public void updateAppearance() {
         if (isNotInGame()) {
-            if (widget != null) {
-                widget.setVisibility(GONE);
-            }
-
             if (getNumberOfGamesWithIndividualSettings() > 0) {
                 setTitle(context.getString(R.string.settings_dialog_only_for_this_game_information_1));
             }
-
         } else {
             setTitle(String.format(context.getString(R.string.settings_apply_only_for_this_game), lg.getGameName()));
-
-            if (widget != null) {
-                widget.setChecked(prefs.hasSettingsOnlyForThisGame());
-            }
         }
+        applyWidget();
+    }
 
-        return view;
+    private void applyWidget() {
+        if (widget == null) {
+            return;
+        }
+        if (isNotInGame()) {
+            widget.setVisibility(GONE);
+        } else {
+            widget.setVisibility(View.VISIBLE);
+            widget.setChecked(prefs.hasSettingsOnlyForThisGame());
+        }
     }
 
     private int getNumberOfGamesWithIndividualSettings() {

@@ -23,7 +23,6 @@ import android.animation.TypeEvaluator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
@@ -37,7 +36,11 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import androidx.core.content.ContextCompat;
+
 import java.util.ArrayList;
+
+import de.tobiasbielefeld.solitaire.R;
 import java.util.List;
 
 /**
@@ -178,7 +181,7 @@ public class DynamicListView extends ListView {
         paint.setStyle(Paint.Style.STROKE);
         int LINE_THICKNESS = 15;
         paint.setStrokeWidth(LINE_THICKNESS);
-        paint.setColor(Color.BLACK);
+        paint.setColor(ContextCompat.getColor(getContext(), R.color.colorOutline));
 
         can.drawBitmap(bitmap, 0, 0, null);
         can.drawRect(rect, paint);

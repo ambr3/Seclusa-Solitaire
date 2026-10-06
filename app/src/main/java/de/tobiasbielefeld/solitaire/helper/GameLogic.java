@@ -190,6 +190,21 @@ public class GameLogic {
         redealForEnsureMovability();
     }
 
+    /** Card ids in current deal order (for EnsureMovability best-deal fallback). */
+    public int[] snapshotDealOrder() {
+        int[] ids = new int[randomCards.length];
+        for (int i = 0; i < randomCards.length; i++) {
+            ids[i] = randomCards[i].getId();
+        }
+        return ids;
+    }
+
+    public void applyDealOrder(int[] cardIds) {
+        for (int i = 0; i < cardIds.length; i++) {
+            randomCards[i] = cards[cardIds[i]];
+        }
+    }
+
     /**
      * starts a new game. The only difference to a re-deal is the shuffling of the cards
      */

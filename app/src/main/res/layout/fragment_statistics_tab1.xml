@@ -76,7 +76,7 @@
                         android:padding="7dp"
                         android:text="@string/statistics_total_time"
                         android:textAppearance="@style/TextAppearance.App.BodyLarge"
-                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textStyle="bold" />
 
                     <TextView
@@ -99,7 +99,7 @@
                         android:padding="7dp"
                         android:text="@string/statistics_total_points_earned"
                         android:textAppearance="@style/TextAppearance.App.BodyLarge"
-                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textStyle="bold" />
 
                     <TextView
@@ -121,7 +121,7 @@
                         android:padding="7dp"
                         android:text="@string/statistics_total_hints_shown"
                         android:textAppearance="@style/TextAppearance.App.BodyLarge"
-                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textStyle="bold" />
 
                     <TextView
@@ -143,7 +143,7 @@
                         android:padding="7dp"
                         android:text="@string/statistics_total_number_undos"
                         android:textAppearance="@style/TextAppearance.App.BodyLarge"
-                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textStyle="bold" />
 
                     <TextView
@@ -167,7 +167,7 @@
                         android:padding="7dp"
                         android:text="@string/statistics_total_number_undos"
                         android:textAppearance="@style/TextAppearance.App.BodyLarge"
-                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColor="?attr/colorOnSurface"
                         android:textStyle="bold" />
 
                     <TextView

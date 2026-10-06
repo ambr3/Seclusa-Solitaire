@@ -18,12 +18,10 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
-import android.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.content.Context;
-import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -79,8 +77,6 @@ public class DialogPreferenceBackgroundColor extends CustomDialogPreference impl
         for (LinearLayout linearLayout : linearLayouts) {
             linearLayout.setOnClickListener(this);
         }
-
-        super.onBindDialogView(view);
     }
 
 
@@ -120,80 +116,87 @@ public class DialogPreferenceBackgroundColor extends CustomDialogPreference impl
     }
 
     @Override
-    protected void showDialog(Bundle state) {
-        super.showDialog(state);
+    protected void onDialogShown(AlertDialog dialog) {
+        super.onDialogShown(dialog);
 
-        ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(this);
-        ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(this);
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(this);
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(this);
     }
 
-    /*
-     * Get the layout from the preference, so I can get the imageView from the widgetLayout
-     */
     @Override
-    protected View onCreateView(ViewGroup parent) {
-        View view = super.onCreateView(parent);
-
-        image = view.findViewById(R.id.widget_layout_color_imageView);
-        updateSummary();
-
-        return view;
+    public void onBindViewHolder(androidx.preference.PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        image = holder.itemView.findViewById(R.id.widget_layout_color_imageView);
+        applyWidget();
     }
 
     /**
      * Gets the saved data and updates the summary according to it
      */
     public void updateSummary() {
-
         if (prefs.getSavedBackgroundColorType() == 1) {
-            int drawableID;
             int stringID;
             switch (prefs.getSavedBackgroundColor()) {
                 case 1:
                 default:
                     stringID = R.string.blue;
-                    drawableID = R.drawable.background_color_blue;
                     break;
                 case 2:
                     stringID = R.string.green;
-                    drawableID = R.drawable.background_color_green;
                     break;
                 case 3:
                     stringID = R.string.red;
-                    drawableID = R.drawable.background_color_red;
                     break;
                 case 4:
                     stringID = R.string.yellow;
-                    drawableID = R.drawable.background_color_yellow;
                     break;
                 case 5:
                     stringID = R.string.orange;
-                    drawableID = R.drawable.background_color_orange;
                     break;
                 case 6:
                     stringID = R.string.purple;
-                    drawableID = R.drawable.background_color_purple;
                     break;
             }
-
-            if (image != null) {
-                image.setImageResource(drawableID);
-            }
-
             setSummary(context.getString(stringID));
         } else {
             int customColor = prefs.getSavedBackgroundCustomColor();
-
-            //this forces redrawing of the color preview
-            setSummary("");
-
-            //show as hex string, but without the opacity part at the beginning
             setSummary(String.format("#%06X", (0xFFFFFF & customColor)));
+        }
+        applyWidget();
+    }
 
-            if (image != null) {
-                image.setImageResource(0);
-                image.setBackgroundColor(customColor);
+    private void applyWidget() {
+        if (image == null) {
+            return;
+        }
+        if (prefs.getSavedBackgroundColorType() == 1) {
+            int drawableID;
+            switch (prefs.getSavedBackgroundColor()) {
+                case 1:
+                default:
+                    drawableID = R.drawable.background_color_blue;
+                    break;
+                case 2:
+                    drawableID = R.drawable.background_color_green;
+                    break;
+                case 3:
+                    drawableID = R.drawable.background_color_red;
+                    break;
+                case 4:
+                    drawableID = R.drawable.background_color_yellow;
+                    break;
+                case 5:
+                    drawableID = R.drawable.background_color_orange;
+                    break;
+                case 6:
+                    drawableID = R.drawable.background_color_purple;
+                    break;
             }
+            image.setBackgroundColor(0);
+            image.setImageResource(drawableID);
+        } else {
+            image.setImageResource(0);
+            image.setBackgroundColor(prefs.getSavedBackgroundCustomColor());
         }
     }
 }

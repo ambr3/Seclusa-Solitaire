@@ -1,35 +1,14 @@
-/*
- * Copyright (C) 2016  Tobias Bielefeld
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
- */
-
 package de.tobiasbielefeld.solitaire.classes;
 
 import android.content.Context;
-import android.preference.ListPreference;
 import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+
+import androidx.preference.ListPreference;
 
 /**
- * Custom list preference, because "%s" as summary doesn't update the summary on Android 4. So override
- * setValue to get around this issue. Thanks to https://stackoverflow.com/a/16661022/7016229 !
+ * ListPreference that keeps the summary in sync with the selected entry.
+ * AndroidX already expands %s; this still forces a refresh after setValue.
  */
-
 public class ListPreferenceWithSummary extends ListPreference {
 
     public ListPreferenceWithSummary(Context context, AttributeSet attrs) {
@@ -43,24 +22,11 @@ public class ListPreferenceWithSummary extends ListPreference {
     @Override
     public void setValue(String value) {
         super.setValue(value);
-        setSummary(value);
+        setSummary(getEntry());
     }
 
     @Override
     public void setSummary(CharSequence summary) {
         super.setSummary(getEntry());
-    }
-
-    @Override
-    protected View onCreateView(ViewGroup parent) {
-        View view = super.onCreateView(parent);
-
-        //get rid of the stupid single line restriction for the title
-        TextView textView = view.findViewById(android.R.id.title);
-        if (textView != null) {
-            textView.setSingleLine(false);
-        }
-
-        return view;
     }
 }

@@ -85,6 +85,8 @@
     <string name="pref_key_text_color" translatable="false">pref_key_text_color</string>
     <string name="pref_key_theme_color" translatable="false">pref_key_theme_color</string>
     <string name="default_theme_color" translatable="false">green</string>
+    <string name="pref_key_night_mode" translatable="false">pref_key_night_mode</string>
+    <string name="default_night_mode" translatable="false">system</string>
     <string name="pref_key_dynamic_colors" translatable="false">pref_key_dynamic_colors</string>
     <string name="pref_key_statistics_hide_win_percentage" translatable="false">pref_key_statistics_hide_win_percentage</string>
 

@@ -1,55 +1,71 @@
 package de.tobiasbielefeld.solitaire.classes;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
-import android.preference.TwoStatePreference;
-import android.widget.ListView;
-
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceGroup;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.TwoStatePreference;
+import androidx.recyclerview.widget.RecyclerView;
 
 import de.tobiasbielefeld.solitaire.R;
 
 import static de.tobiasbielefeld.solitaire.SharedData.reinitializeData;
 
 /**
- * Custom PreferenceFragment, to override onAttach. If the app got killed within a
- * PreferenceFragment and restarted, the data has to be reinitialized
+ * PreferenceFragmentCompat with section pill layouts and custom dialog dispatch.
  */
-
-public class CustomPreferenceFragment extends PreferenceFragment {
+public class CustomPreferenceFragment extends PreferenceFragmentCompat {
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         reinitializeData(context);
         super.onAttach(context);
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            reinitializeData(activity);
-        }
-        super.onAttach(activity);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        // Subclasses call setPreferencesFromResource, then applySectionCards().
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected void finishPreferenceSetup() {
         applySectionCards();
     }
 
-    /**
-     * Renders every PreferenceCategory as one rounded card: each category's first, middle and
-     * last row is assigned the rounded-top / flat / rounded-bottom layout.
-     */
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        RecyclerView list = getListView();
+        if (list != null) {
+            float density = getResources().getDisplayMetrics().density;
+            int pad = (int) (6 * density);
+            list.setPadding(pad, pad, pad, pad);
+            list.setClipToPadding(false);
+            list.setBackgroundColor(Color.TRANSPARENT);
+        }
+    }
+
+    @Override
+    public void onDisplayPreferenceDialog(@NonNull Preference preference) {
+        if (preference instanceof CustomDialogPreference) {
+            if (getParentFragmentManager().findFragmentByTag("pref_dialog") != null) {
+                return;
+            }
+            CustomPreferenceDialogFragment fragment =
+                    CustomPreferenceDialogFragment.newInstance(preference.getKey());
+            fragment.setTargetFragment(this, 0);
+            fragment.show(getParentFragmentManager(), "pref_dialog");
+            return;
+        }
+        super.onDisplayPreferenceDialog(preference);
+    }
+
     private void applySectionCards() {
         PreferenceScreen screen = getPreferenceScreen();
         if (screen == null) {
@@ -57,10 +73,12 @@ public class CustomPreferenceFragment extends PreferenceFragment {
         }
 
         int count = screen.getPreferenceCount();
-        // Root-level toggles (not inside a PreferenceCategory) still need MaterialSwitch rows.
         java.util.ArrayList<Preference> rootPrefs = new java.util.ArrayList<>();
         for (int i = 0; i < count; i++) {
             Preference preference = screen.getPreference(i);
+            if (preference instanceof de.tobiasbielefeld.solitaire.ui.settings.HeaderPreference) {
+                continue;
+            }
             if (preference instanceof PreferenceGroup && !(preference instanceof PreferenceScreen)) {
                 applySectionCard((PreferenceGroup) preference);
             } else if (!(preference instanceof PreferenceGroup)) {
@@ -70,42 +88,27 @@ public class CustomPreferenceFragment extends PreferenceFragment {
             }
         }
         applyRootPrefs(rootPrefs);
-
-        View view = getView();
-        if (view != null) {
-            ListView listView = view.findViewById(android.R.id.list);
-            if (listView != null) {
-                float density = getResources().getDisplayMetrics().density;
-                int pad = (int) (6 * density);
-                listView.setDivider(new ColorDrawable(Color.TRANSPARENT));
-                listView.setDividerHeight((int) (8 * density));
-                listView.setPadding(pad, pad, pad, pad);
-                listView.setClipToPadding(false);
-                listView.setSelector(android.R.color.transparent);
-                listView.setCacheColorHint(Color.TRANSPARENT);
-                // Avoid pressed/activated overlays washing out pill text on tablet multipane.
-                listView.setChoiceMode(ListView.CHOICE_MODE_NONE);
-            }
-        }
     }
 
     private void applySectionCard(PreferenceGroup category) {
         category.setLayoutResource(R.layout.settings_preference_category);
         int count = category.getPreferenceCount();
         for (int i = 0; i < count; i++) {
-            category.getPreference(i).setLayoutResource(rowLayout(category.getPreference(i), i, count));
+            Preference preference = category.getPreference(i);
+            if (preference instanceof PreferenceNightMode) {
+                continue; // keeps System / Light / Dark tab layout
+            }
+            preference.setLayoutResource(rowLayout(preference));
         }
     }
 
     private void applyRootPrefs(java.util.ArrayList<Preference> rootPrefs) {
-        int count = rootPrefs.size();
-        for (int i = 0; i < count; i++) {
-            rootPrefs.get(i).setLayoutResource(rowLayout(rootPrefs.get(i), i, count));
+        for (Preference preference : rootPrefs) {
+            preference.setLayoutResource(rowLayout(preference));
         }
     }
 
-    private int rowLayout(Preference preference, int index, int count) {
-        // Each option is its own rounded pill (not fused first/middle/last blocks).
+    private int rowLayout(Preference preference) {
         boolean checkbox = preference instanceof TwoStatePreference;
         return checkbox
                 ? R.layout.settings_preference_checkbox_row_single

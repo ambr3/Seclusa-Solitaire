@@ -50,14 +50,11 @@ public class DialogPreferenceMenuRows extends CustomDialogPreference {
         //minus 1 because the values are 1 to 10, indexes are from 0 to 9
         spinnerPortrait.setSelection(prefs.getSavedMenuColumnsPortrait() - 1);
         spinnerLandscape.setSelection(prefs.getSavedMenuColumnsLandscape() - 1);
-
-        super.onBindDialogView(view);
     }
 
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
-        super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
             prefs.saveMenuColumnsPortrait(spinnerPortrait.getSelectedItem().toString());

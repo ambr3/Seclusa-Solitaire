@@ -72,7 +72,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/about_developer"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/about_contact"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -110,7 +110,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/app_version"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/aboutTextViewVersion"
@@ -130,7 +130,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/about_compiled"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/aboutTextViewBuild"
@@ -150,7 +150,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/about_source_code"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/aboutTextViewGitHubLink"
@@ -170,7 +170,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/about_license"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/aboutTextViewLicenseLink"
@@ -190,7 +190,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/about_third_party_licenses"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/aboutTextViewLicensesLink"
@@ -250,7 +250,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_japanese"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_japanese_contributors"
@@ -270,7 +270,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_esperanto"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_esperanto_contributors"
@@ -290,7 +290,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_polish"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_polish_contributors"
@@ -310,7 +310,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_french"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_french_contributors"
@@ -331,7 +331,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_finnish"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_finnish_contributors"
@@ -351,7 +351,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_turkish"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_turkish_contributors"
@@ -372,7 +372,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_italian"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -392,7 +392,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_portuguese"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -412,7 +412,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_portuguese_brazil"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -432,7 +432,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_ukrainian"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -452,7 +452,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_norwegian"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -472,7 +472,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_spanish_argentina"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_spanish_argentina_contributers"
@@ -493,7 +493,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_chinese_simplified"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_chinese_contributers"
@@ -514,7 +514,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_german"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_german_contributers"
@@ -535,7 +535,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_spanish"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_spanish_contributers"
@@ -556,7 +556,7 @@
                             android:layout_height="wrap_content"
                             android:padding="7dp"
                             android:text="@string/settings_language_hungarian"
-                            android:textColor="?android:attr/textColorPrimary" />
+                            android:textColor="?attr/colorOnSurface" />
 
                         <TextView
                             android:id="@+id/about_hungarian_contributers"

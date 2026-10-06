@@ -10,7 +10,12 @@
     </PreferenceCategory>
 
 
-    <PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings_appearance">
+        <de.tobiasbielefeld.solitaire.classes.PreferenceNightMode
+            android:defaultValue="@string/default_night_mode"
+            android:key="@string/pref_key_night_mode"
+            android:title="@string/settings_night_mode" />
+
         <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
             android:defaultValue="@string/default_theme_color"
             android:entries="@array/pref_theme_color_titles"

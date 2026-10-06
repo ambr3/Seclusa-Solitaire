@@ -12,6 +12,7 @@
         android:maxLines="1"
         android:paddingLeft="@dimen/statistics_table_padding"
         android:paddingRight="@dimen/statistics_table_padding"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="@dimen/statistics_text_size"
         android:textStyle="bold" />
 
@@ -23,6 +24,7 @@
         android:maxLines="1"
         android:paddingLeft="@dimen/statistics_table_padding"
         android:paddingRight="@dimen/statistics_table_padding"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="@dimen/statistics_text_size"
         android:textStyle="bold" />
 
@@ -34,6 +36,7 @@
         android:maxLines="1"
         android:paddingLeft="@dimen/statistics_table_padding"
         android:paddingRight="@dimen/statistics_table_padding"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="@dimen/statistics_text_size"
         android:textStyle="bold" />
 
@@ -45,6 +48,7 @@
         android:maxLines="1"
         android:paddingLeft="@dimen/statistics_table_padding"
         android:paddingRight="@dimen/statistics_table_padding"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="@dimen/statistics_text_size"
         android:textStyle="bold" />
 </TableRow>

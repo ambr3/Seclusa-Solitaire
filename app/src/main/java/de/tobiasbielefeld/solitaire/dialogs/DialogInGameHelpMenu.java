@@ -1,5 +1,4 @@
 /* Copyright (C) 2016  Tobias Bielefeld
- * Copyright (C) 2016  Tobias Bielefeld
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -12,8 +11,6 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * If you want to contact me, send me an e-mail at tobias.bielefeld@gmail.com
  */
 
 package de.tobiasbielefeld.solitaire.dialogs;
@@ -21,8 +18,8 @@ package de.tobiasbielefeld.solitaire.dialogs;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
@@ -41,11 +38,11 @@ public class DialogInGameHelpMenu extends CustomDialogFragment {
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final GameManager gameManager = (GameManager) getActivity();
-        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity());
-
-        builder.setTitle(R.string.settings_support)
-                .setItems(R.array.help_menu, (dialog, which) -> {
-                    // "which" argument contains index of selected item
+        return applyFlags(OptionPillDialog.create(
+                requireActivity(),
+                R.string.settings_support,
+                R.array.help_menu,
+                which -> {
                     switch (which) {
                         case 0:
                             if (!gameLogic.hasWon()) {
@@ -53,16 +50,13 @@ public class DialogInGameHelpMenu extends CustomDialogFragment {
                             }
                             break;
                         case 1:
-                            Intent intent = new Intent(gameManager, Manual.class);
-                            intent.putExtra(GAME, lg.getSharedPrefName());
-                            startActivity(intent);
+                            if (gameManager != null) {
+                                Intent intent = new Intent(gameManager, Manual.class);
+                                intent.putExtra(GAME, lg.getSharedPrefName());
+                                startActivity(intent);
+                            }
                             break;
                     }
-                })
-                .setNegativeButton(R.string.game_cancel, (dialog, id) -> {
-                    //just cancel
-                });
-
-        return applyFlags(builder.create());
+                }));
     }
 }

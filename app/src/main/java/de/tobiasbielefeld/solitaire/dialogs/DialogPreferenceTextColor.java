@@ -18,12 +18,11 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
-import android.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -75,8 +74,6 @@ public class DialogPreferenceTextColor extends CustomDialogPreference implements
         for (LinearLayout linearLayout : linearLayouts) {
             linearLayout.setOnClickListener(this);
         }
-
-        super.onBindDialogView(view);
     }
 
 
@@ -119,24 +116,18 @@ public class DialogPreferenceTextColor extends CustomDialogPreference implements
     }
 
     @Override
-    protected void showDialog(Bundle state) {
-        super.showDialog(state);
+    protected void onDialogShown(AlertDialog dialog) {
+        super.onDialogShown(dialog);
 
-        ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(this);
-        ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(this);
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(this);
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(this);
     }
 
-    /*
-     * Get the layout from the preference, so I can get the imageView from the widgetLayout
-     */
     @Override
-    protected View onCreateView(ViewGroup parent) {
-        View view = super.onCreateView(parent);
-
-        image = view.findViewById(R.id.widget_layout_color_imageView);
-        updateSummary();
-
-        return view;
+    public void onBindViewHolder(androidx.preference.PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        image = holder.itemView.findViewById(R.id.widget_layout_color_imageView);
+        applyWidget();
     }
 
     /**
@@ -144,9 +135,6 @@ public class DialogPreferenceTextColor extends CustomDialogPreference implements
      */
     public void updateSummary() {
         int color = prefs.getSavedTextColor();
-
-        //this forces redrawing of the color preview
-        setSummary("");
 
         switch (color) {
             case colorBlack:
@@ -156,15 +144,17 @@ public class DialogPreferenceTextColor extends CustomDialogPreference implements
                 setSummary(getContext().getString(R.string.white));
                 break;
             default:
-                //show as hex string, but without the opacity part at the beginning
                 setSummary(String.format("#%06X", (0xFFFFFF & color)));
                 break;
         }
+        applyWidget();
+    }
 
-        if (image != null) {
-            image.setImageResource(0);
-            image.setBackgroundColor(color);
+    private void applyWidget() {
+        if (image == null) {
+            return;
         }
-
+        image.setImageResource(0);
+        image.setBackgroundColor(prefs.getSavedTextColor());
     }
 }

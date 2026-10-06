@@ -98,8 +98,6 @@ public class DialogPreferenceCardBackground extends CustomDialogPreference imple
         selectedBackground = prefs.getSavedCardBackground();
         selectedBackgroundColor = prefs.getSavedCardBackgroundColor();
         updateDialog();
-
-        super.onBindDialogView(view);
     }
 
     public void onClick(View v) {
@@ -139,17 +137,11 @@ public class DialogPreferenceCardBackground extends CustomDialogPreference imple
         updateDialog();
     }
 
-    /*
-     * Get the layout from the preference, so I can get the imageView from the widgetLayout
-     */
     @Override
-    protected View onCreateView(ViewGroup parent) {
-        View view = super.onCreateView(parent);
-
-        image = view.findViewById(R.id.preference_cards_background_imageView);
-        updateSummary();
-
-        return view;
+    public void onBindViewHolder(androidx.preference.PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        image = holder.itemView.findViewById(R.id.preference_cards_background_imageView);
+        applyWidget();
     }
 
     /**
@@ -186,18 +178,18 @@ public class DialogPreferenceCardBackground extends CustomDialogPreference imple
      * Gets the bitmap for the card background preference icon and also set its summary
      */
     public void updateSummary() {
-        Bitmap cardBack;
-
-        int selectedBackground = prefs.getSavedCardBackground();
-        int selectedBackgroundColor = prefs.getSavedCardBackgroundColor();
-
-        if (image != null) {
-            cardBack = bitmaps.getCardBack(selectedBackground, selectedBackgroundColor);
-            image.setImageBitmap(cardBack);
-        }
-
         setSummary(String.format(Locale.getDefault(), "%s %s",
-                context.getString(R.string.settings_background), selectedBackground + 1));
+                context.getString(R.string.settings_background),
+                prefs.getSavedCardBackground() + 1));
+        applyWidget();
+    }
+
+    private void applyWidget() {
+        if (image == null) {
+            return;
+        }
+        image.setImageBitmap(bitmaps.getCardBack(
+                prefs.getSavedCardBackground(), prefs.getSavedCardBackgroundColor()));
     }
 
     /*
@@ -205,7 +197,6 @@ public class DialogPreferenceCardBackground extends CustomDialogPreference imple
      */
     @Override
     protected void onDialogClosed(boolean positiveResult) {
-        super.onDialogClosed(positiveResult);
 
         if (positiveResult) {
             save();

@@ -1,27 +1,25 @@
 package de.tobiasbielefeld.solitaire.classes;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
-import android.preference.CheckBoxPreference;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
- * Custom CheckBox preference to get rid of the single line restriction of its title
- */
+import androidx.annotation.NonNull;
+import androidx.preference.CheckBoxPreference;
+import androidx.preference.PreferenceViewHolder;
 
+/**
+ * CheckBox preference without the single-line title restriction.
+ */
 public class CustomCheckBoxPreference extends CheckBoxPreference {
+
+    public CustomCheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
 
     public CustomCheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public CustomCheckBoxPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     public CustomCheckBoxPreference(Context context, AttributeSet attrs) {
@@ -33,15 +31,12 @@ public class CustomCheckBoxPreference extends CheckBoxPreference {
     }
 
     @Override
-    protected View onCreateView(ViewGroup parent) {
-        View view = super.onCreateView(parent);
-
-        //get rid of the stupid single line restriction for the title
-        TextView textView = (TextView) view.findViewById(android.R.id.title);
-        if (textView != null) {
-            textView.setSingleLine(false);
+    public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        View title = holder.findViewById(android.R.id.title);
+        if (title instanceof TextView) {
+            ((TextView) title).setSingleLine(false);
+            ((TextView) title).setMaxLines(3);
         }
-
-        return view;
     }
 }

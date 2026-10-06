@@ -3,7 +3,7 @@ package de.tobiasbielefeld.solitaire.helper;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,6 +110,8 @@ public class Preferences {
     public static String PREF_KEY_TEXT_COLOR;
     public static String PREF_KEY_THEME_COLOR;
     public static String DEFAULT_THEME_COLOR;
+    public static String PREF_KEY_NIGHT_MODE;
+    public static String DEFAULT_NIGHT_MODE;
     public static String PREF_KEY_DYNAMIC_COLORS;
     public static boolean DEFAULT_DYNAMIC_COLORS;
     public static String PREF_KEY_SOUND_ENABLED;
@@ -390,6 +392,8 @@ public class Preferences {
         PREF_KEY_TEXT_COLOR = res.getString(R.string.pref_key_text_color);
         PREF_KEY_THEME_COLOR = res.getString(R.string.pref_key_theme_color);
         DEFAULT_THEME_COLOR = res.getString(R.string.default_theme_color);
+        PREF_KEY_NIGHT_MODE = res.getString(R.string.pref_key_night_mode);
+        DEFAULT_NIGHT_MODE = res.getString(R.string.default_night_mode);
         PREF_KEY_DYNAMIC_COLORS = res.getString(R.string.pref_key_dynamic_colors);
         DEFAULT_DYNAMIC_COLORS = res.getBoolean(R.bool.default_dynamic_colors);
 
@@ -742,7 +746,7 @@ public class Preferences {
 
     public boolean isEnsureMovabilityEnabledForCurrentGame() {
         // Easy + Medium filter deals; Hard is fully random. Expert "ensure movability"
-        // still applies when difficulty is unset/custom.
+        // still applies when difficulty is custom/unknown.
         return DifficultyPolicy.isEnsureMovabilityEnabled(getSavedDifficulty(), getSavedEnsureMovability());
     }
 
@@ -1057,6 +1061,10 @@ public class Preferences {
 
     public String getSavedThemeColor() {
         return savedSharedData.getString(PREF_KEY_THEME_COLOR, DEFAULT_THEME_COLOR);
+    }
+
+    public String getSavedNightMode() {
+        return savedSharedData.getString(PREF_KEY_NIGHT_MODE, DEFAULT_NIGHT_MODE);
     }
 
     public boolean getSavedDynamicColors() {

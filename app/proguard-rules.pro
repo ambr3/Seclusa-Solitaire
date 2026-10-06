@@ -16,8 +16,16 @@
 #   public *;
 #}
 
-# Release builds ship with zero logging. Remove all android.util.Log calls,
-# including those in bundled libraries, so nothing is logged in production.
+# Settings preference classes are inflated from XML by class name.
+-keep class de.tobiasbielefeld.solitaire.ui.settings.Settings$* { *; }
+-keep class de.tobiasbielefeld.solitaire.ui.settings.HeaderPreference { *; }
+-keep class de.tobiasbielefeld.solitaire.classes.CustomDialogPreference { *; }
+-keep class de.tobiasbielefeld.solitaire.classes.CustomPreferenceDialogFragment { *; }
+-keep class de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary { *; }
+-keep class de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference { *; }
+-keep class de.tobiasbielefeld.solitaire.dialogs.DialogPreference* { *; }
+-keep class de.tobiasbielefeld.solitaire.checkboxpreferences.** { *; }
+
 -assumenosideeffects class android.util.Log {
     public static boolean isLoggable(java.lang.String, int);
     public static int v(...);
