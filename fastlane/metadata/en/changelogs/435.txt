@@ -1,0 +1,4 @@
+* Difficulty deal filter tightened (Easy/Medium); Settings AndroidX migration + pill menus
+* Appearance: System / Light / Dark tabs; night mode charcoal + readable score/timer
+* Settings nearly full-width in landscape; won/new-game/help use outline pills
+* MobSF 96/A + VirusTotal clean for 4.3.5

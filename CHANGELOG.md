@@ -16,6 +16,8 @@ All notable changes to **Seclusa Solitaire**.
 
 ### Security
 - MobSF hardening: local preference dialogs (no AndroidX ARG_KEY="key"), disable preference clipboard copy, SecureRandom-typed PRNG API
+- MobSF scan for v4.3.5 — 96/100 (grade A); report at `security/mobsf-4.3.5.pdf`
+- VirusTotal for v4.3.5 — no vendors flagged malicious; report at `security/virustotal4.3.5.pdf`
 
 ## 4.3.4 — 2026-10-05
 
